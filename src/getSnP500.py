@@ -21,12 +21,13 @@ from strOperation import *
 
 # load companies in snp500
 def loadSnP500(snpfilename):
-    snpfile = file(snpfilename)
-    companies = snpfile.readlines()
-    companies = [line[:-1] for line in companies]
-    snpSym = [line.split("\t")[0] for line in companies]
-    snpComp = [line.split("\t")[1] for line in companies]
-    return snpSym
+    companies = open(snpfilename, "r").readlines()
+    companies = [line.strip().lower() for line in companies]
+    syms = [line.split("\t")[0] for line in companies]
+    names = [line.split("\t")[1] for line in companies]
+    sym_names = zip(syms, names)
+    print "## End of reading file. [snp500 file][with rank]  snp companies: ", len(syms), "eg:", sym_names[0], snpfilename
+    return sym_names
 
 
 def loadTweetFromFile(jsonFileName, snpfilename, outFileName_tweetText, outFileName_tweetStruct):
@@ -37,7 +38,8 @@ def loadTweetFromFile(jsonFileName, snpfilename, outFileName_tweetText, outFileN
 
     snpSym = None
     if snpfilename is not None:
-        snpSym = loadSnP500(snpfilename)
+        snpNameHash = loadSnP500(snpfilename)
+        snpSym = snpNameHash.keys()
         snpSym.sort()
 
     snpHash = {}

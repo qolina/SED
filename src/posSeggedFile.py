@@ -29,6 +29,28 @@ def prepareSegged2POS():
         break
 
 
+def posCount_fromParsed(parseFilePath):
+    content = open(parseFilePath, "r").readlines()
+    content = [line[:-1].split("\t") for line in content if len(line) > 1]
+    
+    wordPOSHash = {}
+    for wordArr in content:
+        word = wordArr[1]
+        pos = wordArr[3]
+
+        updateAppHash(wordPOSHash, word, pos, 1)
+
+    for word in wordPOSHash:
+        if word[0] == "$":
+            wordPOSHash[word] = "^"
+        else:
+            sortedList = sorted(wordPOSHash[word].items(), key = lambda a:a[1], reverse=True)
+            wordPOSHash[word] = sortedList[0][0]
+ 
+    print "## End of reading file.[parsed text file]  unitNum: ", len(wordPOSHash), "Eg", wordPOSHash.items()[:2], parseFilePath
+    return wordPOSHash
+
+
 def posCount(posFilePath):
     wordPOSHash = {}
     posFile = file(posFilePath)
