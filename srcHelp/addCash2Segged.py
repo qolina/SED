@@ -17,18 +17,7 @@ from Tweet import *
 from tweetStrOperation import *
 from hashOperation import *
 from strOperation import *
-
-
-# load companies in snp500
-def loadSnP500(snpfilename):
-    companies = open(snpfilename, "r").readlines()
-    companies = [line.strip().lower() for line in companies]
-    syms = [line.split("\t")[0] for line in companies]
-    names = [line.split("\t")[1] for line in companies]
-    sym_names = zip(syms, names)
-    print "## End of reading file. [snp500 file][with rank]  snp companies: ", len(syms), "eg:", sym_names[0], snpfilename
-    return sym_names
-
+import snpLoader as snpLoader
 
 def loadTweetFromFile(jsonFileName, snpfilename, outFileName_tweetText, outFileName_tweetStruct):
     # debug format
@@ -38,7 +27,7 @@ def loadTweetFromFile(jsonFileName, snpfilename, outFileName_tweetText, outFileN
 
     snpSym = None
     if snpfilename is not None:
-        snpNameHash = loadSnP500(snpfilename)
+        snpNameHash = snpLoader.loadSnP500(snpfilename)
         snpSym = snpNameHash.keys()
         snpSym.sort()
 
@@ -256,7 +245,7 @@ def parseArgs(args):
     return jsonFileName, snpFileName, outFileName_tweetText, outFileName_tweetStruct
 
 if __name__ == "__main__":
-    print "Usage: python getsnp500.py -json tweet.jason.file -snp snpfilename [-textOut tweetTextFilename -structOut tweetStructureFilename]"
+    print "Usage: python addCash2Segged.py -json tweet.jason.file -snp snpfilename [-textOut tweetTextFilename -structOut tweetStructureFilename]"
     print "       (eg. -json twitter-20130101.txt -snp ~/corpus/snp500_201504 -textOut tweetText-20130101.data -structOut tweetStructure-20130101.data)"
 
     print "Program starts at time:" + str(time.asctime())
@@ -264,10 +253,7 @@ if __name__ == "__main__":
     [jsonFileName, snpfilename, outFileName_tweetText, outFileName_tweetStruct] = parseArgs(sys.argv)
 
 #####################
-#    loadTweetFromFile(jsonFileName, snpfilename, outFileName_tweetText, outFileName_tweetStruct)
-#####################
-
-#####################
+## used in ealier version when $ is deleted in word $company during preprocessing.
 #    mayContentHash = loadTweetFromFile(jsonFileName, snpfilename, outFileName_tweetText, outFileName_tweetStruct)
 #    addCash2seggedFile(mayContentHash)
 #####################
