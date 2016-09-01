@@ -22,7 +22,8 @@ import statisticUtil as statUtil
 
 
 def dataNamesSet(day):
-    snpFilePath = "/home/yxqin/corpus/obtainSNP500/snp500_ranklist_20160801" # not ranked version: snp500_201504
+    #snpFilePath = "/home/yxqin/corpus/obtainSNP500/snp500_ranklist_20160801" # not ranked version: snp500_201504
+    snpFilePath = "../data/snp500_ranklist_20160801" # not ranked version: snp500_201504
     cleanedTextFileName = dataFilePath+"tweetCleanText"+day
     parsedTextFileName = dataFilePath+"../nlpanalysis/tweetText"+day+".predict"
     fileArr = [snpFilePath, cleanedTextFileName, parsedTextFileName]
