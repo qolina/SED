@@ -58,10 +58,24 @@ def read(dataFilePath, btyFeaFilePath):
     burstNouns =  sorted([key for key in unitAppHash if (btyWordPOSHash.get(key) is not None) and (btyWordPOSHash.get(key) in ["N", "^", "Z"])]) # , "CD"
     burstVerbs =  sorted([key for key in unitAppHash if (btyWordPOSHash.get(key) is not None) and btyWordPOSHash.get(key) in ["V", "M", "Y"]])
     sym_verb_noun = [(sym, verb, noun) for sym in sorted(btySnPHash.keys()) for verb in burstVerbs for noun in burstNouns]
-    print len(sym_verb_noun), sym_verb_noun[10]
     svn_countHash = dict([(item, statUtil.getCooccurCount_tri(item[0], item[1], item[2], unitAppHash)) for item in sym_verb_noun])
-    svn_countStat = hashOp.statisticHash(svn_countHash, [1, 2, 3, 4, 5])
-    print sum(svn_countStat), svn_countStat
+#    svn_countStat = hashOp.statisticHash(svn_countHash, [1, 2, 3, 4, 5])
+#    print sum(svn_countStat), svn_countStat
+
+    valid_svn = [item for item in svn_countHash if svn_countHash.get(item) >= 5]
+    print "all svn:", len(sym_verb_noun), "valid:", len(valid_svn)
+    for svn in sorted(valid_svn):
+        print "#######################################################"
+        print svn[0],"\t",svn[1],"\t",svn[2]
+        commonAppList = statUtil.getCooccurApp_tri(svn[0], svn[1], svn[2], unitAppHash)
+        sentHash = {}
+        for tid in commonAppList:
+            hashOp.cumulativeInsert(sentHash, cleanedTextHash.get(tid).lower(), 1)
+        hashOp.output_sortedHash(sentHash, 1, True)
+
+
+
+    return valid_svn
 
 def featuresCal(sym, compName, units, unitAppHash, NUM, textHash, depLinkHash, mweHash):
     features = []
