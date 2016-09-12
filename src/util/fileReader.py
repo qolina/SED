@@ -30,7 +30,6 @@ def loadTweets(textFileName):
 
 def getDepLink_mwe(parsedTextFileName, textFileName):
     sentences_conll = readConll.read_conll_file(parsedTextFileName)
-    print "##End of reading file.[parsed text file for depLink_mwe]  total sents: ", len(sentences_conll), parsedTextFileName
 
     dep_link_list = readConll.get_dep_links(sentences_conll)
     mwes_sents_hash = readConll.get_mwes(sentences_conll)
@@ -38,6 +37,7 @@ def getDepLink_mwe(parsedTextFileName, textFileName):
     content = open(textFileName, "r").readlines()
     tweet_ids = [line[:-1].split("\t")[0] for line in content if len(line) > 1]
 
+    print len(tweet_ids), len(mwes_sents_hash), len(dep_link_list)
     depLinkHash = dict([(tweet_ids[i], dep_link_list[i]) for i in range(len(tweet_ids))])
     mweHash = dict([(tweet_ids[i], mwes_sents_hash[i]) for i in mwes_sents_hash])
 
