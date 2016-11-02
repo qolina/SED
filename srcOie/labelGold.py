@@ -64,7 +64,7 @@ if __name__ == "__main__":
 #    makeTempDir(stock_tmpDir)
 
     for dayDir in sorted(os.listdir(stock_newsDir)):
-        if dayDir < "2015-05-14": continue
+        #if dayDir < "2015-05-14": continue
         if dayDir.endswith("tmp"): continue
         #if dayDir == "2015-04-30": continue
         dayContent = []
@@ -107,7 +107,7 @@ if __name__ == "__main__":
         #clausie_commandline = "sh ../clausie/clausie.sh -vlf " + line_newsfilename + " -o " + oie_filename
 
         ## ollie
-        ollie_commandline = "java -jar ../ollie/ollie-app-latest.jar " + line_newsfilename + " > " + oie_filename
+        ollie_commandline = "java -jar ../tools/ollie/ollie-app-latest.jar " + line_newsfilename + " > " + oie_filename
         os.system(ollie_commandline)
         os.remove(line_newsfilename)
 
@@ -124,7 +124,7 @@ if __name__ == "__main__":
 
 
         ## save to file
-        snp_trifile = open(stock_newsDir + "snp_triple_"+dayDir, "w")
+        snp_trifile = open(stock_newsDir + "snp/snp_triple_"+dayDir, "w")
         cPickle.dump(sym_triples, snp_trifile)
         cPickle.dump(comp_triples, snp_trifile)
         print "## File saved (news triples file)", snp_trifile.name, "#sym_tri, #comp_tri", len(sym_triples), len(comp_triples)
