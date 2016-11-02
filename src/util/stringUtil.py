@@ -11,7 +11,7 @@ import hashOperation as hashOp
 ### extract mainName out of company fullname
 def getMainComp(compName):
     mainName = re.sub(r"\b(?:corporation|limited|company|group|inc|corp|ltd|svc.gp.|int'l|the|plc|cos|co)\b[.]?", "", compName)
-    return mainName.strip(",&")
+    return mainName.strip(",& ")
 
 def comps_in_a_sent(sentence):
     comps = [1 for word in sentence.split() if word.startswith("$")]
