@@ -142,4 +142,4 @@ if __name__ == "__main__":
         sys.exit(0)
 
     [sv, sn, svn, btySnPHash, unitAppHash, cleanedTextHash, depLinkHash, mweHash] = read(dataFilePath, btyFeaFilePath)
-    features_sv, features_sn, features_svn = featuresCal(sv, sn, svn, btySnPHash, unitAppHash, cleanedTextHash, depLinkHash, mweHash)
+    #features_sv, features_sn, features_svn = featuresCal(sv, sn, svn, btySnPHash, unitAppHash, cleanedTextHash, depLinkHash, mweHash)

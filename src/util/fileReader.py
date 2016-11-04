@@ -16,7 +16,6 @@ def delNuminText(tweet_text):
     return tweet_text
 
 
-
 ##########################################################################
 #data reading functions
 def loadTweets(textFileName):
