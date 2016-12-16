@@ -66,7 +66,8 @@ def read(dataFilePath, btyFeaFilePath):
 
     valid_sv = [item for item in sv if statUtil.getCooccurCount(item[0], item[1], unitAppHash) >= 1]
     valid_sn = [item for item in sn if statUtil.getCooccurCount(item[0], item[1], unitAppHash) >= 1]
-    valid_svn = [item for item in svn if svn_countHash.get(item) >= 1]
+    valid_svn = [item for item in svn if svn_countHash.get(item) >= 5]
+    print "# comp, verb, noun", len(btySnPHash), len(burstVerbs), len(burstNouns)
     print "all svn:", len(svn), "valid:", len(valid_svn)
 
     #######################

@@ -77,23 +77,29 @@ def read(dataFilePath, btyFeaFilePath):
     burstNouns =  [key for key in btyUnits if (btyWordPOSHash.get(key) is not None) and (btyWordPOSHash.get(key) in ["N", "^", "Z"])] # , "CD"
     burstVerbs =  [key for key in btyUnits if (btyWordPOSHash.get(key) is not None) and btyWordPOSHash.get(key) in ["V", "M", "Y"]]
 
-    print len(btySnPSym), len(burstVerbs), len(burstNouns)
+    all_triples = []
     for sym in btySnPSym:
-        print "#########################################"
+        #print "#########################################"
+        #print "------------------------------- comp: ", sym
+        burstTriples = []
         sub_id = btyUnits.index(sym)
         burstVerbId = [btyUnits.index(verb) for verb in burstVerbs]
         burstNounId = [btyUnits.index(verb) for verb in burstNouns]
         burstSymVerb = dict([(verb_id, rwMatrix[sub_id, verb_id]) for verb_id in burstVerbId])
         selected_burstSymVerb = hashOp.sortHash(burstSymVerb, 1, True)
-        print sym, [btyUnits[item[0]] for item in selected_burstSymVerb[:5]]
-        print sym, selected_burstSymVerb[:5]
-        #print sym, max(sv_score), min(sv_score), sum(sv_score)/len(sv_score)
 
-        for (verb_id, score) in selected_burstSymVerb:
+        for (verb_id, score) in selected_burstSymVerb[:10]:
             burstVerbNoun = dict([(noun_id, rwMatrix[verb_id, noun_id]) for noun_id in burstNounId])
             selected_burstVerbNoun = hashOp.sortHash(burstVerbNoun, 1, True)
-            print sym, btyUnits[verb_id], [btyUnits[item[0]] for item in selected_burstVerbNoun[:5]]
-            print sym, btyUnits[verb_id], selected_burstVerbNoun[:5]
+            burstTriples.extend([(sym, btyUnits[verb_id], btyUnits[item[0]]) for item in selected_burstVerbNoun[:10]])
+            #print btyUnits[verb_id],"\t\t", [(btyUnits[item[0]], "{:.4f}".format(item[1])) for item in selected_burstVerbNoun[:5]]
+
+        tripleCount = [statUtil.getCooccurCount_tri(item[0], item[1], item[2], unitAppHash) for item in burstTriples]
+        validTriple = [(burstTriples[tripId], tripleCount[tripId]) for tripId in range(len(burstTriples)) if tripleCount[tripId] >= 5]
+        tripleScore = ["{:.4f}".format(rwMatrix[sub_id, btyUnits.index(item[0][1])]+rwMatrix[btyUnits.index(item[0][1]), btyUnits.index(item[0][2])]) for item in validTriple]
+        for tripId in range(len(validTriple)):
+            all_triples.append((validTriple[tripId][0], validTriple[tripId][1], tripleScore[tripId]))
+            #print validTriple[tripId][0], validTriple[tripId][1], tripleScore[tripId]
 
         #print "******"
         #burstSymVerb = dict([(verb_id, rwMatrix[sub_id, verb_id]) for verb_id in range(len(btyUnits))])
@@ -102,6 +108,9 @@ def read(dataFilePath, btyFeaFilePath):
         #print sv_score
         #print sym, max(sv_score), min(sv_score), sum(sv_score)/len(sv_score), sum(sv_score)
 
+    print "#triples", len(all_triples)
+    for item in all_triples:
+        print item[0], item[1], item[2]
     return 0
 
 

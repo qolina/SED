@@ -53,6 +53,7 @@ if __name__ == "__main__":
         sym_triples = set(["###".join(triple) for sym in snp_syms for triple in triples if sym == triple[0]])
         comp_triples = set(["###".join(triple) for comp in snp_comp for triple in triples if " "+comp+" " in " ".join(["", triple[0], triple[2], ""])])
 
+        # debug
 #        sym_triples_struct_debug = [(sym, triple) for sym in snp_syms for triple in triples if sym == triple[0]]
 #        comp_triples_struct_debug = [(comp, triple) for comp in snp_comp for triple in triples if " "+comp+" " in " ".join(["", triple[0], triple[2], ""])]
 #        print "## #sym_tri, #comp_tri", len(sym_triples_struct_debug), len(comp_triples_struct_debug)
@@ -65,4 +66,6 @@ if __name__ == "__main__":
         cPickle.dump(sym_triples, snp_trifile)
         cPickle.dump(comp_triples, snp_trifile)
         print "## File saved (tweets triples file)", snp_trifile.name, "#sym_tri, #comp_tri", len(sym_triples), len(comp_triples)
+
+        break
 
