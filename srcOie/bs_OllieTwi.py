@@ -8,7 +8,7 @@ import commands
 import string
 import cPickle
 
-sys.path.append("/home/yxqin/Scripts/")
+sys.path.append("../../Scripts/")
 from tweetStrOperation import tweWordsArr_delAllSpecial
 from hashOperation import updateAppHash
 from hashOperation import output_sortedHash
@@ -30,12 +30,15 @@ def makeTempDir(stock_tmpDir):
         os.mkdir(stock_tmpDir)
 
 
-def load_snp_triples(snp_syms, oie_filename, conf_score):
+# snp_syms = [sym, sym...]
+# snp_symname = [(sym, name), (sym, name),...]
+def load_snp_triples(snp_symname, oie_filename, conf_score):
     content = open(oie_filename, "r").read().lower()
     tweet_triple_Arr = content.strip().split("\n\n")
     tweetArr = []
     triplesArr = []
-    snpTweetHash = {}
+    snpTweetHash = {} # snpId: appHash    appHash-> tweetID:#count
+    # statistic snpTweetHash
     for tweetID in range(len(tweet_triple_Arr)):
         arr = tweet_triple_Arr[tweetID].strip().split("\n")
         tripleLines = [line for line in arr[1:] if re.match("0\.[\d]+: \(", line)]
@@ -44,32 +47,37 @@ def load_snp_triples(snp_syms, oie_filename, conf_score):
         tweetArr.append(arr[0])
         triplesArr.append(triples)
 
-        for sym in snp_syms:
+        for snpId in range(len(snp_symname)):
+            sym,name = snp_symname[snpId]
             if "$"+sym in arr[0].split():
-                updateAppHash(snpTweetHash, sym, tweetID, 1)
+                updateAppHash(snpTweetHash, snpId, tweetID, 1)
 
-    snpTripleHash = {}
-    for sym in snpTweetHash:
-        if len(snpTweetHash[sym]) < 5:
+    # statistic snpTripleHash
+    snpTripleHash = {} # snpId: triples
+    for snpId in snpTweetHash:
+        sym, compName = snp_symname[snpId]
+        if len(snpTweetHash[snpId]) < 5:
             continue
         triples = []
-        for tid in snpTweetHash[sym].keys():
+        for tid in snpTweetHash[snpId].keys():
             triples.extend(triplesArr[tid])
-        #triples = [triple for triple in triples if triple[0] > conf_score and sym in " ".join([triple[1][0], triple[1][2]]).split()]
-        triples = [triple for triple in triples if triple[0] > conf_score and sym == triple[1][0]]
+        #triples = [triple for triple in triples if triple[0] > conf_score and sym in " ".join([triple[1][0], triple[1][2]]).split()] # sym in SO
+        #triples = [triple for triple in triples if triple[0] > conf_score and sym == triple[1][0]] # sym = S
+        triples = [triple for triple in triples if triple[0] > conf_score and (sym in " ".join(triple[1]) or compName in " ".join(triple[1]))] # sym, comp in SVO
         if len(triples) > 0:
-            snpTripleHash[sym] = triples
+            snpTripleHash[snpId] = triples
 
-    snpTripleNumHash = dict([(sym, len(snpTripleHash[sym])) for sym in snpTripleHash])
+    # statistic #triple
+    #snpTripleNumHash = dict([(sym, len(snpTripleHash[sym])) for sym in snpTripleHash])
     #print "Total #triples", sum(snpTripleNumHash.values())
-    sortedList = sortHash(snpTripleNumHash, 1, True)
-    for sym, num in sortedList:
-        #print sym, num
-        triples = snpTripleHash[sym]
-        triples = ["###".join(triple[1]) for triple in triples]
-        print "\n".join(sorted(list(set(triples))))
+    #sortedList = sortHash(snpTripleNumHash, 1, True)
+    #for sym, num in sortedList:
+    #    print sym, num
+    #    triples = snpTripleHash[sym]
+    #    triples = ["###".join(triple[1]) for triple in triples]
+    #    print "\n".join(sorted(list(set(triples))))
     
-    return snpTripleHash
+    return snpTripleHash, snpTweetHash, tweetArr
 
 
 tweetDataDir = '../ni_data/word/'
@@ -97,12 +105,12 @@ if __name__ == "__main__":
 
         line_tweetFileName = tweet_tmpDir + "tweets_"+dayStr
         output_file = open(line_tweetFileName, "w")
-        output_file.write("\n".join(content)) 
+        output_file.write("\n".join(content))
         output_file.close()
         #print "## File written. (temporary lined tweet data file)", line_tweetFileName
 
         ####### Apply oie tool
-        oie_filename = tweet_tmpDir + "oie-" + dayStr 
+        oie_filename = tweet_tmpDir + "oie-" + dayStr
         ## ollie
         ollie_commandline = "java -jar ../tools/ollie/ollie-app-latest.jar " + line_tweetFileName + " > " + oie_filename
         #os.system(ollie_commandline)
@@ -115,7 +123,7 @@ if __name__ == "__main__":
         snp_comp = [strUtil.getMainComp(snpItem[1]) for snpItem in sym_names]
         conf_score = 0.8
 
-        load_snp_triples(snp_syms, oie_filename, conf_score)
+        snpTripleHash, snpTweetHash, tweetArr = load_snp_triples(zip(snp_syms, snp_comp), oie_filename, conf_score)
 
         ## read comp-related triples
         #triples = labelGold.load_oie_triples(oie_filename)
