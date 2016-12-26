@@ -40,7 +40,7 @@ def delHeadofContent(line):
         words = words[1:]
     return " ".join(words)
 
-## example  0.748: (Shares; fall; 8 pct)
+## example  0.748: (Shares; fall; 8 pct)[enabler]
 def load_triple(line):
     score = line[:line.index(": (")]
     triple = line[line.index(": (")+3:line.rfind(")")].split("; ")

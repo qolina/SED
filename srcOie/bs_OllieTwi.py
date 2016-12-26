@@ -19,6 +19,7 @@ from util import snpLoader
 from util import stringUtil as strUtil
 
 import labelGold
+import pivotRanking as ptRank
 
 #################
 ## preprocess: make a tmp dir
@@ -121,9 +122,12 @@ if __name__ == "__main__":
 
         snp_syms = [snpItem[0] for snpItem in sym_names]
         snp_comp = [strUtil.getMainComp(snpItem[1]) for snpItem in sym_names]
+        snp_symname = zip(snp_syms, snp_comp)
         conf_score = 0.8
 
-        snpTripleHash, snpTweetHash, tweetArr = load_snp_triples(zip(snp_syms, snp_comp), oie_filename, conf_score)
+        snpTripleHash, snpTweetHash, tweetArr = load_snp_triples(snp_symname, oie_filename, conf_score)
+        print len(snp_symname), len(snpTweetHash), len(snpTripleHash), len(tweetArr)
+        ptRank.pivotRanking(snp_symname, snpTripleHash, snpTweetHash, tweetArr)
 
         ## read comp-related triples
         #triples = labelGold.load_oie_triples(oie_filename)
