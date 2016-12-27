@@ -6,7 +6,7 @@ import sys
 sys.path.append("../../Scripts/")
 import hashOperation as hashOp
 
-import editdistance as levDis
+#import editdistance as levDis
 from nltk.stem.porter import *
 global stemmer
 stemmer = PorterStemmer()
@@ -15,7 +15,7 @@ stemmer = PorterStemmer()
 def pivotRanking(snp_symname, snpTripleHash, snpTweetHash, tweetArr):
     snpTripleNumHash = dict([(snpId, len(snpTripleHash[snpId])) for snpId in snpTripleHash])
     snpSortedByTriNum = hashOp.sortHash(snpTripleNumHash, 1, True)
-    stemmedWordTweetArr = [tweet2stemmedArr(tweet) for tweet in tweetArr]
+    stemmedWordTweetArr = [str2stemmedArr(tweet) for tweet in tweetArr]
     for snpId, triNum in snpSortedByTriNum[:1]:
         sym, compName = snp_symname[snpId]
         print "*************************************", sym, compName
@@ -23,15 +23,20 @@ def pivotRanking(snp_symname, snpTripleHash, snpTweetHash, tweetArr):
         tweetIds = snpTweetHash[snpId]
         tweets = [tweetArr[tid] for tid in tweetIds]
         stemmedTweets = [stemmedWordTweetArr[tid] for tid in tweetIds]
-        stemmedWordTripleArr = [tri2stemmedArr(triple[1]) for triple in triples]
+        stemmedWordTripleArr = [tri2stemmedArr(triple[1]) for triple in triples] # stem(" ".join(triple))
+        stemmedTripleArr = [(str2stemmedArr(triple[1][0]), str2stemmedArr(triple[1][1]), str2stemmedArr(triple[1][2]))for triple in triples]
 
-        scoreArr = [tripleBursty(triple, stemmedTweets) for triple in stemmedWordTripleArr]
-        print len(scoreArr)
+        tripleSim(stemmedTripleArr[0], stemmedTripleArr[1])
+        break
+        #scoreArr = [tripleBursty(triple, stemmedTweets) for triple in stemmedWordTripleArr]
+        #scoreArr = [tweetsSupportTriple(triple, stemmedTweets) for triple in stemmedWordTripleArr]
+        scoreArr = [triplesSupportTriple(triple, stemmedTripleArr) for triple in stemmedTripleArr]
         strTriples = ["###".join(triple[1]) for triple in triples]
         scoreHash = dict(zip(strTriples, scoreArr))
         hashOp.output_sortedHash(scoreHash, 1, True)
-        print hashOp.statisticHash(scoreHash, [0, 1, 2, 3, 4, 5])
+        #print hashOp.statisticHash(scoreHash, [0, 1, 2, 3, 4, 5])
 
+        #pivotBurstinessScoreArr = [tripleBursty(triple, stemmedTweets) for triple in stemmedWordTripleArr]
         #for triple in triples:
         #    tweetSupportScore = tweetsSupportTriple(triple, tweets)
         #    pivotCoherenceScore = triplesSupportTriple(triple, triples)
@@ -42,12 +47,12 @@ def tweetsSupportTriple(triple, tweets):
     alpha = 0.2
     simScores = [TverskySim(triple, tweet, alpha) for tweet in tweets]
     #simScores = [max(len(tri2Str(triple)), len(tweet)) - LevenshteinDis(tri2Str(triple), tweet) for tweet in tweets]
+    return sum(simScores)/len(simScores)
 
-    return sum(simScores)
 
-
+# triple: (score, (s, v, o))
 def triplesSupportTriple(triple, triples):
-    simScores = [tripleSim(triple, triItem) for triItem in triples if triItem != triple]
+    simScores = [tripleSim(triple, triItem) for triItem in triples]
     return sum(simScores)
 
 def tri2Str(triple):
@@ -57,18 +62,31 @@ def tri2Str(triple):
     stringTriple = re.sub("\$ |\# |'s ", "", stringTriple)
     return stringTriple
 
-def tweet2stemmedArr(tweet):
+def str2stemmedArr(tweet):
     return [stemmer.stem(item.lstrip("$#")) for item in tweet.split()]
 
 def tri2stemmedArr(triple):
     return [stemmer.stem(item.lstrip("$#")) for item in tri2Str(triple).split() if item != "be"]
 
 
+# tri: (stemmedS, stemmedV, stemmedO)
 def tripleSim(tri1, tri2):
-    combinedIndex = [(0, 1), (1, 2), (2, 3), (0, 2), (1, 3), (0, 3)]
-    combinedTriPair = [(tri1[idx[0]:idx[1]], tri2[idx[0]:idx[1]]) for idx in combinedIndex]
-    combinedTriSims = [JaccardSim(tri2stemmedArr(triPair[1]), tri2stemmedArr(triPair[1])) for triPair in combinedTriPair]
-    return sum(combinedTriSims)
+    print tri1
+    print tri2
+    #combinedFeature: (S1, S2), (V1, V2), (O1, O2), (S1V1, S2V2), (V1O1, V2O2), (S1V1O1, S2V2O2)
+    combinedTriPair = [(tri1[0], tri2[0]), (tri1[1], tri2[1]), (tri1[2], tri2[2]), 
+            (tri1[1].extend(tri1[2]), tri2[1].extend(tri2[2])), 
+            (tri1[0].extend(tri1[1]), tri2[0].extend(tri2[1]))]
+    print "--------------fea"
+    print tri1[0]
+    for item in combinedTriPair:
+        print item
+    lastPair = (combinedTriPair[-1][0].extend(tri1[2]), combinedTriPair[-1][1].extend(tri2[2])) # S1V1+O1, S2V2+O2
+    combinedTriPair.append(lastPair)
+    print "-------------- add-on fea"
+    #print combinedTriPair
+    combinedTriSims = [JaccardSim(triPair[0], triPair[1]) for triPair in combinedTriPair]
+    return sum(combinedTriSims)/len(combinedTriSims)
 
 
 # approximate counting of frequency of Ollie triple, because it may generate new words to triple. E.G., add word "be", split "$, #" from cashtag and hashtag, or delete "$, #" from them
@@ -119,12 +137,12 @@ def LevenshteinDis(str1, str2):
 ### main
 if __name__ == "__main__":
     # testing for levenshteindis - a fast python package
-    print levDis.eval("banana", "bahama")
+    #print levDis.eval("banana", "bahama")
 
     triple = ("botched apple 's second flop", "is at", "hand photo epa $")
     tweet = "Botched Apple's second flop is at hand Photo EPA $aapl".lower()
     triple = ("recent leaders", "showed up in", "yday 's most bearish list thinning market $ ibb $ aapl $ bidu $ fb")
     tweet = "Recent leaders showed up in yday's most bearish list Thinning market $IBB $AAPL $BIDU $FB".lower()
     print tri2stemmedArr(triple)
-    print tweet2stemmedArr(tweet)
-    print TverskySim(tri2stemmedArr(triple), tweet2stemmedArr(tweet), 1)
+    print str2stemmedArr(tweet)
+    print TverskySim(tri2stemmedArr(triple), str2stemmedArr(tweet), 1)
