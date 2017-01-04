@@ -1,8 +1,10 @@
 import re
+import os
 import sys
 import cPickle
 
-sys.path.append("/home/yxqin/Scripts/")
+homeDir = os.path.expanduser("~")
+sys.path.append(homeDir + "/Scripts/")
 import readConll
 
 ##########################################################################

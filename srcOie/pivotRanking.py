@@ -26,21 +26,20 @@ def pivotRanking(snp_symname, snpTripleHash, snpTweetHash, tweetArr):
         stemmedWordTripleArr = [tri2stemmedArr(triple[1]) for triple in triples] # stem(" ".join(triple))
         stemmedTripleArr = [(str2stemmedArr(triple[1][0]), str2stemmedArr(triple[1][1]), str2stemmedArr(triple[1][2]))for triple in triples]
 
-        tripleSim(stemmedTripleArr[0], stemmedTripleArr[1])
-        break
+        ################
+        # for debugging separate scores
         #scoreArr = [tripleBursty(triple, stemmedTweets) for triple in stemmedWordTripleArr]
         #scoreArr = [tweetsSupportTriple(triple, stemmedTweets) for triple in stemmedWordTripleArr]
-        scoreArr = [triplesSupportTriple(triple, stemmedTripleArr) for triple in stemmedTripleArr]
-        strTriples = ["###".join(triple[1]) for triple in triples]
-        scoreHash = dict(zip(strTriples, scoreArr))
-        hashOp.output_sortedHash(scoreHash, 1, True)
+        #scoreArr = [triplesSupportTriple(triple, stemmedTripleArr) for triple in stemmedTripleArr]
+        #strTriples = ["###".join(triple[1]) for triple in triples]
+        #scoreHash = dict(zip(strTriples, scoreArr))
+        #hashOp.output_sortedHash(scoreHash, 1, True)
         #print hashOp.statisticHash(scoreHash, [0, 1, 2, 3, 4, 5])
+        ################
 
         #pivotBurstinessScoreArr = [tripleBursty(triple, stemmedTweets) for triple in stemmedWordTripleArr]
-        #for triple in triples:
-        #    tweetSupportScore = tweetsSupportTriple(triple, tweets)
-        #    pivotCoherenceScore = triplesSupportTriple(triple, triples)
-        #    pivotBurstiness = tripleBursty(triple, tweets)
+        #tweetSupportScoreArr = [tweetsSupportTriple(triple, stemmedTweets) for triple in stemmedWordTripleArr]
+        #pivotCoherenceScoreArr = [triplesSupportTriple(triple, stemmedTripleArr) for triple in stemmedTripleArr]
 
 def tweetsSupportTriple(triple, tweets):
     # in TverskySim, tweet served as prototype, small alpha
@@ -71,20 +70,13 @@ def tri2stemmedArr(triple):
 
 # tri: (stemmedS, stemmedV, stemmedO)
 def tripleSim(tri1, tri2):
-    print tri1
-    print tri2
     #combinedFeature: (S1, S2), (V1, V2), (O1, O2), (S1V1, S2V2), (V1O1, V2O2), (S1V1O1, S2V2O2)
-    combinedTriPair = [(tri1[0], tri2[0]), (tri1[1], tri2[1]), (tri1[2], tri2[2]), 
-            (tri1[1].extend(tri1[2]), tri2[1].extend(tri2[2])), 
-            (tri1[0].extend(tri1[1]), tri2[0].extend(tri2[1]))]
-    print "--------------fea"
-    print tri1[0]
-    for item in combinedTriPair:
-        print item
-    lastPair = (combinedTriPair[-1][0].extend(tri1[2]), combinedTriPair[-1][1].extend(tri2[2])) # S1V1+O1, S2V2+O2
-    combinedTriPair.append(lastPair)
-    print "-------------- add-on fea"
-    #print combinedTriPair
+    combinedTriPair = [(tri1[0], tri2[0]),
+            (tri1[1], tri2[1]),
+            (tri1[2], tri2[2]),
+            (tri1[0] + tri1[1], tri2[0] + tri2[1]),
+            (tri1[1] + tri1[2], tri2[1] + tri2[2]),
+            (tri1[0] + tri1[1] + tri1[2], tri2[0] + tri2[1] + tri2[2])]
     combinedTriSims = [JaccardSim(triPair[0], triPair[1]) for triPair in combinedTriPair]
     return sum(combinedTriSims)/len(combinedTriSims)
 
