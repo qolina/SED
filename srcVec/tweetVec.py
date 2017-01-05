@@ -183,14 +183,13 @@ if __name__ == "__main__":
 
     print dayTweetNumHash
     dayArr = sorted(dayTweetNumHash.keys())
-    print dayArr
 
     ##############
     # doc2vec
     doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model"
-    #texts2vecs(tweetTexts_all, doc2vecModelPath)
+    texts2vecs(tweetTexts_all, doc2vecModelPath)
 
-    thred_radius_dist = 0.5
+    thred_radius_dist = 0.1
     ngDistArray, ngIdxArray = getSim(doc2vecModelPath, thred_radius_dist)
     simDfDayArr = getDF(ngIdxArray, seqDayHash)
     #zscoreDayArr = getBursty(simDfDayArr, dayTweetNumHash)

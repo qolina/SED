@@ -10,6 +10,7 @@ import sys
 import time
 import math
 import numpy as np
+import scipy as sp
 from gensim import models, similarities
 from sklearn.metrics import pairwise
 from sklearn.neighbors import NearestNeighbors, LSHForest
@@ -60,11 +61,11 @@ def getSim(doc2vecModelPath, thred_radius_dist):
     #    eval_sklearn_nnmodel(nns_fromSim, ngIdxArray)
 
     # using
-    nnModel = NearestNeighbors(radius=thred_radius_dist)
+    nnModel = NearestNeighbors(radius=thred_radius_dist, metric=sp.spatial.distance.cosine)
     nnModel.fit(dataset)
     ngDistArray, ngIdxArray = nnModel.radius_neighbors()
+    print ngDistArray.shape, ngIdxArray.shape, ngIdxArray[0].shape
     print "## Nearest neighbor with radius ", thred_radius_dist, " obtained at", time.asctime()
-    print ngDistArray.shape, ngIdxArray.shape, np.max(ngDistArray), np.min(ngDistArray)
     return ngDistArray, ngIdxArray
 
 #######################
