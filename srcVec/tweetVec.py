@@ -15,7 +15,7 @@ from collections import Counter
 
 import numpy as np
 from sklearn import cluster
-import falconn
+#import falconn
 
 from gensim import corpora, models, similarities
 
@@ -189,7 +189,7 @@ if __name__ == "__main__":
     doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model"
     texts2vecs(tweetTexts_all, doc2vecModelPath)
 
-    thred_radius_dist = 0.1
+    thred_radius_dist = 0.2
     ngDistArray, ngIdxArray = getSim(doc2vecModelPath, thred_radius_dist)
     simDfDayArr = getDF(ngIdxArray, seqDayHash)
     #zscoreDayArr = getBursty(simDfDayArr, dayTweetNumHash)
