@@ -2,39 +2,20 @@
 # -*- coding: UTF-8 -*-
 
 ## function
-## convert tweet into dense vector using gensim, a doc2vec tool
+## test the performance of vector
 
 import sys
 import os
 import re
 import time
 from pprint import pprint
-from collections import defaultdict
 from collections import Counter
-
 import numpy as np
-from sklearn import cluster
-import falconn
 
+from sklearn.metrics import pairwise
 from gensim import corpora, models, similarities
 
-import tweetVec
-sys.path.append(os.path.expanduser("~") + "/Scripts/")
-from fileOperation import loadStopword
-
-sys.path.append("../src/")
-from util import snpLoader
-from util import fileReader
-
-
-def getTweetSims(rawTweetFilename):
-    rawTweetHash = fileReader.loadTweets(rawTweetFilename) # tid:text
-    rawTweets = rawTweetHash.values()
-    texts = raw2Texts(rawTweets, False, False, None)
-    doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model"
-    #tweetVec.usingDoc2vec(texts, doc2vecModelPath)
-    doc2vecModel = models.doc2vec.Doc2Vec.load(doc2vecModelPath)
-
+def testVec_byNN_gensim(doc2vecModel, texts):
     ###############################
     # how many tweets are semantically similar to given tweet
     simThreshold = 0.95
@@ -61,52 +42,17 @@ def getTweetSims(rawTweetFilename):
         print "**", texts[docid]
         for item in simNN[docid]:
             print item[0], item[1], " ".join(texts[int(item[0][5:])])
-    return 
 
-    ###############################
-    # clustering tweet vecs
+def testVec_byNN(dataset, texts):
+    simMatrix = pairwise.cosine_similarity(dataset)
+    nns_fromSim = [sorted(enumerate(simMatrix[i]), key = lambda a:a[1], reverse=True)[:5] for i in range(simMatrix.shape[0])]
+    print "## Similarity Matrix obtained at", time.asctime()
 
-    # kmeans
-    kmeans = cluster.KMeans(n_clusters=100).fit(doc2vecModel.docvecs)
-    #print kmeans.labels_
-    labelCounter = Counter(kmeans.labels_)
-    #print labelCounter.most_common(10)
-    #print kmeans.cluster_centers_
-    docDist = kmeans.transform(doc2vecModel.docvecs)
-    for label, num in labelCounter.most_common(5):
-        dataIn = [item[0] for item in enumerate(kmeans.labels_) if item[1] == label]
-        dists = list(docDist[:,label])
-        distsIn = [(docid, dists[docid]) for docid in dataIn]
-        sortedData = sorted(distsIn, key = lambda item: item[1])
-        print "############################"
-        print "**", label, num
-        for docid, dist in sortedData[:20]:
-            print docid, dist, "\t", " ".join(texts[docid])
+    for docid in [0, 1, 2]:
+        print docid, texts[docid]
+        outputNN(nns_fromSim[docid], texts)
 
-
-    # lsh clustering with falconn
-    #dataset = np.array(doc2vecModel.docvecs)
-
-
-##############
-def getArg(args, flag):
-    arg = None
-    if flag in args:
-        arg = args[args.index(flag)+1]
-    return arg
-
-def parseArgs(args):
-    arg1 = getArg(args, "-in")
-    if arg1 is None:
-        print "Usage: python tweetSim.py -in inputTweetFilename"
-        print "eg: ../ni_data/word/tweetCleanText01"
-        sys.exit(0)
-    return arg1
-####################################################
-if __name__ == "__main__":
-    rawTweetFilename = parseArgs(sys.argv)
-    print "Program starts at ", time.asctime()
-
-    simsTweet = getTweetSims(rawTweetFilename)
-
-    print "Program ends at ", time.asctime()
+def outputNN(nn, texts):
+    print "############################"
+    for idx, sim in nn:
+        print idx, sim, texts[idx]

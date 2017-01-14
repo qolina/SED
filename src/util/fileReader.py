@@ -26,7 +26,7 @@ def loadTweets(textFileName):
     content = [line[:-1].split("\t") for line in content]
     for tweet in content:
         textHash[tweet[0]] = delNuminText(tweet[-1])
-    print "##End of reading file.[segged text file] total lines: ", len(content), textFileName
+    #print "##End of reading file.[segged text file] total lines: ", len(content), textFileName
     return textHash
 
 def getDepLink_mwe(parsedTextFileName, textFileName):

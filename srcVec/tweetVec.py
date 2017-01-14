@@ -12,10 +12,10 @@ import time
 from pprint import pprint
 from collections import defaultdict
 from collections import Counter
+import cPickle
 
 import numpy as np
 from sklearn import cluster
-#import falconn
 
 from gensim import corpora, models, similarities
 
@@ -25,15 +25,30 @@ from fileOperation import loadStopword
 sys.path.append("../src/")
 from util import fileReader
 
-from getSim import getSim, getDF, getBursty, filtering_by_zscore
+from word2vec import *
 
 ####################################################
+def normWordInTweet(word):
+    if word[0] == "@":
+        word = "<username>"
+    elif word.startswith("http"):
+        word = "<url>"
+    #if word not in word2vecModel:
+    #    word = "<unk>"
+    return word
+
+def normPuncInTweet(tweet):
+    for char in ['.', '"', ',', '(', ')', '!', '?', ';', ':']:
+        tweet = tweet.replace(char, ' ' + char + ' ')
+    return tweet
+
 def raw2Texts(rawTweets, rmStop, rmMinFreq, minFreq):
     # remove stopwords and tokenize
     stopWords = {}
     if rmStop:
         stopWords = loadStopword("../data/stoplist.dft")
-    texts = [[word for word in document.lower().split() if word not in stopWords] for document in rawTweets]
+    texts = [normPuncInTweet(doc) for doc in rawTweets]
+    texts = [[normWordInTweet(word) for word in document.lower().split() if word not in stopWords] for document in rawTweets]
 
     if not rmMinFreq:
         return texts
@@ -115,7 +130,8 @@ def usingDoc2vec(texts, doc2vecModelPath):
     # build doc2vec model and save it
     # do build_vocab and train automatically if initialize documents in building Doc2Vec model
     taggedTexts = [models.doc2vec.TaggedDocument(words=text, tags=["SENT_%s" %tid]) for tid, text in enumerate(texts)]
-    doc2vecModel = models.Doc2Vec(taggedTexts, size=100, window=5, workers=1, iter=10)
+    doc2vecModel = models.Doc2Vec(taggedTexts, dm=1, dm_mean=0, size=100, window=5, workers=5, iter=20)
+    #doc2vecModel = models.Doc2Vec(taggedTexts, dm=0, size=100, negative=5, hs=0, workers=3, iter=20)
     doc2vecModel.save(doc2vecModelPath)
 
 
@@ -128,9 +144,11 @@ def texts2LSIvecs(texts, dictPath, corpusPath):
 
 def texts2vecs(texts, doc2vecModelPath):
     texts = raw2Texts(texts, False, False, None)
-    print "## text leximization finished. ", time.asctime()
+    wordNum = [len(text) for text in texts]
+    print "## min/max/avg words in texts", min(wordNum), max(wordNum), sum(wordNum)*1.0/len(wordNum)
+    print "## text leximization finished. ", len(texts), time.asctime()
     usingDoc2vec(texts, doc2vecModelPath)
-    print "## doc2vec model saved. ", time.asctime()
+    print "## doc2vec model saved. ", doc2vecModelPath, time.asctime()
 
 
 def loadTweetsFromDir(dataDirPath):
@@ -142,37 +160,85 @@ def loadTweetsFromDir(dataDirPath):
         if not fileItem.startswith("tweetCleanText"):
             continue
         dayStr = fileItem[-2:]
-        if dayStr == "06":
-            break
+        #if dayStr == "05":
+        #    break
         rawTweetHash = fileReader.loadTweets(dataDirPath + "/" + fileItem) # tid:text
         #print "## End of reading file. [raw tweet file][cleaned text]  #tweets: ", len(rawTweetHash), fileItem
-        tids = rawTweetHash.keys()[:1000]
-        texts = rawTweetHash.values()[:1000]
+        tids = rawTweetHash.keys()#[:1000]
+        texts = rawTweetHash.values()#[:1000]
 
         for seqid, tid in enumerate(tids, start=len(tweetTexts_all)):
             seqTidHash[seqid] = tid
             seqDayHash[seqid] = dayStr
         tweetTexts_all.extend(texts)
+        
         dayTweetNumHash[dayStr] = len(texts)
 
     return tweetTexts_all, seqTidHash, seqDayHash, dayTweetNumHash
 
 
 ##############
-def getArg(args, flag):
-    arg = None
-    if flag in args:
-        arg = args[args.index(flag)+1]
-    return arg
+# Para_train:   default: '0'
+# '0'   : train with finance tweet only. (which is used for clustering)
+# '1'   : train with extra large scale finance tweet. (about 2million)
+# '2'   : train with extra large scale finance tweet + finance tweet.
+def trainDoc2Vec(Para_train, doc2vecModelPath, largeCorpusPath, l_doc2vecModelPath, tweetTexts_all):
+    if Para_train == '0':
+        texts2vecs(tweetTexts_all, doc2vecModelPath)
+    elif Para_train == '1':
+        largeCorpus = fileReader.loadTweets(largeCorpusPath).values() # tid:text
+        texts2vecs(largeCorpus, l_doc2vecModelPath)
+    elif Para_train == '2':
+        largeCorpus = fileReader.loadTweets(largeCorpusPath).values() # tid:text
+        largeCorpus.extend(tweetTexts_all)
+        texts2vecs(largeCorpus, l_doc2vecModelPath)
 
-# arguments received from arguments
-def parseArgs(args):
-    arg1 = getArg(args, "-in")
-    if arg1 is None: # nessensary argument
-        print "Usage: python tweetVec.py -in inputFileDir"
-        sys.exit(0)
-    return arg1
 
+##############
+# para_test:   default: '0'
+# '0'   : test with finance tweet trained model only.
+# '1'   : test with extra large scale finance tweet trained model.
+# '2'   : test with extra large scale + small finance tweet trained model.
+# '3'   : test with pretrained word2vec model. (4million words, 100dimension)
+def getVec(Para_test, doc2vecModelPath, l_doc2vecModelPath, TweetNum, word2vecModelPath, tweetTexts_all):
+    doc2vecModel = None
+    dataset = None
+    if Para_test == '0':
+        doc2vecModel = models.doc2vec.Doc2Vec.load(doc2vecModelPath)
+        dataset = np.array(doc2vecModel.docvecs)
+        print "## tweet vec by pretrained small doc2vec model obtained.", dataset.shape, time.asctime()
+    elif Para_test == '1':
+        doc2vecModel = models.doc2vec.Doc2Vec.load(l_doc2vecModelPath)
+        # should infer vec in 1
+        wordTexts = raw2Texts(tweetTexts_all, False, False, None)
+        dataset = []
+        for text in wordTexts:
+            vec = doc2vecModel.infer_vector(text, steps=5)
+            dataset.append(vec)
+        dataset = np.asarray(dataset)
+        print "## tweet vec by inferring from trained d2v model obtained.", dataset.shape, time.asctime()
+    elif Para_test == '2':
+        doc2vecModel = models.doc2vec.Doc2Vec.load(l_doc2vecModelPath)
+        dataset = np.array(doc2vecModel.docvecs)
+        dataset = dataset[-TweetNum:,:]
+        print "## tweet vec by pretrained large d2v vec obtained.", dataset.shape, time.asctime()
+    elif Para_test == '3':
+        word2vecModel = loadWord2Vec(word2vecModelPath)
+        print "## word2vec load done.", time.asctime()
+        wordTexts = raw2Texts(tweetTexts_all, False, False, None)
+        normWordTexts = []
+        for words in wordTexts:
+            words = [word for word in words if word in word2vecModel]
+            words.extend(["<s>", "</s>"])
+            unkNum = sum([1 for word in words if word not in word2vecModel])
+            words.extend(["<unk>"]*unkNum)
+            normWordTexts.append(words)
+        dataset = [[np.asarray(word2vecModel.get(word)) for word in words] for words in normWordTexts]
+        dataset = [np.sum(np.asarray(dataset[idx]), axis=0) for idx in range(len(dataset))]
+        dataset = np.asarray(dataset)
+        print "## tweet vec by w2v obtained.", dataset.shape, time.asctime()
+
+    return dataset
 
 ####################################################
 if __name__ == "__main__":
@@ -180,33 +246,33 @@ if __name__ == "__main__":
     print "Program starts at ", time.asctime()
 
     tweetTexts_all, seqTidHash, seqDayHash, dayTweetNumHash = loadTweetsFromDir(dataDirPath)
+    #print "\n".join(tweetTexts_all)
+    print sorted(dayTweetNumHash.items(), key = lambda a:a[0])
 
-    print dayTweetNumHash
-    dayArr = sorted(dayTweetNumHash.keys())
+    Para_train, Para_test = ('-', '3')
+
+    doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model"
+    l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large"
+    largeCorpusPath = os.path.expanduser("~")+"/corpus/tweet_finance_data/tweetCleanText2016"
+    word2vecModelPath = "../ni_data/tweetVec/w2v1010100-en"
 
     ##############
-    # doc2vec
-    doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model"
-    texts2vecs(tweetTexts_all, doc2vecModelPath)
+    # training
+    trainDoc2Vec(Para_train, doc2vecModelPath, largeCorpusPath, l_doc2vecModelPath, tweetTexts_all)
 
-    thred_radius_dist = 0.2
-    ngDistArray, ngIdxArray = getSim(doc2vecModelPath, thred_radius_dist)
-    simDfDayArr = getDF(ngIdxArray, seqDayHash)
-    #zscoreDayArr = getBursty(simDfDayArr, dayTweetNumHash)
-
-    #for day in dayArr:
-    #    if day != "01":
-    #        continue
-    #    thred_zscore = 1.0
-    #    burstySeqIdArr = filtering_by_zscore(zscoreDayArr, seqDayHash, day, thred_zscore)
-    #    print len(burstySeqIdArr)
+    ##############
+    # testing/using
+    if Para_test in ['0', '1', '2']:
+        dataset = getVec(Para_test, doc2vecModelPath, l_doc2vecModelPath, len(tweetTexts_all), word2vecModelPath, None)
+    elif Para_test == '3':
+        dataset = getVec(Para_test, doc2vecModelPath, l_doc2vecModelPath, len(tweetTexts_all), word2vecModelPath, tweetTexts_all)
 
     ##############
     # used for lsi, tfidf
-    dictPath = "../ni_data/tweetVec/tweets.dict"
-    corpusPath = "../ni_data/tweetVec/tweets.mm"
-    lsiModelPath = "../ni_data/tweetVec/model.lsi"
-    simIndexPath = "../ni_data/tweetVec/tweets.index"
+    #dictPath = "../ni_data/tweetVec/tweets.dict"
+    #corpusPath = "../ni_data/tweetVec/tweets.mm"
+    #lsiModelPath = "../ni_data/tweetVec/model.lsi"
+    #simIndexPath = "../ni_data/tweetVec/tweets.index"
     #texts2LSIvecs(tweetTexts_all, dictPath, corpusPath)
     #lsi_vec_sim(dictPath, corpusPath, lsiModelPath, simIndexPath)
 
