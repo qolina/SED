@@ -38,9 +38,12 @@ if __name__ == "__main__":
 
     dataDirPath = parseArgs(sys.argv)
     tweetTexts_all, seqTidHash, seqDayHash, dayTweetNumHash = loadTweetsFromDir(dataDirPath)
+    tweetTexts_all = tweetTexts_all[:150000]
+    print tweetTexts_all[80028]
 
     Para_train, Para_test = ('-', '3')
-    timeWindow = (-3, 3)
+    timeWindow = (-2, 1)
+    #timeWindow = None
 
     #[None]*timeWindow.extend([(start, end), (start, end), ...])
     # int(date)-1
@@ -68,11 +71,12 @@ if __name__ == "__main__":
     ##############
     # get sim, cal zscore, clustering
     nnFilePath = "../ni_data/tweetVec/finance.nn1"
+    #nnFilePath = "../ni_data/tweetVec/finance.nn.test"
     zscoreFilePath = "../ni_data/tweetVec/finance.zscore"
     calNN = False # or False: meaning use precal nn
     calZscore = True
     thred_radius_dist = 0.5
-    thred_zscore = 10.0
+    thred_zscore = 1.0
     topK_c, topK_t = 5, 5
 
     if calNN:
@@ -87,17 +91,20 @@ if __name__ == "__main__":
         #ngDistArray, ngIdxArray = np.load(nnFile)['dist'], np.load(nnFile)['idx']
         ngIdxArray = np.load(nnFile)['idx']
 
-    simDfDayArr = getDF(ngIdxArray, seqDayHash, timeWindow)
-    #zscoreDayArr = getBursty(simDfDayArr, dayTweetNumHash)
-    zscoreArr = getBursty2(simDfDayArr, seqDayHash)
+    simDfDayArr = getDF(ngIdxArray, seqDayHash, timeWindow, dataset, tweetTexts_all)
+    return
+    if timeWindow is None:
+        zscoreDayArr = getBursty(simDfDayArr, dayTweetNumHash)
+    else:
+        zscoreDayArr = getBursty2(simDfDayArr, seqDayHash)
 
-    sys.exit(0)
     dayArr = sorted(dayTweetNumHash.keys())
     for day in dayArr:
-        if day not in ["01", "02", "03"]:
-            continue
+        #if day not in ["01", "02", "03"]:
+        #    continue
         burstySeqIdArr = filtering_by_zscore(zscoreDayArr, seqDayHash, day, thred_zscore)
         print "## Tweet filtering by zscore done.", len(burstySeqIdArr), " out of", dayTweetNumHash[day]
+        continue
 
         # obtain new texts, featureVectors
         texts_day = [tweetTexts_all[seqid] for seqid in burstySeqIdArr]

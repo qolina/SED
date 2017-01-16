@@ -80,6 +80,7 @@ def getSim_falconn(dataset, thred_radius_dist):
     ngIdxList = []
     for dataIdx in range(num_points):
         #nnModel.set_num_probes(nnModel.get_num_probes() * rate_probes)
+        # nn_keys: (id1, id2, ...)
         nn_keys = nnModel.find_near_neighbors(dataset[dataIdx,:], thred_radius_dist)
         ngIdxList.append(nn_keys)
     ngIdxList = np.asarray(ngIdxList)
@@ -90,20 +91,47 @@ def getSim_falconn(dataset, thred_radius_dist):
 # statistic tweetSimDf by day
 # tweetSimDfDayArr: [nnDay_Counter_seqid0, seq1, ...]
 # nnDay_Counter_seqid: (day, tweet_nn_num)
-def getDF(ngIdxArray, seqDayHash, timeWindow):
+def getDF(ngIdxArray, seqDayHash, timeWindow, dataset, tweetTexts_all):
     tweetSimDfDayArr = []
     for docid, nnIdxs in enumerate(ngIdxArray):
+        nnDay_count = None
         nnDays = [seqDayHash.get(seqid) for seqid in nnIdxs]
         if timeWindow is not None:
             date = int(seqDayHash.get(docid))
-            if (date <= timeWindow[1]) or (date >= 31+timeWindow[0]):
-                nnDay_count = None
-            else:
-                date_inTimeWin = range(date+timeWindow[0], date+timeWindow[1]+1)
+            if (date > 0-timeWindow[0]) and (date <= 31-timeWindow[1]):
+                date_inTimeWin = [str(item).zfill(2) for item in range(date+timeWindow[0], date+timeWindow[1]+1)]
                 nnDays = [item for item in nnDays if item in date_inTimeWin]
-                nnDay_count = Counter(nnDays)
-        #if docid in range(50, 100):
-        #    print nnDay_count.items()
+            else:
+                nnDays = None
+        if nnDays is not None:
+            nnDay_count = Counter(nnDays)
+        #if docid in range(50, 60):
+        if docid in [80074]:
+            if nnDay_count not None:
+                nn_pre = [seqid for seqid in nnIdxs if seqDayHash.get(seqid)==str(date-1).zfill(2)]
+                nn_day = [seqid for seqid in nnIdxs if seqDayHash.get(seqid)==str(date).zfill(2)]
+                print "######################"
+                print nnDay_count
+                print tweetTexts_all[docid]
+                print len(nn_day), nn_day
+                print len(nn_pre), nn_pre
+                for seqid in sorted(nn_day):
+                    print seqid, "\t", tweetTexts_all[seqid]
+                    print Counter([seqDayHash.get(seqid) for seqid in ngIdxArray[seqid]])
+                print "*********"
+                for seqid in sorted(nn_pre):
+                    print tweetTexts_all[seqid]
+                print "*********"
+                egid = nn_pre[0]
+                for egid in nn_pre[:5]:
+                    eg_date = seqDayHash.get(egid)
+                    nn_pre1 = ngIdxList[egid]
+                    eg_nn_day = [seqid for seqid in nn_pre1 if seqDayHash.get(seqid)==eg_date]
+                    eg_nn_aft = [seqid for seqid in nn_pre1 if seqDayHash.get(seqid)==str(int(eg_date)+1).zfill(2)]
+                    print len(eg_nn_day), len(eg_nn_aft)
+                    print set(eg_nn_aft)&set(nn_day)
+                    print set(eg_nn_day)&set(nn_pre)
+
         tweetSimDfDayArr.append(nnDay_count)
     print "## Tweets simDF by day obtained at", time.asctime()
     return tweetSimDfDayArr
@@ -111,16 +139,50 @@ def getDF(ngIdxArray, seqDayHash, timeWindow):
 # zscoreArr = [zscore_seqid0, seq1, ...]
 def getBursty2(simDfDayArr, seqDayHash):
     zscoreArr = []
+    statisticDfsNegDiff = [Counter() for i in range(32)]
+    statisticDf = [Counter() for i in range(32)]
     for docid, nnDayCounter in enumerate(simDfDayArr):
         if nnDayCounter is None:
             zscoreArr.append(None)
             continue
+        if len(nnDayCounter) < 3:
+            continue
+        date = seqDayHash.get(docid)
         dfs = np.asarray(nnDayCounter.values(), dtype=np.float32)
-        df_currentDay = nnDayCounter[seqDayHash.get(docid)]
+        df_currentDay = nnDayCounter[date]
         mu = np.mean(dfs)
         sigma = np.std(dfs)
-        zscore = round((df_currentDay-mu)/sigma, 4)
-        zscoreArr.append((seqDayHash.get(docid), zscore))
+        zscore = 0.0
+        if df_currentDay != mu:
+            zscore = round((df_currentDay-mu)/sigma, 4)
+
+        dfs_sorted = sorted(nnDayCounter.items(), key = lambda a:a[0])
+        dfs_diff = [(int(day)-int(date), df-df_currentDay) for day, df in dfs_sorted]
+        for window, diff in dfs_diff:
+            if diff < 0:
+                statisticDfsNegDiff[int(date)][window] += 1
+            statisticDf[int(date)][window] += 1
+
+        if docid in range(80030, 80090): #docid in range(100000, 100100) or
+            print "###############"
+            print docid, "\t", date, "\t", nnDayCounter.items()
+            print df_currentDay, "\t", mu, "\t", sigma, "\t", zscore
+            print dfs_sorted
+            print dfs_diff
+
+        zscoreArr.append([(date, zscore)])
+    print "## Tweets zscore in time window obtained at", time.asctime()
+    for i in range(1, 32):
+        dfDiffInWin = sorted(statisticDf[i].items(), key = lambda a:a[0])
+        dfNegDiffInWin = sorted(statisticDfsNegDiff[i].items(), key = lambda a:a[0])
+        if len(dfDiffInWin) < 1:
+            continue
+        ratio = [round(num*1.0/statisticDf[i][day], 4) for day, num in dfNegDiffInWin]
+        print "************Date", i
+        print dfDiffInWin
+        print dfNegDiffInWin
+        print ratio
+    return zscoreArr
 
 # zscoreDayArr: [zscoreDay_seqid0, seq1, ...]
 # zscoreDay_seqid: [(day, zscore), (day, zscore)]
@@ -146,7 +208,7 @@ def getBursty(simDfDayArr, dayTweetNumHash):
             #    zscoreTest.append(math.floor(zscore))
         #if docid in range(50, 70) or docid in range(150, 170):
         #if len(zscoreTest) > 0:
-        if docid in [82, 67, 656, 893, 249, 22359, 22283, 22317, 22297, 22275, 33536, 33547, 33554, 33543, 33679]:
+        if docid in range(100000, 102000):
             print "#################################"
             print nnDayCounter.most_common()
             print sorted(zscoreDay, key = lambda a:a[1], reverse=True)
@@ -164,9 +226,13 @@ def filtering_by_zscore(zscoreDayArr, seqDayHash, day, thred_zscore):
             continue
         if seqDayHash[docid] != day:
             continue
-        #if docid < 20:
-        #    print zscoreDay
-        zscore = dict(zscoreDay).get(day)
+        zscore = None
+        if len(zscoreDay) == 1:
+            if zscoreDay[0][0] == day:
+                zscore = zscoreDay[0][1] # zscoreDay from getBursty2
+        else:
+            print zscoreDay
+            zscore = dict(zscoreDay).get(day) # zscoreDay from getBursty
         if zscore is None:
             continue
         #zscores.append(round(zscore, 1))
