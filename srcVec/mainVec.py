@@ -37,11 +37,11 @@ if __name__ == "__main__":
     print "Program starts at ", time.asctime()
 
     dataDirPath = parseArgs(sys.argv)
-    tweetTexts_all, seqTidHash, seqDayHash, dayTweetNumHash = loadTweetsFromDir(dataDirPath)
-    tweetTexts_all = tweetTexts_all[:150000]
-    print tweetTexts_all[80028]
+    tweetTexts_all = None
+    #tweetTexts_all, seqTidHash, seqDayHash, dayTweetNumHash = loadTweetsFromDir(dataDirPath)
+    #tweetTexts_all = tweetTexts_all[:150000]
 
-    Para_train, Para_test = ('-', '3')
+    Para_train, Para_test = ('1', '3')
     timeWindow = (-2, 1)
     #timeWindow = None
 
@@ -50,13 +50,18 @@ if __name__ == "__main__":
     #dayWindow = idxTimeWin(dayTweetNumHash, timeWindow)
 
     doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model"
-    l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large"
-    largeCorpusPath = os.path.expanduser("~")+"/corpus/tweet_finance_data/tweetCleanText2016"
+    #l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2013.finP"
+    l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2013"
+    #l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2016.finP"
+    #l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2016"
+    #largeCorpusPath = os.path.expanduser("~")+"/corpus/tweet_finance_data/tweetCleanText2016"
+    largeCorpusPath = os.path.expanduser("~")+"/corpus/tweet_finance_data/tweetCleanText2013.test"
     word2vecModelPath = "../ni_data/tweetVec/w2v1010100-en"
 
     ##############
     # training
     trainDoc2Vec(Para_train, doc2vecModelPath, largeCorpusPath, l_doc2vecModelPath, tweetTexts_all)
+    sys.exit(0)
 
     ##############
     # testing/using
@@ -70,10 +75,10 @@ if __name__ == "__main__":
     
     ##############
     # get sim, cal zscore, clustering
-    nnFilePath = "../ni_data/tweetVec/finance.nn1"
+    nnFilePath = "../ni_data/tweetVec/finance.nn"
     #nnFilePath = "../ni_data/tweetVec/finance.nn.test"
     zscoreFilePath = "../ni_data/tweetVec/finance.zscore"
-    calNN = False # or False: meaning use precal nn
+    calNN = True # or False: meaning use precal nn
     calZscore = True
     thred_radius_dist = 0.5
     thred_zscore = 1.0
@@ -92,12 +97,12 @@ if __name__ == "__main__":
         ngIdxArray = np.load(nnFile)['idx']
 
     simDfDayArr = getDF(ngIdxArray, seqDayHash, timeWindow, dataset, tweetTexts_all)
-    return
     if timeWindow is None:
         zscoreDayArr = getBursty(simDfDayArr, dayTweetNumHash)
     else:
         zscoreDayArr = getBursty2(simDfDayArr, seqDayHash)
 
+    sys.exit(0)
     dayArr = sorted(dayTweetNumHash.keys())
     for day in dayArr:
         #if day not in ["01", "02", "03"]:

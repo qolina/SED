@@ -106,8 +106,8 @@ def getDF(ngIdxArray, seqDayHash, timeWindow, dataset, tweetTexts_all):
         if nnDays is not None:
             nnDay_count = Counter(nnDays)
         #if docid in range(50, 60):
-        if docid in [80074]:
-            if nnDay_count not None:
+        if docid in [46909, 80028, 80074, 100006, 100032, 100093]:
+            if nnDay_count is not None:
                 nn_pre = [seqid for seqid in nnIdxs if seqDayHash.get(seqid)==str(date-1).zfill(2)]
                 nn_day = [seqid for seqid in nnIdxs if seqDayHash.get(seqid)==str(date).zfill(2)]
                 print "######################"
@@ -122,15 +122,17 @@ def getDF(ngIdxArray, seqDayHash, timeWindow, dataset, tweetTexts_all):
                 for seqid in sorted(nn_pre):
                     print tweetTexts_all[seqid]
                 print "*********"
+                if len(nn_pre) == 0:
+                    continue
                 egid = nn_pre[0]
                 for egid in nn_pre[:5]:
                     eg_date = seqDayHash.get(egid)
-                    nn_pre1 = ngIdxList[egid]
+                    nn_pre1 = ngIdxArray[egid]
                     eg_nn_day = [seqid for seqid in nn_pre1 if seqDayHash.get(seqid)==eg_date]
                     eg_nn_aft = [seqid for seqid in nn_pre1 if seqDayHash.get(seqid)==str(int(eg_date)+1).zfill(2)]
-                    print len(eg_nn_day), len(eg_nn_aft)
-                    print set(eg_nn_aft)&set(nn_day)
-                    print set(eg_nn_day)&set(nn_pre)
+                    print egid, len(eg_nn_day), len(eg_nn_aft)
+                    print len(set(eg_nn_aft)&set(nn_day))
+                    print len(set(eg_nn_day)&set(nn_pre))
 
         tweetSimDfDayArr.append(nnDay_count)
     print "## Tweets simDF by day obtained at", time.asctime()
@@ -163,7 +165,7 @@ def getBursty2(simDfDayArr, seqDayHash):
                 statisticDfsNegDiff[int(date)][window] += 1
             statisticDf[int(date)][window] += 1
 
-        if docid in range(80030, 80090): #docid in range(100000, 100100) or
+        if docid in range(80030, 80090) or docid == 46909: #docid in range(100000, 100100) or
             print "###############"
             print docid, "\t", date, "\t", nnDayCounter.items()
             print df_currentDay, "\t", mu, "\t", sigma, "\t", zscore
