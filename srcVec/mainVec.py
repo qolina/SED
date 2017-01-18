@@ -2,7 +2,7 @@ from collections import Counter
 from tweetVec import *
 from getSim import getSim, getDF, getBursty, getBursty2 
 from getSim import filtering_by_zscore, clustering, getSim_falconn
-from tweetSim import testVec_byNN
+from tweetSim import testVec_byNN, testVec_byLSH
 
 def idxTimeWin(dayTweetNumHash, timeWindow):
     dayTweetNumArr = sorted(dayTweetNumHash.items(), key = lambda a:a[0])
@@ -39,7 +39,7 @@ if __name__ == "__main__":
     dataDirPath = parseArgs(sys.argv)
     tweetTexts_all = None
     tweetTexts_all, seqTidHash, seqDayHash, dayTweetNumHash = loadTweetsFromDir(dataDirPath)
-    #tweetTexts_all = tweetTexts_all[:150000]
+    tweetTexts_all = tweetTexts_all[:150000]
 
     Para_train, Para_test = ('-', '2+3')
     timeWindow = (-2, 1)
@@ -69,12 +69,11 @@ if __name__ == "__main__":
     if Para_test.find('3') >= 0:
         dataset_w2v = getVec('3', doc2vecModelPath, l_doc2vecModelPath, len(tweetTexts_all), word2vecModelPath, tweetTexts_all)
 
-    print dataset_infer.shape, dataset_w2v.shape
+    # concatenate d2v and w2v
     dataset = np.append(dataset_infer, dataset_w2v, axis=1)
-    dataset = dataset[:30000, :]
-    print dataset.shape
-    testVec_byNN(dataset, tweetTexts_all)
-    sys.exit(0)
+    #dataset = np.add(dataset_infer, dataset_w2v)
+    dataset = dataset[:150000, :]
+    #testVec_byNN(dataset, tweetTexts_all)
     
     ##############
     # get sim, cal zscore, clustering
@@ -90,6 +89,7 @@ if __name__ == "__main__":
     if calNN:
         #ngDistArray, ngIdxArray = getSim(dataset, thred_radius_dist)
         ngIdxArray = getSim_falconn(dataset, thred_radius_dist)
+        testVec_byLSH(ngIdxArray, tweetTexts_all)
         nnFile = open(nnFilePath, "w")
         #np.savez(nnFile, dist=ngDistArray, idx=ngIdxArray)
         np.savez(nnFile, idx=ngIdxArray)
@@ -99,6 +99,7 @@ if __name__ == "__main__":
         #ngDistArray, ngIdxArray = np.load(nnFile)['dist'], np.load(nnFile)['idx']
         ngIdxArray = np.load(nnFile)['idx']
 
+    sys.exit(0)
     simDfDayArr = getDF(ngIdxArray, seqDayHash, timeWindow, dataset, tweetTexts_all)
     if timeWindow is None:
         zscoreDayArr = getBursty(simDfDayArr, dayTweetNumHash)
