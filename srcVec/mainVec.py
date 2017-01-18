@@ -38,10 +38,10 @@ if __name__ == "__main__":
 
     dataDirPath = parseArgs(sys.argv)
     tweetTexts_all = None
-    #tweetTexts_all, seqTidHash, seqDayHash, dayTweetNumHash = loadTweetsFromDir(dataDirPath)
+    tweetTexts_all, seqTidHash, seqDayHash, dayTweetNumHash = loadTweetsFromDir(dataDirPath)
     #tweetTexts_all = tweetTexts_all[:150000]
 
-    Para_train, Para_test = ('1', '3')
+    Para_train, Para_test = ('-', '2+3')
     timeWindow = (-2, 1)
     #timeWindow = None
 
@@ -51,27 +51,30 @@ if __name__ == "__main__":
 
     doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model"
     #l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2013.finP"
-    l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2013"
-    #l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2016.finP"
-    #l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2016"
-    #largeCorpusPath = os.path.expanduser("~")+"/corpus/tweet_finance_data/tweetCleanText2016"
-    largeCorpusPath = os.path.expanduser("~")+"/corpus/tweet_finance_data/tweetCleanText2013.test"
+    #l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2013"
+    l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2016.finP.dim100"
+    #l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2016.dim200"
+    largeCorpusPath = os.path.expanduser("~")+"/corpus/tweet_finance_data/tweetCleanText2016"
+    #largeCorpusPath = os.path.expanduser("~")+"/corpus/tweet_finance_data/tweetCleanText2013.test"
     word2vecModelPath = "../ni_data/tweetVec/w2v1010100-en"
 
     ##############
     # training
     trainDoc2Vec(Para_train, doc2vecModelPath, largeCorpusPath, l_doc2vecModelPath, tweetTexts_all)
-    sys.exit(0)
 
     ##############
     # testing/using
-    if Para_test in ['0', '1', '2']:
-        dataset = getVec(Para_test, doc2vecModelPath, l_doc2vecModelPath, len(tweetTexts_all), word2vecModelPath, None)
-    elif Para_test == '3':
-        dataset = getVec(Para_test, doc2vecModelPath, l_doc2vecModelPath, len(tweetTexts_all), word2vecModelPath, tweetTexts_all)
+    if Para_test[0] in ['0', '1', '2']:
+        dataset_infer = getVec(Para_test[0], doc2vecModelPath, l_doc2vecModelPath, len(tweetTexts_all), word2vecModelPath, None)
+    if Para_test.find('3') >= 0:
+        dataset_w2v = getVec('3', doc2vecModelPath, l_doc2vecModelPath, len(tweetTexts_all), word2vecModelPath, tweetTexts_all)
 
-    #dataset = dataset[:10000, :]
-    #testVec_byNN(dataset, tweetTexts_all)
+    print dataset_infer.shape, dataset_w2v.shape
+    dataset = np.append(dataset_infer, dataset_w2v, axis=1)
+    dataset = dataset[:30000, :]
+    print dataset.shape
+    testVec_byNN(dataset, tweetTexts_all)
+    sys.exit(0)
     
     ##############
     # get sim, cal zscore, clustering

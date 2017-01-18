@@ -130,7 +130,7 @@ def usingDoc2vec(texts, doc2vecModelPath):
     # build doc2vec model and save it
     # do build_vocab and train automatically if initialize documents in building Doc2Vec model
     taggedTexts = [models.doc2vec.TaggedDocument(words=text, tags=["SENT_%s" %tid]) for tid, text in enumerate(texts)]
-    doc2vecModel = models.Doc2Vec(taggedTexts, dm=1, dm_mean=0, size=100, window=5, workers=15, iter=20)
+    doc2vecModel = models.Doc2Vec(taggedTexts, dm=1, dm_mean=0, size=200, window=5, workers=15, iter=20)
     #doc2vecModel = models.Doc2Vec(taggedTexts, dm=0, size=100, negative=5, hs=0, workers=3, iter=20)
     doc2vecModel.save(doc2vecModelPath)
 
