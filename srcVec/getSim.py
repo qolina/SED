@@ -8,6 +8,7 @@
 import os
 import sys
 import time
+import timeit
 import math
 import numpy as np
 from gensim import models, similarities
@@ -68,23 +69,59 @@ def getSim(dataset, thred_radius_dist):
     print "## Nearest neighbor with radius ", thred_radius_dist, " obtained at", time.asctime()
     return ngDistArray, ngIdxArray
 
-def getSim_falconn(dataset, thred_radius_dist):
+def getSim_falconn(dataset, thred_radius_dist, trainLSH, trained_num_probes):
+    num_setup_threads = 5
+    dataset = prepData_forLsh(dataset)
+    para = getPara_forLsh(dataset)
+    para.num_setup_threads = num_setup_threads
+    para.l = 20 # num of hash tables
+    #para.k = None # num of hash funcs per table
+    nnModel = getLshIndex(para, dataset)
+
+    # mainly train num_probes
+    if trainLSH:
+        print "## default l, k", para.l, para.k
+
+        distMatrix = pairwise.cosine_distances(dataset)
+        nns_fromSim = [sorted(enumerate(distMatrix[i]), key = lambda a:a[1])[:10] for i in range(distMatrix.shape[0])]
+
+        prob_cands = range(30, 200)
+        for num_probes in prob_cands:
+            t1 = timeit.default_timer()
+            ngIdxArray = getLshNN(dataset, nnModel, thred_radius_dist, num_probes)
+            t2 = timeit.default_timer()
+            print "## probs", num_probes, "\t time", {}.format(t2-t1)
+            eval_sklearn_nnmodel(nns_fromSim, rngIdxArray)
+        #return num_probes
+
+    ngIdxArray = getLshNN(dataset, nnModel, thred_radius_dist, trained_num_probes)
+    print "## Nearest neighbor [Falconn_lsh] with radius ", thred_radius_dist, ngIdxArray.shape, " obtained at", time.asctime()
+    return ngIdxArray
+
+def prepData_forLsh(dataset):
     dataset = dataset.astype(np.float32)
     dataset -= np.mean(dataset, axis=0)
+    return dataset
+
+def getPara_forLsh(dataset):
     num_points, dim = dataset.shape
     para = falconn.get_default_parameters(num_points, dim)
+    return para
+
+def getLshIndex(para, dataset):
     nnModel = falconn.LSHIndex(para)
     nnModel.setup(dataset)
-    print "## Sim falconn data setup", time.asctime()
-    rate_probes = 2
-    ngIdxList = []
-    for dataIdx in range(num_points):
-        #nnModel.set_num_probes(nnModel.get_num_probes() * rate_probes)
+    print "## sim falconn data setup", time.asctime()
+    return nnModel
+
+def getLshNN(dataset, nnModel, thred_radius_dist, trained_num_probes):
+    ngIdxList= []
+    for dataidx in range(dataset.shape[0]):
+        nnModel.set_num_probes(trained_num_probes)
         # nn_keys: (id1, id2, ...)
-        nn_keys = nnModel.find_near_neighbors(dataset[dataIdx,:], thred_radius_dist)
+        nn_keys = nnModel.find_near_neighbors(dataset[dataidx,:], thred_radius_dist)
         ngIdxList.append(nn_keys)
     ngIdxList = np.asarray(ngIdxList)
-    print "## Nearest neighbor [Falconn_lsh] with radius ", thred_radius_dist, ngIdxList.shape, " obtained at", time.asctime()
     return ngIdxList
 
 #######################
