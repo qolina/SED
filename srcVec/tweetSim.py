@@ -43,11 +43,7 @@ def testVec_byNN_gensim(doc2vecModel, texts):
         for item in simNN[docid]:
             print item[0], item[1], " ".join(texts[int(item[0][5:])])
 
-def testVec_byNN(dataset, texts, Knn):
-    simMatrix = pairwise.cosine_similarity(dataset)
-    nns_fromSim = [sorted(enumerate(simMatrix[i]), key = lambda a:a[1], reverse=True)[:Knn] for i in range(simMatrix.shape[0])]
-    print "## Similarity Matrix obtained at", time.asctime()
-
+def testVec_byNN(nns_fromSim, texts, Knn):
     for docid in [0, 1, 2]:
         nn = nns_fromSim[docid]
         nn_texts = [texts[idx[0]] for idx in nn]
@@ -56,7 +52,7 @@ def testVec_byNN(dataset, texts, Knn):
 
 def outputNN(nn, texts):
     print "############################"
-    for itemIdx in range(len(nn)):
+    for itemIdx in range(len(nn))[:10]:
         idx, sim = nn[itemIdx]
         if sim is None or sim >= 0.5:
             print idx, sim, texts[itemIdx]

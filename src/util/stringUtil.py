@@ -1,8 +1,9 @@
 import re
 import sys
+import os
 
 
-sys.path.append("/home/yxqin/Scripts/")
+sys.path.append(os.path.expanduser("~") + "/Scripts/")
 import hashOperation as hashOp
 
 ##########################################################################
@@ -10,8 +11,16 @@ import hashOperation as hashOp
 
 ### extract mainName out of company fullname
 def getMainComp(compName):
-    mainName = re.sub(r"\b(?:corporation|limited|company|group|inc|corp|ltd|svc.gp.|int'l|the|plc|cos|co)\b[.]?", "", compName)
-    return mainName.strip(",& ")
+    mainName = re.sub(r"\b(?:corporation|incorporated|technologies|limited|company|group|inc|corp|ltd|svc.gp.|int'l|the|plc|cos|co)\b[.]?", "", compName)
+    #mainName = re.sub(r"\b(?:laboratories|international|resources|systems|sciences|devices)\b[.]?", "", mainName)
+    mainName = re.sub(r"\b(?:laboratories|energy|financial|analytics|communities|brands|companies|resources|system|systems|national|sciences|devices|banks|bank|holdings|technology)$", "", mainName.strip())
+    mainName = re.sub(r"\b(class .)|(\.com)\b", "", mainName)
+    mainName = re.sub("\s+", " ", mainName).strip()
+    repair = [("united", "technologies"), ("news", "corporation"), ("target", "corporation"), ("regions", "financial"), ("ball", "corporation"), ("southern", "company"), ("range", "resources"), ("l", "brands"), ("linear", "technology")]
+    repaired = [mainName+" "+item[1] for item in repair if item[0]==mainName]
+    if len(repaired) >= 1:
+        mainName = repaired[0]
+    return mainName.strip(",&! ")
 
 def comps_in_a_sent(sentence):
     comps = [1 for word in sentence.split() if word.startswith("$")]

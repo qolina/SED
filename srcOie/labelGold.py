@@ -77,7 +77,8 @@ def get_valid_1stpara_news(content):
 
     valid_contentLines = []
     content = [line.strip() for line in content.split("\n")]
-    valid_contentLines.append(content[0][3:])
+    headline = re.sub("-", " ",content[0][3:])
+    valid_contentLines.append(headline)
 
     content = content[4:]
     content = [line.replace("* ", ". ") for line in content]
