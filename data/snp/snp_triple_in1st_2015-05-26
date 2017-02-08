@@ -1,455 +1,172 @@
+(lp1
 c__builtin__
 set
-p1
-((lp2
-S'emc--emc###has been facing###pressure to spin off vmware'
-p3
-aS'gm--gm###generated###net income of $ 2.8 billion'
+p2
+((lp3
+S'time warner cable--charter###agrees to buy###time warner cable'
 p4
-aS'emc--emc###to buy###virtustream'
-p5
-aS'gm--gm###generated net income of $ 2.8 billion in###2014'
-p6
-aS'emc--emc###has decided not to spin off###the business'
-p7
-atRp8
-.c__builtin__
-set
-p1
-((lp2
-S'reynolds american--may 26 reynolds american inc###won###u.s. antitrust approval'
-p3
-aS'altria--marlboro###be owns by###altria group'
-p4
-aS'time warner--time warner cable###rose###7.2 percent'
-p5
-aS'michael kors holdings--fashion and accessories company michael kors holdings###could report###lower-than-expected fourth-quarter profit and sales'
-p6
-aS'citigroup--bnp paribas , bank of america merrill lynch , citigroup , deutsche bank , morgan stanley and santander gbm###to schedule###a series of fixed-income investor meetings'
-p7
-aS'amgen--sanofi/regeneron and amgen###are conducting###larger trials'
-p8
-aS'emc--emc###to buy###virtustream'
-p9
-aS'costco wholesale--warehouse club operator costco wholesale corp###to report###third-quarter sales'
-p10
-aS'halliburton--halliburton co###was also named as###a defendant'
-p11
-aS'u.s. dollar--the main factor weighing on prices###is###the significantly appreciating u.s. dollar'
-p12
-aS'u.s. dollar--the u.s. dollar###be extended session gains on###data that showed u.s. business investment spending plans'
-p13
-aS'u.s. dollar--the u.s. dollar###rallied to###a one-month high'
-p14
-aS'wal-mart stores--mass retailer wal-mart stores inc###issued guidelines in###last friday'
-p15
-aS"time warner--charter 's time warner cable bid###faces###$ 2 billion regulatory question"
-p16
-aS'amazon.com--( amzn.o###be ) main german operating unit of###internet retailer amazon.com inc.'
-p17
-aS'citigroup--citigroup###to be join in###tokyo'
-p18
-aS'state street--bart wakabayashi###be head of forex at###state street'
-p19
-aS'tiffany--tiffany###has been hit by###a strong dollar which has made it more expensive for foreign visitors to splurge in the united states'
-p20
-aS"halliburton--it###was opposed to###halliburton 's decision"
-p21
-aS'priceline--priceline###invested $ 500 million in###ctrip.com'
-p22
-aS'express scripts holding--express scripts holding co###is the largest u.s. manager of###pharmacy benefit plans'
-p23
-aS'altria--altria group###has###a 47 percent u.s. market share'
-p24
-aS'morgan stanley--morgan stanley###said###a report'
-p25
-aS'express scripts holding--express scripts holding co###is###the largest u.s. manager of pharmacy benefit plans'
-p26
-aS'time warner--time warner cable chief executive rob marcus###said in###an interview'
-p27
-aS'goldman sachs--goldman sachs###is building###a new 111,500 square meter european headquarters'
-p28
-aS"time warner--time warner cable###rose 7.2 percent below###charter 's cash and stock offer of $ 195.71"
-p29
-aS'goldman sachs--u.s. shale oil producers###to ramp up drilling###goldman sachs'
-p30
-aS"nordstrom--it###will acquire###nordstrom 's u.s. consumer credit card portfolio"
-p31
-aS"target--the move which comes about two years after completing a similar deal with target corp ( tgt.n )###increases###td 's reach"
-p32
-aS'coca-cola--international beverages private ltd###be unit of###coca-cola'
-p33
-aS"verizon communications--cox 's family owners###may therefore is###not be interested in selling , while heavily indebted cablevision faces considerable competition from verizon communications ' fibre network in new york , new jersey and connecticut and therefore is less profitable"
-p34
-aS'costco wholesale--warehouse club operator costco wholesale corp###is###likely'
-p35
-aS'u.s. dollar--the u.s. dollar###strengthened on###the back of heightened investor concern'
-p36
-aS'nasdaq--the nasdaq composite###lost 25.3 points , or 1.19 percent , to###2,100.76'
-p37
-aS'coca-cola--bangladesh coca-cola unit###be arrested as###islamic state'
-p38
-aS"halliburton--nigeria 's main oil union###has shut down###the local operations of u.s. oilfield services provider halliburton co"
-p39
-aS'nasdaq--the nasdaq composite###was down 62.90 points , 1.24 percent , at###5,026.47'
-p40
-aS"goldman sachs--goldman sachs###is building a new 111,500 square meter european headquarters in###london 's farringdon business hub"
-p41
-aS"amgen--amgen 's high-dose injections###could be appealing in###light of recent clinical data that has shown that keeping ldl very low can better protect against heart attack and stroke in high risk patients.trial data"
-p42
-aS'morgan stanley--morgan stanley###said in###a report'
-p43
-aS'citigroup--tom hayes###be a former trader at###ubs and citigroup'
-p44
-aS'goldman sachs--goldman sachs group inc###has appointed stephanie cohen as###global head of financial sponsor m&a'
-p45
-aS'goldman sachs--goldman sachs###is looking to bundle###debt backing'
-p46
-aS'progressive--progressive central bank interest rate cuts aimed at knocking down the australian dollar and falling labour and mining costs###are adding fuel to###the frenzy'
-p47
-aS"u.s. dollar--the u.s. dollar index###rallied as###greece 's financial crisis and signs of increasing opposition to austerity in spain pressured the euro"
-p48
-aS'nasdaq--the nasdaq composite###dropped 64.44 points , or 1.27 percent , to###5,024.93'
-p49
-aS"target--inflation###be brought back permanently to###the ecb 's target level of"
-p50
-aS'emc--emc corp###be maker for###data storage products'
-p51
-aS'halliburton--halliburton###is in###conversations'
-p52
-aS'morgan stanley--bnp paribas , citigroup , jp morgan , morgan stanley and natixis###will arrange###the investor meeetings'
-p53
-aS'wells fargo--brian jacobsen###be chief portfolio strategist at###wells fargo funds management'
-p54
-aS'nasdaq--the nasdaq composite###dropped###56.61 points , or 1.11 percent'
-p55
-aS'progressive--progressive central bank interest rate cuts aimed at knocking down the australian dollar and falling labor and mining costs###are adding###fuel'
-p56
-aS'u.s. dollar--the u.s. dollar###rallied against###a basket of currencies'
-p57
-aS'target--a similar deal###be completing with###target corp'
-p58
-aS"time warner--time warner cable###rose 6.9 percent below###charter 's cash and stock offer of $ 195.71"
-p59
-aS'nasdaq--the nasdaq composite###was recording###47 new highs and 75 new lows'
-p60
-aS'time warner--charter###has offered to buy###time warner cable'
-p61
-aS"nordstrom--it###will acquire###nordstrom 's ( jwn.n ) u.s. consumer credit card portfolio"
-p62
-aS'gap--the value###be assigned to###the gap risk'
-p63
-aS'goldman sachs--the telegraph andrew wilson###be the european chief executive of###goldman sachs asset management'
-p64
-aS'first solar--first solar###fell###6.8 percent'
-p65
-aS'citigroup--citigroup and jp morgan###are acting as###global coordinators'
-p66
-aS'priceline--ctrip###will issue convertible bonds to###priceline'
-p67
-aS'nasdaq--the nasdaq composite###dropped###64.44 points , or 1.27 percent'
-p68
-aS'target--one target of new reforms###could be law enforcement officers of###the state'
-p69
-aS'target--the european creditors###could accept 1 to 1.5 percent as###a suitable primary surplus target'
-p70
-aS'nasdaq--the nasdaq composite###dropped 67.90 points , or 1.33 percent , to###5,021.46'
-p71
-aS'priceline--priceline###held###about 5 percent'
-p72
-aS'goldman sachs--goldman sachs###is###financial advisor'
-p73
-aS'reynolds american--reynolds american###wins###antitrust approval to buy rival lorillard'
-p74
-aS'gap--any losses###be attributed to###the gap risk'
-p75
-aS'gap--may 26 brazil###posted a current account deficit of $ 6.901 billion widening in###a gap of $ 5.736 billion in march and in line'
-p76
-aS"gap--update 1-brazil 's current account gap###widens in###april"
-p77
-aS'general mills--general mills inc , payless shoesource inc and choice hotels international inc###said in###statements'
-p78
-aS'target--the central bank###will remain###vigilant to bring inflation back to the target'
-p79
-aS"gap--brazil 's current account gap###widens to###$ 6.9 bln"
-p80
-aS'coca-cola--a coca-cola spokesman###said by###email'
-p81
-aS"time warner--altice 's ambitions###undimmed after###time warner cable setback"
-p82
-aS'morgan stanley--goldman sachs###be joining from###morgan stanley'
-p83
-aS'halliburton--halliburton###is to resolve###the pending issues'
-p84
-aS'morgan stanley--morgan stanley###said on###tuesday'
-p85
-aS'gap--the bank###has not experienced###any losses attributed to the gap risk on the lss securities as this risk never materialised'
-p86
-aS'u.s. dollar--the u.s. dollar###to provide###a useful indicator'
-p87
-aS'amgen--sanofi/regeneron and amgen###are conducting larger trials to confirm###the benefits of pcsk9 drugs'
-p88
-aS'cisco systems--the u.s. supreme court###ruled against###cisco systems inc( csco.o'
-p89
-aS'southern--the case###is mayimba music inc for###the southern district of new york'
-p90
-aS'goldman sachs--goldman sachs###to bundle###debt backing'
-p91
-aS'time warner--time warner cable###rose###6.9 percent'
-p92
-aS'u.s. dollar--the u.s. dollar###extended###gains'
-p93
-aS'amgen--amgen###has brought for###alleged patent infringement'
-p94
-aS'oracle--sap se and oracle corp###said###net loss widened by 3.6 percent'
-p95
-aS"amazon.com--may 26 internet retailer amazon.com inc. 's main german operating unit###paid just 11.9 million euros ( $ 16 million ) in tax in 2014 despite###the group recording"
-p96
-aS'goldman sachs--mario alberto huertas###has appointed###goldman sachs'
-p97
-aS'citigroup--citigroup###be joined in###tokyo'
-p98
-aS'emc--emc###has been facing###pressure to spin off vmware'
-p99
-aS'target--the fed###achieve###its 2 percent inflation target'
-p100
-aS'target--the central bank###make good on###its promises to slash inflation to the 4.5 percent center of the official target range by late 2016'
-p101
-aS'goldman sachs--goldman sachs###has named andrea vella as###its new co-heads of investment banking'
-p102
-aS'nasdaq--declining issues###fell on###the nasdaq'
-p103
-aS'aes--philippines###be the local unit of###aes corp'
-p104
-aS'halliburton--halliburton co###be provider of###u.s. oilfield services'
-p105
-aS'amgen--amgen###has brought against###sanofi and regeneron'
-p106
-aS'goldman sachs--goldman sachs###said###prices'
-p107
-aS"u.s. dollar--the u.s. dollar###strengthened over###greece 's debt crisis and the outlook"
-p108
-aS'target--inflation###to bring back to be###the target'
-p109
-aS'nasdaq--the nasdaq composite###dropped 56.61 points , or 1.11 percent , to###5,032.75'
-p110
-aS'target--consumer prices###to guide up to be###its 2 percent inflation target'
-p111
-aS'u.s. dollar--the u.s. dollar###rallied after###a string of healthy economic data'
-p112
-aS'nasdaq--683###fell on###the nasdaq'
-p113
-aS'gap--its return###adds to handle after###a gap of five years'
-p114
 aS'time warner--charter###agrees to buy###time warner cable'
-p115
-aS'chevron--the malampaya consortium###be composed of###shell philippines exploration bv , chevron malampaya llc , pnoc exploration corp and state-owned philippine national oil co'
-p116
-aS"gap--brazil 's current account gap###widens in###april"
-p117
-aS'morgan stanley--bnp paribas , bank of america merrill lynch , citigroup , deutsche bank , morgan stanley and santander gbm###to schedule###a series of fixed-income investor meetings'
-p118
-aS'apple--firefighters###fought###a blaze that erupted at an apple inc facility in mesa , arizona on tuesday'
-p119
-aS'nordstrom--nordstrom###will receive###a large slice of net revenue'
-p120
-aS'goldman sachs--private equity firm carlyle###has hired###goldman sachs'
-p121
-aS'goldman sachs--goldman sachs###be joining in###march 2013'
-p122
-aS'progressive--progressive central bank interest rate cuts aimed at knocking down the australian dollar and falling labor and mining costs###are adding fuel to###the frenzy'
-p123
-aS'u.s. dollar--the u.s. dollar###then is###likely'
-p124
-aS'progressive--progressive central bank interest rate cuts aimed at knocking down the australian dollar and falling labour and mining costs###are adding###fuel'
-p125
-aS'target--1 to 1.5 percent###could be accept as###a suitable primary surplus target'
-p126
-aS'goldman sachs--goldman sachs###be joining from###morgan stanley'
-p127
-aS'target--any moves to bolster mortgage lending###would go against###central bank efforts to raise borrowing costs to bring inflation back to the center of the official target in late 2016'
-p128
-aS'amgen--neither amgen###would talk###about possible pricing of their new drugs'
-p129
-aS"gap--update 1-brazil 's current account gap###widens to###$ 6.9 bln"
-p130
-aS'goldman sachs--around 5,500 people###be employs by###goldman sachs'
-p131
-aS'goldman sachs--may 26 goldman sachs###has named###kate richdale and andrea vella'
-p132
-aS'southern--harvests###to be damage across###southern africa'
-p133
-aS'gap--each change###reduced###the value assigned to the gap risk until deutsche bank eventually stopped adjusting for gap risk altogether'
-p134
-aS'nasdaq--the nasdaq composite .ixic###dropped 56.61 points , or 1.11 percent , to###5,032.75'
-p135
-aS'target--barrick###appears to meet###its target'
-p136
-aS"nasdaq--california-based company 's shares###closed on###the nasdaq"
-p137
-aS'gap--gap risk###is###the risk'
-p138
-aS'gap--may 26 brazil###posted a current account deficit of $ 6.901 billion widening from###a gap of $ 5.736 billion in march and in line'
-p139
-aS'apple--apple###was the biggest drag on###all three major indexes'
-p140
-aS'u.s. dollar--the u.s. dollar###rallied after###a barrage of economic data'
-p141
-aS'u.s. dollar--once-popular pair trade pitting the u.s. dollar against oil prices###has re-emerged in###recent weeks'
-p142
-aS'reynolds american--reynolds american###wins###u.s. antitrust approval'
-p143
-aS"target--ecopetrol 's target of saving###is###part of an efficiency drive"
-p144
-aS'southern--harvests###to be damage from###southern angola'
-p145
-aS'goldman sachs--may 26 goldman sachs###has named kate richdale as###its new co-heads of investment banking'
-p146
-aS'hormel foods--hormel foods corp###be the maker of###spam lunch meat'
-p147
-aS'amgen--astrazeneca and amgen###have been sharing development of brodalumab as###a treatment for psoriasis , psoriatic arthritis and axial spondyloarthritis'
-p148
-aS'waters--lighthouses###be build in###disputed waters'
-p149
-aS'amgen--astrazeneca and amgen###have been sharing development of brodalumab since###2012'
-p150
-aS'bank of america--bnp paribas , bank of america merrill lynch , citigroup , deutsche bank , morgan stanley and santander gbm###to schedule###a series of fixed-income investor meetings'
-p151
-aS'halliburton--reuters###has shut down###the local operations of u.s. oilfield services provider halliburton co'
-p152
-aS'emc--emc###has decided not to spin off###the business'
-p153
-aS'priceline--priceline###invested $ 500 million in###ctrip'
-p154
-aS"target--ecopetrol 's target of saving###is part of###an efficiency drive that will seek savings across the company 's operations"
-p155
-aS"verizon communications--cox 's family owners###may be###not be interested in selling , while heavily indebted cablevision faces considerable competition from verizon communications ' fibre network in new york , new jersey and connecticut and therefore is less profitable"
-p156
-aS'priceline--priceline group inc###be operator for###travel websites'
-p157
-aS'wal-mart stores--mass retailer wal-mart stores inc###issued guidelines to###its meat'
-p158
-aS'citigroup--bnp paribas , citigroup , jp morgan , morgan stanley and natixis###will arrange###the investor meeetings'
-p159
-aS'time warner--it###agreed to buy###time warner cable'
-p160
-aS'amgen--astrazeneca and amgen###have been sharing###development of brodalumab'
-p161
-aS'tiffany--tiffany###reported###its first fall'
-p162
-aS'nasdaq--the nasdaq composite###dropped###67.90 points , or 1.33 percent'
-p163
-aS'priceline--priceline###invested $ 500 million in###2014'
-p164
-aS'apple--apple###was###the biggest drag'
-p165
-aS'nasdaq--653###fell on###the nasdaq'
-p166
-aS'express scripts holding--express scripts holding co###successfully pressed for###price reductions'
-p167
-aS'u.s. dollar--crude prices###fall###than 3 pct ( updates prices , changes dateline from previous london ) by rodrigo campos new york , may 26 the u.s. dollar rallied on tuesday after a string of healthy economic data boosted near-term rate hike prospects'
-p168
-aS'goldman sachs--goldman sachs###employs around 5,500 people in###britain'
-p169
-aS'target--the government###can consistently meet###its target of 3 percent nominal gdp growth'
-p170
-aS"amazon.com--may 26 internet retailer amazon.com inc. 's main german operating unit###paid###just 11.9 million euros"
-p171
-aS'reynolds american--reynolds american inc###won###u.s. antitrust approval'
-p172
-aS'goldman sachs--goldman sachs###has named kate richdale as###its new co-heads of investment banking'
-p173
-aS"chevron--april###said to###the company which provides drilling services to royal dutch shell plc and chevron corp in africa 's top oil producer ,"
-p174
-aS'priceline--priceline group inc###be operator of###travel websites'
-p175
-aS'amazon.com--amazon.com inc.###be retailer for###internet'
-p176
-aS'target--inflation###to slash to be###the 4.5 percent center of the official target range'
-p177
-aS'target--inflation###be bringing back to###the center of its target range'
-p178
-aS"time warner--time warner cable 's insistence###reflects###lingering worries"
-p179
-aS"amgen--amgen 's high-dose monthly injection###could be seen because of###its higher potency"
-p180
-aS"amgen--the drug 's prospects###now seem badly tarnished with###amgen"
-p181
-aS"aes--bulgaria 's beh###considers###$ 550 mln loan to pay aes , contourglobal"
-p182
-aS'nordstrom--nordstrom###be a large slice of###net revenue generated by the credit card accounts'
-p183
-aS"time warner--john malone 's charter communications inc###struck a $ 56 billion deal to buy###time warner cable inc"
-p184
-aS'halliburton--the union###accused###halliburton'
-p185
-aS'goldman sachs--goldman sachs###is financial advisor to###applegate and ballard spahr llp and fried frank'
-p186
-aS'amazon.com--amazon.com inc.###be retailer of###internet'
-p187
-aS'time warner--time warner cable###killed###a proposed takeover'
-p188
-aS"target--one target of new reforms###could be###the state 's law enforcement officers"
-p189
-aS'general mills--retailers walgreen co and payless shoesource inc , and hotel chain group choice hotels international inc###followed###the lead of general mills inc'
-p190
-aS'chevron--the company###provides drilling services to###royal dutch shell plc and chevron corp'
-p191
-aS"gap--brazil 's external gap###has widened sharply in###recent years"
-p192
-aS"u.s. dollar--that fact combined with its loose peg to the u.s. dollar###is a big challenge to###chinese policymakers ' ambitions"
-p193
-aS'goldman sachs--may 26 goldman sachs###has named andrea vella as###its new co-heads of investment banking'
-p194
-aS'newmont mining--four mines###be buying from###barrick and newmont mining corp'
-p195
-aS'apple--a blaze###erupted at###an apple inc facility'
-p196
-aS'goldman sachs--goldman sachs group inc###has appointed###stephanie cohen'
-p197
-aS'halliburton--halliburton co###spun off kbr in###2007'
-p198
-aS'coca-cola--it###be an it manager at###a subsidiary of coca-cola co'
-p199
-aS'apple--fire###extinguished at###apple site'
-p200
-aS'emc--emc corp###be maker of###data storage products'
-p201
-aS'cisco systems--the u.s. supreme court###ruled against###cisco systems inc'
-p202
-aS'oracle--oracle###won###a federal appeals court ruling that allows it to copyright parts of java'
-p203
-aS'u.s. dollar--the canadian dollar###finished against###the u.s. dollar'
-p204
-aS'goldman sachs--richdale###was previously head of investment banking services for###goldman sachs'
-p205
-aS"goldman sachs--goldman sachs###is looking to bundle debt backing three of colombia 's 4g highway projects and sell it as###an up to us$ 500m 144a bond"
-p206
-aS'citigroup--he###started trading at###citigroup'
-p207
+p5
+atRp6
+ag2
+((lp7
+S'lockheed martin--military and spy satellites ending a monopoly###be a joint venture of###lockheed martin corp and boeing co'
+p8
+aS'boeing--military and spy satellites ending a monopoly###be a joint venture of###lockheed martin corp and boeing co'
+p9
+atRp10
+ag2
+((lp11
+S'google--obama administration###asks to decline###google copyright appeal'
+p12
+aS'google--the obama administration###sided against###google inc'
+p13
+atRp14
+ag2
+((lp15
+S'priceline--ctrip.com###will issue convertible bonds to###priceline'
+p16
 aS'priceline--convertible bonds###will be issue to###priceline'
-p208
-aS'u.s. dollar--the canadian dollar###touched c$ 1.2395 to###the u.s. dollar'
-p209
-aS'target--the target###be values by###a deal'
-p210
-aS'goldman sachs--we###believe###given improved returns " analysts at goldman sachs said in a report'
-p211
-aS'wal-mart stores--mass retailer wal-mart stores inc###issued###guidelines'
-p212
-aS'aes--the standard###reported citing###aes philippines managing director neeraj bhat'
-p213
-aS'goldman sachs--goldman sachs###has named###andrea vella and kate richdale'
-p214
-aS'u.s. dollar--that fact combined with its loose peg to the u.s. dollar###is###a big challenge'
-p215
-aS'goldman sachs--goldman sachs###said adding to###a growing list of headwinds crude faces'
-p216
-aS'citigroup--tom hayes###has was fired by###u.s. bank citigroup'
-p217
-aS'nasdaq--the nasdaq composite###recorded###52 new highs and 77 new lows'
-p218
-aS'u.s. dollar--the u.s. dollar###rallied on###tuesday'
-p219
-atRp220
-.
+p17
+atRp18
+ag2
+((lp19
+S'amazon--amazon###pays###$ 16 million tax'
+p20
+atRp21
+ag2
+((lp22
+S"gap--brazil 's current account gap###widens to###$ 6.9 bln"
+p23
+aS"gap--brazil 's current account gap###widens in###april"
+p24
+atRp25
+ag2
+((lp26
+S'gap--banks###to handle its return to the international bond market after###a gap of five years'
+p27
+aS'gap--its return###to be handle after###a gap of five years'
+p28
+atRp29
+ag2
+((lp30
+S"gap--brazil 's current account gap###widens to###$ 6.9 bln"
+p31
+aS'gap--26 brazil###may posted a current account deficit of $ 6.901 billion in april widening from###a gap of $ 5.736 billion in march and in line'
+p32
+aS'gap--26 brazil###may posted a current account deficit of $ 6.901 billion in april widening in###a gap of $ 5.736 billion in march and in line'
+p33
+aS"gap--brazil 's current account gap###widens in###april"
+p34
+atRp35
+ag2
+((lp36
+S'google--26 the obama administration###be sided against###google inc'
+p37
+aS'google--obama administration###asks top court not to hear###google copyright fight'
+p38
+atRp39
+ag2
+((lp40
+S'lockheed martin--military and spy satellites ending a monopoly###be a joint venture of###lockheed martin corp and boeing co'
+p41
+aS'boeing--military and spy satellites ending a monopoly###be a joint venture of###lockheed martin corp and boeing co'
+p42
+atRp43
+ag2
+((lp44
+S'lorillard--26 reynolds###may won###antitrust approval to buy smaller rival lorillard in a deal that would combine the no'
+p45
+atRp46
+ag2
+((lp47
+S'aes--philippines###be the local unit of###aes'
+p48
+aS'aes--philippines press aes###may bid for###malampaya banked gas standard'
+p49
+atRp50
+ag2
+((lp51
+S'time warner cable--time warner cable###killed###a proposed takeover'
+p52
+aS'time warner--time warner cable###killed###a proposed takeover'
+p53
+atRp54
+ag2
+((lp55
+S'google--the obama administration###be sided against###google inc'
+p56
+aS'google--obama administration###asks to decline###google copyright appeal'
+p57
+atRp58
+ag2
+((lp59
+S'cisco--u .s###be top court rules against###cisco systems'
+p60
+atRp61
+ag2
+((lp62
+S'lorillard--u###.s###antitrust approval to buy smaller rival lorillard in a deal that would combine the no'
+p63
+atRp64
+ag2
+((lp65
+S'cisco--u .s###be top court rules against###cisco systems'
+p66
+atRp67
+ag2
+((lp68
+S'lockheed martin--military and spy satellites ending a monopoly###be a joint venture of###lockheed martin corp and boeing co'
+p69
+aS'boeing--military and spy satellites ending a monopoly###be a joint venture of###lockheed martin corp and boeing co'
+p70
+atRp71
+ag2
+((lp72
+S'waters--lighthouses###be build in###disputed waters'
+p73
+atRp74
+ag2
+((lp75
+S'waters--lighthouses###be build in###disputed waters'
+p76
+atRp77
+ag2
+((lp78
+S'coca-cola--it###be an it manager at###a subsidiary of coca-cola co'
+p79
+atRp80
+ag2
+((lp81
+S'apple--26 firefighters###may fought local station abc15 reported###a blaze that erupted at an apple inc facility in mesa , arizona on tuesday'
+p82
+aS'apple--fire###extinguished at###apple site'
+p83
+aS'apple--a blaze###erupted at###an apple inc facility'
+p84
+atRp85
+ag2
+((lp86
+S'amazon--amazon###pays###$ 16 mln tax'
+p87
+atRp88
+ag2
+((lp89
+S'cisco--u .s###be top court rules against###cisco systems'
+p90
+atRp91
+ag2
+((lp92
+S'goldman sachs--26 goldman sachs###may has named###kate richdale and andrea vella'
+p93
+aS'goldman sachs--26 goldman sachs###may has named kate richdale as###its new co-heads of investment banking'
+p94
+aS'goldman sachs--26 goldman sachs###may has named andrea vella as###its new co-heads of investment banking'
+p95
+atRp96
+ag2
+((lp97
+S"aes--bulgaria 's beh###considers###$ 550 mln loan to pay aes"
+p98
+atRp99
+a.

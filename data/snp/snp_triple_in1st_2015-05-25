@@ -1,161 +1,41 @@
+(lp1
 c__builtin__
 set
-p1
-((lp2
-S'cme--cme###throws down###challenge'
-p3
-aS'cme--cme###launched###first a physical aluminium premium contract <0#aup:>'
+p2
+((lp3
+S'time warner--charter communications inc###is near###an agreement to acquire time warner cable inc for $ 195 per share in cash and stock'
 p4
-atRp5
-.c__builtin__
-set
-p1
-((lp2
-S'southern--shelling###said in###the southern city of taiz'
-p3
-aS'southern--the unrest###follows the suspension of civil liberties in###another southern region of peru'
-p4
-aS'southern--no human trafficking camps###left in###southern thailand'
+aS'time warner cable--charter communications inc###is near###an agreement to acquire time warner cable inc for $ 195 per share in cash and stock'
 p5
-aS"time warner--charter 's previous agreement###was contingent on###comcast 's completion of the buyout of time warner cable"
-p6
-aS'boeing--boeing co###be maker for###airplane'
-p7
-aS'newmont mining--four gold mines###be buying from###barrick and newmont mining corp'
+atRp6
+ag2
+((lp7
+S'coca-cola--25 one of two men###was an it manager at###a subsidiary of coca-cola co'
 p8
-aS'time warner--altice###will not seek to outbid charter for###time warner cable'
+aS'coca-cola--it###was an it manager at###a subsidiary of coca-cola co'
 p9
-aS'southern--thousands of rohingya muslims###are ferried has through###southern thailand'
-p10
-aS'general motors--an email###be sent to###general motors ceo mary barra'
-p11
-aS'southern--a week-long strike###be supporting in###southern peru'
+atRp10
+ag2
+((lp11
+S'cme--rpt column as lme looks east , cme###throws down###challenge'
 p12
-aS'gap--import taxes###are only one part of###the price gap'
-p13
-aS"target--inflation###may approach###the federal reserve 's 2 percent target"
-p14
-aS'american airlines--a separate american airlines flight###headed to###jfk'
+atRp13
+ag2
+((lp14
+S'ryder--ryder shares###could rise###30 percent'
 p15
-aS'cummins--cummins inc###be maker of###engine'
+aS"ryder--ryder system inc 's shares###could rise###30 percent"
 p16
-aS'goldman sachs--may 25 goldman sachs group inc###plans to establish###a bond facility to target $ 1 billion in investment within the next few years in renewable energy projects in japan'
+aS'ryder--ryder shares###could rise 30 percent in###a year barron'
 p17
-aS'goldman sachs--goldman sachs###targets $ 1 bln in###japan renewable energy bonds'
+aS"ryder--ryder system inc 's shares###could rise 30 percent in###a year"
 p18
-aS'time warner--break-up fee time warner cable shareholders###will have###an option'
-p19
-aS'time warner--charter communications inc###is near###an agreement to acquire time warner cable inc for $ 195 per share in cash and stock'
-p20
-aS'nasdaq--coastal###was listed in###the toronto stock exchange and nasdaq'
+atRp19
+ag2
+((lp20
+S'goldman sachs--25 goldman sachs group inc###may plans to establish###a bond facility to target $ 1 billion in investment within the next few years in renewable energy projects in japan'
 p21
-aS"general motors--the company 's chief executive sergio marchionne###sent an email to###general motors ' chief executive officer mary barra"
-p22
-aS"ryder system--ryder system inc 's shares###could rise###30 percent"
-p23
 aS'goldman sachs--goldman sachs###targets###$ 1 bln'
-p24
-aS'time warner--time warner cable shares###closed in###friday'
-p25
-aS'alcoa--klaus kleinfeld , ceo of metals company alcoa inc###sees###opportunities'
-p26
-aS'target--mileage###are already achieving close to###the target'
-p27
-aS'gap--price gap import tariffs###will be reduced to###between 7-10 percent'
-p28
-aS'gap--the two sides###disagree over###the size of the fiscal gap'
-p29
-aS'gap--price gap import tariffs###will be reduced from###14-23 percent'
-p30
-aS'general motors--an email###be sent to###general motors co chief executive officer mary barra'
-p31
-aS"target--the stock 's target price###be raised from###41.00 riyals"
-p32
-aS'target--some truckers###are already achieving mileage close to###the target'
-p33
-aS'southern--national bank of iraq###will open five branches in###baghdad and southern areas'
-p34
-aS'time warner--time warner cable shares###closed on###friday'
-p35
-aS'time warner--time warner cable###clinched over###antitrust concerns'
-p36
-aS'alcoa--klaus kleinfeld , ceo of metals company alcoa inc###sees opportunities in the sector through###increased use of aluminum to make trucks lighter'
-p37
-aS'coca-cola--25 one of two men###was an it manager at###a subsidiary of coca-cola co'
-p38
-aS'southern--no human trafficking camps###left###southern thailand'
-p39
-aS'goldman sachs--goldman sachs###targets $ 1 billion in###japan renewable energy bonds'
-p40
-aS'general motors--companies fiat chrysler###sent an email to###general motors ceo mary barra'
-p41
-aS'boeing--boeing co###be maker of###airplane'
-p42
-aS"general motors--an email###be sent to###general motors ' chief executive officer mary barra"
-p43
-aS"target--al rajhi capital###raised###the stock 's target price"
-p44
-aS'southern--the southern resistance###succeeded in###intense fighting lasting'
-p45
-aS'coca-cola--bangladesh islamic state###suspect worked sources for###coca-cola unit'
-p46
-aS'time warner--time warner cable###clinched in###february 2014'
-p47
-aS"target--the stock 's target price###be raised to###52.00 riyals"
-p48
-aS"southern--local sunni muslim militia###ejected shi'ite houthi rebels from###much of the southern yemeni city of dalea"
-p49
-aS'time warner--charter###was competing for###time warner cable'
-p50
-aS"ryder system--ryder system inc 's shares###could rise 30 percent in###a year"
-p51
-aS"general motors--the company 's chief executive sergio marchionne###sent an email to###general motors co chief executive officer mary barra"
-p52
-aS"procter & gamble--companies that stand to benefit from lower import duties###include###diaper makers procter & gamble co and japan 's unicharm corp , u.s. sports shoe firms nike inc , and adidas ag and cosmetics companies"
-p53
-aS"time warner--altice###did not have###enough time to address all of time warner cable 's concerns over a merger between the two of them"
-p54
-aS'southern--southern africa###is on###track to record growth of 3.5 percent that year , up from its 2014 level of 2.7 percent'
-p55
-aS'boeing--boeing###promoted###its maritime surveillance aircraft'
-p56
-aS"southern--combatants###ejected shi'ite houthi rebels from###much of the southern yemeni city of dalea"
-p57
-aS'target--may 25 goldman sachs group inc###plans to establish###a bond facility to target $ 1 billion in investment within the next few years in renewable energy projects in japan'
-p58
-aS"southern--36 bodies###were found in###thailand 's southern songkhla province"
-p59
-aS"southern--a man supporting a week-long strike at shougang group co ltd 's iron deposit in southern peru###was killed in###clashes"
-p60
-aS'southern--dalea###had been a bastion of###southern secessionists'
-p61
-aS'noble energy--the pressure###be potentially lifting on###exploration companies noble energy and delek group'
-p62
-aS"southern--shi'ite houthi rebels###be ejected from###much of the southern yemeni city of dalea"
-p63
-aS'alcoa--ceo###be klaus kleinfeld of###metals company alcoa inc'
-p64
-aS'southern--residents###said in###the southern city of taiz'
-p65
-aS'time warner--charter###to be outbid for###time warner cable'
-p66
-aS'time warner--it###ended###its agreement to acquire time warner cable last month'
-p67
-aS'nasdaq--coastal###was listed on###the toronto stock exchange and nasdaq'
-p68
-aS'southern--five branches###will be open in###baghdad and southern areas'
-p69
-aS'cummins--cummins inc###be maker for###engine'
-p70
-aS'harris--brett harris###be spokesman of###cenovus'
-p71
-aS'general motors--fiat chrysler###sent an email to###general motors ceo mary barra'
-p72
-aS'cummins--engine maker cummins inc###has###a model'
-p73
-aS'gap--china###to fill###a widening funding gap'
-p74
-aS'time warner--time warner cable inc###is nearing###an agreement to be acquired by smaller peer charter communications inc for about $ 55 billion'
-p75
-atRp76
-.
+p22
+atRp23
+a.

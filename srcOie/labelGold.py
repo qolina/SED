@@ -49,9 +49,18 @@ def load_triple(line):
 
 def load_oie_triples(oie_day_filename):
     contents = open(oie_day_filename, "r").readlines()
-    tripleLines = [line.lower() for line in contents if re.match("0\.[\d]+: \(", line)]
-    triples = [load_triple(line) for line in tripleLines]
-    return triples
+    contents_perLine = "".join(contents).split("\n\n")
+    contents_perNews = []
+    for newsIdx in range(len(contents_perLine)/2):
+        contents_perNews.append(contents_perLine[newsIdx*2]+"\n"+contents_perLine[newsIdx*2+1])
+
+    triples_perNews = []
+    for content in contents_perNews:
+        tripleLines = [line.lower() for line in content.split("\n") if re.match("0\.[\d]+: \(", line)]
+        triples_oneNews = [load_triple(line) for line in tripleLines]
+        if len(triples_oneNews) < 1: continue
+        triples_perNews.append(triples_oneNews)
+    return triples_perNews
 
 def get_valid_news_content(content):
     valid_contentLines = []
@@ -94,7 +103,7 @@ def get_valid_1stpara_news(content):
     return valid_contentLines
 
 stock_newsDir = '../ni_data/stocknews/'
-snpFilePath = "../data/snp500_ranklist_20160801"
+snpFilePath = "../data/snp500_sutd"
 ###############################################################
 if __name__ == "__main__":
     sym_names = snpLoader.loadSnP500(snpFilePath)
@@ -106,7 +115,7 @@ if __name__ == "__main__":
         #if dayDir < "2015-05-14": continue
         if dayDir.endswith("tmp"): continue
         #if dayDir != "2015-04-30": continue
-        dayContent = []
+        dayContent = set()
 
         for newsfile in sorted(os.listdir(stock_newsDir + dayDir)):
             #print "##############################################################"
@@ -119,7 +128,12 @@ if __name__ == "__main__":
             #sents = get_valid_news_content(content)
             sents = get_valid_1stpara_news(content)
             if sents is not None:
-                dayContent.extend(sents)
+                headline = re.sub("^(rpt )?update\s*\d+\s", "", "####".join(sents[:2]).lower())
+                dayContent.add(headline)
+                #for sent in sents[:2]:
+                #    sent = re.sub("^(rpt )?update\s*\d+\s", "", sent.lower())
+                #    dayContent.add(sent)
+                    #dayContent.append(sent)
             
         #content = [str(idx+1)+"\t"+dayContent[idx] for idx in range(len(dayContent)) if len(dayContent[idx]) < 500] # for tool clausie
 
@@ -129,9 +143,9 @@ if __name__ == "__main__":
 
         line_newsfilename = stock_tmpDir + dayDir
         output_file = open(line_newsfilename, "w")
-        output_file.write("\n".join(dayContent)) 
+        output_file.write("\n".join(dayContent).replace("####", "\n"))
         output_file.close()
-        #print "## File written. (temporary lined newsfile)", line_newsfilename
+        print "## File written. (temporary lined newsfile)", line_newsfilename
 
         ####### Apply oie tool
         oie_filename = stock_tmpDir + "oie-" + dayDir 
@@ -142,28 +156,30 @@ if __name__ == "__main__":
 
         ## ollie
         ollie_commandline = "java -jar ../tools/ollie/ollie-app-latest.jar " + line_newsfilename + " > " + oie_filename
-        #os.system(ollie_commandline)
+        os.system(ollie_commandline)
         os.remove(line_newsfilename)
 
-        #print "## File obtained. (news oie output)", oie_filename
-        #print "## File removed. (temporary lined newsfile)", line_newsfilename
+        print "## File obtained. (news oie output)", oie_filename
+        print "## File removed. (temporary lined newsfile)", line_newsfilename
 
 
         ## read triples
-        triples = load_oie_triples(oie_filename)
+        triples_perNews = load_oie_triples(oie_filename)
         snp_syms = [snpItem[0] for snpItem in sym_names]
         snp_comp = [strUtil.getMainComp(snpItem[1]) for snpItem in sym_names]
         conf_score = 0.6
-        sym_triples = set([sym+"--"+"###".join(triple) for sym in snp_syms for (score, triple) in triples if sym == triple[0] and score > conf_score])
-        comp_triples = set([comp+"--"+"###".join(triple) for comp in snp_comp for (score, triple) in triples if " "+comp+" " in " ".join(["", triple[0], triple[2], ""]) and score > conf_score])
-        print "#sym_tri, comp_tri", len(sym_triples), len(comp_triples)
+        #comp_triples = set([comp+"--"+"###".join(triple) for comp in snp_comp for triples_oneNews in triples_perNews for (score, triple) in triples_oneNews if " "+comp+" " in " ".join(["", triple[0], triple[2], ""]) and score > conf_score])
+        #print "#sym_tri, comp_tri", len(sym_triples), len(comp_triples)
 
-#        print "\n".join(sorted(list(sym_triples)))
-#        print "\n".join(sorted(list(comp_triples)))
+        comp_triples_perNews = []
+        for triples_oneNews in triples_perNews:
+            comp_triples = set([comp+"--"+"###".join(triple) for comp in snp_comp for (score, triple) in triples_oneNews if " "+comp+" " in " ".join(["", triple[0], triple[2], ""]) and score > conf_score])
+            if len(comp_triples) < 1: continue
+            comp_triples_perNews.append(comp_triples)
 
         ## save to file
         snp_trifile = open("../data/snp/snp_triple_in1st_"+dayDir, "w")
-        cPickle.dump(sym_triples, snp_trifile)
-        cPickle.dump(comp_triples, snp_trifile)
-        print "## File saved (news triples file)", snp_trifile.name, "#sym_tri, #comp_tri", len(sym_triples), len(comp_triples)
+        #cPickle.dump(comp_triples, snp_trifile)
+        cPickle.dump(comp_triples_perNews, snp_trifile)
+        print "## File saved (news triples file)", snp_trifile.name, "#sym_tri, #comp_tri", 0, sum([len(item) for item in comp_triples_perNews]), "in #news", len(comp_triples_perNews)
 

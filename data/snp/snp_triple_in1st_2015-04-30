@@ -1,695 +1,236 @@
+(lp1
 c__builtin__
 set
-p1
-((lp2
-S'kim--kim###to travel to###moscow'
-p3
-aS'aig--aig###posted operating earnings of $ 1.69 billion , or $ 1.22 per share in###the quarter'
+p2
+((lp3
+S"visa--visa inc , the world 's largest credit and debit card company###reported###a 7.8 percent rise"
 p4
-aS'gm--gm###outlined about $ 784 million of the investments for###three michigan plants'
+aS'visa--7.8 pct###be rises by###visa'
 p5
-aS'gm--gm###to invest $ 5.4 bln in###u.s. plants'
-p6
-aS'key--key###rating###drivers the ratings and outlook mirror those of the kingdom of spain'
-p7
-aS'aig--aig###has focused more closely on###its core businesses after bad bets on derivatives nearly sank the company - the largest commercial insurer in the united states and canada - during the financial crisis'
+atRp6
+ag2
+((lp7
+S'cme--higher trading volumes###help###cme group beat profit estimate'
 p8
-aS'gm--gm###to invest $ 5.4 billion in###u.s. plants'
-p9
-aS'ibm--ibm###to reverse###12 straight quarters of year-over-year revenue declines'
-p10
-aS'aig--aig###posted###operating earnings of $ 1.69 billion'
+atRp9
+ag2
+((lp10
+S'colgate-palmolive--colgate-palmolive co###cut again###its profit forecast'
 p11
-aS'gm--gm###to invest###$ 5.4 bln'
-p12
-atRp13
-.c__builtin__
-set
-p1
-((lp2
-S'target--riyadh###was###the driving force to prop up prices by cutting its output target of 30 million bpd'
-p3
-aS'u.s. dollar--toronto###retreated as###the u.s. dollar'
-p4
-aS'target--china###raised###its 2015 target'
-p5
-aS'intel--a nomination###to engage with###intel'
-p6
-aS'goldman sachs--goldman sachs###be two lead investors in###a $ 50 million funding round'
-p7
-aS'american express--judge nicholas garaufis###said of###american express'
-p8
-aS'target--its ambitious inflation target###be hitting on###thursday'
-p9
-aS'colgate-palmolive--colgate-palmolive co###cut again###its profit forecast'
-p10
-aS'target--its 2015 target###be raised in###march'
-p11
-aS'u.s. dollar--bond prices###be mostly lower across###the maturity curve toronto , april 30 the canadian dollar retreated on thursday as the u.s. dollar'
-p12
-aS"mosaic--potash 's revenue###slipped marginally###mosaic"
-p13
-aS"western union--western union###expects pricing at###'low single-digit range"
+atRp12
+ag2
+((lp13
+S"american international--american international group inc 's first-quarter earnings###fell slightly as###low interest rates and weaker returns"
 p14
-aS'western union--western union###said###revenue'
-p15
-aS'u.s. dollar--an outstanding u.s. dollar bond###maturing in###2028 462652aa6='
-p16
-aS'bank of america--bank of america merrill lynch###are the bookrunners on###the transaction'
+atRp15
+ag2
+((lp16
+S"marathon petroleum--the nation 's largest###be executives with###operator marathon petroleum"
 p17
-aS'first solar--it###to spin off some of its power plant assets into###a separate company which it will co-own with rival first solar inc ( reporting by manya venkatesh in bengaluru '
-p18
-aS'western union--the company###is investing heavily to compete with###fast-growing rivals such as xoom corp ( xoom.o ) and privately owned boom financial inc. western union said it expects compliance-related expenses this year to remain at 2014 levels , at about 3.5-4 percent of revenue'
-p19
-aS'wal-mart stores--wal-mart stores inc###launched###its money transfer service'
+atRp18
+ag2
+((lp19
+S"monsanto--monsanto , the world 's largest seed company has again approached switzerland 's syngenta in recent weeks with an offer###reported citing###people familiar"
 p20
-aS'american express--they###sued###american express'
-p21
-aS'celgene--celgene revenue###rises less than expected due to###strong dollar'
-p22
-aS'conocophillips--shares of conocophillips###fell 0.4 percent in###afternoon new york stock exchange trading'
-p23
-aS'conocophillips--conocophillips###reported###lower quarterly profit hurt by a steep decline in crude oil prices'
-p24
-aS'target--its target###would be meet within###its original timeframe'
-p25
-aS'nasdaq--the nasdaq biotech index .nbi###dropped 3.1 percent on###thursday'
-p26
-aS'target--rising wages and an expected rebound###will nudge inflation towards###its 2 percent target'
-p27
-aS"intel--the acquisition of altera###would underscore###intel chief executive officer brian krzanich 's determination"
-p28
-aS'delphi automotive--delphi automotive ceo###could be spend $ 3 billion on###acquisition'
-p29
-aS'time warner--time warner cable inc###reported###a bigger-than-expected rise'
-p30
-aS'nasdaq--the nasdaq composite .ixic###dropped 82.22 points , or 1.64 percent , to###4,941.42'
-p31
-aS"bristol-myers squibb--bristol-myers squibb 's eliquis###to be rival in###the united states"
-p32
-aS'pfizer--pfizer###has actively been looking after###an attempt to buy astrazeneca plc ( azn.l ) failed last year'
-p33
-aS'first solar--solar panel makers sunpower corp and first solar inc###reported###a quarterly loss'
-p34
-aS'pfizer--pfizer chief executive ian read###said on###tuesday'
-p35
-aS'intel--altera###rejected an unsolicited $ 54 per share offer from###intel'
-p36
-aS'first solar--sunpower and first solar###said###february'
-p37
-aS"u.s. dollar--positive###be given the gulf 's currency pegs to###the u.s. dollar"
-p38
-aS'dow chemical--dow chemical###to sell###agrofresh'
-p39
-aS'target--the target###would be met around###the current fiscal year which began this month'
-p40
-aS'intel--intel###would take its proposal directly to###shareholders'
-p41
-aS"target--the median estimate###is 5.3 percent below###the government 's 5.7 percent target"
-p42
-aS'mckesson--mckesson###said###a regulatory filing'
-p43
-aS'first solar--first solar inc###reported###a quarterly loss'
-p44
-aS'conocophillips--shares of conocophillips###fell###0.4 percent'
-p45
-aS"apple--supplies of the company 's much-anticipated new apple watch###were limited at###the rollout of the product"
-p46
-aS'boeing--boeing###is developing###a software upgrade to counter the problem'
-p47
-aS'oracle--oracle ceo###sees###benefit'
-p48
-aS'celgene--celgene###had forecast###2015 adjusted profit of $ 4.60-$ 4.75'
-p49
-aS"celgene--celgene 's total revenue###rose 20 percent in###the first quarter"
-p50
-aS'morgan stanley--ian stannard###be head of european fx strategy at###morgan stanley'
-p51
-aS"bristol-myers squibb--its stroke prevention pill xarelto###may be losing market share to rival###bristol-myers squibb 's eliquis"
-p52
-aS'southern--two massive tunnels to bypass the delta by taking water directly to the california aqueduct before it is sent to farms and communities in the southern and central part of the state###would be still build under###the version of the proposal'
-p53
-aS'perkinelmer--perkinelmer inc###be maker of###scientific instruments'
-p54
-aS'citigroup--pacific rubiales###has kicked off investor meetings through###merrill lynch , citigroup and hsbc'
-p55
-aS'time warner--the time warner cable###was open to###discussions'
-p56
-aS'perkinelmer--maker perkinelmer inc###be instruments of###scientific'
-p57
-aS"bank of america--he###can still be###opportunistic , as in the aftermath of the financial crisis when he acquired a $ 750 million position in goldman sachs group inc that 's now worth $ 2.5 billion , and an option to buy 700 million shares in bank of america corp ( bac.n ) for $ 5 billion - now worth $ 11.2 billion"
-p58
-aS'mosaic--both potash and mosaic###reported###higher prices'
-p59
-aS'nasdaq--the nasdaq composite .ixic###dropped 26.14 points , or 0.52 percent , to###4,997.51'
-p60
-aS'apple--a key component of the apple watch###made by###one of two suppliers'
-p61
-aS'charles schwab--omar aguilar###be chief investment officer at###charles schwab management'
-p62
-aS'monsanto--monsanto and syngenta###had held###preliminary talks'
-p63
-aS"marathon petroleum--the nation 's largest###be executives with###operator marathon petroleum corp"
-p64
-aS'goldman sachs--the utility###has also engaged###investment bank goldman sachs'
-p65
-aS'western union--western union###is facing competitive pressure in u.s. domestic money transfer in###the higher principal band'
-p66
-aS'cigna--cigna###reported###an adjusted income from operations of $ 1.96'
-p67
-aS'time warner--time warner cable###is has to raise###questions'
-p68
-aS'expedia--expedia inc###be company for###online travel services'
-p69
-aS'microsoft--it###sold its flagship handset business to###microsoft'
-p70
-aS'progressive--the party###trails###the opposition progressive conservatives'
-p71
-aS'target--its 2015 target###be raised to###17.8 gigawatts'
-p72
-aS'abbvie--abbvie inc###launched a rival treatment in###last year'
-p73
-aS'humana--private health insurers###be led by###unitedhealth group inc and humana inc.'
-p74
-aS'delphi automotive--delphi automotive plc###said of###the company'
-p75
-aS'general motors--2 u.s. automaker###was not looking was echoing###comments made by mary barra , ceo at larger rival general motors'
-p76
-aS'southern--the southern province of guangdong###posted###first-quarter economic growth'
-p77
-aS'wells fargo--michael faerm###be analyst of###wells fargo'
-p78
-aS'southern--california###would still build###two massive tunnels to bypass the delta by taking water directly to the california aqueduct before it is sent to farms and communities in the southern and central part of the state'
-p79
-aS'oracle--oracle###has spent more than $ 60 billion on###than 100 acquisitions'
-p80
-aS'apple--8 percent###be slumped after###a report that apple inc had limited availability of the apple watch , after a key component supplied by the china-based company was found to be defective'
-p81
-aS'occidental petroleum--occidental petroleum corp###contributed to###the worst decline'
-p82
-aS'monsanto--monsanto###offers to buy again###syngenta'
-p83
-aS'nasdaq--the nasdaq biotech index .nbi###dropped###3.1 percent'
-p84
-aS'bank of america--bank of america merrill lynch and jp morgan###priced a us$ 500m tap of the 5.5 %###the tight end of guidance of 5.15 %'
-p85
-aS'first solar--u.s. solar panel maker first solar inc###reported###a quarterly loss'
-p86
-aS'harris--chief executive harris fricker###said in###a statement'
-p87
-aS'expedia--expedia inc###reported###first-quarter profit'
-p88
-aS'american express--american express###may not stop###restaurants and stores'
-p89
-aS'coca-cola--the oxxo chain of convenience stores###be co-owns by###the company which co-owns coke bottler coca-cola femsa and operates'
-p90
-aS'pfizer--pfizer###were viewed by###analysts'
-p91
-aS'pfizer--pfizer###has actively been looking at###takeover targets'
-p92
-aS'pfizer--pfizer###has established###a rare disease research unit'
-p93
-aS'conocophillips--houston-based conocophillips###had###a loss of $ 222 million'
-p94
-aS'ball--renault vote###puts###ball'
-p95
-aS'nrg energy--) and nrg energy inc###have also bundled###their solar assets'
-p96
-aS'cigna--cigna###raised its forecast for adjusted income for###the full year'
-p97
-aS'first solar--first solar inc###be maker of###u.s. solar panel'
-p98
-aS'priceline--the online travel services company###recently fell behind###the priceline group inc'
-p99
-aS'nasdaq--the nasdaq composite###dropped###82.22 points , or 1.64 percent'
-p100
-aS"priceline--the online travel services company which recently fell behind the priceline group inc to become the world 's second largest by bookings###earned about $ 44.1 million in###last quarter"
-p101
-aS'target--wilhelm###said confirming###a target to deliver 15 of the widebodies this year'
-p102
-aS'colgate-palmolive--consumer products maker colgate-palmolive co###reported###its third straight quarter of falling revenue'
-p103
-aS"first solar--first solar 's revenue###fell###36.3 percent"
-p104
-aS'apple--suppliers###encountering some bottleneck issues for###apple watchs production'
-p105
-aS"nasdaq--the company 's shares###closed on###the nasdaq"
-p106
-aS'target--the bank of japan###pushed back the deadline to hit###its 2 percent inflation target'
-p107
-aS'conocophillips--conocophillips###has slashed capital spending is like###other exploration and production companies'
-p108
-aS"progressive--pierluisi###is###president of puerto rico 's opposition new progressive party"
-p109
-aS'nasdaq--the nasdaq composite###was off 58.57 points , 1.17 percent , at###4,965.07'
-p110
-aS'target--boj###pushes back###inflation target timeframe'
-p111
-aS'pfizer--pfizer###exclusive : pfizer is mystery bidder for###rare disease drugmaker'
-p112
-aS"cigna--premiums and fees in cigna 's largest division , global health care , comprising the company 's commercial and government insurance businesses###rose###12 percent"
-p113
-aS"monsanto--monsanto###has again approached###switzerland 's syngenta"
-p114
-aS'microsoft--its flagship handset business###be sold to###microsoft'
-p115
-aS'nasdaq--apple###was the biggest drag on###the dow , s&p 500 and the nasdaq'
-p116
-aS'occidental petroleum--occidental petroleum corp###sent prices into###a tailspin'
-p117
-aS'perkinelmer--environmental testing and medical diagnostic products###be also makes by###perkinelmer'
-p118
-aS'target--it###is on###track to meet its target of up to c$ 800 million in costs cuts within one year instead of two'
-p119
-aS'nasdaq--apple###was the biggest drag on###the dow , s&p 500 and the nasdaq indexes'
-p120
-aS'apple--apple###was the biggest drag on###the dow , s&p 500 and the nasdaq indexes'
-p121
-aS'monsanto--sara miller###be spokeswoman of###monsanto'
-p122
-aS'microsoft--salesforce .com ceo marc benioff###has been a vocal critic of###oracle , microsoft and sap'
-p123
-aS'waters--china and russia###have held naval drills in###pacific waters'
-p124
-aS'target--baghdad###considers anbar###the next target'
-p125
-aS'perkinelmer--scientific instruments maker perkinelmer inc###reported higher-than-expected first quarter profit despite###the impact of the strong dollar'
-p126
-aS'coca-cola--the company which co-owns coke bottler coca-cola femsa and operates the oxxo chain of convenience stores###reported###a profit of 3.13 billion pesos'
-p127
-aS'apple--the watch###says in###an apple support article'
-p128
-aS"apple--you###'re my first caller about###the apple watch"
-p129
-aS'expedia--inc. expedia inc###elong expects###2015 adjusted earnings'
-p130
-aS'american express--american express###told###it'
-p131
-aS'mosaic--mosaic###earned###70 cents'
-p132
-aS'time warner--the time warner cable###was###open'
-p133
-aS'apple--apple###to surpass###xiaomi'
-p134
-aS'gap--the difference###showed in###a worrying sign of a yawning wealth gap'
-p135
-aS'first solar--sunpower and first solar###said in###february'
-p136
-aS'gilead sciences--gilead sciences inc###said on###thursday'
-p137
-aS'nasdaq--the nasdaq composite .ixic###was off 25.61 points , 0.51 percent , at###5,029.81'
-p138
-aS'american express--american express###may not stop stores for###instance'
-p139
-aS'nasdaq--the nasdaq composite###closed down 82.22 points , 1.64 percent , at###4,941.42'
-p140
-aS'apple--im wrong###lets###buy apple'
-p141
-aS'morgan stanley--ravi shanker###be analyst of###morgan stanley'
-p142
-aS'bank of america--700 million shares###to be buy in###bank of america'
-p143
-aS'general motors--comments###be made at###larger rival general motors'
-p144
-aS'oracle--it###might help###oracle'
-p145
-aS'apple--apple###to surpass xiaomi to top the china market on###the strength of its popular new iphone 6 and 6'
-p146
-aS'oracle--oracle and microsoft###have much smaller online###crm revenues'
-p147
-aS"pfizer--pfizer 's business development team###would be very###careful"
-p148
-aS'time warner--the charter deal###was contingent on###the expiration of time warner cable \'s "right of first offer'
-p149
-aS'apple--the hardware cost of an apple watch sport model###was about 24 percent of###the suggested retail price'
-p150
-aS'conocophillips--conocophillips###has slashed capital spending is in###response'
-p151
-aS'first solar--first solar and sunpower###declined after###hours'
-p152
-aS'bank of america--jb y compania sa de cv###kicked off fixed-income investor meetings through###bank of america merrill lynch and citigroup'
-p153
-aS'gap--the bonds issued today###would cover###that gap'
-p154
-aS'wells fargo--michael faerm###be analyst for###wells fargo'
-p155
-aS'celgene--celgene###led###a fall'
-p156
-aS'first solar--first solar###sold###fewer power plants'
-p157
-aS'target--the new 2015 target###is###a big jump'
-p158
-aS'celgene--celgene###said###net product sales'
-p159
-aS"general electric--general electric co 's main commercial aircraft engine production facilities###employ benefit from###ex-im financing"
-p160
-aS'apple--some bottleneck issues###be encountering for###apple watchs production'
-p161
-aS'bank of america--banco latino americano de comercio exterior###has announced a us$ 300m five-year senior unsecured bond issue via###bank of america merrill lynch'
-p162
-aS"cigna--premiums and fees in cigna 's largest division , global health care , comprising the company 's commercial and government insurance businesses###rose 12 percent in###the first quarter"
-p163
-aS'wells fargo--wells fargo###has had###three straight quarters of year-over-year revenue growth'
-p164
-aS'oracle--catz and her colleague mark hurd###be ceo of###oracle'
-p165
-aS"target--inflation###to bring to be###the fed 's 2 percent target"
-p166
-aS"celgene--celgene 's total revenue###rose###20 percent"
-p167
-aS'american express--american express###may not stop restaurants for###instance'
-p168
-aS"u.s. dollar--we###'ll see###some continued u.s. dollar weakness"
-p169
-aS'nasdaq--declining issues###fell on###the nasdaq'
-p170
-aS'expedia--travel bookings###to produce###quarterly losses)[enabler=for its subsidiary brand elong inc. expedia inc expects 2015 adjusted earnings before interest , taxes , depreciation and amortization ( ebitda '
-p171
-aS'intel--intel###would not go public until###june'
-p172
-aS'pfizer--pfizer chief executive ian read###said during###an earnings call'
-p173
-aS'apple--apple###was the biggest drag on###the dow , s&p 500 and the nasdaq'
-p174
-aS'u.s. dollar--chief financial officer mark okerstrom###said of###sales which have fallen relative to the u.s. dollar'
-p175
-aS'apple--apple###reported###a 71 percent increase'
-p176
-aS'apple--shares###fall 8 pct after###report of apple finds defective component'
-p177
-aS'u.s. dollar--a softer u.s. dollar and crude prices###saw its best monthly gain in###six years'
-p178
-aS'apple--the hardware cost of an apple watch sport model###was###about 24 percent of the suggested retail price'
-p179
-aS'u.s. dollar--the u.s. dollar###had been following###a string of lukewarm first quarter data'
-p180
-aS"progressive--puerto rico 's opposition new progressive party###was against###the bill"
-p181
-aS'colgate-palmolive--colgate-palmolive###cut###its full-year profit forecast'
-p182
-aS'apple--apple###was the biggest drag on###the three major indexes'
-p183
-aS"target--inflation###has cooled closer to###the central bank 's 3 percent target"
-p184
-aS'cigna--cigna###raised###its forecast'
-p185
-aS'citigroup--jose cuervo###kicked off fixed-income investor meetings through###bank of america merrill lynch and citigroup'
-p186
-aS'nasdaq--the nasdaq biotech index###dropped###3.1 percent'
-p187
-aS'first solar--first solar###sold fewer power plants as###part of plans'
-p188
-aS'goldman sachs--it###closed###a $ 50 million investment round led by goldman sachs and idg capital partners'
-p189
-aS'first solar--fewer power plants###be sold in###the quarter)[enabler=as it plans to spin off some of its power plant assets into a separate company , which it will co-own with rival first solar inc ( reporting by manya venkatesh in bengaluru '
-p190
-aS'oracle--catz and her colleague mark hurd###were named###ceo of oracle'
-p191
-aS'time warner--time warner cable chief executive officer rob marcus###said in###a conference call'
-p192
-aS'time warner--time warner cable###would follow###verizon communications inc'
-p193
-aS"microsoft--oracle , microsoft and germany 's sap###are the most likely candidates for###such a big deal"
-p194
-aS'perkinelmer--scientific instruments maker perkinelmer inc###reported###higher-than-expected first quarter profit'
-p195
-aS'target--its 2 percent target###to hit to be###september 2016'
-p196
-aS'target--the boj###can delay###the timing meeting its target as doing so again'
-p197
-aS"first solar--first solar 's revenue###plunged###50.6 percent"
-p198
-aS'valero energy--valero energy corp###is taking###advantage'
-p199
-aS'nasdaq--the nasdaq###fell for###a fourth straight day'
-p200
-aS'expedia--travel bookings###to continue to produce###quarterly losses)[enabler=for its subsidiary brand elong inc. expedia inc expects 2015 adjusted earnings before interest , taxes , depreciation and amortization ( ebitda '
-p201
-aS'target--its 2015 target###be raised by###20 percent'
-p202
-aS'first solar--first solar###forecast###a second-quarter profit of 45-55 cents'
-p203
-aS'valero energy--valero energy corp###is taking advantage of###low oil prices to aggressively build out its refining and logistical assets'
-p204
-aS"monsanto--monsanto###has again approached switzerland 's syngenta with###an offer to buy the company"
-p205
-aS'microsoft--oracle and microsoft###have much smaller online###crm revenues'
-p206
-aS'mosaic--mosaic###rose###7.7 percent'
-p207
-aS'monsanto--sara miller###be spokeswoman for###monsanto'
-p208
-aS"monsanto--monsanto and syngenta###had held preliminary talks about###a $ 40 billion takeover to create the world 's largest agrochemical company"
-p209
-aS'harris--chief executive harris fricker###said###a statement'
-p210
-aS"general electric--boehner 's own district###is adjacent to###general electric co 's main commercial aircraft engine production facilities"
-p211
-aS'celgene--quarterly earnings###be weak from###celgene'
-p212
-aS'gap--the cuts###had agreed to###a 2.25 percent across-the-board spending cut and a cash infusion from other state funds to plug a $ 1.6 billion gap'
-p213
-aS'american international--american international group inc###fell slightly as###low interest rates and weaker returns'
-p214
-aS'goldman sachs--a $ 50 million investment round###be led by###goldman sachs and idg capital partners'
-p215
-aS'american express--american express###did not immediately respond to###requests'
-p216
-aS'bank of america--jose cuervo###kicked off fixed-income investor meetings through###bank of america merrill lynch and citigroup'
-p217
-aS'apple--samsung###overtook###apple'
-p218
-aS'gap--its 2018 budget gap goal###has set at###0.3 percent'
-p219
-aS'bank of america--omnicare###is working with###bank of america corp'
-p220
-aS'western union--western union###is facing###competitive pressure'
-p221
-aS'u.s. dollar--iraq###has###an outstanding u.s. dollar bond'
-p222
-aS'morgan stanley--morgan stanley analyst ravi shanker###attributed the drop to###a weaker euro'
-p223
-aS'southern--air strikes and artillery fire###rocked###the southern city of aden'
-p224
-aS"progressive--pierluisi###is president of###puerto rico 's opposition new progressive party"
-p225
-aS'oracle--oracle###had made###an approach to buy salesforce .com'
-p226
-aS'morgan stanley--ravi shanker###be analyst for###morgan stanley'
-p227
-aS'mosaic--u.s. rival mosaic co###also reported###a profit that fell short of estimates hurt by lower phosphate margins'
-p228
-aS'quanta services--quanta fiber###be a subsidiary of###quanta services inc'
-p229
-aS'ford motor--ford motor co###told###cnbc'
-p230
-aS'mckesson--mckesson###said on###thursday'
-p231
-aS'mckesson--mckesson###settles###investigation'
-p232
-aS'waters--the maersk tigris###had been apprehended in###iranian waters'
-p233
-aS'abbvie--abbvie inc###launched###a rival treatment'
-p234
-aS'boeing--boeing###delivered###30 of its 787 planes worldwide'
-p235
-aS'nasdaq--stocks###be led by###the nasdaq'
-p236
-aS"general electric--general electric co 's main commercial aircraft engine production facilities###employ about 7,500 people from###ex-im financing"
-p237
-aS'bb&t--bucky hellwig###be senior vice president at###bb&t wealth management'
-p238
-aS'mosaic--both potash and mosaic###reported higher prices for potash in###the quarter'
-p239
-aS'oracle--salesforce .com ceo marc benioff###has been a vocal critic of###oracle , microsoft and sap'
-p240
-aS'time warner--charter and time warner###were not immediately available for###comment'
-p241
-aS'apple--apple###to surpass xiaomi to top###the china market'
-p242
-aS'first solar--first solar###sold fewer power plants in###the quarter'
-p243
-aS'pfizer--pfizer chief executive ian read###said in###tuesday'
-p244
-aS'target--its target of up to c$ 800 million###to be meet within###one year'
-p245
-aS'expedia--online travel services company expedia inc###affirmed earlier guidance for###2015 earnings'
-p246
-aS'time warner--time warner cable###held###deal talks'
-p247
-aS'conocophillips--conocophillips first-quarter profit###falls sharply on###oil price decline'
-p248
-aS'celgene--celgene###had forecast 2015 adjusted profit of $ 4.60-$ 4.75 per share on###net product sales of $ 9.0-$ 9.5 billion'
-p249
-aS"general electric--boehner 's own district###is adjacent to###general electric co"
-p250
-aS'occidental petroleum--occidental petroleum corp###sent###prices'
-p251
-aS'general motors--2 u.s. automaker###was not looking was echoing###comments made by mary barra , ceo at larger rival general motors ( gm.n ) , earlier this month'
-p252
-aS'nasdaq--647###fell on###the nasdaq'
-p253
-aS'u.s. dollar--a stronger euro###also weighed with###the currency hitting a roughly eight-week high against the u.s. dollar at $ 1.11880 eur=ebs'
-p254
-aS'nasdaq--the nasdaq biotech index###dropped 3.1 percent on###thursday'
-p255
-aS'apple--apple###was###the biggest drag'
-p256
-aS"target--they###are approaching###the 3 percent threshold that economists say is needed to bring inflation closer to the fed 's 2 percent target"
-p257
-aS"goldman sachs--he###can still be###opportunistic , as in the aftermath of the financial crisis when he acquired a $ 750 million position in goldman sachs group inc that 's now worth $ 2.5 billion , and an option to buy 700 million shares in bank of america corp ( bac.n ) for $ 5 billion - now worth $ 11.2 billion"
-p258
-aS'american express--american express###be sued in###2010'
-p259
-aS'walgreens boots alliance--the report###be also named###walgreens boots alliance inc'
-p260
-aS'nasdaq--the nasdaq###fell for###its fourth straight session'
-p261
-aS'perkinelmer--perkinelmer###posted###a net profit from continuing operations of $ 40.3 million'
-p262
-aS"nasdaq--the company 's shares###closed in###the nasdaq"
-p263
-aS'gilead sciences--gilead sciences inc###said in###thursday'
-p264
-aS'target--the new 2015 target###is a big jump from###a previous 2 percent forecast'
-p265
-aS'first solar--sunpower###sold###fewer power plants)[enabler=as it plans to spin off some of its power plant assets into a separate company , which it will co-own with rival first solar inc ( reporting by manya venkatesh in bengaluru '
-p266
-aS'nasdaq--the nasdaq composite###recorded###39 new highs and 91 new lows'
-p267
-aS'u.s. dollar--the u.s. dollar###had been in###retreat'
-p268
-aS'perkinelmer--perkinelmer inc###be maker for###scientific instruments'
-p269
-aS'progressive--workers###will benefit from###progressive'
-p270
-aS'cigna--cigna###raised its forecast for adjusted income from###operations'
-p271
-aS'nasdaq--the nasdaq composite###was off 32.40 points , 0.64 percent , at###4,991.25'
-p272
-aS'time warner--time warner cable###is unmistakably investing for###growth'
-p273
-aS'target--inflation###will be nudge towards###its 2 percent target'
-p274
-aS"oracle--oracle , microsoft and germany 's sap###are the most likely candidates for###such a big deal"
-p275
-aS'bank of america--bank of america merrill lynch and jp morgan###acted as###leads'
-p276
-aS'apple--tattoo snafu###irks inked###apple watch wearers'
-p277
-aS'newmont mining--newmont mining corp###said on###wednesday'
-p278
-aS'target--the boj###would meet###its target'
-p279
-aS'time warner--charter and time warner###were immediately###not immediately available'
-p280
-aS'target--its target of up to c$ 800 million###to be meet instead of###two'
-p281
-aS'apple--a key component of the apple watch###was found###defective'
-p282
-aS'perkinelmer--maker perkinelmer inc###be instruments for###scientific'
-p283
-aS'intel--intel###discussed offering $ 58 per share for###altera'
-p284
-aS'target--risks losing credibility###say with###the timing hitting the target'
-p285
-aS'time warner--deal questions###loom as###time warner cable'
-p286
-aS'nasdaq--u.s. stocks###be led by###the nasdaq'
-p287
-aS'apple--apple###was the biggest drag on###the dow'
-p288
-aS'intel--intel###discussed in###february'
-p289
-aS'expedia--online travel services company expedia inc###affirmed###earlier guidance'
-p290
-aS'target--its 2 percent target###to be hit around###april'
-p291
-aS'southern--it###is sent in###the southern and central part of the state'
-p292
-aS'bank of america--bank of america merrill lynch and jp morgan###priced a us$ 500m tap of the 5.5 % at###102.835'
-p293
-aS'mckesson--mckesson###said in###a regulatory filing'
-p294
-aS'expedia--expedia inc###be company of###online travel services'
-p295
-aS'bank of america--fixed-income investor meetings###be kicked off through###bank of america merrill lynch and citigroup'
-p296
-aS"apple--apple inc 's watch###has the lowest ratio of hardware costs to###retail price"
-p297
-aS'verizon communications--time warner cable###would follow###verizon communications inc'
-p298
-aS"citigroup--he###was###citigroup 's global head of securitized products research"
-p299
-aS'first solar--sunpower###sold fewer power plants in###the quarter)[enabler=as it plans to spin off some of its power plant assets into a separate company , which it will co-own with rival first solar inc ( reporting by manya venkatesh in bengaluru '
-p300
-aS'progressive--new progressive party###be opposition of###puerto rico'
-p301
-aS'target--12-month inflation which was running at 8.13 percent in march###to bring to be###the 4.5 percent center of an official target'
-p302
-aS'apple--shares of aac technologies holdings inc###slumped 8 percent after###a report that apple inc had limited availability of the apple watch , after a key component supplied by the china-based company was found to be defective'
-p303
-aS'general motors--general motors co###said of###it'
-p304
-aS'nasdaq--the nasdaq###gained###0.9 percent'
-p305
-aS'colgate-palmolive--consumer products maker colgate-palmolive co###reported its third straight quarter of falling revenue as###a strong dollar'
-p306
-aS'first solar--first solar inc###be maker for###u.s. solar panel'
-p307
-aS'goldman sachs--goldman sachs###is###one of two lead investors'
-p308
-aS'expedia--expedia inc###maintains###2015 earnings guidance'
-p309
-aS'u.s. dollar--the company###expected###the money transfer market to be challenging in 2015 , mainly due to weakness in europe and russia and the negative impact of the strengthening u.s. dollar'
-p310
-aS'citigroup--jb y compania sa de cv###kicked off fixed-income investor meetings through###bank of america merrill lynch and citigroup'
-p311
-aS'oracle--oracle###might be help in###the customer relationship management sector'
-p312
-aS'conocophillips--conocophillips###has slashed is###capital spending'
-p313
-aS"apple--apple inc 's watch###has###the lowest ratio of hardware costs"
-p314
-aS'intel--intel###would not go public with###any offer'
-p315
-aS'general motors--general motors co###said on###thursday'
-p316
-aS'nasdaq--the nasdaq composite###dropped 82.22 points , or 1.64 percent , to###4,941.42'
-p317
-aS'first solar--solar panel maker first solar inc###reported###a quarterly loss'
-p318
-aS'nasdaq--the nasdaq###rose###0.8 percent'
-p319
-aS'pfizer--pfizer###were viewed as###the most likely bidders'
-p320
-aS'u.s. dollar--we###should see###u.s. dollar strength'
-p321
-aS'target--inflation###to hit###its 2 percent target'
-p322
-aS'first solar--first solar###posted###a loss of $ 62.3 million'
-p323
-aS'ford motor--ford motor co###told cnbc on###thursday'
-p324
-aS"apple--supplies of the company 's apple watch###were limited at###the product 's rollout"
-p325
-aS"american international--american international group inc 's first-quarter earnings###fell slightly as###low interest rates and weaker returns"
-p326
-aS'boeing--boeing###said###first-quarter net income'
-p327
-aS'morgan stanley--morgan stanley###noted###msci emerging equities'
-p328
 aS"monsanto--monsanto###has again approached switzerland 's syngenta in###recent weeks"
-p329
-aS'colgate-palmolive--colgate-palmolive###cut its full-year profit forecast for the second time because of###the buoyant dollar'
-p330
-aS'citigroup--fixed-income investor meetings###be kicked off through###bank of america merrill lynch and citigroup'
-p331
-aS"intel--intel 's standstill###expires in###june"
-p332
-aS'apple--aac technologies###fall 8 pct after###report of apple finds defective component'
-p333
-aS'apple--the company###limited###the availability of the apple watch'
-p334
-atRp335
-.
+p21
+aS'monsanto--monsanto###offers to buy again###syngenta'
+p22
+aS"monsanto--monsanto###has again approached switzerland 's syngenta with###an offer to buy the company"
+p23
+atRp24
+ag2
+((lp25
+S'visa--visa###forecasts###current quarter profit'
+p26
+atRp27
+ag2
+((lp28
+S'nasdaq--stocks###be led by###the nasdaq'
+p29
+atRp30
+ag2
+((lp31
+S"bristol-myers squibb--its stroke prevention pill xarelto###may be losing market share to rival###bristol-myers squibb 's eliquis"
+p32
+atRp33
+ag2
+((lp34
+S'salesforce--online customer relationship management firm salesforce###be bought .com###inc'
+p35
+aS'oracle--oracle ceo###sees###benefit'
+p36
+atRp37
+ag2
+((lp38
+S'mckesson--mckesson###settles###investigation'
+p39
+atRp40
+ag2
+((lp41
+S'apple--report of apple###finds###defective component'
+p42
+aS'apple--apple inc###had limited###availability of the apple watch'
+p43
+atRp44
+ag2
+((lp45
+S'visa--visa###forecasts###current quarter profit'
+p46
+atRp47
+ag2
+((lp48
+S'american international--american international group inc###fell slightly as###low interest rates and weaker returns'
+p49
+atRp50
+ag2
+((lp51
+S'conocophillips--conocophillips###reported###lower quarterly profit hurt by a steep decline in crude oil prices'
+p52
+aS'conocophillips--conocophillips first quarter profit###falls sharply on###oil price decline'
+p53
+aS'conocophillips--conocophillips first quarter profit###falls sharply in###oil price decline'
+p54
+atRp55
+ag2
+((lp56
+S'monsanto--monsanto###offers to buy again###syngenta'
+p57
+atRp58
+ag2
+((lp59
+S'celgene--celgene revenue###rises less than expected due to###strong dollar'
+p60
+atRp61
+ag2
+((lp62
+S'nike--case###to be push at###nike headquarters'
+p63
+atRp64
+ag2
+((lp65
+S"boeing--faa###proposes fix in###boeing 's 787"
+p66
+aS"boeing--it###would ask###the operators boeing co 's model 787 airplanes to deactivate the plane 's electrical power system periodically"
+p67
+atRp68
+ag2
+((lp69
+S'valero--valero ceo###sees growth###acquisitions'
+p70
+atRp71
+ag2
+((lp72
+S'mcgraw hill--mcgraw hill education###prepares for###ipo sources'
+p73
+atRp74
+ag2
+((lp75
+S'colgate-palmolive--colgate-palmolive co###reported###its third straight quarter of falling revenue'
+p76
+aS'colgate-palmolive--colgate-palmolive co###reported its third straight quarter of falling revenue as###a strong dollar'
+p77
+atRp78
+ag2
+((lp79
+S'pfizer--pfizer###is###mystery bidder'
+p80
+aS'pfizer--pfizer###is mystery bidder for###rare disease drugmaker sobi sources'
+p81
+atRp82
+ag2
+((lp83
+S'time warner cable--time warner cable###held###deal talks'
+p84
+aS'time warner--time warner cable###held###deal talks'
+p85
+atRp86
+ag2
+((lp87
+S'general motors--general motors co on thursday###said of###it'
+p88
+aS'general motors--general motors###be co on###thursday'
+p89
+atRp90
+ag2
+((lp91
+S'general motors--general motors co###to boost###production and vehicle quality'
+p92
+aS'general motors--general motors co###said on###manufacturing plants'
+p93
+atRp94
+ag2
+((lp95
+S'american express--american express###told###it'
+p96
+atRp97
+ag2
+((lp98
+S'salesforce--rival###bought###online customer relationship management firm salesforce .com inc'
+p99
+aS'oracle--oracle ceo###sees###benefit'
+p100
+atRp101
+ag2
+((lp102
+S"apple--apple inc 's watch###has###the lowest ratio of hardware costs"
+p103
+aS"apple--apple inc 's watch###has the lowest ratio of hardware costs across###any apple phone"
+p104
+aS'apple--corrected official apple watch###has###lowest hardware cost'
+p105
+aS"apple--apple inc 's watch###has the lowest ratio of hardware costs to###retail price"
+p106
+atRp107
+ag2
+((lp108
+S'comcast--comcast corp###withdrew###its bid to buy the company'
+p109
+atRp110
+ag2
+((lp111
+S'first solar--first solar inc###reported###a quarterly loss'
+p112
+atRp113
+ag2
+((lp114
+S'nike--case###to be push at###nike headquarters'
+p115
+aS'nike--president barack obama###will travel to###nike inc ( nke .n ) headquarters in oregon next friday to argue that a 12-nation pacific trade deal and the fast-track legislation needed to finalize the pact are good for workers'
+p116
+atRp117
+ag2
+((lp118
+S'viacom--viacom inc###reported###better-than-expected quarterly profit'
+p119
+atRp120
+ag2
+((lp121
+S'western union--western union###expects###pricing'
+p122
+atRp123
+ag2
+((lp124
+S'apple--tattoo snafu###irks inked###apple watch wearers'
+p125
+atRp126
+ag2
+((lp127
+S'goldman sachs--it###closed###a $ 50 million investment round led by goldman sachs and idg capital partners'
+p128
+aS'goldman sachs--a $ 50 million investment round###be led by###goldman sachs and idg capital partners'
+p129
+atRp130
+ag2
+((lp131
+S'american express--u .s###be judge issues injunction against###american express'
+p132
+atRp133
+ag2
+((lp134
+S'altera--a standstill agreement###be signed with###altera corp'
+p135
+aS"intel--intel 's standstill###expires in###june sources"
+p136
+atRp137
+a.

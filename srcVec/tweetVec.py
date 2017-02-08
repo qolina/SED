@@ -18,6 +18,8 @@ import numpy as np
 from sklearn import cluster
 
 from gensim import corpora, models, similarities
+from gensim.models import TfidfModel
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
 sys.path.append(os.path.expanduser("~") + "/Scripts/")
 from fileOperation import loadStopword
@@ -79,6 +81,22 @@ def getNearestNeighbor(index, simThreshold):
         break
     return neighbors
 
+def tfidf_vec(dictPath, corpusPath):
+    # load dictionary and corpus
+    if os.path.exists(dictPath):
+        dictionary = corpora.Dictionary.load(dictPath)
+        corpus = corpora.MmCorpus(corpusPath)
+        print "## corpus loaded."
+    else:
+        print "## Error: No dictionary and corpus found in ", dictPath
+        return -1
+
+    # corpus to model
+    tfidf = TfidfModel(corpus)
+    corpus_tfidf = tfidf[corpus]
+    print "## corpus vector end. [tfidf] at ", time.asctime(), len(corpus_tfidf)
+    return corpus_tfidf
+
 # lsi example in gensim
 def lsi_vec(dictPath, corpusPath, lsiModelPath):
     # load dictionary and corpus
@@ -91,16 +109,17 @@ def lsi_vec(dictPath, corpusPath, lsiModelPath):
         return -1
 
     # corpus to model
-    tfidf = models.tfidfmodel(corpus)
+    tfidf = TfidfModel(corpus)
     corpus_tfidf = tfidf[corpus]
-    lsi = models.LsiModel(corpus_tfidf, id2word = dictionary, num_topics = 300)
-    print "## corpus transformation end. [LSI] at ", time.asctime()
+    print "## corpus vector end. [tfidf] at ", time.asctime()
+    #lsi = models.LsiModel(corpus_tfidf, id2word = dictionary, num_topics = 300)
+    #print "## corpus transformation end. [LSI] at ", time.asctime()
     lsi.save(lsiModelPath)
 
 def lsi_vec_sim(dictPath, corpusPath, lsiModelPath, simIndexPath):
     dictionary = corpora.Dictionary.load(dictPath)
     corpus = corpora.MmCorpus(corpusPath)
-    tfidf = models.tfidfmodel(corpus)
+    tfidf = TfidfModel(corpus)
     corpus_tfidf = tfidf[corpus]
 
     # calculate similarity
@@ -142,6 +161,22 @@ def texts2LSIvecs(texts, dictPath, corpusPath):
 
     lsi_vec(dictPath, corpusPath)
 
+def texts2TFIDFvecs(texts, dictPath, corpusPath):
+    texts = raw2Texts(texts, True, True, 1)
+    texts = [" ".join(words) for words in texts]
+    count_vect = CountVectorizer()
+    texts_counts = count_vect.fit_transform(texts)
+    tfidf_transformer = TfidfTransformer()
+    corpus_tfidf = tfidf_transformer.fit_transform(texts_counts)
+
+
+    # prepare corpus from raw
+    #prepCorpus(texts, dictPath, corpusPath)
+
+    #corpus_tfidf = tfidf_vec(dictPath, corpusPath)
+    return corpus_tfidf
+
+
 def texts2vecs(texts, doc2vecModelPath):
     texts = raw2Texts(texts, False, False, None)
     #wordNum = [len(text) for text in texts]
@@ -174,6 +209,7 @@ def loadTweetsFromDir(dataDirPath):
         
         dayTweetNumHash[dayStr] = len(texts)
 
+    print "## End of reading files. [raw tweet file][cleaned text]  #tweets: ", len(tweetTexts_all), " in days ", len(dayTweetNumHash), time.asctime()
     return tweetTexts_all, seqTidHash, seqDayHash, dayTweetNumHash
 
 
@@ -227,16 +263,21 @@ def getVec(Para_test, doc2vecModelPath, l_doc2vecModelPath, TweetNum, word2vecMo
         print "## word2vec load done.", time.asctime()
         wordTexts = raw2Texts(tweetTexts_all, False, False, None)
         normWordTexts = []
+        wordNums = []
+        unkNums = []
         for words in wordTexts:
-            words = [word for word in words if word in word2vecModel]
-            words.extend(["<s>", "</s>"])
+            wordsIn = [word for word in words if word in word2vecModel]
+            wordsIn.extend(["<s>", "</s>"])
             unkNum = sum([1 for word in words if word not in word2vecModel])
-            words.extend(["<unk>"]*unkNum)
-            normWordTexts.append(words)
+            wordsIn.extend(["<unk>"]*unkNum)
+            normWordTexts.append(wordsIn)
+            wordNums.append(len(words))
+            unkNums.append(unkNum)
+        unkRatio = np.mean([float(un)/wn for un, wn in zip(unkNums, wordNums)])
         dataset = [[np.asarray(word2vecModel.get(word)) for word in words] for words in normWordTexts]
         dataset = [np.sum(np.asarray(dataset[idx]), axis=0) for idx in range(len(dataset))]
         dataset = np.asarray(dataset)
-        print "## tweet vec by w2v obtained.", dataset.shape, time.asctime()
+        print "## tweet vec by w2v obtained.", dataset.shape, time.asctime(), "UNK ratio", unkRatio, np.mean(wordNums), np.mean(unkNums)
 
     return dataset
 
@@ -269,10 +310,13 @@ if __name__ == "__main__":
 
     ##############
     # used for lsi, tfidf
-    #dictPath = "../ni_data/tweetVec/tweets.dict"
-    #corpusPath = "../ni_data/tweetVec/tweets.mm"
-    #lsiModelPath = "../ni_data/tweetVec/model.lsi"
-    #simIndexPath = "../ni_data/tweetVec/tweets.index"
+    dictPath = "../ni_data/tweetVec/tweets.dict"
+    corpusPath = "../ni_data/tweetVec/tweets.mm"
+    lsiModelPath = "../ni_data/tweetVec/model.lsi"
+    simIndexPath = "../ni_data/tweetVec/tweets.index"
+
+    corpus_tfidf = texts2TFIDFvecs(tweetTexts_all, dictPath, corpusPath)
+
     #texts2LSIvecs(tweetTexts_all, dictPath, corpusPath)
     #lsi_vec_sim(dictPath, corpusPath, lsiModelPath, simIndexPath)
 

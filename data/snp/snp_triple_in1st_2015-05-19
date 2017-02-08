@@ -1,503 +1,217 @@
+(lp1
 c__builtin__
 set
-p1
-((lp2
-S'ge--ge###split a 465-locomotive south african order evenly with###ex-im support'
-p3
-aS'kim--kim###took charge in###2011'
+p2
+((lp3
+S'home depot--home depot profit###beats###housing recovery'
 p4
-aS'ups--ups###to pay###$ 25 mln'
+aS'home depot--home depot profit###beats housing recovery amid###u .s'
 p5
-aS'ge--ge###reported###revenues of $ 149 billion and profits of $ 15 billion'
-p6
-aS'gm--gm###is aiming to maintain its operating profit margins at###9 percent'
-p7
-aS'gm--gm###cut###prices'
+atRp6
+ag2
+((lp7
+S'apple--apple inc###was handed a mixed ruling by a u .s in###the latest twist'
 p8
-aS"ge--ge###split a 465-locomotive south african order evenly with###china 's state-run train builders csr corp"
+aS'apple--apple inc###was handed appeals court in###the latest twist'
 p9
-aS'ge--ge###says to lose###angola locomotive deal'
+aS'apple--apple inc###was handed a mixed ruling by a u .s###appeals court'
 p10
-aS'c--c###has made###huge gains'
-p11
-aS'ge--ge###reported profits of $ 15 billion in###2014'
-p12
-aS'ups--ups###also wrote down###codes'
+atRp11
+ag2
+((lp12
+S'apple--billionaire investor carl###icahn said on###monday apple inc'
 p13
-aS'dow--dow###creeps up to###new record high'
-p14
-aS'ge--ge###should seek###private financing'
-p15
-aS'ge--ge###reported revenues of $ 149 billion in###2014'
+atRp14
+ag2
+((lp15
+S'verizon communications--19 cablevision systems corp###may sued###verizon communications inc'
 p16
-aS'c--c###has made huge gains in###recent years'
+aS'cablevision--19 cablevision systems corp###may sued###verizon communications inc'
 p17
-atRp18
-.c__builtin__
-set
-p1
-((lp2
-S"target--core consumer price inflation which includes oil products but excludes fresh food prices###will not meet###the central bank 's target"
-p3
-aS'apple--apple###said###a statement'
-p4
-aS'staples--0300/0700 ) office supplies retailer staples inc###to report###a first-quarter profit of 17 cents'
-p5
-aS'target--retailer target corp###reports###first-quarter results'
-p6
-aS'apple--the case###is###apple inc v samsung electronics co'
-p7
-aS'time warner--contingent###had previously lost in###a bid to acquire time warner cable'
-p8
-aS'apple--samsung###violated###several apple patents'
-p9
-aS'apple--apple pay###to be launch in###china'
-p10
-aS'bank of america--mirsepahi###said in###a statement released by bank of america'
-p11
-aS'apple--the company###to enter the consumer television market than###its current apple tv box'
-p12
-aS'boeing--boeing###to extend its production line into###2019'
-p13
-aS'nasdaq--declining issues###fell on###the nasdaq'
-p14
-aS'apple--apple###had been in###talks'
-p15
-aS'bank of new york mellon--forrest###said in###bank of new york mellon corp'
-p16
-aS"target--the ecb 's target###to be reach towards###the end of 2016"
-p17
-aS'home depot--larger rival home depot inc###raised###its full-year earnings forecast'
+aS'verizon communications--verizon communications inc###may be sued on###tuesday'
 p18
-aS'apple--a slimmer version of its apple tv box###to be unveil with###a redesigned remote control'
+aS"cablevision--19 cablevision systems corp###may sued verizon communications inc seeking###a judge 's finding"
 p19
-aS'nasdaq--the nasdaq composite###declined###5.70 points , or 0.11 percent'
+aS'cablevision--19 cablevision systems corp###may sued verizon communications inc on###tuesday'
 p20
-aS'apple--apple inc###was handed###a mixed ruling'
-p21
-aS"apple--apple 's shares###rose should be###as much as 1.8 percent"
-p22
-aS'apple--icahn###also used an open letter to###apple chief executive tim cook'
+atRp21
+ag2
+((lp22
+S'raytheon--raytheon co###appealed###a decision'
 p23
-aS'apple--apple shares###added###0.4 percent'
-p24
-aS'cigna--cigna###is###worth'
-p25
-aS"bank of america--may 19 bank of america 's merrill lynch###said in###tuesday"
-p26
-aS'anthem--anthem###recently closed in###the purchase of simply healthcare'
-p27
-aS'verizon communications--sprint and verizon communications inc###to pay###68 million and $ 90 million'
-p28
-aS'apple--apple###said in###a statement'
-p29
-aS'autodesk--autodesk###now expects###revenue growth of 2-4 percent'
-p30
-aS'target--the personal consumption expenditures###(pce###) price indexes which are running well below its target'
-p31
-aS'apple--former apple chief executive steve jobs###was still###alive'
-p32
-aS'verizon communications--the proposed agreement###is part of###a broader deal in which sprint and verizon communications inc agreed to pay $ 68 million and $ 90 million , respectively , to end several u.s. government probes into the practice'
-p33
-aS'autodesk--autodesk inc###reported###a 32.5 percent fall hurt by an increase in operating expenses and cost of revenue'
-p34
-aS'morgan stanley--move-merrill lynch###lands from###morgan stanley'
-p35
-aS'staples--staples###to report###a fall which would be the ninth straight decline in quarterly sales'
-p36
-aS'u.s. dollar--the u.s. dollar###be already bolstered by###indications the european central bank may take more measures'
-p37
-aS"apple--apple 's shares###rose as much as 1.8 percent should be on###monday"
-p38
-aS'apple--apple inc###would introduce###a television set and a car'
-p39
-aS"apple--apple 's shares###rose as much as 1.8 percent should be by###midday"
-p40
-aS"southern--san bernardino 's council###approved###a bankruptcy exit plan that seeks to virtually eliminate the southern california city 's pension bond debt while paying calpers"
-p41
-aS'target--creditors###should accept###a lower primary surplus target'
-p42
-aS'bank of america--u.s. bancorp and bank of america corp###won###a dismissal of claims'
-p43
-aS'hp--huaxin###is still waiting to hear from###hp'
-p44
-aS"hp--china 's unigroup###says###wins bid to buy 51 percent stake in hp unit"
-p45
-aS"apple--it###tilts strongly in###apple 's favor"
-p46
-aS'raytheon--raytheon co###appealed###a decision'
-p47
-aS'nasdaq--the nasdaq composite###advanced 0.64 points , or 0.03 percent , to###2,129.84'
-p48
-aS'apple--apple###boosted following###pressure'
-p49
-aS"apple--apple chief executive tim cook###was quoted by###china 's xinhua news agency"
-p50
-aS'goldman sachs--the european investment bank , goldman sachs and several companies###sold debt on###monday'
-p51
-aS'gap--the gap###could be 70 million barrels by###2040'
-p52
-aS'hormel foods--meat products maker hormel foods corp###warned in###last month'
-p53
-aS'wells fargo--wells fargo###was contributing the biggest gains to###the s&p'
-p54
-aS'goldman sachs--goldman sachs###issued###its second bearish oil forecast'
-p55
-aS"jpmorgan chase--jpmorgan chase & co. puerto rico 's governor alejandro garcia padilla###presented new tax proposals to###lawmakers"
-p56
-aS'target--its inflation target and the single currency###sank 1.3 percent on###the day'
-p57
-aS'autodesk--computer-aided design software###be makes by###autodesk inc'
-p58
-aS'humana--humana###has###a market capitalization of $ 26.5 billion'
-p59
-aS"target--it###does n't fall behind on###its target"
-p60
-aS'nasdaq--the nasdaq composite###declined 5.70 points , or 0.11 percent , to###5,072.74'
-p61
-aS'target--target buyers###had been for###a few days and the overall deal size'
-p62
-aS'nasdaq--the nasdaq composite###lost###3.89 points , or 0.08 percent'
-p63
-aS'apple--an open letter###be also used to###apple chief executive tim cook'
-p64
-aS'citigroup--jpmorgan and citigroup###would be banks in###u.s.'
-p65
-aS'boeing--boeing###to extend###its production line'
-p66
-aS'target--retailer target corp###reports first-quarter results before###markets open'
-p67
-aS"merck--merck 's finance chief marcus kuhnert###told journalists in###a conference call"
-p68
-aS'nasdaq--the nasdaq composite .ixic###dropped 8.41 points , or 0.17 percent , to###5,070.03'
-p69
-aS'boeing--the move###was good news for###boeing'
-p70
-aS'coca-cola--the coca-cola co###invested an initial $ 1.25 billion in###keurig green mountain inc'
-p71
-aS'apple--apple###said on###monday'
-p72
-aS'anthem--anthem###recently closed on###the purchase of simply healthcare'
-p73
-aS'verizon communications--verizon communications inc###be sued on###tuesday'
-p74
-aS'apple--apple###had been to launch###apple pay'
-p75
-aS"merck--merck 's finance chief marcus kuhnert###told journalists###a conference call"
-p76
-aS'anthem--anthem chief financial officer wayne deveydt###told###investors'
-p77
-aS'nasdaq--the nasdaq composite###lost 1.38 points , or 0.06 percent , to###2,127.82'
-p78
-aS'nasdaq--the nasdaq composite###lost###1.38 points , or 0.06 percent'
-p79
-aS'apple--apple###would develop###an actual television'
-p80
-aS'nasdaq--the nasdaq composite###lost 0.36 points , or 0.02 percent , to###2,128.84'
-p81
-aS'apple--apple###boosted its repurchase program in###april'
-p82
-aS'goldman sachs--goldman sachs and guggenheim securities###have arranged###committed financing of up to $ 2.4 billion'
-p83
-aS'target--inflation###be saw below###its 3 percent target'
-p84
-aS'verizon communications--sprint and verizon communications inc###agreed to pay###68 million and $ 90 million'
-p85
-aS"apple--our products###do not infringe on###apple 's design patents and other intellectual property"
-p86
-aS'goldman sachs--the european investment bank , goldman sachs and several companies###sold debt in###the investment-grade bond market'
-p87
-aS'apple--billionaire investor carl icahn###said on###monday apple inc'
-p88
-aS'general electric--cfm###is a joint venture between###general electric of the united states'
-p89
-aS'apple--apple shares###rose as much as 1.8 percent by###midday'
-p90
-aS'apple--apple###had scrapped###plans to introduce an ultra-high-definition television'
-p91
-aS'home depot--profits###be buoyed at###home depot inc'
-p92
-aS'gap--ukraine###is holding###talks to restructure sovereign and state-guaranteed debt to plug a $ 15 billion funding gap'
-p93
-aS'apple--apple shares###rose as much as 1.8 percent on###monday'
-p94
-aS'verizon communications--may 19 cablevision systems corp###sued###verizon communications inc'
-p95
-aS'morgan stanley--active bookrunners###were###bofa merrill lynch , goldman sachs , jp morgan and morgan stanley'
-p96
-aS'citigroup--bnp paribas , citigroup , barlcays , jp morgan , investec and standard chartered###said in###a statement'
-p97
-aS'apple--apple###will still introduce###tv'
-p98
-aS'citigroup--jpmorgan and citigroup###would be###the first major u.s. banks'
-p99
-aS'whirlpool--whirlpool###has spent developing###the device which was thought up by a young brazilian trainee'
-p100
-aS"citigroup--field of bidders###narrows for###citigroup 's egyptian retail business saudi arabia"
-p101
-aS'target--mts###confirmed###its full-year target'
-p102
-aS'target--the implied eur2bn minimum target size###to be reach through###the other three-tranches'
-p103
-aS'ebay--paypal###is in###the process being spun off from ebay'
-p104
-aS'endo international--an inquiry###recalled cars in###the u.s. pharma company endo international plc'
-p105
-aS'target--its ambitious inflation target###be achieve around###the middle of 2016'
-p106
-aS'autodesk--nearly two-thirds of its revenue###be gets by###autodesk'
-p107
-aS"citigroup--u.s. banks jpmorgan and citigroup and britain 's barclays and royal bank of scotland###to plead guilty to###criminal charges related to forex manipulation"
-p108
-aS'apple--about 53 million apple shares###be owned at###the end of the first quarter'
-p109
-aS'apple--apple###was immediately###not immediately available'
-p110
-aS'raytheon--raytheon###was###confident'
-p111
-aS'target--the ecb###could so did not fall below###its monthly buying target'
-p112
-aS'coca-cola--the coca-cola co###invested an initial $ 1.25 billion as###part of a plan'
-p113
-aS'apple--apple inc###had scrapped###plans introducing an ultra-high-definition television'
-p114
-aS'nasdaq--the nasdaq composite###dropped 8.41 points , or 0.17 percent , to###5,070.03'
-p115
-aS'gilead sciences--gilead sciences inc###recently approved###pill harvoni'
-p116
-aS'target--its inflation target###be hitting as###price growth ground'
-p117
-aS'citigroup--citigroup###did not immediately respond to###an emailed request'
-p118
-aS'nasdaq--1,202###fell on###the nasdaq'
-p119
-aS'citigroup--it###was suing###the local subsidiary of citigroup inc'
-p120
-aS'apple--the journal###is also expected to unveil###a slimmer version of its apple tv box'
-p121
-aS'goldman sachs--the european investment bank , goldman sachs and several companies###sold###debt'
-p122
-aS'southern--no immediate word###was in###the latest attacks which followed soon after strikes in northern saada province and in the southern city of aden on monday . . aid agencies say the five-day truce did not provide sufficient opportunity'
-p123
-aS'autodesk--autodesk inc###forecast###lower-than-expected profit and revenue'
-p124
-aS'ford motor--the local subsidiary of ford motor co###is launching###a plan to sell cars in dollars'
-p125
-aS'citigroup--citigroup###has portrayed###itself'
-p126
-aS'citigroup--bnp paribas , citigroup , barclays , jp morgan , investec , standard bank and standard chartered###said on###tuesday'
-p127
-aS"nasdaq--achillion 's shares###closed on###the nasdaq"
-p128
-aS"merck--merck 's finance chief marcus kuhnert###told journalists at###the latest"
-p129
-aS'nasdaq--the nasdaq composite###dropped###4.70 points , or 0.09 percent'
-p130
-aS'lockheed martin--65 f-35 aircraft###be built by###lockheed martin corp'
-p131
-aS'goldman sachs--deutsche###assume###a business model resembling goldman sachs'
-p132
-aS'u.s. bancorp--u.s. bancorp and bank of america corp###won###a dismissal of claims'
-p133
-aS'autodesk--cad software maker autodesk###forecasts###profit'
-p134
-aS'staples--staples inc###be retailer of###office supplies'
-p135
-aS"merck--merck 's finance chief marcus kuhnert###told###journalists"
-p136
-aS'autodesk--autodesk###competes against###software'
-p137
-aS'verizon communications--cablevision systems corp###sued###verizon communications inc'
-p138
-aS"phillips 66--bp 's cherry point refinery in washington state , and the phillips 66 wilmington refinery###said on###monday"
-p139
-aS'nasdaq--the nasdaq composite###recorded###113 new highs and 51 new lows'
-p140
-aS'gap--numerous high-profile women###have publicly addressed to to###the gender gap'
-p141
-aS'apple--apple inc###would introduce###a television and a car'
-p142
-aS'gap--the gap###could be 70 million barrels per###day'
-p143
-aS'morgan stanley--a morgan stanley spokeswoman###confirmed###three'
-p144
-aS'ball--hundreds of private houses that authorities deem a risk to passers-by in bhaktapur , one of several quake-hit medieval cities###may face###the wrecking ball'
-p145
-aS'autodesk--autodesk###cut its adjusted profit forecast for the year to###95 cents-$ 1.10'
-p146
-aS'autodesk--autodesk###be known for###its autocad software used by construction companies , engineers and manufacturers to design products and simulate real-world performance'
-p147
-aS'nasdaq--1,194###fell on###the nasdaq'
-p148
-aS'home depot--larger rival home depot inc###reported###higher-than-expected quarterly profit and sales'
-p149
-aS'apple--an apple spokeswoman###did not immediately respond to###a request'
-p150
-aS'target--its inflation target and the single currency###sank###1.3 percent'
-p151
-aS'target--a lower primary surplus target###be set in###return'
-p152
-aS'home depot--[ us:nl1n0ya0ko] home depot###said###improved spending'
-p153
-aS'apple--the company###to unveil###a slimmer version of its apple tv box'
-p154
-aS"target--labour 's plans###include###a review of the british tax authority the liberal democrats say they will raise billions more in tax , and the united kingdom independence party ( ukip ) says it will target tax dodging by big companies"
-p155
-aS'waters--the appeals court###further muddied###the waters'
-p156
-aS'whirlpool--may 19 whirlpool corp and anheuser-busch inbev###started selling###a countertop appliance that makes soda , juice and coffee with single-serve capsules'
-p157
-aS'nasdaq--the nasdaq composite###dropped 4.70 points , or 0.09 percent , to###5,073.74'
-p158
-aS'target--mcdonald###to reach###the implied eur2bn minimum target size'
-p159
-aS'raytheon--mike nachshen###be spokesman for###raytheon'
-p160
-aS'target--it###saw inflation below###its 3 percent target'
-p161
-aS'bank of america--a statement###be released by###bank of america'
-p162
-aS"walt disney--tomorrowland###sees###walt disney 's early visions of a scientific utopia"
-p163
-aS"waters--the economy###so ca n't avoid###choppy waters"
-p164
-aS'apple--former apple chief executive steve jobs###was seen as###emblematic of his tendency'
-p165
-aS'nasdaq--the nasdaq composite###lost 3.89 points , or 0.08 percent , to###5,074.55'
-p166
-aS'southwest airlines--southwest airlines co###said in###tuesday'
-p167
-aS'nasdaq--the nasdaq composite###advanced###0.64 points , or 0.03 percent'
-p168
-aS'northern trust--carl tannenbaum###be chief economist at###northern trust in chicago and a former fed official'
-p169
-aS'gap--the gap###could be###70 million barrels'
-p170
-aS'autodesk--autodesk###cut###its adjusted profit forecast'
-p171
-aS'apple--apple###boosted###its share'
-p172
-aS'goldman sachs--active bookrunners###were###bofa merrill lynch , goldman sachs , jp morgan and morgan stanley'
-p173
-aS'allergan--valeant###lost###a high profile bid to buy botox maker allergan inc last year'
-p174
-aS'target--its inflation target and the single currency###sank 1.3 percent to###a one-week low of $ 1.1160'
-p175
-aS"autodesk--the switch###increased###autodesk 's costs"
-p176
-aS'time warner--charter###had previously lost in###a bid to acquire time warner cable'
-p177
-aS'wells fargo--wells fargo###was contributing###the biggest gains'
-p178
-aS'goldman sachs--the european investment bank , goldman sachs and several companies###sold debt on###tuesday'
-p179
-aS'raytheon--raytheon###has filed two separate motions with###the court of federal claims'
-p180
-aS"boeing--cfm###is the sole engine supplier for###boeing 's 737 family"
-p181
-aS'anthem--anthem chief financial officer wayne deveydt###told investors during###the ubs global healthcare conference'
-p182
-aS'morgan stanley--move-merrill lynch###be lands from###morgan stanley'
-p183
-aS'apple--a $ 120 million verdict###be involving for###apple'
-p184
-aS'u.s. bancorp--bank wealth management###be a unit of###u.s. bancorp'
-p185
-aS'gap--u.s. refiners###have stepped hungrily in###a gap'
-p186
-aS'apple--carl icahn###owned###about 53 million apple shares'
-p187
-aS'southwest airlines--southwest airlines###expects###passenger unit revenue drop'
-p188
-aS'apple--apple shares###rose###as much as 1.8 percent'
-p189
-aS'nasdaq--may 19 the s&p 500 and nasdaq###ended down on###tuesday'
-p190
-aS'home depot--atlanta-based home depot###raised###its profit forecast'
-p191
 aS'raytheon--raytheon co###appealed a decision by###a federal claims court'
-p192
-aS'target--a lower primary surplus target###should be accept in###return for tax reform and a hike'
-p193
-aS'boeing--boeing###had###no immediate comment'
-p194
-aS'staples--staples inc###be retailer for###office supplies'
-p195
-aS'home depot--the firming housing market###buoyed profits at###home depot inc'
-p196
-aS'merck--may 19 merck kgaa###said###european union antitrust regulators'
-p197
-aS'nasdaq--the nasdaq composite###dropped###8.41 points , or 0.17 percent'
-p198
-aS'apple--apple###shelved###plans to introduce tv'
-p199
-aS'nasdaq--the nasdaq composite###was recording###107 new highs and 41 new lows'
-p200
-aS'm&t bank--m&t bank corp###canceled###its services'
-p201
-aS'target--the central bank###needs###a higher target'
-p202
-aS'gap--the gap###be narrowing to###discounters aldi [aldiei.ul] and lidl [liduk.ul]'
-p203
-aS'raytheon--a lawsuit###be filed by###raytheon'
-p204
-aS'morgan stanley--ted wieseman###be an economist at###morgan stanley'
-p205
-aS"target--economists###apart from slower growth see###inflation which is running well below the federal reserve 's 2 percent target"
-p206
-aS'wal-mart stores--wal-mart stores inc###joined###the list of u.s. retailers'
-p207
-aS'target--the boj###to achieve###its inflation target'
-p208
-aS'jpmorgan chase--junya tanase###be chief fx strategist at###jpmorgan chase bank'
-p209
-aS'southern--military operations###resumed in###northern saada province and in the southern city of aden'
-p210
-aS'u.s. dollar--the u.s. dollar###was given###additional support'
-p211
-aS'home depot--home depot profit###beats amid###u.s. housing recovery'
-p212
-aS'monsanto--that company###was acquired by###monsanto'
-p213
-aS"nasdaq--achillion 's shares###closed in###the nasdaq"
-p214
-aS'apple--apple###boosted###its repurchase program'
-p215
-aS'target--target buyers###had been on###top of all the recent rates volatility'
-p216
-aS'gap--the mostly small , old and inefficient refineries###have struggled creating###a gap into which u.s. refiners have stepped hungrily'
-p217
-aS'goldman sachs--goldman sachs###issued its second bearish oil forecast predicting $ 45 a barrel by###october'
-p218
-aS'target--june###could so did not fall below###its monthly buying target'
-p219
-aS'raytheon--raytheon###has filed###two separate motions'
-p220
-aS'aetna--aetna###purchased###coventry'
-p221
-aS'target--the speed of the recent spike###could so did not fall below###its monthly buying target'
-p222
-aS'lockheed martin--six u.s. f-35b fighter jets###be built by###lockheed martin corp'
-p223
+p24
+atRp25
+ag2
+((lp26
+S'southwest airlines--southwest airlines###expects###passenger unit revenue drop'
+p27
+atRp28
+ag2
+((lp29
+S"bank of america--james sadler###has left###bnp paribas where he was a director within the firm 's debt capital markets team in the middle east to join rival bank of america merrill lynch"
+p30
+atRp31
+ag2
+((lp32
+S'merck--19 merck kgaa###may said###european union antitrust regulators'
+p33
 aS'merck--merck kgaa###says to overcome###eu concerns'
-p224
-aS'boeing--house defense appropriations panel###also funds###boeing jets'
-p225
-aS'merck--marcus kuhnert###be finance chief of###merck'
-p226
-aS'blackrock--blair nicholas###be a lawyer for###the blackrock , pimco and tiaa-cref plaintiffs'
-p227
-aS'goldman sachs--goldman sachs###issued its second bearish oil forecast predicting $ 45 a barrel for###u.s. crude'
-p228
-aS'cigna--cigna###has###a market capitalization of $ 26.5 billion'
-p229
-aS"target--the central bank 's target###will be not meet in###the next fiscal year"
-p230
-aS'raytheon--mike nachshen###be spokesman of###raytheon'
-p231
-aS'southern--u.s.###be university in###southern california'
-p232
-aS'apple--apple###had been to launch apple pay in###china'
-p233
-atRp234
-.
+p34
+atRp35
+ag2
+((lp36
+S'cablevision--cablevision systems corp###sued###verizon communications inc'
+p37
+aS'verizon communications--cablevision systems corp###sued###verizon communications inc'
+p38
+aS"verizon communications--(updates ) by nate raymond new york may 19 ( reuters ) - cablevision systems corp sued verizon communications inc on tuesday seeking a judge 's finding that its television commercial claiming verizon 's fios service does not solely use fiber optic cable###is###truthful"
+p39
+aS'verizon communications--verizon communications inc###be sued on###tuesday'
+p40
+aS"cablevision--(updates ) by nate raymond new york may 19 ( reuters ) - cablevision systems corp sued verizon communications inc on tuesday seeking a judge 's finding that its television commercial claiming verizon 's fios service does not solely use fiber optic cable###is###truthful"
+p41
+aS'cablevision--cablevision systems corp###sued verizon communications inc on###tuesday'
+p42
+atRp43
+ag2
+((lp44
+S'facebook--sarah palin###said on###facebook'
+p45
+atRp46
+ag2
+((lp47
+S'abbott--abbott comment###(adds said on###tuesday'
+p48
+atRp49
+ag2
+((lp50
+S'boeing--defense appropriations panel###also funds###boeing jets'
+p51
+atRp52
+ag2
+((lp53
+S'wal-mart stores--wal-mart stores inc###joined retailers reporting disappointing quarterly results###the list of u .s'
+p54
+aS'wal-mart stores--wal-mart stores inc###joined the list of u .s###retailers reporting disappointing quarterly results'
+p55
+atRp56
+ag2
+((lp57
+S'apple--apple inc###would introduce###a television set and a car'
+p58
+aS'apple--apple###will still introduce###tv'
+p59
+atRp60
+ag2
+((lp61
+S'lockheed martin--18 ( reuters ) - six u .s . f-35b fighter jets built by lockheed martin corp landed on the uss###wasp###amphibious warship'
+p62
+aS'lockheed martin--f-35b fighter jets built by lockheed martin corp###landed on###the uss'
+p63
+aS'lockheed martin--18 ( reuters ) - six u .s . f-35b fighter jets built by lockheed martin corp landed on the uss###wasp amphibious warship on###monday'
+p64
+aS'lockheed martin--18 ( reuters ) - six u .s . f-35b fighter jets built by lockheed martin corp landed on the uss###wasp amphibious warship for###two weeks of operational testing'
+p65
+aS'lockheed martin--f-35b fighter jets###be built by###lockheed martin corp'
+p66
+atRp67
+ag2
+((lp68
+S'google--google ventures###leads###$ 15 million deal'
+p69
+aS'google--google inc and two venture capitalist firms###are investing $ 15 million in###a u .s'
+p70
+aS'google--google ventures###leads $ 15 million deal in###farmers business network'
+p71
+atRp72
+ag2
+((lp73
+S'autodesk--autodesk inc which makes computer-aided design software###reported###a 32.5 percent fall hurt by an increase in operating expenses and cost of revenue'
+p74
+aS'autodesk--computer-aided design software###be makes by###autodesk inc'
+p75
+atRp76
+ag2
+((lp77
+S"hp--china 's unigroup###says###wins bid to buy 51 percent stake in hp unit"
+p78
+atRp79
+ag2
+((lp80
+S'cme--cme group inc###said on###monday'
+p81
+atRp82
+ag2
+((lp83
+S'raytheon--raytheon co###appealed###a decision'
+p84
+aS'raytheon--raytheon co###appealed a decision by###a federal claims court'
+p85
+atRp86
+ag2
+((lp87
+S'apple--apple inc###had scrapped###plans introducing an ultra-high-definition television set more than a year ago , wall street journal'
+p88
+aS'apple--apple###shelved###plans to introduce tv set more than a year ago'
+p89
+atRp90
+ag2
+((lp91
+S'bank of america--bancorp and bank of america corp###won###a dismissal of claims'
+p92
+atRp93
+ag2
+((lp94
+S'cablevision--cablevision systems corp###sued###verizon communications inc'
+p95
+aS'verizon communications--verizon communications inc###be sued on###tuesday'
+p96
+aS"cablevision--cablevision systems corp###sued verizon communications inc seeking###a judge 's finding"
+p97
+aS'cablevision--cablevision systems corp###sued verizon communications inc on###tuesday'
+p98
+aS'verizon communications--cablevision systems corp###sued###verizon communications inc'
+p99
+atRp100
+ag2
+((lp101
+S'apple--apple inc###was handed appeals court in the latest twist###a mixed ruling'
+p102
+aS'apple--apple inc###was handed a mixed ruling by a u .s in###a blockbuster intellectual property battle'
+p103
+aS'apple--apple inc###was handed appeals court in the latest twist in###a blockbuster intellectual property battle'
+p104
+aS'apple--apple inc###was handed a mixed ruling by a u .s###appeals court'
+p105
+atRp106
+ag2
+((lp107
+S"kinder morgan--the state of georgia 's top transportation official###has denied###kinder morgan inc 's request"
+p108
+atRp109
+ag2
+((lp110
+S'general motors--19 the local divisions of general motors struggling to obtain hard currency to import parts###may are considering charging venezuelans dollars for###some cars'
+p111
+aS'general motors--19 the local divisions of general motors struggling to obtain hard currency to import parts###may are considering charging###venezuelans dollars'
+p112
+atRp113
+ag2
+((lp114
+S'apple--apple###will still introduce###tv'
+p115
+atRp116
+ag2
+((lp117
+S'southwest airlines--southwest airlines###expects###passenger unit revenue drop'
+p118
+atRp119
+ag2
+((lp120
+S'apple--apple inc###would introduce###a television and a car'
+p121
+aS'apple--apple###will still introduce###tv cnbc'
+p122
+atRp123
+a.

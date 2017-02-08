@@ -1,513 +1,197 @@
+(lp1
 c__builtin__
 set
-p1
-((lp2
-S'ge--ge###to exit###$ 200 billion worth of finance assets'
-p3
-aS'gm--gm###also set up###an out-of-court fund to compensate victims of the ignition switch'
+p2
+((lp3
+S'nasdaq--stocks###snapshot###nasdaq sets record'
 p4
-aS'gm--gm###recalled 2.6 million vehicles with###the switch'
+aS'nasdaq--stocks###rose with###the nasdaq composite setting'
 p5
-aS'ge--ge###announced###plans to largely exit its finance businesses'
-p6
-aS'ge--ge###hopes to draw up###terms of a sale'
-p7
-aS'ge--ge###announced plans in###last month'
+atRp6
+ag2
+((lp7
+S"time warner--he###did n't bid for###time warner cable"
 p8
-aS'gm--gm###later issued###additional recalls'
+aS"time warner cable--he###did n't bid for###time warner cable"
 p9
-aS'ge--ge###announced plans to exit###$ 200 billion worth of finance assets'
-p10
-aS'ge--ge###announced###plans'
-p11
-aS'gm--gm###also set up###an out-of-court fund to compensate victims'
+atRp10
+ag2
+((lp11
+S"time warner cable--altice owner###says was n't ready for###time warner cable buy"
 p12
-aS'gm--gm###recalled###2.6 million vehicles'
+aS'time warner cable--he###to buy###time warner cable'
 p13
-atRp14
-.c__builtin__
-set
-p1
-((lp2
-S'tiffany--tiffany###alleviate###forex fluctuations'
-p3
-aS'broadcom--broadcom###surged 15 percent after###the wall street journal'
-p4
-aS'goldman sachs--goldman sachs group inc###said in###a memo'
-p5
-aS"time warner--time warner cable 's shares###rose###7.3 percent"
-p6
-aS'nasdaq--the nasdaq composite###gained 19.29 points , or 0.92 percent , to###2,123.49'
-p7
-aS'intel--intel corp###was in###talks to buy altera'
-p8
-aS'morgan stanley--citic securities , goldman sachs and morgan stanley###were hired as###joint bookrunners'
-p9
-aS"time warner--rpt-charter 's time warner cable bid###faces###$ 2 billion regulatory question"
-p10
-aS'coca-cola--coca-cola co###be sponsor of###fifa'
-p11
-aS'apple--apple###has not commented on###the rumors'
-p12
-aS'target--its ambitious inflation target###be achieving on###april 30'
-p13
-aS'coca-cola--fifa sponsor coca-cola co###said###the indictment of senior officials'
+aS'time warner cable--he###put an end to buy###time warner cable'
 p14
-aS'time warner--we###had on###time warner cable'
-p15
-aS'southern--thousands of rohingya muslims###are ferried has through###southern thailand'
-p16
-aS'broadcom--avago and broadcom###now have###market capitalizations of $ 36 billion'
-p17
-aS'netflix--cheaper and more flexible streaming services###be offered by###netflix inc , amazon.com inc , hulu and others'
-p18
-aS"blackrock--york-based blackrock###is the world 's largest money manager under###management"
-p19
-aS'time warner--secured debt to be issued to finance its planned merger with time warner cable###would be rated by###two'
-p20
-aS'morgan stanley--embraer###has mandated###citigroup and morgan stanley'
-p21
-aS'netflix--viewers###shift to###cheaper and more flexible streaming services offered by netflix inc , amazon.com inc , hulu and others'
-p22
-aS'amazon.com--cheaper and more flexible streaming services###be offered by###netflix inc , amazon.com inc , hulu and others'
-p23
-aS'time warner--some time warner cable bondholders###were wary of###the debt load the combined company will shoulder'
-p24
-aS"target--the central bank 's price target###would be not meet in###fiscal 2017"
-p25
-aS'broadcom--update 2-avago nears###deal for###fellow chipmaker broadcom'
-p26
-aS'apple--apple###will offer a less expensive tv package with###fewer channels'
-p27
-aS'nasdaq--the nasdaq composite###gained 17.91 points , or 0.85 percent , to###2,122.11'
-p28
-aS'citigroup--1445/1845 ) citigroup inc ceo mike corbat###could give###an early reading on second-quarter trading revenue of the third-biggest u.s. bank by assets and one of the biggest players'
-p29
-aS'target--its price stability target###be achieving at###the earliest possible time'
-p30
-aS'time warner--time warner cable chief executive rob marcus###said in###an interview'
-p31
-aS'morgan stanley--morgan stanley currency analysts###said on###wednesday'
-p32
-aS'broadcom--about 1,380 broadcom calls###traded between 50 and 74 cents for###a total price of about $ 70,000'
-p33
-aS'blackrock--blackrock inc###said on###wednesday'
-p34
-aS'target--the deficit###remains above###target'
-p35
-aS'merck--german drugmaker merck###has offered###concessions'
-p36
-aS'coca-cola--coca-cola###calls on###fifa'
-p37
-aS'broadcom--about 1,380 broadcom calls###traded###between 50 and 74 cents'
-p38
-aS'general electric--general electric co###is to sell###assets of its vehicle fleet management business'
-p39
-aS'nasdaq--the nasdaq composite###added 65.40 points , or 1.3 percent , to###5,098.15'
-p40
-aS'morgan stanley--manoj pradhan###be economist of###morgan stanley'
-p41
-aS'apple--a deal###will be probably do with###apple tv'
-p42
-aS'goldman sachs--goldman sachs bankers###received###an average bonus of 194,000 pounds'
-p43
-aS"dow chemical--dow chemical 's battery division###be acquired in###2013"
-p44
-aS'harris--neither company###to provide###an estimate how quickly production can resume , and cenovus spokesman brett harris confirmed the fire had moved closer to foster creek'
-p45
-aS'tiffany--luxury jeweler tiffany###reported###better-than-expected quarterly sales and profit'
-p46
-aS'gap--the funding gap###will be covered with###the debt issue'
-p47
-aS'target--mileage###are already achieving close to###the target'
-p48
-aS'goldman sachs--goldman sachs###is looking to bundle###debt backing'
-p49
-aS'u.s. dollar--the canadian dollar###was to###the u.s. dollar'
-p50
-aS'broadcom--broadcom###surged###15 percent'
-p51
-aS'bank of new york mellon--neil mellor###be a strategist with###bank of new york mellon'
-p52
-aS'target--fifa###is###not the target of its investigation'
-p53
-aS'chevron--proposals to add an independent director with expertise in climate change###received the support of about 20 percent of shareholders###an advisory proposal allowing chevron shareholders with stakes of at least 3 percent to nominate independent directors passed'
-p54
-aS'coca-cola--coca-cola co###be sponsor for###may 27 fifa'
-p55
-aS'michael kors holdings--michael kors holdings ltd###reported###its slowest quarterly revenue growth'
-p56
-aS'nasdaq--the nasdaq composite###gained###19.29 points , or 0.92 percent'
-p57
-aS'boeing--boeing###be rival of###u.s.'
-p58
-aS'broadcom--broadcom shares###rose more than 8 percent on###wednesday'
-p59
-aS'citigroup--embraer###has mandated###citigroup and morgan stanley'
-p60
-aS'apple--cbs ceo###said met with###apple'
-p61
-aS"tiffany--tiffany 's sales###be profit beat on###higher tourist spending"
-p62
-aS'broadcom--one or more traders###snapped up immediately###broadcom weekly calls'
-p63
-aS"southern--hodeida and its military bases###are aligned with###the houthis , the most powerful force in yemen 's complex conflict , which also involves southern secessionist militia , local tribal forces and islamist militants"
-p64
-aS'citigroup--u.s. banks###led by###citigroup'
-p65
-aS'time warner--both time warner cable and charter###are with###a smattering of customers'
-p66
-aS'nasdaq--tech rally###lifts###nasdaq'
-p67
-aS'u.s. dollar--u.s. stocks###edged against###the u.s. dollar'
-p68
-aS'apple--we###will probably do a deal with###apple tv'
-p69
-aS'gap--the world economy###effectively has###a sizeable negative output gap'
-p70
-aS'nasdaq--the nasdaq composite###added 73.84 points , or 1.47 percent , to end at###a record 5,106.59'
-p71
-aS'nasdaq--the nasdaq composite###gained###19.28 points , or 0.92 percent'
-p72
-aS'general electric--general electric co###is in###advanced talks'
-p73
-aS'broadcom--broadcom###shut down###that unit'
-p74
-aS'wells fargo--wells fargo###will soon announce###a deal'
-p75
-aS"broadcom--broadcom 's shares###rose 17 percent on###.wsj.com/1foupsy"
-p76
-aS'citigroup--citigroup and jp morgan###are acting as###global coordinators'
-p77
-aS'apple--apple and microsoft###gave###the biggest boost'
-p78
-aS'time warner--time warner cable###placed###16th'
-p79
-aS'citigroup--citigroup###kept its top spot up from 16 percent a year ago as###the leading foreign exchange trading bank'
-p80
-aS'southern--rostov###be region in###southern russia'
-p81
-aS'merck--german drugmaker merck###has offered concessions in###a bid to convince european union antitrust regulators to clear its proposed $ 17 billion acquisition of u.s. peer sigma-aldrich corp.'
-p82
-aS"gap--the output gap###be minutes of###the central bank 's april 30 policy meeting"
-p83
-aS'time warner--comcast###walked away to buy###time warner cable'
-p84
-aS'target--its inflation target###be achieving at###the april 30 meeting'
-p85
-aS'u.s. dollar--the euro###edged against###the u.s. dollar'
-p86
-aS"time warner--premium cable network hbo###be owned by###time warner cable 's former parent"
-p87
-aS"target--consumer prices###would not meet###the central bank 's price target"
-p88
-aS"broadcom--broadcom 's shares###rose###than 7 percent"
-p89
-aS'halliburton--halliburton staff###closed###its operations'
-p90
-aS'target--three of the nine board members###to allow themselves###more time to hit the target or water down the commitment'
-p91
-aS'time warner--i###can be as big as###time warner cable'
-p92
-aS'nasdaq--the nasdaq composite###gained###18.11 points , or 0.86 percent'
-p93
-aS'u.s. dollar--financial market trading###revolved around###the u.s. dollar'
-p94
-aS'target--boj###delayed###price target'
-p95
-aS'nasdaq--the nasdaq composite .ixic###added 73.84 points , or 1.47 percent , to###5,106.59'
-p96
-aS'broadcom--california-based broadcom###makes###semiconductors'
-p97
-aS"u.s. dollar--the u.s. dollar index###added to###the previous session 's gains"
-p98
-aS'nasdaq--the nasdaq composite###added###67.74 points , or 1.35 percent'
-p99
-aS'at&t--at&t inc###has entered the market through###its purchase of the no.'
-p100
-aS'time warner--tier###"basic " tier is 10 megabits of###time warner cable'
-p101
-aS'nasdaq--u.s. stocks###ended on###wednesday and the nasdaq'
-p102
-aS'coca-cola--coca-cola co###to soon close###its deal'
-p103
-aS'coca-cola--may 27 fifa sponsor coca-cola co###said on###wednesday'
-p104
-aS'nasdaq--the biggest boost###be gave to###the nasdaq'
-p105
-aS'microsoft--apple and microsoft###gave the biggest boost to###the nasdaq'
-p106
-aS'goldman sachs--goldman sachs###to bundle###debt backing'
-p107
-aS'u.s. dollar--the canadian dollar###ended to###the u.s. dollar'
-p108
-aS"ball--the ball###is still in###the greek government 's court"
-p109
-aS'u.s. dollar--the u.s. dollar index###boosted by###an advance'
-p110
-aS'microsoft--apple and microsoft###gave###the biggest boost'
-p111
-aS'nasdaq--the nasdaq composite###added###36.71 points , or 0.73 percent'
-p112
-aS'apple--jeff williams###hinted at###an apple car'
-p113
-aS'wells fargo--wells fargo###will soon announce a deal with###the company that will make its online advice available to the 3.8 million 401( k ) participants on its 401( k ) record-keeping platform'
-p114
-aS"lockheed martin--may 27###be nearly two weeks of###testing of lockheed martin corp 's f-35b fighter jet"
-p115
-aS'goldman sachs--mario alberto huertas###has appointed###goldman sachs'
-p116
-aS"chevron--preliminary tallies###be provided at###chevron 's annual meeting"
-p117
-aS'halliburton--halliburton strike###says in###nigerian oil union'
-p118
-aS'nasdaq--the nasdaq composite###added###65.40 points , or 1.3 percent'
-p119
 aS'time warner--he###to buy###time warner cable'
-p120
-aS"broadcom--broadcom 's shares###rose more than 7 percent in###afternoon trading"
-p121
-aS'morgan stanley--morgan stanley###was ranked in###the table'
-p122
-aS"broadcom--broadcom 's shares###rose###17 percent"
-p123
-aS'nasdaq--u.s. equities###also climbed with###the nasdaq'
-p124
-aS'target--the first half of fiscal 2016###is a delay from###its previous target of some time'
-p125
-aS"time warner--he###did n't bid for###time warner cable"
-p126
-aS'apple--apple and microsoft###gave the biggest boost to###the nasdaq'
-p127
-aS'coca-cola--may 27 fifa sponsor coca-cola co###said###the indictment of senior officials'
-p128
-aS'coca-cola--adidas and beverage company coca-cola co###be company for###other sponsors bristle german sportswear'
-p129
-aS'nasdaq--nasdaq###hits###record closing high'
-p130
-aS'target--price target###be delayed at###april 30 meeting'
-p131
-aS'nasdaq--the nasdaq composite###gained 10.3 points , or 0.49 percent , to###2,114.5'
-p132
-aS'citigroup--the company###has used a us$ 245m nine-month bridge loan through###credit suisse and citigroup'
-p133
-aS'time warner--consumers union###said###time warner cable'
-p134
-aS'nasdaq--the nasdaq composite###gained###17.91 points , or 0.85 percent'
-p135
-aS'target--this target###can be reached around###the first half of fiscal 2016 which is a delay from its previous target of some time around fiscal 2015'
-p136
-aS'morgan stanley--morgan stanley currency analysts###said in###a note'
-p137
-aS'amazon.com--viewers###shift to###cheaper and more flexible streaming services offered by netflix inc , amazon.com inc , hulu and others'
-p138
-aS'bank of america--other banks###were###bank of america merrill lynch , jp morgan and citigroup'
-p139
-aS"apple--car play###was so far###the extent of apple 's vehicle efforts"
-p140
-aS'perrigo--it###pursues###its own hostile takeover of over-the-counter drugmaker perrigo co plc ( reporting by shailesh kuber '
-p141
-aS'goldman sachs--citic securities , goldman sachs and morgan stanley###were hired as###joint bookrunners'
-p142
-aS"blackrock--york-based blackrock###is###the world 's largest money manager"
-p143
-aS'broadcom--people familiar###said avago technologies ltd is close to###an agreement to acquire fellow chipmaker broadcom corp'
-p144
-aS"blackrock--york-based blackrock###is the world 's largest money manager at###the end of march"
-p145
-aS'coach--coach###fell###3.58 percent'
-p146
-aS"time warner--charter communications inc###will try to skirt###the regulatory obstacles that helped sink comcast corp 's earlier bid for time warner cable"
-p147
-aS'waters--the waters of the united state rule###be issued by###the environmental protection agency'
-p148
-aS'nasdaq--biotech company 3sbio###delisted two years ago from###the nasdaq'
-p149
-aS'eaton--tom metzold###be a portfolio manager at###eaton vance management'
-p150
-aS'halliburton--halliburton staff###closed its operations on###tuesday'
-p151
-aS'target--some truckers###are already achieving mileage close to###the target'
-p152
-aS'halliburton--halliburton###be company of###u.s. oil services'
-p153
-aS'target--a target or subject of the investigation###covers###all aspects'
-p154
-aS'broadcom--chipmaker broadcom corp###is in###talks to be bought by avago technologies ltd'
-p155
-aS'broadcom--broadcom###cut###a fifth of its workforce'
-p156
-aS'target--three of the nine board members###wanted to allow themselves###more time to hit the target or water down the commitment'
-p157
-aS'nasdaq--it###delisted to from###the nasdaq'
-p158
-aS'broadcom--broadcom shares###rose###than 8 percent'
-p159
-aS'citigroup--european banks###have seen their market share in foreign exchange trading slump in###the past year)[enabler=as u.s. banks led by citigroup ( c.n '
-p160
-aS'nasdaq--the nasdaq composite###added###73.84 points , or 1.47 percent'
-p161
-aS'apple--apple inc###said at###a technology conference'
-p162
-aS'morgan stanley--cicc) , credit suisse and morgan stanley###were hired as###joint bookrunners'
-p163
-aS'gilead sciences--gilead sciences inc###rose###2.45 percent'
-p164
-aS"tiffany--a third of tiffany 's sales###are made to###foreign tourists"
-p165
-aS'time warner--time warner chief executive rob marcus###said in###an interview'
-p166
-aS"target--inflation###was heading toward###the fed 's 2 percent target"
-p167
-aS'time warner--some time warner cable bondholders###were###wary of the debt load'
-p168
-aS'nasdaq--stocks###ended on###wednesday and the nasdaq'
-p169
-aS'broadcom--154,000 broadcom options , or 10 times the normal volume###changed hands on###wednesday'
-p170
-aS'nasdaq--the nasdaq composite###gained 18.11 points , or 0.86 percent , to###2,122.31'
-p171
-aS'nasdaq--the nasdaq composite###was recording###63 new highs and 44 new lows'
-p172
-aS'coach--peers coach###fell###3.28 percent'
-p173
-aS'alcoa--klaus kleinfeld , ceo of metals company alcoa inc###sees###opportunities'
-p174
-aS'nasdaq--the nasdaq composite###added 67.74 points , or 1.35 percent , to###5,100.49'
-p175
-aS'broadcom--california-based broadcom###makes semiconductors for###a variety of products'
-p176
+p15
+aS'time warner--he###put an end to buy###time warner cable'
+p16
+aS"time warner--altice owner###says was n't ready for###time warner cable buy"
+p17
+atRp18
+ag2
+((lp19
+S'coca-cola--fifa sponsor coca-cola co###said in###wednesday'
+p20
 aS'coca-cola--fifa sponsor coca-cola co###said on###wednesday'
-p177
-aS'southern--rostov###be region of###southern russia'
-p178
-aS"time warner--i###did n't follow up on###the exchanges we had on time warner cable that were evoked in the media because we were not ready"
-p179
-aS'target--its price target###be achieving at###the earliest possible time'
-p180
-aS'nasdaq--apple and microsoft###gave the biggest boost to###the nasdaq'
-p181
-aS'nasdaq--chinese biotech company 3sbio###delisted two years ago from###the nasdaq'
-p182
-aS'u.s. dollar--european stocks###edged against###the u.s. dollar'
-p183
-aS"broadcom--broadcom 's shares###began spiking in###reaction"
-p184
-aS'broadcom--154,000 broadcom options , or 10 times the normal volume###changed###hands'
-p185
-aS'monsanto--monsanto###said in###last week'
-p186
-aS'monsanto--bayer###is seen as###a potential buyer of assets that could be sold as part of a takeover of syngenta by u.s. seeds giant monsanto'
-p187
-aS'apple--top-tier smartphones###be made by###apple inc and samsung electronics co ltd.'
-p188
-aS'broadcom--broadcom###surged 21.8 percent on###news'
-p189
-aS'apple--apple###may build###a car that would compete with major automakers'
-p190
-aS'coca-cola--adidas and beverage company coca-cola co###be company of###other sponsors bristle german sportswear'
-p191
-aS'broadcom--broadcom shares###rallied###18 percent'
-p192
-aS'nasdaq--3sbio###went public on###the nasdaq'
-p193
-aS"time warner--i###did n't follow up on###the exchanges we had on time warner cable"
-p194
-aS'time warner--) sky news charter communications###has confirmed###a $ 56.7 billion deal to take over time warner cable'
-p195
-aS'nasdaq--the nasdaq composite###added 36.71 points , or 0.73 percent , to###5,069.46'
-p196
-aS'bank of america--warner###to arrange###the payment which was eventually sent from a fifa account in switzerland to a bank of america account in new york'
-p197
-aS'wal-mart stores--comedian tracy morgan and other people injured in a crash with a wal-mart stores inc truck last year###have reached###an out-of-court settlement'
-p198
-aS'broadcom--shares of broadcom###soared###almost 20 percent'
-p199
-aS'broadcom--broadcom###surged###21.8 percent'
-p200
-aS'citigroup--other banks###were###bank of america merrill lynch , jp morgan and citigroup'
-p201
-aS'nasdaq--nasdaq###hits###record'
-p202
-aS'gap--the funding gap###will be covered in###combination'
-p203
-aS"time warner--charter communications inc###to skirt###the regulatory obstacles that helped sink comcast corp 's earlier bid for time warner cable"
-p204
-aS"time warner--time warner cable 's insistence###reflects###lingering worries"
-p205
-aS'apple--apple###will offer###a less expensive tv package'
-p206
-aS'morgan stanley--morgan stanley currency analysts###said###a note'
-p207
-aS"nasdaq--it###was the s&p 's strongest day since###may 14 and the nasdaq 's strongest"
-p208
-aS'target--the boj###has###no intention changing its commitment to achieving its price stability target at the earliest possible time'
-p209
-aS'coca-cola--coca-cola co###be sponsor for###fifa'
-p210
-aS"apple--jony ive###be the british man behind###the design of apple 's best known products"
-p211
-aS'target--the target or water###to be hit down###the commitment'
-p212
-aS'morgan stanley--manoj pradhan###be economist for###morgan stanley'
-p213
-aS'reynolds american--reynolds american inc###won###u.s. antitrust approval'
-p214
-aS'coca-cola--other sponsors bristle german sportswear company adidas and beverage company coca-cola co###called on###fifa'
-p215
-aS'gilead sciences--gilead sciences inc###led###gains'
-p216
-aS"time warner--time warner cable 's shares###rose 7.3 percent below###charter 's $ 195.71 cash and stock offer"
-p217
-aS'intel--reports###first emerged###intel corp'
-p218
-aS'broadcom--chipmaker broadcom corp###is in###talks to be bought by avago technologies ltd , the wall street journal reported on wednesday'
-p219
-aS'broadcom--broadcom###surged 21.8 percent###the chipmaker'
-p220
-aS'nasdaq--the nasdaq composite###gained 19.28 points , or 0.92 percent , to###2,123.48'
-p221
-aS'blackrock--blackrock inc chairman and chief executive officer laurence fink###said on###wednesday'
-p222
-aS"apple--car play###was so far the extent of###apple 's vehicle efforts"
-p223
-aS"chevron--a majority , or 55 percent of chevron 's stock owners###voted in###favor of a resolution"
-p224
-aS'nasdaq--the nasdaq composite###added 73.84 points , or 1.47 percent , to###5,106.59'
-p225
-aS'blackrock--york-based blackrock###is largest money manager of###the world'
-p226
-aS'tiffany--tiffany###has been struggling with###a strong dollar which discourages tourists from spending in its u.s. stores and reduces the value of overseas sales'
-p227
-aS'nasdaq--the nasdaq composite###recorded###85 new highs and 50 new lows'
-p228
-aS'target--the boj###has a subsequent slowdown from###delaying achievement of its 2 percent inflation target'
-p229
-aS'nasdaq--the nasdaq composite###gained###10.3 points , or 0.49 percent'
-p230
-aS'nasdaq--may 27 u.s. stocks###rose with###the nasdaq composite'
-p231
-aS'alcoa--ceo###be klaus kleinfeld of###metals company alcoa inc'
-p232
-aS"goldman sachs--goldman sachs###is looking to bundle debt backing three of colombia 's 4g highway projects and sell it as###an up to us$ 500m 144a bond"
-p233
-aS'broadcom--broadcom###call buying###surges'
-p234
-aS'citigroup--european banks###have seen###their market share)[enabler=as u.s. banks led by citigroup ( c.n '
-p235
-aS'coca-cola--coca-cola co###be sponsor of###may 27 fifa'
-p236
-aS'southern--four "terror infrastructures###be striking in###the southern gaza strip'
-p237
-aS'citigroup--bank meetings###will kick off###a syndication being led by credit suisse and citigroup ,'
-p238
-aS'citigroup--a syndication###being led by###credit suisse and citigroup'
-p239
-aS'tiffany--tiffany###said###same-store sales'
-p240
-aS'alcoa--klaus kleinfeld , ceo of metals company alcoa inc###sees opportunities in the sector through###increased use of aluminum to make trucks lighter'
-p241
-aS'bank of america--warner###directed a number of co-conspirators to arrange###the payment which was eventually sent from a fifa account in switzerland to a bank of america account in new york'
-p242
-atRp243
-.
+p21
+aS'coca-cola--fifa sponsor coca-cola co###said###the indictment of senior officials'
+p22
+atRp23
+ag2
+((lp24
+S"berkshire hathaway--002594 .sz###plans to use###funds raised in a potential private placement)[attrib=the chinese automaker backed by billionaire warren buffett 's berkshire hathaway inc ( brka .n "
+p25
+aS"berkshire hathaway--co ltd###plans to use###funds raised in a potential private placement)[attrib=the chinese automaker backed by billionaire warren buffett 's berkshire hathaway inc ( brka .n "
+p26
+aS"berkshire hathaway--the chinese automaker###be backed by###billionaire warren buffett 's berkshire hathaway inc"
+p27
+atRp28
+ag2
+((lp29
+S'time warner cable--secured debt to be issued to finance its planned merger with time warner cable###would be rated by###two'
+p30
+aS'time warner--secured debt to be issued to finance its planned merger with time warner cable###would be rated by###two'
+p31
+atRp32
+ag2
+((lp33
+S'comcast--a proposed takeover###be killed by###comcast'
+p34
+aS'comcast--26###killed a proposed takeover by###comcast'
+p35
+atRp36
+ag2
+((lp37
+S'nasdaq--tech rally###lifts###nasdaq'
+p38
+atRp39
+ag2
+((lp40
+S'nasdaq--the nasdaq###logged###a record high close led by a rebound in technology and healthcare stocks and optimism that greece would avoid defaulting on its debt'
+p41
+atRp42
+ag2
+((lp43
+S'actavis--new irritable bowel syndrome drugs###be approved from###actavis plc and valeant pharmaceuticals international inc'
+p44
+aS'actavis--27 u .s###approved new irritable bowel syndrome drugs from###actavis plc and valeant pharmaceuticals international inc'
+p45
+aS'actavis--health regulators###approved new irritable bowel syndrome drugs from###actavis plc and valeant pharmaceuticals international inc'
+p46
+atRp47
+ag2
+((lp48
+S'lockheed martin--27 nearly two weeks of testing of lockheed martin###corp be f-35b fighter jet on###an amphibious assault carrier'
+p49
+atRp50
+ag2
+((lp51
+S'broadcom--avago nears###deal for###fellow chipmaker broadcom sources'
+p52
+atRp53
+ag2
+((lp54
+S"gap--the output gap###be minutes of###the central bank 's april 30 policy meeting"
+p55
+atRp56
+ag2
+((lp57
+S'wal-mart stores--comedian tracy morgan and other people injured in a crash with a wal-mart stores inc truck last year###have reached###an out-of-court settlement'
+p58
+atRp59
+ag2
+((lp60
+S'broadcom--avago nears###deal sources for###fellow chipmaker broadcom'
+p61
+atRp62
+ag2
+((lp63
+S'broadcom--people familiar###said avago technologies ltd is close to###an agreement to acquire fellow chipmaker broadcom corp'
+p64
+atRp65
+ag2
+((lp66
+S'goldman sachs--goldman sachs###to agree on###output cuts to shore up prices'
+p67
+atRp68
+ag2
+((lp69
+S'broadcom--broadcom###call buying###surges'
+p70
+atRp71
+ag2
+((lp72
+S"broadcom--news that chipmaker broadcom corp is in talks to be bought by avago technologies ltd spurred a flurry of trades in broadcom 's short-term calls , and timely buyers of the options###could reap###huge gains"
+p73
+atRp74
+ag2
+((lp75
+S'citigroup--banks###be led by###citigroup'
+p76
+atRp77
+ag2
+((lp78
+S"comcast--seeking to remake the u .s cable television industry###to skirt###the regulatory obstacles that helped sink comcast corp 's earlier bid for time warner cable"
+p79
+aS"time warner cable--seeking to remake the u .s cable television industry###will try to skirt###the regulatory obstacles that helped sink comcast corp 's earlier bid for time warner cable"
+p80
+aS"time warner--seeking to remake the u .s cable television industry###will try to skirt###the regulatory obstacles that helped sink comcast corp 's earlier bid for time warner cable"
+p81
+aS"time warner cable--seeking to remake the u .s cable television industry###to skirt###the regulatory obstacles that helped sink comcast corp 's earlier bid for time warner cable"
+p82
+aS"comcast--seeking to remake the u .s cable television industry###will try to skirt###the regulatory obstacles that helped sink comcast corp 's earlier bid for time warner cable"
+p83
+aS"time warner--seeking to remake the u .s cable television industry###to skirt###the regulatory obstacles that helped sink comcast corp 's earlier bid for time warner cable"
+p84
+atRp85
+ag2
+((lp86
+S'coca-cola--27 fifa sponsor coca-cola co###may said###the indictment of senior officials'
+p87
+aS'coca-cola--27 fifa sponsor coca-cola co###may said in###wednesday'
+p88
+aS'coca-cola--27 fifa sponsor coca-cola co###may said on###wednesday'
+p89
+atRp90
+ag2
+((lp91
+S'yahoo--yahoo###must face judge###email spying class action'
+p92
+atRp93
+ag2
+((lp94
+S'yahoo--emails###be sent to###yahoo mail subscribers'
+p95
+aS'yahoo--judge###ordered###yahoo inc to face a nationwide class-action lawsuit'
+p96
+atRp97
+ag2
+((lp98
+S'apple--cbs ceo###said met with###apple'
+p99
+aS'cbs--cbs ceo###said met with###apple'
+p100
+atRp101
+ag2
+((lp102
+S'apple--) ceo leslie moonves###met with###apple inc'
+p103
+atRp104
+ag2
+((lp105
+S"gap--the output gap###be minutes of###the central bank 's april 30 policy meeting"
+p106
+atRp107
+ag2
+((lp108
+S'blackrock--pension funds and insurers , blackrock inc###to said on###wednesday'
+p109
+atRp110
+ag2
+((lp111
+S'general electric--general electric co###is in###advanced talks'
+p112
+atRp113
+a.

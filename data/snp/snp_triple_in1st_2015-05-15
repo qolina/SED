@@ -1,659 +1,147 @@
+(lp1
 c__builtin__
 set
-p1
-((lp2
-S'tap--tap###operates a fleet of 77 planes with###2,500 weekly flights , many of them'
-p3
-aS'tap--tap###was hit by###a 10-day pilots'
+p2
+((lp3
+S'marathon oil--marathon oil###seeks###bids'
 p4
-aS'yum--yum###does###a tax-free spinoff of its china business'
-p5
-aS"key--key###has been part of###colombia 's efforts"
-p6
-aS'yum--yum###said###april'
+atRp5
+ag2
+((lp6
+S'google--these cars###were designed by###google , first sentence'
 p7
-aS'yum--yum###said in###april'
+aS'google--google inc###will begin###testing self-driving cars of its own design'
 p8
-aS'key--key###rating###drivers the strengthening recovery is leading to a gradual reduction of macroeconomic and financial risks'
-p9
-aS'tap--tap###operates###a fleet of 77 planes'
-p10
-aS'yum--yum###be owner of###the kfc and pizza hut brands'
+atRp9
+ag2
+((lp10
+S'apple--hedge funds###continued to dump###apple'
 p11
-aS'yum--yum###does a tax-free spinoff of###its china business'
+aS'apple--hedge funds###to dump###apple'
 p12
-aS'yum--yum###gets about###a third of its operating income'
+aS'apple--top u .s###to dump###apple'
 p13
-atRp14
-.c__builtin__
-set
-p1
-((lp2
-S'monsanto--monsanto###be giant of###u.s. seeds'
-p3
-aS'morgan stanley--homeowners###accused###morgan stanley'
-p4
-aS'lockheed martin--lockheed martin corp###be maker of###u.s. weapons'
-p5
-aS'best buy--electronics retailer best buy co inc###reports###first-quarter results'
-p6
-aS'gap--investors###will look to revive###sales at the gap brand , second-quarter forecast , and color'
-p7
-aS'target--retailer target corp###reports###first-quarter results'
-p8
-aS'nasdaq--shares of santa clara###closed on###nasdaq'
-p9
-aS'halliburton--halliburton###have slashed###their capital spending budgets'
-p10
-aS't. rowe price--t. rowe price###bought###an additional 2.3 million valeant shares'
-p11
-aS'apple--apple inc###paid $ 60 million to settle###a case'
-p12
-aS'micron technology--micron technology inc appaloosa###took###a new stake of 3.6 million shares'
-p13
-aS'autodesk--software maker autodesk inc###to report###a first-quarter profit'
+aS'apple--top u .s###continued to dump###apple'
 p14
-aS'autodesk--software maker autodesk inc###is expected on###tuesday'
-p15
-aS'apple--top u.s. hedge funds###to dump###apple'
-p16
-aS'boeing--northrop grumman corp###is competing against###a team of boeing co'
-p17
-aS'halliburton--halliburton###have slashed their capital spending budgets for###this year'
-p18
-aS'apple--coatue###cut###its holding of apple'
-p19
-aS'apple--apple shares###rose have###12.7 percent'
-p20
-aS'time warner--time warner###is rated in###bbb/baa2'
-p21
-aS'sysco--sysco###to pay###us'
-p22
-aS'jpmorgan chase--jpmorgan chase###raised###its share stake'
-p23
-aS'southern--gutierrez###tried to extort money from###southern copper'
-p24
-aS'netflix--netflix###rose###4.86 percent'
-p25
-aS'target--inflation###to be keep at###the center of the target range of'
-p26
-aS'gap--the recent global bond market rout###more importantly narrowed###the yield gap'
-p27
-aS'ebay--farallon###cuts###its ebay equity position'
-p28
-aS'monsanto--monsanto###commands about###a quarter of the $ 40 billion global seeds market'
-p29
-aS"allergan--some memories of last year 's bruising loss###be wipe away however in###its bid to buy allergan inc. ackman"
-p30
-aS'netflix--reuters###could not immediately reach wasu media for###comment and netflix'
-p31
-aS'apple--apple###was a big winner in###2014'
-p32
-aS"u.s. dollar--the u.s. dollar 's upward momentum###will need much more in###order to resume"
-p33
-aS'apple--apple stakes###to be dump amid###rally'
-p34
-aS'halliburton--1 oilfield services provider , and halliburton###have slashed###their capital spending budgets'
-p35
-aS'delta air lines--delta air lines inc###said on###friday'
-p36
-aS'apple--update 1-top u.s. hedge funds###continued to dump###apple'
-p37
-aS'staples--staples###to report###a fall which would be the ninth straight decline in quarterly sales'
-p38
-aS'eog resources--eog resources###to resume strong double-digit oil growth with###balanced capital spending and discretionary cash flow'
-p39
-aS'jpmorgan chase--jpmorgan chase###raised its share stake in jpmorgan chase & co by###17.1 percent'
-p40
-aS"target--two brokers###cut drastically###sharp 's target price"
-p41
-aS'apple--it###was investigating###a technical issue involving the symbol range a through azo , but excluding apple inc.'
-p42
-aS'target--ubs securities###slashed###its target price'
-p43
-aS'morgan stanley--morgan stanley###to undertake###regular sales of the shares'
-p44
-aS"ball--the ball###'s in###their court"
-p45
-aS'boeing--boeing and lockheed###could halt###investment'
-p46
-aS'apple--apple spokeswoman trudy muller###said in###a statement'
-p47
-aS'urban outfitters--urban outfitters inc###be company of###may 18 apparel'
-p48
-aS'wal-mart stores--wal-mart stores inc###reports first-quarter results before###markets open'
-p49
-aS'raytheon--closer sharing needed lockheed martin corp , raytheon co. and northrop grumman corp###would be###key contenders'
-p50
-aS'ebay--15 ( reuters ) - top u.s. hedge fund management firms###may trimmed some of their equity exposure in###ebay'
-p51
-aS"crown castle international--the country 's largest owner of mobile telephone towers###be jointly bought from###a business owned by u.s. wireless infrastructure giant crown castle international corp ( cci.n )"
-p52
-aS'jpmorgan chase--the fhfa###has obtained nearly $ 17.9 billion in settlements from###institutions that include bank of america corp ( bac.n ) , jpmorgan chase & co ( jpm.n ) and deutsche bank ag ( dbkgn.de )'
-p53
-aS'oracle--oracle###sued google in###2010'
-p54
-aS'delta air lines--delta air lines###offers###free flights'
-p55
-aS'target--its target###be cut from###260 yen'
-p56
-aS"monsanto--chunks of monsanto 's seeds business###will be likely demand as###part of any deal"
-p57
-aS'sysco--sysco###paid roughly $ 80 million in interest on the debt in###the last two quarters'
-p58
-aS'southern--gutierrez###to extort money from###southern copper'
-p59
-aS'bank of america--bank of america merrill lynch and deutsche bank ag###declined to comment on###any negotiations'
-p60
-aS'monsanto--monsanto###is looking to###a new generation of compounds'
-p61
-aS'apple--trudy muller###be spokeswoman of###apple'
-p62
-aS'phillips 66--other holdings that grew include deere & co , liberty global plc , phillips 66 , precision castparts corp and twenty-first century fox inc. holdings declined in bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire###also owns###than 80 businesses'
-p63
-aS'monsanto--the "discover monsanto " campaign###encourages ask questions###consumers to "be part of the conversation'
-p64
-aS'ford motor--he###would seek###a move backed by u.s. automakers such as ford motor co.'
-p65
-aS'monsanto--monsanto###commands could about###a quarter of the $ 40 billion global seeds market'
-p66
-aS'bank of new york mellon--liberty global plc###declined in###bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire'
-p67
-aS'fedex--fedex###accepted###payment'
-p68
-aS"bank of america--the defendants###were###kenneth mahaffy and timothy o'connell , both former brokers at merrill , which is now part of bank of america corp "
-p69
-aS'monsanto--monsanto###also is trying to win over###consumers'
-p70
-aS'morgan stanley--morgan stanley###be sue as###a group'
-p71
-aS'eog resources--eog resources###to resume###strong double-digit oil growth'
-p72
-aS'fedex--fedex###devised###policies'
-p73
-aS'wells fargo--dorian jamison###be a municipal research analyst at###wells fargo advisors'
-p74
-aS'ebay--third point###cut###its ebay stake'
-p75
-aS'delta air lines--delta air lines###offers for###stranded amtrak passengers'
-p76
-aS'target--fitch###to remain below###the official target of 10 % of gdp'
-p77
-aS'citigroup--similar lawsuits###be filed against###jpmorgan chase & co , citigroup inc and wells fargo'
-p78
-aS'target--the inflation target jars###be achieving with###a majority view'
-p79
-aS'intel--two influential proxy advisory firms###have urged###intel corp shareholders'
-p80
-aS"monsanto--monsanto 's popular lines of biotech crops###has doubled in###the last decade"
-p81
-aS'sysco--sysco###has spent more than $ 400 million so far on###a combination of integration planning'
-p82
-aS'nasdaq--the nasdaq composite###lost 2.04 points , or 0.1 percent , to###2,119.06)[enabler=2:01 p.m. ( 1801 gmt '
-p83
-aS"apple--apple###was###one of the hedge fund community 's favored positions"
-p84
-aS'waters--it###to flee to###united arab emirates waters'
-p85
-aS'target--its target price###be slashed from###170 yen and bank of america merrill lynch'
-p86
-aS'hormel foods--meat products maker hormel foods corp###warned in###last month'
-p87
-aS'apple--apple spokeswoman trudy muller###said###a statement'
-p88
-aS'dow chemical--dow chemical###could be###another possible bidder'
-p89
-aS'marathon oil--reuters marathon oil corp is seeking bids for its interest in four onshore exploration blocks in east africa as the oil and gas company focuses on drilling in u.s. shale formations###said on###friday'
-p90
-aS'lockheed martin--may 15###is considering opening to###competition future upgrades of the lockheed martin corp f-35 fighter jet'
-p91
-aS'gap--apparel retailer gap inc###to report###a fall'
-p92
-aS'gap--the gap###still remained###around 154 basis points'
-p93
-aS'nasdaq--the nasdaq composite index###was down 11.33 points , 0.22 percent , at###5,039.46'
-p94
-aS'general motors--the 2005-2007 pontiac vibe###made for###general motors co'
-p95
-aS"lockheed martin--may 14###approved###a 2016 defense policy bill that maps out a series of acquisition reforms and adds funding for big weapons programs like boeing co 's f/a-18 super hornets and lockheed martin corp 's f-35 fighter jet"
-p96
-aS'phillips 66--other holdings that grew include deere & co , liberty global plc , phillips 66 , precision castparts corp and twenty-first century fox inc. holdings declined in bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire###also owns including###the burlington northern railroad , dairy queen ice cream and geico car insurance'
-p97
-aS'monsanto--giant monsanto###to line up###buyers'
-p98
-aS'target--osborne###also faces###the delicate balancing act meeting his austerity target without undermining the economic recovery'
-p99
-aS'deere--deere & co , liberty global plc , phillips 66 , precision castparts corp and twenty-first century fox inc. holdings###declined in###bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire'
-p100
-aS"target--he###also rejected###the need to review the two-year timeframe for hitting the bank 's 2 percent inflation target as it served as a crucial transmission channel of its stimulus program"
-p101
-aS'phillips 66--deere & co , liberty global plc , phillips 66 , precision castparts corp and twenty-first century fox inc. holdings###declined in###bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire'
-p102
-aS"staples--it###has stuck with###its strategy investing in private companies , including british supermarket chain iceland foods and south africa 's premier foods , the biggest maker of local staples such as maize meal and bread"
-p103
-aS'netflix--netflix###jumps after###report of china entry'
-p104
-aS'target--its target price###be slashed to###40 yen'
-p105
-aS'jpmorgan chase--jpmorgan chase###raised its share stake in jpmorgan chase & co to###1.1 million shares'
-p106
-aS'goldman sachs--charter###is talking to###the same four underwriters that provided a us$ 24bn debt commitment for the deal a year ago : bank of america merrill lynch , credit suisse , deutsche bank and goldman sachs'
-p107
-aS'southern--southern copper###said on###monday'
-p108
-aS'applied materials--equipment to make flat panel displays and solar cells###be also provides by###applied materials'
-p109
-aS'morgan stanley--morgan stanley###caused###new century'
-p110
-aS'nasdaq--the nasdaq composite###dropped###2.50 points , or 0.05 percent'
-p111
-aS"dow chemical--dow chemical###could be another possible bidder for###syngenta 's assets"
-p112
-aS'national oilwell varco--co###declined in###bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire'
-p113
-aS'target--its target###be cut to###60 yen'
-p114
-aS'raytheon--raytheon###be manufacturer for###patriot'
-p115
-aS'applied materials--applied materials###estimated###a 2 to 6 percent rise'
-p116
-aS'monsanto--sara miller###be spokeswoman of###monsanto'
-p117
-aS'southern--the sportswear firm located in southern fujian province###had built its business without###his permission'
-p118
-aS'raytheon--the lockheed-lead meads consortium###had beat out###patriot manufacturer raytheon'
-p119
-aS'lockheed martin--united launch alliance###be a joint venture of###lockheed martin corp'
-p120
-aS"autodesk--autodesk###is moving from###a license-based business which is boosting the company 's revenue from subscriptions ,"
-p121
-aS'monsanto--sources###have told###reuters monsanto'
-p122
-aS'raytheon--the gulf countries###are upgrading their existing raytheon patriot systems are to incorporate###new pac-3 missiles built by raytheon and lockheed martin corp'
-p123
-aS'urban outfitters--may 18 apparel company urban outfitters inc###to report###a second straight rise'
-p124
-aS'national oilwell varco--liberty global plc###declined in###bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire'
-p125
-aS"merck--januvia###is###merck 's top-selling product"
-p126
-aS"bank of america--kenneth mahaffy and timothy o'connell , both former brokers at merrill , which is now part of bank of america corp ###david ghysels , a former broker at lehman brothers holdings inc ###and keevin leonard , robert malin and linus nwaigwe"
-p127
-aS'ebay--andreessen horowitz partner marc andreessen###was a board member of###ebay'
-p128
-aS'nasdaq--the nasdaq composite###recorded###94 new highs and 35 new lows'
-p129
-aS'fedex--fedex senior vice president###said###an e-mailed statement'
-p130
-aS'morgan stanley--morgan stanley###said to###analysts'
-p131
-aS'fedex--fedex###loses###u.s. court motion'
-p132
-aS'gap--support###be draw from###a narrowing yield gap'
-p133
-aS'sysco--sysco###to raise###prices'
-p134
-aS'goldman sachs--goldman sachs asset management###be chaired following###the financial crisis'
-p135
-aS'morgan stanley--morgan stanley###said on###thursday'
-p136
-aS'bank of america--the fhfa###has obtained nearly $ 17.9 billion in settlements from###institutions that include bank of america corp ( bac.n ) , jpmorgan chase & co ( jpm.n ) and deutsche bank ag ( dbkgn.de )'
-p137
-aS'apple--stakes###be slash altogether in###apple inc'
-p138
-aS'oracle--oracle###sued###google'
-p139
-aS'monsanto--one key criticism of monsanto###is its promotion of###glyphosate'
-p140
-aS'monsanto--monsanto###could also sound out###chinese companies'
-p141
-aS'target--the central bank###aims to keep inflation at###the center of the target range of'
-p142
-aS'southern--southern copper###rejected###the proposal'
-p143
-aS'northrop grumman--closer sharing needed lockheed martin corp , raytheon co. and northrop grumman corp###would be###key contenders'
-p144
-aS'nasdaq--1,162###fell on###the nasdaq'
-p145
-aS'apple--not every big hedge fund manager###is souring on###apple'
-p146
-aS'u.s. dollar--toronto###retreated against###a broadly higher u.s. dollar'
-p147
-aS'lockheed martin--new pac-3 missiles###be built by###raytheon and lockheed martin corp'
-p148
-aS'microsoft--microsoft###was###the biggest contributor'
-p149
-aS"urban outfitters--urban outfitters ' sales###have also benefited from###efforts to tightly control inventory and discounts"
-p150
-aS'bank of america--bank of america merrill lynch and deutsche bank ag###to comment on###any negotiations'
-p151
-aS'southern--the sportswear firm located in southern fujian province###had built its business around###his chinese name and famous jersey number " 23'
-p152
-aS'endo international--endo international plc###be beat out in###march'
-p153
-aS'fedex--this indictment###is an attack on###the integrity of fedex'
-p154
-aS'wells fargo--similar lawsuits###be filed against###jpmorgan chase & co , citigroup inc and wells fargo'
-p155
-aS'netflix--netflix###to enter###china'
-p156
-aS'u.s. dollar--the sharp fall###be coupled with###a slide in the u.s. dollar and a bounce'
-p157
-aS"applied materials--update 2-memory chip demand###drives###applied materials ' revenue beat"
-p158
-aS'bank of america--bank of america###weighed on###the s&p 500'
-p159
-aS"apple--apple 's statement###followed###a report"
-p160
-aS'lockheed martin--the gulf countries###are upgrading their existing raytheon patriot systems are to incorporate###new pac-3 missiles built by raytheon and lockheed martin corp'
-p161
-aS'bank of america--bank of america corp omega advisors###took###a new position'
-p162
-aS"target--the national statistics institute###will release inflation data above###the central bank 's 3 percent target"
-p163
-aS'sysco--sysco###be distributor of###u.s. food'
-p164
-aS'nasdaq--advancing issues###fell on###the nasdaq'
-p165
-aS'ebay--its ebay stake###be cut by###1 million shares'
-p166
-aS'target--ivankoe###raised###his price target'
-p167
 aS'apple--apple###to be dump amid###rally'
-p168
-aS'nasdaq--the nasdaq###rose###0.3 percent'
-p169
-aS'oracle--google versus oracle case###exposes###differences'
-p170
-aS'deere--other holdings that grew include deere & co , liberty global plc , phillips 66 , precision castparts corp and twenty-first century fox inc. holdings declined in bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire###also owns including###the burlington northern railroad , dairy queen ice cream and geico car insurance'
-p171
-aS'bank of new york mellon--deere & co , liberty global plc , phillips 66 , precision castparts corp and twenty-first century fox inc. holdings###declined in###bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire'
-p172
-aS'u.s. dollar--the canadian dollar###retreated against###a broadly higher u.s. dollar'
-p173
-aS'monsanto--it###woos###monsanto mounts campaign'
-p174
-aS'marathon oil--marathon oil corp###is seeking###bids'
-p175
-aS'nasdaq--the nasdaq###advanced after###two weeks of losses'
-p176
-aS'southern--may 15 southern copper corp###was preparing to announce a formal "pause " in###its stalled $ 1.4 billion tia maria project'
-p177
-aS'northrop grumman--northrop grumman corp###be maker of###the b-2 bomber'
-p178
-aS'fedex--fedex corp###lost###a motion to dismiss charges by the u.s. justice department of conspiracy'
-p179
-aS'oracle--oracle###is seeking###a monopoly'
-p180
-aS'american express--american express###violated###antitrust law'
-p181
-aS'halliburton--halliburton co activist fund valueact###bought###an additional 12 million shares of halliburton'
-p182
-aS'general electric--ge capital###be unit of###general electric co'
-p183
-aS"boeing--may 14###approved###a 2016 defense policy bill that maps out a series of acquisition reforms and adds funding for big weapons programs like boeing co 's f/a-18 super hornets and lockheed martin corp 's f-35 fighter jet"
-p184
-aS'national oilwell varco--deere & co , liberty global plc , phillips 66 , precision castparts corp and twenty-first century fox inc. holdings###declined in###bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire'
-p185
-aS'waters--flood waters###trapped###15 workers'
-p186
-aS'autodesk--autodesk###is moving to###a cloud-based subscription model'
-p187
-aS'sysco--sysco###will have to pay###us'
-p188
-aS'morgan stanley--morgan stanley###said in###a note'
-p189
-aS'lockheed martin--closer sharing needed lockheed martin corp , raytheon co. and northrop grumman corp###would be###key contenders'
-p190
-aS'ebay--its ebay stake###be cut to###9 million'
-p191
-aS'nasdaq--the nasdaq composite###dropped###11.79 points , or 0.23 percent'
-p192
-aS'monsanto--monsanto###could be###worth'
-p193
-aS'national oilwell varco--other holdings that grew include deere & co , liberty global plc , phillips 66 , precision castparts corp and twenty-first century fox inc. holdings declined in bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire###also owns including###the burlington northern railroad , dairy queen ice cream and geico car insurance'
-p194
-aS'apple--apple shares###rose 12.7 percent have in###the first quarter'
-p195
-aS'bank of america--bank of america###be accusing of###discriminatory mortgage lending'
-p196
-aS'micron technology--micron technology inc appaloosa###raised its stake by###2.3 million shares'
-p197
-aS'nasdaq--1,365###fell on###the nasdaq'
-p198
-aS'southern--southern copper###has denied###any wrongdoing'
-p199
-aS'jpmorgan chase--tohru sasaki###be head of japan rates at###jpmorgan chase bank'
-p200
-aS'morgan stanley--morgan stanley###did not immediately respond to###a request'
-p201
-aS'morgan stanley--morgan stanley and lazard###round out###the top three advisers'
-p202
-aS'morgan stanley--morgan stanley mufg securities###cut###its rating'
-p203
-aS'johnson & johnson--type 2 diabetes drugs###be sold by###astrazeneca , johnson & johnson and eli lilly'
-p204
-aS'urban outfitters--may 18 apparel company urban outfitters inc###to report a second straight rise in comparable sales after###a year of declines'
-p205
-aS'target--the university###"fit the bill as###a high-value target who covers cybersecurity for fbr capital markets'
-p206
-aS'southern--alawi al-afouri###be a resident in###the southern city of aden'
-p207
-aS'southern--the sportswear firm located in southern fujian province###had built###its business'
-p208
-aS'marathon oil--marathon oil###seeks###bids'
-p209
-aS'micron technology--micron technology inc appaloosa###raised its stake to###33.5 million'
-p210
-aS'halliburton--halliburton co activist fund valueact capital###bought###an additional 12 million shares of halliburton'
-p211
-aS'u.s. bancorp--the u.s. bancorp stake###grew about###5 percent'
-p212
-aS'nasdaq--the nasdaq composite###dropped 2.50 points , or 0.05 percent , to###5,048.29'
-p213
-aS'u.s. bancorp--the u.s. bancorp stake###grew to###83.8 million shares'
-p214
-aS'nasdaq--the nasdaq composite###was recording###79 new highs and 29 new lows'
-p215
-aS'raytheon--new pac-3 missiles###be built by###raytheon and lockheed martin corp'
-p216
-aS'monsanto--monsanto###has worked closely since###2007'
-p217
-aS'merck--januvia###is top-selling product of###merck'
-p218
-aS'gap--the gap###remained at###153 basis points'
-p219
-aS'netflix--netflix###was###its strongest positive influence'
-p220
-aS'nasdaq--the nasdaq###added###0.9 percent'
-p221
-aS'wal-mart stores--wal-mart stores inc###reports###first-quarter results'
-p222
-aS'nasdaq--the nasdaq composite###dropped 11.79 points , or 0.23 percent , to###5,039.01'
-p223
-aS'bank of america--the fhfa###has obtained nearly $ 17.9 billion in settlements from###institutions that include bank of america corp , jpmorgan chase & co and deutsche bank ag'
-p224
-aS'bank of america--ubs securities###slashed its target price from###170 yen and bank of america merrill lynch'
-p225
-aS'jpmorgan chase--similar lawsuits###be filed against###jpmorgan chase & co , citigroup inc and wells fargo'
-p226
-aS'oracle--the obama administration###has been locked over###what position to take in high profile litigation between two american technology giants , google and oracle'
-p227
-aS'apple--top u.s. hedge funds###continued to dump###apple'
-p228
-aS"microsoft--microsoft###was the biggest contributor to###the s&p 500 's decline"
-p229
-aS'fedex--we###will continue to defend against###this indictment which is an attack on the integrity of fedex'
-p230
-aS"applied materials--memory chip demand###drives###applied materials ' revenue beat"
-p231
-aS'sysco--sysco###has spent roughly $ 100 million so far to finance###its planned takeover'
-p232
-aS'fedex--fedex###was first indicted in###july'
-p233
-aS'bank of america--bank of america###said in###a statement'
-p234
-aS"ebay--andreessen 's venture investments###competed with###ebay"
-p235
-aS'apple--apple inc###paid $ 60 million in###2012'
-p236
-aS'northrop grumman--northrop grumman corp###is competing against###a team of boeing co'
-p237
-aS'eog resources--eog resources###to resume strong double-digit oil growth in###2016'
-p238
-aS'deere--other holdings that grew include deere & co , liberty global plc , phillips 66 , precision castparts corp and twenty-first century fox inc. holdings declined in bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire###also owns###than 80 businesses'
-p239
-aS"monsanto--some suitors###will likely demand###chunks of monsanto 's seeds business"
-p240
-aS'bank of america--merrill###is now part of###bank of america'
-p241
-aS'halliburton--1 oilfield services provider , and halliburton###have slashed their capital spending budgets for###this year'
-p242
-aS'bank of new york mellon--other holdings that grew include deere & co , liberty global plc , phillips 66 , precision castparts corp and twenty-first century fox inc. holdings declined in bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire###also owns###than 80 businesses'
-p243
-aS'gap--the gap###still remained around 154 basis points on###friday'
-p244
-aS'general motors--general motors co appaloosa###upped its stake by###617,365 shares'
-p245
-aS'bank of new york mellon--other holdings that grew include deere & co , liberty global plc , phillips 66 , precision castparts corp and twenty-first century fox inc. holdings declined in bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire###also owns including###the burlington northern railroad , dairy queen ice cream and geico car insurance'
-p246
-aS'apple--omega advisors###sold all of its 383,790 shares in###apple'
-p247
-aS"crown castle international--the country 's largest owner of mobile telephone towers###be jointly bought from###a business owned by u.s. wireless infrastructre giant crown castle international corp."
-p248
-aS'southern--money###to be extort from###southern copper'
-p249
-aS'fedex--fedex###accepted payment from###several pharmacies'
-p250
-aS'southern--southern copper###said in###a statement'
-p251
-aS"urban outfitters--urban outfitters ' sales###have also benefited from###investments"
-p252
-aS'waters--the vessel###to be intercept in###international waters'
-p253
-aS'urban outfitters--urban outfitters inc###be company for###may 18 apparel'
-p254
-aS'oracle--oracle###is seeking roughly $ 1 billion on###its copyright claims'
-p255
-aS'jpmorgan chase--jpmorgan chase###raised its share stake in jpmorgan chase & co during###the first quarter'
-p256
-aS'monsanto--monsanto spokeswoman sara miller###said on###thursday'
-p257
-aS'fedex--fedex senior vice president###said in###an e-mailed statement'
-p258
-aS'monsanto--monsanto###has worked closely with###basf'
-p259
-aS'raytheon--raytheon###be manufacturer of###patriot'
-p260
-aS'target--the bill###be "fit as###a high-value target who covers cybersecurity for fbr capital markets'
-p261
-aS'gap--gap###has reported###a fall'
-p262
-aS'monsanto--monsanto###to tap###german chemicals group'
-p263
-aS'national oilwell varco--other holdings that grew include deere & co , liberty global plc , phillips 66 , precision castparts corp and twenty-first century fox inc. holdings declined in bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire###also owns###than 80 businesses'
-p264
-aS'general motors--general motors co appaloosa###upped its stake to###15.3 million shares'
-p265
-aS'bank of america--its target price###be slashed from###170 yen and bank of america merrill lynch'
-p266
-aS'monsanto--glyphosate###is###a key ingredient produced by monsanto co. monsanto officials'
-p267
-aS'southern--the sportswear firm###be located in###southern fujian province'
-p268
-aS'netflix--wasu media###could be not immediately reach for###comment and netflix'
-p269
-aS'home depot--dow component home depot inc###also reports###first-quarter results'
-p270
-aS'staples--office###supplies###retailer staples inc'
-p271
-aS"crown castle international--it###jointly bought the country 's largest owner of mobile telephone towers from###a business owned by u.s. wireless infrastructre giant crown castle international corp."
-p272
-aS'target--retailer target corp###reports first-quarter results before###markets open'
-p273
-aS'netflix--netflix###is seeking###a partner that has licenses for content on all devices , including mobile phones , computers and set-top boxes'
-p274
-aS'lockheed martin--u.s. weapons maker lockheed martin corp###reported on###friday'
-p275
-aS'bank of america--charter###is talking to###the same four underwriters that provided a us$ 24bn debt commitment for the deal a year ago : bank of america merrill lynch , credit suisse , deutsche bank and goldman sachs'
-p276
-aS'home depot--home depot###will report###results'
-p277
-aS'endo international--valeant###beat out###endo international plc'
-p278
-aS'apple--top u.s. hedge funds###continue to dump###apple stakes'
-p279
-aS'general dynamics--the virginia-class submarine program submarines###be built by###general dynamics corp and huntington ingalls industries inc n>'
-p280
-aS'nasdaq--the nasdaq composite###gained 1.63 points , or 0.08 percent , to###2,122.73'
-p281
-aS'morgan stanley--morgan stanley###caused new century to include in###loans'
-p282
+p15
+atRp16
+ag2
+((lp17
+S'marathon oil--marathon oil###seeks###bids'
+p18
+atRp19
+ag2
+((lp20
+S'johnson & johnson--a widely used newer class of type 2 diabetes drugs sold by astrazeneca , johnson & johnson and eli###may cause###ketoacidosis that could require hospitalization'
+p21
+atRp22
+ag2
+((lp23
+S'lockheed martin--15 the u .s . air force###may is considering opening to###competition future upgrades of the lockheed martin'
+p24
+atRp25
+ag2
+((lp26
+S'morgan stanley--morgan stanley###be sue as###a group'
+p27
 aS'morgan stanley--thousands of detroit homeowners###sue###morgan stanley'
-p283
-aS'boeing--more boeing co###717s on###its shuttle routes'
-p284
-aS'bank of america--bank of america###labeled###"absurd " the city \'s allegations'
-p285
-aS'northern trust--bny mellon , us bank , northern trust corp and bank of montreal###were among###several banks that did not respond to requests for comment'
-p286
-aS'bank of new york mellon--co###declined in###bank of new york mellon corp , charter communications inc , national oilwell varco inc , viacom inc and wabco holdings inc. berkshire'
-p287
-aS'nasdaq--the nasdaq composite###gained###1.63 points , or 0.08 percent'
-p288
-aS'caterpillar--caterpillar inc###has cut###its 2015 profit outlook'
-p289
-aS'morgan stanley--morgan stanley###said###a note'
-p290
-aS"crown castle international--it###jointly bought the country 's largest owner of mobile telephone towers from###a business owned by u.s. wireless infrastructure giant crown castle international corp ( cci.n )"
-p291
-aS'jpmorgan chase--the fhfa###has obtained nearly $ 17.9 billion in settlements from###institutions that include bank of america corp , jpmorgan chase & co and deutsche bank ag'
-p292
-aS'southern--the case###is u.s. for###the southern district of new york'
-p293
-aS'monsanto--monsanto###has engineered###a range of proprietary crops that resist it'
-p294
-aS'monsanto--one key criticism of monsanto###is###its promotion of glyphosate'
-p295
-aS'best buy--electronics retailer best buy co inc###reports first-quarter results before###the bell'
-p296
-aS'southern--may 15 southern copper corp###to announce###a formal "pause'
-p297
-aS'oracle--oracle###won###a federal appeals court ruling that allows it to copyright parts of java'
-p298
-aS'general motors--general motors co appaloosa###upped###its stake'
-p299
-aS'waters--iran###had attempted to intercept the vessel in###international waters'
-p300
-aS'morgan stanley--morgan stanley###said of###analysts'
-p301
-aS'prudential financial--quincy krosby###be market strategist at###prudential financial'
-p302
-aS'u.s. dollar--the sharp fall coupled with a slide in the u.s. dollar and a bounce on wall street###was attributed to###weak u.s. producer data'
-p303
-aS'monsanto--authorities###to block###monsanto'
-p304
-aS"southern--she###spoke with###a vice president of southern copper 's parent"
-p305
-aS"apple--apple 's statement###followed from###fortune"
-p306
-aS'gap--the euro###draw support from###a narrowing yield gap'
-p307
-aS'southern--southern copper###said###a statement'
-p308
-aS'marathon oil--may 15 marathon oil corp###is seeking###bids'
-p309
-aS'monsanto--giant monsanto###is trying to line up###buyers'
-p310
-aS'u.s. dollar--update 1-net u.s. dollar longs###fall to###lowest'
-p311
-aS'apple--apple inc###to settle###a case'
-p312
-aS'netflix--netflix###rose###4.50 percent'
-p313
-aS'monsanto--giant monsanto###be seeds of###u.s.'
-p314
-aS'monsanto--a $ 45 billion cash-and-shares###offer from###u.s. seeds giant monsanto'
-p315
-atRp316
-.
+p28
+atRp29
+ag2
+((lp30
+S'morgan stanley--morgan stanley###be sue as###a group'
+p31
+aS'morgan stanley--thousands of detroit homeowners###sue###morgan stanley'
+p32
+atRp33
+ag2
+((lp34
+S'fedex--fedex###loses u .s###court motion to dismiss drug shipping charges'
+p35
+atRp36
+ag2
+((lp37
+S'apple--top u .s###continue to dump###apple stakes'
+p38
+aS'apple--hedge funds###continue to dump###apple stakes'
+p39
+aS'apple--apple stakes###to be dump amid###rally'
+p40
+aS'apple--stakes###be slash altogether in###apple inc'
+p41
+atRp42
+ag2
+((lp43
+S'johnson & johnson--a widely used newer class of type 2 diabetes drugs sold by astrazeneca , johnson & johnson and eli###may cause###high levels of blood acids'
+p44
+atRp45
+ag2
+((lp46
+S'morgan stanley--morgan stanley###be sue as###a group'
+p47
+aS'morgan stanley--thousands of detroit homeowners###sue###morgan stanley'
+p48
+atRp49
+ag2
+((lp50
+S'lockheed martin--united launch alliance###be a joint venture of###lockheed martin corp'
+p51
+atRp52
+ag2
+((lp53
+S'yum--yum .n###will spin off###its china business'
+p54
+atRp55
+ag2
+((lp56
+S'delta air lines--delta air lines inc###said on###friday'
+p57
+aS'delta air lines--delta air lines###offers for###stranded amtrak passengers'
+p58
+aS'delta air lines--delta air lines###offers###free flights'
+p59
+atRp60
+ag2
+((lp61
+S'delta air lines--delta air lines inc###said on###friday'
+p62
+aS'delta air lines--delta air lines###offers for###stranded amtrak passengers'
+p63
+aS'delta air lines--delta air lines###offers###free flights'
+p64
+atRp65
+ag2
+((lp66
+S'apple--hedge funds###continued to dump###apple'
+p67
+aS'apple--top u .s###to dump###apple'
+p68
+aS'apple--top u .s###continued to dump###apple'
+p69
+aS'apple--apple###to be dump amid###rally'
+p70
+aS'apple--hedge funds###to dump###apple'
+p71
+aS'apple--stakes###be slash altogether in###apple inc'
+p72
+atRp73
+ag2
+((lp74
+S'google--google versus oracle case###exposes###differences'
+p75
+aS'google--the obama administration###has been locked over###what position to take in high profile litigation between two american technology giants , google and oracle'
+p76
+aS'oracle--the obama administration###has been locked over###what position to take in high profile litigation between two american technology giants , google and oracle'
+p77
+aS'oracle--google versus oracle case###exposes###differences'
+p78
+atRp79
+ag2
+((lp80
+S'monsanto--seeds giant monsanto###to line up###buyers'
+p81
+aS'monsanto--seeds giant monsanto###is trying to line up###buyers'
+p82
+atRp83
+a.

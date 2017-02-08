@@ -1,78 +1,22 @@
+(lp1
 c__builtin__
 set
-p1
-((ltRp2
-.c__builtin__
-set
-p1
-((lp2
-S'goldman sachs--huw pill###be wrote at###goldman sachs'
-p3
-aS'phillips 66--phillips 66 shares###poised to rise###another 15 pct -barron'
+p2
+((lp3
+S'phillips 66--phillips 66 shares###poised to rise###another 15 pct barron'
 p4
-aS'entergy--entergy corp###also said###no danger'
-p5
-aS'entergy--entergy###returned###the 1,031-megawatt unit'
-p6
-aS'target--the government###has lowered###its growth target'
-p7
-aS"entergy--the temporary closure of a unit###be triggered at###entergy 's arkansas nuclear power plant"
-p8
-aS'apple--here###is a natural asset for###apple'
-p9
-aS'citigroup--citigroup inc###advised indian online payment services provider one97###communications'
-p10
-aS'southern--he###was sent in###southern russia'
-p11
-aS"target--china 's trade###grew 3.4 percent missing###the government 's growth target of 7.5 percent"
-p12
-aS'southern--the southern poverty law center###has called###the freedom centers founder'
-p13
-aS'southern--clashes###continued in###the southern port city of aden'
-p14
-aS'target--the target###was in###ukraine'
-p15
-aS"exelon--exelon corp 's oyster creek nuclear power station###resumed###operations"
-p16
 aS'phillips 66--phillips 66 shares###could rise###another 15 percent'
-p17
-aS'honeywell international--may 10 honeywell international inc shares###could rise in###the longer-term'
-p18
-aS'noble energy--texas-based noble energy###owns###36 percent of tamar'
-p19
-aS'entergy--the facility###be runs by###entergy corp'
-p20
-aS"entergy--another transformer fire###triggered the temporary closure of a unit at###entergy 's arkansas nuclear power plant"
-p21
-aS'entergy--entergy corp###said###the plant'
-p22
-aS'goldman sachs--morgan stanley and goldman sachs###did not respond to###requests'
-p23
-aS'entergy--entergy###returned the 1,031-megawatt unit 3 back to service on###friday'
-p24
-aS"exelon--exelon corp 's oyster creek nuclear power station###resumed operations for###instance"
-p25
-aS'noble energy--texas-based noble energy###owns of###tamar'
-p26
-aS'phillips 66--phillips 66 shares###could rise another 15 percent in###the coming months based on strong earnings and growth potential at the oil refiner'
-p27
-aS'citigroup--citigroup inc###is "very focussed on###the internet space'
-p28
-aS'honeywell international--may 10 honeywell international inc shares###could rise in###the next year and close'
-p29
-aS'honeywell international--may 10 honeywell international inc shares###could rise by###about 20 percent'
-p30
-aS'goldman sachs--( 1 ) stronger external demand###wrote huw pill at###goldman sachs'
-p31
-aS'target--the men###to fire their rockets at###a target'
-p32
-aS'morgan stanley--morgan stanley and goldman sachs###did not respond to###requests'
-p33
-aS'entergy--entergy corp###said###no danger'
-p34
-aS"exelon--exelon corp 's oyster creek nuclear power station###resumed operations in###early 2009"
-p35
-aS'target--their rockets###to be fire at###a target'
-p36
-atRp37
-.
+p5
+aS"phillips 66--phillips 66 shares###could rise another 15 percent in###the coming months based on strong earnings and growth potential at the oil refiner , barron 's financial newspaper said in its latest issue , citing analysts"
+p6
+atRp7
+ag2
+((lp8
+S'honeywell international--10 honeywell international inc shares###may could rise in###the longer-term'
+p9
+aS'honeywell international--10 honeywell international inc shares###may could rise by###about 20 percent'
+p10
+aS'honeywell international--10 honeywell international inc shares###may could rise in###the next year and close'
+p11
+atRp12
+a.

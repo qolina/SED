@@ -10,6 +10,7 @@ import sys
 import time
 import timeit
 import math
+import cPickle
 from collections import Counter
 
 import numpy as np
@@ -70,10 +71,10 @@ def getSim(dataset, thred_radius_dist):
     return ngDistArray, ngIdxArray
 
 # nns_fromSim used for eval lsh performance when training
-def getSim_falconn(dataset, thred_radius_dist, trainLSH, trained_num_probes, nns_fromSim):
+def getSim_falconn(dataset, thred_radius_dist, trainLSH, trained_num_probes, nns_fromSim, nnFilePath):
     dataset = prepData_forLsh(dataset)
-    num_setup_threads = 20
-    para = getPara_forLsh(dataset)
+    num_setup_threads = 10
+    para = getPara_forLsh(dataset.shape)
     para.num_setup_threads = num_setup_threads
     #para.l = 10 # num of hash tables
     #para.k = 5 # num of hash funcs per table
@@ -100,9 +101,30 @@ def getSim_falconn(dataset, thred_radius_dist, trainLSH, trained_num_probes, nns
                 best_num_probes = num_probes
         return best_num_probes
 
-    ngIdxArray, indexedInCluster, clusters = getLshNN_op1(dataset, nnModel, thred_radius_dist, trained_num_probes)
+    thred_sameTweetDist = 0.2
+    ngIdxArray, indexedInCluster, clusters = getLshNN_op1(dataset, nnModel, thred_radius_dist, trained_num_probes, thred_sameTweetDist)
     print "## Nearest neighbor [Falconn_lsh] with radius ", thred_radius_dist, ngIdxArray.shape, " obtained at", time.asctime()
     return ngIdxArray, indexedInCluster, clusters
+
+    #ngIdxArray = getLshNN_original(dataset, nnModel, thred_radius_dist, trained_num_probes)
+    #return ngIdxArray
+
+    #nnFileP = open(nnFilePath, "wb")
+    #step = 50000
+    #if nnFilePath:
+    #    for i in range(int(math.ceil(dataset.shape[0]/float(step)))):
+    #        indexP = range(i*step, min((i+1)*step, dataset.shape[0]))
+    #        datasetP = dataset[indexP,:]
+    #        ngIdxArray = getLshNN_original(datasetP, nnModel, thred_radius_dist, trained_num_probes)
+    #        #nnFileP = open(nnFilePath+str(i), "wb")
+    #        #cPickle.dump(ngIdxArray, nnFileP)
+    #        #np.save(nnFileP, ngIdxArray)
+    #        print "## Nearest neighbor [Falconn_lsh] with radius ", thred_radius_dist, ngIdxArray.shape, " obtained at", time.asctime()
+    #        del ngIdxArray
+    #return step
+
+def write2File():
+    return None
 
 def prepData_forLsh(dataset):
     dataset = dataset.astype(np.float32)
@@ -110,9 +132,10 @@ def prepData_forLsh(dataset):
     dataset /= np.linalg.norm(dataset, axis=1).reshape(-1, 1)
     return dataset
 
-def getPara_forLsh(dataset):
-    num_points, dim = dataset.shape
+def getPara_forLsh(datasetShape):
+    num_points, dim = datasetShape
     para = falconn.get_default_parameters(num_points, dim)
+    para.distance_function = "euclidean_squared"
     return para
 
 def getLshIndex(para, dataset):
@@ -121,7 +144,7 @@ def getLshIndex(para, dataset):
     print "## sim falconn data setup", time.asctime()
     return nnModel
 
-def getLshNN_op1(dataset, nnModel, thred_radius_dist, trained_num_probes):
+def getLshNN_op1(dataset, nnModel, thred_radius_dist, trained_num_probes, thred_sameTweetDist):
     ngIdxList= []
     indexedInCluster = {}
     clusters = []
@@ -129,16 +152,20 @@ def getLshNN_op1(dataset, nnModel, thred_radius_dist, trained_num_probes):
         if dataidx in indexedInCluster: 
             nn_keys = None
         else:
-            indexedInCluster[dataidx] = len(clusters)
+            clusterIdx = len(clusters)
+            indexedInCluster[dataidx] = clusterIdx
             clusters.append([dataidx])
 
             nnModel.set_num_probes(trained_num_probes)
             # nn_keys: (id1, id2, ...)
             nn_keys = nnModel.find_near_neighbors(dataset[dataidx,:], thred_radius_dist)
 
-            for key in nn_keys:
-                if cosine(dataset[dataidx,:], dataset[key, :]) < 0.1:
-                    indexedInCluster[key] = indexedInCluster[dataidx]
+            nn_dists = [(idx, key) for idx, key in enumerate(nn_keys) if key > dataidx-130000 and key < dataidx+130000 and sqeuclidean(dataset[dataidx,:], dataset[key,:]) < thred_sameTweetDist]
+            #nn_dists = [(idx, key) for idx, key in enumerate(nn_keys) if sqeuclidean(dataset[dataidx,:], dataset[key,:]) < 0.2]
+            #print len(nn_keys), len(nn_dists), nn_dists[:min(10, len(nn_dists))], nn_dists[-min(10, len(nn_dists)):]
+
+            for idx, key in nn_dists:
+                indexedInCluster[key] = clusterIdx
 
         ngIdxList.append(nn_keys)
         if (dataidx+1) % 10000 == 0:
@@ -146,13 +173,43 @@ def getLshNN_op1(dataset, nnModel, thred_radius_dist, trained_num_probes):
     ngIdxList = np.asarray(ngIdxList)
     return ngIdxList, indexedInCluster, clusters
 
+def getLshNN_original(datasetP, nnModel, thred_radius_dist, trained_num_probes):
+    ngIdxList= []
+    statisticsDist = []
+    for dataidx in range(datasetP.shape[0]):
+        #nnModel.set_num_probes(trained_num_probes)
+        # nn_keys: (id1, id2, ...)
+        nn_keys = nnModel.find_near_neighbors(datasetP[dataidx,:], thred_radius_dist)
+        #nn_keys = np.asarray([idx for idx in nn_keys if idx>dataidx-130000 and idx<dataidx+130000])
+
+        #nFloat = 1
+        ##nn_dists = [round(sqeuclidean(datasetP[dataidx,:], datasetP[key,:]),nFloat) for key in range(dataidx+1, datasetP.shape[0])]
+        #nn_dists = [round(1.0-cosine(datasetP[dataidx,:], datasetP[key,:]),nFloat) for key in range(dataidx+1, datasetP.shape[0])]
+        #statisticsDist.extend(nn_dists)
+
+        #print len(nn_keys)
+        ngIdxList.append(nn_keys)
+        if (dataidx+1) % 1000 == 0:
+            print "## completed", dataidx+1, time.asctime()
+            #sortedDist = Counter(statisticsDist).most_common()
+            #num = sum([item[1] for item in sortedDist])
+            #sortedDist = [(item[0],item[1], round(float(item[1])/num, 3)) for item in sortedDist]
+            #print sortedDist
+    #sortedDist = Counter(statisticsDist)
+    #num = sum([item[1] for item in sortedDist.items()])
+    #print [(key, round(float(sortedDist[key])/num, 3)) for key in sorted(sortedDist.keys())]
+    #sortedDist = [(item[0],round(float(item[1])/num, 3)) for item in sortedDist.most_common()]
+    #print sortedDist
+    ngIdxList = np.asarray(ngIdxList)
+    return ngIdxList
+
 def getLshNN_op2(dataset, nnModel, thred_radius_dist, trained_num_probes):
     ngIdxList= []
     print dataset.shape
     for dataidx in range(dataset.shape[0]):
         query_vec = dataset[dataidx,:]
         nnModel.set_num_probes(trained_num_probes)
-        cand = nnModel.get_unique_candidates(query_vec)
+        cand = nnModel.get_unique_sorted_candidates(query_vec)
         cand = [idx for idx in cand if idx>dataidx-130000 and idx<dataidx+130000]
 
         #distMatrix = pairwise.cosine_distances(dataset[cand, :], query_vec)

@@ -1,461 +1,197 @@
+(lp1
 c__builtin__
 set
-p1
-((lp2
-S'ads--ads###could be###important'
-p3
-aS"ads--ads###could be important for###verizon 's plans"
+p2
+((lp3
+S'ralph lauren--ralph lauren corp###lost some ground on###wednesday'
 p4
-atRp5
-.c__builtin__
-set
-p1
-((lp2
-S'nasdaq--the nasdaq composite###added 9.48 points , or 0.19 percent , to###4,985.67'
-p3
-aS'at&t--at&t###to meet with###fcc reviewers'
-p4
-aS'southern--china southern airlines co ltd###currently operates###the a319s'
+aS'ralph lauren--ralph lauren corp###lost###some ground'
 p5
-aS"apple--june 2014 apple###began aggressively poaching###a123 engineers tasked with leading some of the company 's most critical projects"
-p6
-aS'morgan stanley--morgan stanley###did so for###seven years'
-p7
-aS'aetna--aetna inc###be sued in###2013'
+atRp6
+ag2
+((lp7
+S'akamai--limelight###did not infringe###akamai patent u .s'
 p8
-aS'nasdaq--1.42 points , or 0.07 percent###be gained to###2,100.54 and the nasdaq composite'
+aS'akamai--managing web images and video###be held by###rival akamai technologies inc'
 p9
-aS'state street--dupont###won the backing of three of its largest shareholders###vanguard group , state street global and blackrock institutional trust'
-p10
-aS'blackrock--may 13 blackrock inc###pushed back against###arguments'
-p11
-aS'verizon communications--verizon communications###has made###a better way to sell mobile video ads'
+atRp10
+ag2
+((lp11
+S'akamai--limelight###did not infringe###akamai patent u .s'
 p12
-aS"target--its price forecasts###be even cut as###slumping oil costs and soft consumption ground inflation to a halt , pushing it further away from the bank 's ambitious 2 percent target"
+aS'akamai--managing web images and video###be held by###rival akamai technologies inc'
 p13
-aS'target--she###has not forgotten###the huge challenge achieving a credible target'
-p14
-aS"waters--another country 's territorial waters or airspace###can be enter at###will"
-p15
-aS'target--the target###be reviews by###the bank of canada'
+atRp14
+ag2
+((lp15
+S'pfizer--pfizer drug###shows###early promise'
 p16
-aS'cisco systems--cisco systems inc###be maker of###network equipment'
-p17
-aS'waters--military ships and aircraft###be dispatching to###the disputed waters of the south china sea'
-p18
-aS'akamai technologies--the case###is###akamai technologies'
+atRp17
+ag2
+((lp18
+S'northrop grumman--a federal court###dismissed###a raytheon co lawsuit that sought to halt a fresh look at the bidders of its losing rivals northrop grumman corp and lockheed martin corp'
 p19
-aS"blackrock--cetorelli###explicitly referred to###blackrock 's securities lending practices"
-p20
-aS'at&t--the service###will be available to###at&t customers'
-p21
-aS'target--the government###will have to step up###its efforts to shore up the sputtering economy in order to meet its gross domestic product target'
-p22
-aS'target--it###would now beat###its 2015 growth target'
-p23
-aS'nordstrom--department store operator nordstrom inc###reports###first-quarter results'
-p24
-aS'state street--state street global advisors###partnered with###doubleline'
-p25
-aS'delta air lines--delta air lines inc###said of###it'
-p26
-aS'wells fargo--wells fargo###could not immediately be reached for###comment'
-p27
-aS'danaher--4.4 percent###be rose after###danaher'
-p28
-aS'target--the bank###introduced###the 2 percent target'
-p29
-aS'nasdaq--the nasdaq composite###gained###0.83 points , or 0.04 percent'
-p30
-aS"goldman sachs--jim o'neill###be economist of###goldman sachs chief"
-p31
-aS'target--british inflation which currently stands at a record-low zero percent###to return to###its 2 percent target'
-p32
-aS'ball--polo players###vying for###a ball'
-p33
-aS'apple--apple inc###had chimed in###last week'
-p34
-aS"state street--state street corp###be the third biggest etf provider after###blackrock and vanguard , and invesco ltd 's power shares"
-p35
-aS"danaher--danaher 's offer of $ 127.20###represents a premium of 28 percent to###pall corp 's close"
-p36
-aS'exxon mobil--locations###be owned by###exxon mobil corp , hess corp , continental resources inc and conocophillips'
-p37
-aS'danaher--pall corp###rose 4.4 percent after###danaher'
-p38
-aS'raytheon--a federal court###dismissed###a raytheon co lawsuit'
-p39
-aS'nasdaq--the nasdaq composite###gained###0.1 points'
-p40
-aS'nasdaq--the nasdaq composite###added 7.82 points , or 0.16 percent , to###4,984.01'
-p41
-aS'blackrock--blackrock and other asset managers###have come in###the years'
-p42
-aS'aetna--aetna inc###be sued as###a shareholder'
-p43
-aS'citigroup--co citigroup###had been expected to resolve###forex-rigging investigations'
-p44
-aS"blackrock--blackrock###cited###cetorelli 's december 2014 paper"
-p45
-aS'morgan stanley--morgan stanley###has cut its 2015 growth forecast for ghana from###5 percent'
-p46
-aS'at&t--that at&t promise###to be demand at###a reasonable price and at the same speeds'
-p47
-aS'abbvie--the drug which is being developed in collaboration with abbvie###extended the duration of remissions on###average'
-p48
-aS'morgan stanley--morgan stanley###has cut###its 2015 growth forecast'
-p49
-aS'gap--the euro###brushed aside weaker-than-expected german growth numbers drawing support from###a narrowing yield gap to rise against the dollar'
-p50
-aS'nordstrom--department store operator nordstrom inc###reports first-quarter results after###the bell'
-p51
-aS'u.s. dollar--energy stocks###fell 0.6 percent as###a rallying u.s. dollar'
-p52
-aS'apple--apple###be sued in###massachusetts federal court'
-p53
-aS'schlumberger nv--falling oil prices and a corruption scandal###led at###schlumberger nv and other oil service companies that operate in the city'
-p54
-aS'nasdaq--0.79 points , or 0.04 percent###be gained to###2,099.91 and the nasdaq composite'
-p55
 aS'raytheon--it###would re-evaluate###bids received in a $ 1 billion long-range radar competition after a federal court dismissed a raytheon co lawsuit'
-p56
-aS'applied materials--chip gear-maker applied materials inc###to post a second-quarter profit in###line'
+p20
+aS'raytheon--a federal court###dismissed###a raytheon co lawsuit that sought to halt a fresh look at the bidders of its losing rivals northrop grumman corp and lockheed martin corp'
+p21
+aS'lockheed martin--a federal court###dismissed###a raytheon co lawsuit that sought to halt a fresh look at the bidders of its losing rivals northrop grumman corp and lockheed martin corp'
+p22
+aS'raytheon--radar bids###be evaluate after###raytheon suit denied'
+p23
+atRp24
+ag2
+((lp25
+S'delta air lines--delta air lines###approves###$ 5 billion buyback plan'
+p26
+atRp27
+ag2
+((lp28
+S'williams--pipeline giant williams cos###is scrapping###its master limited partnership unit'
+p29
+atRp30
+ag2
+((lp31
+S'at&t--cogent###specify demands for concessions in###at&t directv merger'
+p32
+aS'at&t--demands###be specify in###at&t directv merger'
+p33
+aS'directv--cogent###specify demands for concessions in###at&t directv merger'
+p34
+aS'directv--demands###be specify in###at&t directv merger'
+p35
+aS'directv--regulators###to restrict as###part of its proposed purchase of directv dtv.o'
+p36
+atRp37
+ag2
+((lp38
+S'at&t--cogent###specify demands for concessions in###at&t directv merger'
+p39
+aS'at&t--demands###be specify in###at&t directv merger'
+p40
+aS'directv--cogent###specify demands for concessions in###at&t directv merger'
+p41
+aS'directv--demands###be specify in###at&t directv merger'
+p42
+atRp43
+ag2
+((lp44
+S'morgan stanley--it###had fined###morgan stanley $ 2 million'
+p45
+atRp46
+ag2
+((lp47
+S'at&t--cogent###specify demands for concessions in###at&t directv merger'
+p48
+aS'at&t--demands###be specify in###at&t directv merger'
+p49
+aS'directv--cogent###specify demands for concessions in###at&t directv merger'
+p50
+aS'directv--demands###be specify in###at&t directv merger'
+p51
+atRp52
+ag2
+((lp53
+S'wal-mart stores--13 wal-mart stores inc###to test###a new unlimited online shipping service'
+p54
+atRp55
+ag2
+((lp56
+S'cisco--cisco revenue###rises###5 pct'
 p57
-aS"target--it###is also###confident meeting this year 's target for profit growth of up to 15 percent"
-p58
-aS'nasdaq--the nasdaq composite###added###7.82 points , or 0.16 percent'
-p59
-aS'delta air lines--delta air lines###approves###$ 5 billion buyback plan to hike dividend'
+atRp58
+ag2
+((lp59
+S'blackrock--13 blackrock inc###may pushed back against###arguments'
 p60
-aS'aes--aes corp###weighed on###that sector'
-p61
-aS"at&t--hulu content###to be view on###at&t 's app and website"
-p62
-aS'duke energy--duke energy###fell###drop'
+atRp61
+ag2
+((lp62
+S'ford motor--13 the venezuela division of ford motor co###may will sell sport utility vehicles in###dollars'
 p63
-aS'blackrock--blackrock and other asset managers###have come since###the 2007-2009 financial crisis'
+aS'ford motor--13 the venezuela division of ford motor co###may will sell pickups in###dollars'
 p64
-aS'lockheed martin--a joint venture of lockheed martin corp###are are at###stake'
+aS'ford motor--13 the venezuela division of ford motor co###may will sell###pickups and sport utility vehicles'
 p65
-aS'hess--about 189 north dakota wells###were completed at###locations owned by exxon mobil corp , hess corp , continental resources inc and conocophillips'
-p66
-aS'danaher--danaher and pall corp shares###rose as much as 5 percent to touch respectively###record highs of $ 90 and $ 124.61'
-p67
-aS'gap--the gap between 10-year bunds and u.s. treasuries###narrowed to###around 157 basis points'
+atRp66
+ag2
+((lp67
+S'ford motor--the venezuela division of ford motor co (###said on###wednesday'
 p68
-aS'gap--the gap between 10-year bunds and u.s. treasuries###narrowed to###about 157 basis points'
-p69
-aS'raytheon--raytheon###sued###the air force'
-p70
-aS'conocophillips--about 189 north dakota wells###were completed at###locations owned by exxon mobil corp , hess corp , continental resources inc and conocophillips'
+atRp69
+ag2
+((lp70
+S'waters--complete responsibility###arises from###their attempt to enter yemeni waters'
 p71
-aS"target--the country 's inflation target###to be raise after###a review given the risk to the central bank 's credibility and widespread support for the existing benchmark"
-p72
-aS"csx--csx 's mainline###is not in###the vicinity of the amtrak incident"
-p73
-aS'apple--information###be collected during###sales of apple products'
+atRp72
+ag2
+((lp73
+S'facebook--facebook inc###tied up with###nine news publishers'
 p74
-aS"danaher--the 'next danaher deal###wrote in###a note"
-p75
-aS'at&t--they###to demand###that at&t promise'
-p76
-aS'morgan stanley--morgan stanley###to completely accurately accurately report###its short interest positions'
+atRp75
+ag2
+((lp76
+S'abbvie--abbvie drug###extends###multiple myeloma remission study'
 p77
-aS'danaher--danaher and pall corp shares###rose as much as 5 percent to touch record highs of $ 90 and $ 124.61 respectively on###wednesday'
-p78
-aS'nasdaq--the s&p 500###lost 0.64 points , or 0.03 percent to###2,098.47 and the nasdaq composite added 5.50 points , or 0.11 percent'
-p79
-aS'pfizer--pfizer drug###shows###early promise'
+atRp78
+ag2
+((lp79
+S'wal-mart stores--wal-mart stores###said of###it'
 p80
-aS'danaher--pall corp pll.n###rose###4.4 percent)[enabler=after danaher ( dhr.n '
-p81
-aS'target--its 2 percent target###be hitting within###two years'
-p82
-aS"at&t--dish network corp , cogent communications holdings inc and advocacy groups###to restrict###at&t inc 's power"
+atRp81
+ag2
+((lp82
+S'waters--military ships and aircraft###be dispatching to###the disputed waters of the south china sea'
 p83
-aS'blackrock--dupont###won the backing of three of its largest shareholders###vanguard group , state street global and blackrock institutional trust'
-p84
-aS'nasdaq--the s&p 500###gained 0.79 points , or 0.04 percent composite###2,099.91 and the nasdaq composite'
-p85
-aS'nasdaq--0.65 points , or 0.03 percent###be lost to###2,098.47 and the nasdaq composite added 5.50 points , or 0.11 percent'
+atRp84
+ag2
+((lp85
+S'wells fargo--wells fargo###moves to streamline###major departments'
 p86
-aS'nasdaq--the nasdaq composite###lost 0.64 points , or 0.03 percent , to###2,098.48'
-p87
-aS'apple--apple###be sued in###february'
-p88
-aS"target--inflation###running below###the fed 's 2 percent target"
+atRp87
+ag2
+((lp88
+S'northrop grumman--a federal court###dismissed###a raytheon co lawsuit that sought to halt a fresh look at the bidders of its losing rivals northrop grumman corp and lockheed martin corp'
 p89
-aS'morgan stanley--morgan stanley###admitted###the charges'
+aS'raytheon--it###would re-evaluate###bids received in a $ 1 billion long-range radar competition after a federal court dismissed a raytheon co lawsuit'
 p90
-aS'blackrock--blackrock###wrote###the paper'
+aS'raytheon--a federal court###dismissed###a raytheon co lawsuit that sought to halt a fresh look at the bidders of its losing rivals northrop grumman corp and lockheed martin corp'
 p91
-aS'danaher--danaher###said in###just two weeks'
+aS'lockheed martin--a federal court###dismissed###a raytheon co lawsuit that sought to halt a fresh look at the bidders of its losing rivals northrop grumman corp and lockheed martin corp'
 p92
-aS'at&t--at&t###handles traffic from###content companies'
+aS'raytheon--radar bids###be evaluate after###raytheon suit denied'
 p93
-aS'target--the 2 percent target###be introduced in###the early 1990s'
-p94
-aS'southern--the southern province of jiangsu###was reported in###chinese media to have been forced into delaying a bond auction'
-p95
-aS'goldman sachs--evercore partners inc and goldman sachs###were financial advisers of###dupont'
+atRp94
+ag2
+((lp95
+S'verizon communications--verizon communications###has made###a better way to sell mobile video ads'
 p96
-aS'target--a decision to raise the target ,###is seen as###a hard sell given that it would erode savings and purchasing power'
-p97
-aS'nasdaq--the s&p 500###gained 1.42 points , or 0.07 percent to###2,100.54 and the nasdaq composite'
-p98
-aS'target--greek central govt surplus###exceeds###target'
+atRp97
+ag2
+((lp98
+S'ralph lauren--13 ralph lauren corp###may lost###some ground'
 p99
-aS'u.s. dollar--0.6 percent###be fell as###a rallying u.s. dollar'
+aS'ralph lauren--13 ralph lauren corp###may lost some ground on###wednesday'
 p100
-aS'nasdaq--the s&p 500###lost 0.65 points , or 0.03 percent to###2,098.47 and the nasdaq composite added 5.50 points , or 0.11 percent'
-p101
-aS'leucadia national--jefferies###be a unit of###leucadia national corp'
-p102
-aS'target--it###will meet###its target delivering operating profit growth of 10-15 percent on a constant currency basis for the year to sept. 30'
+atRp101
+ag2
+((lp102
+S'gap--bund/treasuries###yield###gap shrinks'
 p103
-aS'united continental holdings--united continental holdings inc###announced on###wednesday'
-p104
-aS'goldman sachs--max layton###be analyst of###goldman sachs'
-p105
-aS"waters--foreign military ships and aircraft###can enter###another country 's territorial waters or airspace"
+atRp104
+ag2
+((lp105
+S'delta air lines--delta air lines###approves###$ 5 bln buyback plan'
 p106
-aS'target--industry background###raised###) by rohit t. k. and jeffrey dastin may 13 ( reuters ) - delta air lines inc said it will return more than $ 6 billion to investors through share buybacks and dividends by the end of 2017 , and raised its target'
-p107
-aS'gap--the gap between 10-year bunds and u.s. treasuries###narrowed than###u.s. ones'
-p108
-aS'raytheon--the u.s. court of federal claims###had dismissed###a lawsuit filed by raytheon in january'
+atRp107
+ag2
+((lp108
+S"facebook--facebook 's new minimum wage and family###leave###policy which raises minimum hourly salaries for contractors to $ 15 per hour"
 p109
-aS"target--bank of nova scotia 's derek holt###attaches 30 percent odds to###a higher target"
-p110
-aS'apple--a123###sued###apple'
-p111
-aS'at&t--at&t###handles###traffic'
+atRp110
+ag2
+((lp111
+S'pall--air and water-filter maker pall corp pll .n###will be buy in###a $ 13.8 billion deal'
 p112
-aS'wal-mart stores--wal-mart stores###said of###it'
-p113
-aS'nasdaq--the nasdaq composite###recorded###64 new highs and 34 new lows'
-p114
-aS'danaher--joyce###will remain ceo of###the new danaher'
-p115
-aS'duke energy--duke energy###fell###percent drop'
-p116
-aS"goldman sachs--evercore partners inc and goldman sachs###were###dupont 's financial advisers"
-p117
-aS'csx--rob doolittle###be spokesman of###csx'
-p118
-aS'aetna--silberstein###sued###aetna inc'
-p119
-aS'exxon mobil--about 189 north dakota wells###were completed at###locations owned by exxon mobil corp , hess corp , continental resources inc and conocophillips'
-p120
-aS"at&t--at&t inc 's power###to be restrict as###part of its proposed purchase of directv"
-p121
-aS"owens-illinois--owens-illinois###to buy###mexico 's vitro 's glass container business"
-p122
-aS'apple--its reseller agreement###protects###information collected by the retailer during sales of apple products'
-p123
-aS'cisco systems--limelight###petitioned the supreme court to hear###the case supported by companies such as google inc and cisco systems inc ,'
-p124
-aS'applied materials--chip gear-maker applied materials inc###to post###a second-quarter profit'
-p125
-aS'goldman sachs--metro###however seems under###former owner goldman sachs and new owners'
-p126
-aS'ford motor--venezuela###be division of###ford motor co'
-p127
-aS'nasdaq--the nasdaq composite###added###9.48 points , or 0.19 percent'
-p128
-aS"bank of new york mellon--peltz 's partner ed garden###joined###the bank of new york mellon board"
-p129
-aS'apple--apple inc###had chimed with###a filing'
-p130
-aS'abbvie--the drug which is being developed in collaboration with abbvie###extended the duration of remissions by###about five months'
-p131
-aS'morgan stanley--morgan stanley###has cut its 2015 growth forecast for ghana to###3 percent'
-p132
-aS'symantec--symantec corp###be the maker of###the norton antivirus software'
-p133
-aS'citigroup--jpmorgan chase & co citigroup , british banks royal bank of scotland and barclays , and ubs###had been expected to resolve###forex-rigging investigations'
-p134
-aS"at&t--may 13 dish network corp , cogent communications holdings inc and advocacy groups###to restrict###at&t inc 's power"
-p135
-aS"target--may 13 canadian financial authorities###to raise###the country 's inflation target"
-p136
-aS'nasdaq--0.79 points , or 0.04 percent###be gained composite###2,099.91 and the nasdaq composite'
-p137
-aS"gap--the gap###is so###big you 're never going to get to that consensus trading level , or at least not"
-p138
-aS'owens-illinois--bottles###be makes by###owens-illinois inc'
-p139
-aS'southwest airlines--southwest airlines co###raised###its quarterly dividend'
-p140
-aS"blackrock--blackrock inc###has n't opened###lines of credit"
-p141
-aS'wells fargo--wells fargo###moves to streamline###major departments'
-p142
-aS'danaher--danaher and pall corp shares###rose###as much as 5 percent'
-p143
-aS'cisco systems--network equipment maker cisco systems inc###reported###a 5.1 percent rise helped by demand for its switching equipment and routers'
-p144
-aS'nasdaq--the nasdaq composite###gained 0.83 points , or 0.04 percent , to###2,099.95'
-p145
-aS'morgan stanley--morgan stanley###failed to completely accurately accurately report###its short interest positions'
-p146
-aS"at&t--) and advocacy groups###are asking u.s. regulators to restrict###at&t inc 's ( t.n ) power"
-p147
-aS'at&t--they###asked the fcc to demand###that at&t promise'
-p148
-aS'southern--17 sailors###be killed in###the southern yemeni port of aden'
-p149
-aS'conocophillips--locations###be owned by###exxon mobil corp , hess corp , continental resources inc and conocophillips'
-p150
-aS'ford motor--the venezuela division of ford motor co###said on###wednesday'
-p151
-aS'danaher--joyce###will remain###ceo of the new danaher'
-p152
-aS'gap--support###be drawing from###a narrowing yield gap to rise against the dollar'
-p153
-aS"target--prime minister mariano rajoy 's government###has raised###its 2015 growth target"
-p154
-aS'darden restaurants--olive garden###be owns by###darden restaurants'
-p155
-aS'aes--aes corp###fell###percent drop'
-p156
-aS'citigroup--cetorelli###explicitly referred as###an example how asset managers may behave like banks such as jp morgan chase ( jpm.n ) and citigroup ( c.n )'
-p157
-aS'bank of america--bhp chief executive andrew mackenzie###told###a bank of america'
-p158
-aS'nasdaq--the nasdaq composite###gained 0.1 points to###2,099.22'
-p159
-aS'gap--a supply-demand gap###be plugging in###the physical market'
-p160
-aS'akamai technologies--managing web images and video###be held by###rival akamai technologies inc'
-p161
-aS'united technologies--new mh-60r helicopters###be built by###united technologies corp and lockheed'
-p162
-aS"at&t--at&t###to include###all video services that it places on customers ' broadband use"
-p163
-aS'target--j.c. penney posts###lifts###margin target'
-p164
-aS'duke energy--duke energy###weighed on###that sector'
-p165
-aS'target--inflation###be returning to###the target'
-p166
-aS'u.s. dollar--the u.s. dollar###hit a more than three-month low against a basket of major currencies on###wednesday'
-p167
-aS'gap--the proposed change###would avert###a potential gap'
-p168
-aS'nasdaq--the s&p 500###gained 1.42 points , or 0.07 percent composite###2,100.54 and the nasdaq composite'
-p169
-aS'target--the government###to step up###its efforts to shore up the sputtering economy in order to meet its gross domestic product target'
-p170
-aS"danaher--danaher 's offer of $ 127.20###represents###a premium of 28 percent"
-p171
-aS"blackrock--state street corp###be the third biggest etf provider after###blackrock and vanguard , and invesco ltd 's power shares"
-p172
-aS'wal-mart stores--may 13 wal-mart stores inc###to test###a new unlimited online shipping service'
-p173
-aS"target--opec production###ran above###the group 's self-imposed 30 million bpd supply target"
-p174
-aS'nasdaq--xau= on wall street , the dow jones industrial average .dji fell 7.74 points , or 0.04 percent , to 18,060.49 ###the s&p 500 .spx lost 0.64 points , or 0.03 percent , to 2,098.48 ###and the nasdaq composite .ixic'
-p175
-aS'nasdaq--the s&p 500###gained 0.79 points , or 0.04 percent to###2,099.91 and the nasdaq composite'
-p176
-aS'schlumberger nv--schlumberger nv and other oil service companies###operate in###the city'
-p177
-aS'hess--locations###be owned by###exxon mobil corp , hess corp , continental resources inc and conocophillips'
-p178
-aS"at&t--) and advocacy groups###to restrict###at&t inc 's ( t.n ) power"
-p179
-aS"blackrock--blackrock 's white paper due###lays out###responses"
-p180
-aS'waters--ships entering yemeni waters###be inspecting in###a bid to stop weapons smuggling'
-p181
-aS'lockheed martin--new pac-3 missiles###be built by###lockheed martin corp. uae'
-p182
-aS'blackrock--blackrock inc###pushed back against###arguments'
-p183
-aS"blackrock--blackrock inc###has n't opened lines of credit for###its bond funds"
-p184
-aS"at&t--at&t 's $ 49 billion deal###is being reviewed by###regulators"
-p185
-aS'darden restaurants--all 12 directors###be replacing at###darden restaurants'
-p186
-aS'nasdaq--the nasdaq composite###added 5.50 points , or 0.11 percent , to###4,981.69'
-p187
-aS'jpmorgan chase--jpmorgan chase & co citigroup , british banks royal bank of scotland and barclays , and ubs###had been expected to resolve###forex-rigging investigations'
-p188
-aS'nasdaq--0.64 points , or 0.03 percent###be lost to###2,098.47 and the nasdaq composite added 5.50 points , or 0.11 percent'
-p189
-aS'applied materials--applied materials###to benefit from###a rise'
-p190
-aS'southwest airlines--southwest airlines co###raised its quarterly dividend by###25 percent'
-p191
-aS"bank of new york mellon--third point 's daniel loeb###joined###the bank of new york mellon board"
-p192
-aS'nasdaq--the nasdaq composite###added###5.50 points , or 0.11 percent'
-p193
-aS'southwest airlines--southwest airlines co###also announced###a $ 1.5 billion share buyback program'
-p194
-aS'danaher--pall corp###rose 4.5 percent after###danaher'
-p195
-aS'raytheon--a lawsuit###be filed by###raytheon'
-p196
-aS'danaher--a market value of about $ 60 billion###be has by###danaher'
-p197
-aS'nasdaq--the nasdaq composite###was recording###61 new highs and 31 new lows'
-p198
-aS"invesco--state street corp###be the third biggest etf provider after###blackrock and vanguard , and invesco ltd 's power shares"
-p199
-aS'target--cote###lived through###the experience introducing the target'
-p200
-aS'cisco systems--cisco systems inc###be maker for###network equipment'
-p201
-aS"target--it###even cut its price forecasts as###slumping oil costs and soft consumption ground inflation to a halt , pushing it further away from the bank 's ambitious 2 percent target"
-p202
-aS'abbvie--the drug which is being developed in collaboration with abbvie###extended###the duration of remissions'
-p203
-aS'morgan stanley--a morgan stanley spokesman###said###the bank'
-p204
-aS'blackrock--blackrock and other asset managers###have come under###the regulatory microscope'
-p205
-aS'symantec--symantec corp###to report###fourth-quarter results'
-p206
-aS'citigroup--cetorelli###explicitly referred as###an example how asset managers may behave like banks such as jp morgan chase and citigroup'
-p207
-aS'ball--two###mounted###polo players vying for a ball'
-p208
-aS'nordstrom--nordstrom inc###be operator of###department store'
-p209
-aS'southern--the syndicates###operated in###northern malaysia and southern thailand , khalid abu bakar'
-p210
-aS'aes--aes corp###fell###drop'
-p211
-aS"danaher--danaher 's retail fuel and test and measurement businesses###be leads by###james lico"
-p212
-aS'danaher--danaher and pall corp shares###rose as much as 5 percent to touch record highs of $ 90 and $ 124.61 respectively on###the new york stock exchange'
-p213
-aS'goldman sachs--hsbc###hired###goldman sachs group inc'
-p214
-aS'target--target users###be based on###their preferences'
-p215
-aS"goldman sachs--goldman sachs###served as###pall corp 's financial adviser"
-p216
-aS'delta air lines--industry background###raised###) by rohit t. k. and jeffrey dastin may 13 ( reuters ) - delta air lines inc said it will return more than $ 6 billion to investors through share buybacks and dividends by the end of 2017 , and raised its target'
-p217
-aS'nasdaq--1.42 points , or 0.07 percent###be gained composite###2,100.54 and the nasdaq composite'
-p218
-aS'at&t--at&t###said on###wednesday'
-p219
-aS'apple--apple###denied###the claims'
-p220
-aS'nordstrom--nordstrom inc###be operator for###department store'
-p221
-aS'blackrock--blackrock###wrote in###the paper'
-p222
-aS'waters--weather conditions and unusually warm waters###will likely be "very###similar " or worse'
-p223
-aS'danaher--4.5 percent###be rose after###danaher'
-p224
-aS'at&t--at&t customers###subscribe to###hulu'
-p225
-atRp226
-.
+atRp113
+a.

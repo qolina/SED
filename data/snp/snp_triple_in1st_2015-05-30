@@ -1,55 +1,14 @@
+(lp1
 c__builtin__
 set
-p1
-((lp2
-S'gm--gm###is the fourth-cheapest stock by###this metric'
-p3
-aS'gm--gm###is up 3 percent on###the year'
+p2
+((lp3
+S"pfizer--pfizer 's ibrance drug###slows###progression of breast cancer"
 p4
-aS'gm--gm###is###the fourth-cheapest stock estimating that shares should trade at $ 81.69 , more than twice its thursday closing price of $ 36.39'
-p5
-aS'gm--gm###is the fourth-cheapest stock in###the s&p'
-p6
-aS'gm--gm###is the fourth-cheapest stock with###starmine'
+atRp5
+ag2
+((lp6
+S"pfizer--pfizer 's ibrance drug###slows###progression of breast cancer"
 p7
 atRp8
-.c__builtin__
-set
-p1
-((lp2
-S'waters--it###tries to assert its claim to###the potentially energy-rich waters'
-p3
-aS'pfizer--pfizer###be announced in###april'
-p4
-aS'pfizer--pfizer###is currently conducting###a study of ibrance'
-p5
-aS'southern--them###be forcing off###buses traveling from the western city of quetta to karachi on the southern coast'
-p6
-aS'waters--its claim###to assert to be###the potentially energy-rich waters'
-p7
-aS'southern--the initial 14 shallow water exploration blocks###be located along###the southern rim of the gulf of mexico'
-p8
-aS'waters--the european union###well will step into###unchartered waters and no-one wants'
-p9
-aS'gap--they###to fill###this gap'
-p10
-aS'target--a target###be also set of###building 20,000 greenhouses'
-p11
-aS'target--the government###also set###a target'
-p12
-aS'waters--it###to assert its claim to###the potentially energy-rich waters'
-p13
-aS'target--coal india###gets to###its ambitious target of output of 1 billion tonnes'
-p14
-aS"nasdaq--issi 's shares###closed in###the nasdaq"
-p15
-aS'pfizer--pfizer comment###showed by###deena beasley chicago may 30'
-p16
-aS"pfizer--pfizer 's ibrance drug###slows###progression of breast cancer"
-p17
-aS'gap--the surveillance###fills###a critical gap'
-p18
-aS"nasdaq--issi 's shares###closed on###the nasdaq"
-p19
-atRp20
-.
+a.

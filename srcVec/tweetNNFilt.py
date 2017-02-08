@@ -14,12 +14,10 @@ import numpy as np
 def getDF(ngIdxArray, seqDayHash, timeWindow, dataset, tweetTexts_all, indexedInCluster, clusters):
     tweetSimDfDayArr = []
     for docid, nnIdxs in enumerate(ngIdxArray):
-        nnDay_count = None
         if nnIdxs is None: 
             sameDocId = clusters[indexedInCluster[docid]][0]
             nnIdxs = ngIdxArray[sameDocId]
             #print docid, sameDocId, len(nnIdxs)
-            #tweetSimDfDayArr.append(nnDay_count)
             #continue
         nnDays = [seqDayHash.get(seqid) for seqid in nnIdxs]
         if timeWindow is not None:

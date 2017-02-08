@@ -1,61 +1,14 @@
+(lp1
 c__builtin__
 set
-p1
-((lp2
-S'gm--gm###is up 3 percent on###the year'
-p3
-aS'gm--gm###is the fourth-cheapest stock with###starmine'
+p2
+((lp3
+S'bristol-myers squibb--two immunotherapies###be made by###bristol-myers squibb co'
 p4
-aS'ge--ge###launches###bidding process'
-p5
-aS'gm--gm###is###the fourth-cheapest stock estimating that shares should trade at $ 81.69 , more than twice its thursday closing price of $ 36.39'
-p6
-aS'gm--gm###is the fourth-cheapest stock in###the s&p'
+atRp5
+ag2
+((lp6
+S'general electric--31 general electric co###may launched###the bidding process'
 p7
-aS'ge--ge###is working with###credit suisse group ag and goldman sachs group inc'
-p8
-aS'gm--gm###is the fourth-cheapest stock by###this metric'
-p9
-atRp10
-.c__builtin__
-set
-p1
-((lp2
-S'target--it###left###its output target'
-p3
-aS'blackrock--blackrock###put forward###several possible measures'
-p4
-aS'morgan stanley--morgan stanley###placed###the equity offering'
-p5
-aS'general electric--may 31 general electric co###launched###the bidding process'
-p6
-aS'waters--a fishing boat###be moored in###the placid waters of the naf river'
-p7
-aS'goldman sachs--ge###is working with###credit suisse group ag and goldman sachs group inc'
-p8
-aS"goldman sachs--o'malley###singled out###goldman sachs"
-p9
-aS'goldman sachs--goldman sachs###be singled out for###particular criticism'
-p10
-aS'target--the boost###puts output above###its target of 30 million barrels'
-p11
-aS'blackrock--blackrock###said in###a statement'
-p12
-aS'goldman sachs--goldman sachs ceo lloyd blankfein###recently told###his employees'
-p13
-aS'target--the eu###agreed on###a naval mission to target gangs'
-p14
-aS'target--its output target###be left at###30 million barrels'
-p15
-aS'blackrock--blackrock###said###a statement'
-p16
-aS'target--authorities###do###target universities'
-p17
-aS'chevron--exxonmobil and chevron###be producers of###u.s. oil'
-p18
-aS'bristol-myers squibb--two immunotherapies###be made by###bristol-myers squibb co'
-p19
-aS'blackrock--blackrock###put forward several possible measures , such as a better definition of leverage in###the sector'
-p20
-atRp21
-.
+atRp8
+a.

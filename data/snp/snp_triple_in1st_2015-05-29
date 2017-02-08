@@ -1,575 +1,163 @@
+(lp1
 c__builtin__
 set
-p1
-((lp2
-S'gm--gm###is up 3 percent on###the year'
-p3
-aS'abc--abc###could not be reached for###immediate comment'
+p2
+((lp3
+S'tesoro--tesoro slams###epa###biofuel plan'
 p4
-aS'gm--gm###is the fourth-cheapest stock with###starmine'
+aS"tesoro--tesoro slams###epa biofuel plan as###'giant step"
 p5
-aS'gm--gm###recalls###heavy duty trucks'
+aS'tesoro--oil refiner tesoro###has slammed###the u .s'
 p6
-aS'kim--kim###represented the united states with###its two important asian allies'
-p7
-aS'kim--kim###represented the united states in###talks'
-p8
-aS'gm--gm###is###the fourth-cheapest stock estimating that shares should trade at $ 81.69 , more than twice its thursday closing price of $ 36.39'
+atRp7
+ag2
+((lp8
+S'equinix--data center company equinix inc###said on###friday'
 p9
-aS'gm--gm###is the fourth-cheapest stock in###the s&p'
-p10
-aS'kim--kim###represented###the united states'
-p11
-aS'dow--dow###will have representatives at###the meeting'
+atRp10
+ag2
+((lp11
+S'bank of america--bank of america corp###agreed###regulators to improve its compliance practices'
 p12
-aS'cbg--cbg###had signed###other supply deals which required it to invest heavily to expand its production capacity'
+aS'bank of america--bank of america corp###pay###a fine'
 p13
-aS'kim--kim###also told###the briefing'
+aS'bank of america--bank of america corp###pay a fine for###violations'
 p14
-aS'cbg--cbg###is###51 percent owned by halco mining consortium controlled by aluminium producer alcoa'
+aS'bank of america--bank of america corp###agreed regulators to improve its compliance practices with###u .s'
 p15
-aS'gm--gm###is the fourth-cheapest stock by###this metric'
-p16
-aS'abc--abc###said on###friday'
-p17
-aS"key--key###rating###drivers the dominican republic 's ratings are underpinned by its higher per capita income and more diversified economic structure than peers"
+atRp16
+ag2
+((lp17
+S'tesoro--tesoro slams###epa###biofuel plan'
 p18
-aS'dow--dow###will have###representatives'
+aS"tesoro--tesoro slams###epa biofuel plan as###'giant step"
 p19
-aS'kim--kim###also told the briefing in###beijing'
-p20
-atRp21
-.c__builtin__
-set
-p1
-((lp2
-S'chevron--a houston-based company###be hired by###chevron'
-p3
-aS'jpmorgan chase--the biggest single division of the biggest u.s. bank###be runs by###jpmorgan chase consumer banking chief gordon smith'
-p4
-aS"equinix--its board###had recommended was###equinix 's offer"
-p5
-aS'waters--their children###be clear of###flood waters'
-p6
-aS'coca-cola--coca-cola###said###an email'
-p7
-aS"southern--myanmar 's navy###seized###a boat packed with 727 people off the country 's southern coast on friday"
-p8
-aS'nasdaq--the nasdaq###recorded###64 new highs and 26 new lows'
-p9
-aS"bank of america--the biggest drop###was###the industrial sector 's 0.71 percent leading the losers after bank of america merrill lynch downgraded the stock"
-p10
-aS"intel--deal###would be###intel 's largest acquisition"
-p11
-aS'humana--humana###jumped###20.3 percent'
-p12
-aS'equinix--equinix###to buy###telecitygroup'
-p13
-aS'intel--intel and altera###did not respond to###requests'
-p14
-aS"target--inflation###to be reduce at###the center of the government 's target range"
-p15
-aS'apple--apple###buys do###smaller technology companies'
-p16
-aS'nasdaq--declining issues###fell on###the nasdaq'
-p17
-aS'apple--apple###buys smaller technology companies do to###time'
-p18
-aS'nasdaq--the nasdaq composite###lost###29.72 points , or 0.58 percent'
-p19
-aS'citigroup--aakash doshi###be analyst of###citigroup research'
-p20
-aS'boeing--engine glitch medium-haul planes###are significant sources of cash for###airbus and boeing'
-p21
-aS'morgan stanley--morgan stanley###forecasts###a smaller increase'
+atRp20
+ag2
+((lp21
+S'broadcom--broadcom###to be buy in###biggest'
 p22
-aS"southern--a boat packed with 727 people off the country 's southern coast on friday###be seized about###a week"
-p23
-aS'broadcom--broadcom co-founder henry nicholas###was advised by###centerview'
-p24
-aS'intel--intel###gave###the biggest boost'
+atRp23
+ag2
+((lp24
+S'humana--health insurer humana inc###is has received###indications of takeover interest'
 p25
-aS"apple--apple###is now###the company 's sole shareholder"
-p26
-aS'broadcom--avago###approached again###broadcom'
-p27
-aS'intel--intel and altera###signed a standstill agreement in###this year'
+atRp26
+ag2
+((lp27
+S'family dollar stores--discount retailer dollar tree inc###agreed to sell###330 family dollar stores inc stores'
 p28
-aS"intel--it###would be###intel 's largest"
+aS'family dollar stores--330 family dollar stores inc stores###to sell to be###private equity firm sycamore partners'
 p29
-aS'broadcom--the combined company to be based in singapore and known as broadcom###will be the third-largest u.s. semiconductor maker by###revenue'
+aS'family dollar stores--discount retailer dollar tree inc###to sell###330 family dollar stores inc stores'
 p30
-aS'cigna--humana , aetna and cigna###could not be immediately reached for###comment'
-p31
-aS'dollar tree--dollar tree inc###be retailer for###discount'
-p32
-aS'intel--altera###rejected an unsolicited $ 54 per share offer from###intel'
-p33
-aS'nasdaq--the nasdaq composite .ixic###dropped 27.95 points , or 0.55 percent , to###5,070.03'
-p34
-aS'pepsico--pepsi-cola shareholders pepsico inc and lotte chilsung beverage co ltd###have###a broad portfolio of products'
-p35
-aS'morgan stanley--a former morgan stanley chairman###led the firm through###its transition'
-p36
-aS'waters--another threat###lurking in###flood waters'
-p37
-aS'target--it###also revised###the 2014 target'
-p38
-aS'dollar general--retailer dollar general corp###will report###first-quarter results'
-p39
-aS'merck--merck###donated###the study drug'
-p40
-aS'apple--comment and apple###issued###a statement'
-p41
-aS'monsanto--the designation###calls for###a retraction from monsanto , and demands'
-p42
-aS'intel--intel and altera###signed###a standstill agreement'
-p43
-aS'target--inflation expectations###have lingering mistrust in###the central bank which slashed rates to record lows in 2011-12 even as inflation remained above target'
-p44
-aS'nasdaq--857###fell on###the nasdaq'
-p45
-aS'nasdaq--the nasdaq composite###slid 7.33 points , or 0.35 percent , to###2,113.46'
-p46
-aS'anthem--anthem###may also look at###humana'
-p47
-aS'coca-cola--coca-cola co###urged###fifa'
-p48
-aS'bank of america--bank of america###to improve###compliance practices , pay'
-p49
-aS'newmont mining--) and gold miner newmont mining###sold the hope bay project in###nunavut'
-p50
-aS'broadcom--the combined company to be based in singapore and known as broadcom###will be the third-largest u.s. semiconductor maker behind###intel corp'
-p51
-aS'target--the target###was too high for###u.s. refiners'
-p52
-aS'nasdaq--the nasdaq###gained###2.6 percent'
-p53
 aS'dollar tree--discount retailer dollar tree inc###agreed to sell 330 family dollar stores inc stores to###private equity firm sycamore partners'
-p54
-aS'broadcom--avago###to buy###broadcom'
-p55
-aS'nasdaq--the nasdaq composite###slid 12.95 points , or 0.61 percent , to###2,107.84'
-p56
-aS"equinix--the purchase of telecity###would be the largest transaction in###equinix 's history"
-p57
-aS'citigroup--avago###was advised by###deutsche bank , bank of america , barclays , citigroup and credit suisse'
-p58
-aS'tesoro--tesoro###signaled of###a lengthy legal fight'
-p59
-aS'nasdaq--the nasdaq composite###slid 12.75 points , or 0.6 percent to###2,108.04'
-p60
-aS'waters--the islands which china built on previously submerged reefs###could claim###12 miles of territorial waters'
-p61
-aS'equinix--u.s. data center company equinix inc###said on###friday'
-p62
-aS'coca-cola--adidas , visa and coca-cola###urged###fifa'
-p63
-aS'jpmorgan chase--gordon smith###be chief of###jpmorgan chase consumer banking'
-p64
-aS"microsoft--it###counts###dell inc , geico , directv , google inc , microsoft corp , nestle 's nespresso and hearst"
-p65
-aS'general motors--an email sent by fiat chrysler automobiles chief sergio marchionne to general motors ( gm ) about a possible merger was not the only such conversation fca has had with other industry players###said on###friday'
-p66
-aS"u.s. dollar--spot wti###jumped almost 5 percent###its biggest daily gain driven by the eia data and a pause in the u.s. dollar 's rally"
-p67
-aS'target--the environmental protection agency###decided to raise###its previous target'
-p68
-aS'goldman sachs--goldman sachs group inc###be appointed david wells to###a newly created role'
-p69
-aS"tesoro--may 29 u.s. oil refiner tesoro corp###has slammed###the u.s. government 's proposal"
-p70
-aS'apple--apple###is now sole shareholder of###the company'
-p71
-aS'intel--intel###made an unsolicited $ 54 per share offer for altera in###april'
-p72
-aS'merck--merck immunotherapy###appears###effective'
-p73
-aS'pfizer--pfizer###acquired###a 9.5 percent stake'
-p74
-aS'newmont mining--) and gold miner newmont mining###sold the hope bay project in###2013'
-p75
-aS'nasdaq--the nasdaq composite###was down 22.08 points , 0.43 percent , at###5,075.89'
-p76
-aS'humana--humana###hits insurers gain###record'
-p77
-aS'tesoro--tesoro corp###be refiner for###may 29 u.s. oil'
-p78
-aS'morgan stanley--morgan stanley###said in###a note'
-p79
-aS'broadcom--broadcom###was advised by###jpmorgan chase'
-p80
-aS'bank of america--bank of america###to improve###compliance practices'
-p81
-aS'chevron--chevron###called to bring the well fire under###control'
-p82
-aS'aetna--humana , aetna and cigna###could not be immediately reached for###comment'
-p83
-aS'humana--humana###is working on###the potential sale'
-p84
-aS'coca-cola--adidas , visa and coca-cola###urged fifa to take seriously###reports of abuse of migrant workers who are helping to build venues for the 2022 world cup'
-p85
-aS'intel--intel###to bundle###its own server chips'
-p86
-aS'equinix--equinix###is###open'
-p87
-aS'nasdaq--the nasdaq composite###lost###27.95 points , or 0.55 percent'
-p88
-aS'tesoro--tesoro corp###be refiner of###may 29 u.s. oil'
-p89
-aS"tesoro--u.s. oil refiner tesoro corp###has slammed###the u.s. government 's proposal"
-p90
-aS'intel--intel###has also been in###talks'
-p91
-aS'intel--intel###rose###1.5 percent'
-p92
-aS'citigroup--citigroup and jp morgan###are acting as###global coordinators'
-p93
-aS'broadcom--the combined company###to be based as###broadcom'
-p94
-aS'target--the retroactive target###remains###significant'
-p95
-aS'broadcom--broadcom shareholders###will own###about 32 percent of the combined company'
-p96
-aS'humana--humana , aetna and cigna###could not be immediately reached for###comment'
-p97
-aS'bank of america--bank of america corp###to improve###its compliance practices'
-p98
-aS'u.s. dollar--u.s. dollar net longs###rise after###declining 8 straight weeks -cftc'
-p99
-aS'broadcom--broadcom###be approached again with###higher offers'
-p100
-aS'humana--humana###is working with###investment bank goldman sachs group inc'
-p101
-aS'jpmorgan chase--banking chief gordon smith###be consumer for###jpmorgan chase'
-p102
-aS'morgan stanley--morgan stanley###said###a note'
-p103
-aS'equinix--telecitygroup shareholders###would would join###the board of equinix'
-p104
-aS'alcoa--cbg###is###51 percent owned by halco mining consortium controlled by aluminium producer alcoa'
-p105
-aS'goldman sachs--goldman sachs###ramped up its rating to "buy from###sell"'
-p106
-aS'goldman sachs--goldman sachs group inc###appointed###david wells'
-p107
-aS'southern--a small diving resort###meanwhile can be visit in###the southern reaches of the spratlys'
-p108
-aS'equinix--equinix###announced###its interest'
-p109
-aS'nasdaq--the nasdaq composite###lost###11.73 points , or 0.23 percent'
-p110
-aS'intel--intel###gave the biggest boost to###the dow and the s&p'
-p111
-aS'chevron--chevron###called to bring###the well fire'
-p112
-aS'broadcom--avago and broadcom###first spoke about###a potential merger in october 2014'
-p113
-aS'equinix--center company equinix inc###said on###friday'
-p114
-aS'morgan stanley--may 29 parker gilbert###be chairman of###morgan stanley'
-p115
-aS'cigna--aetna inc and cigna corp###are among###the possible bidders'
-p116
-aS'equinix--telecity executive chairman john hughes###would would join###the board of equinix'
-p117
-aS'broadcom--avago technologies ltd###to buy###broadcom corp'
-p118
-aS"u.s. dollar--its biggest daily gain driven by the eia data and a pause in the u.s. dollar 's rally###be jumped almost 5 percent on###friday"
-p119
-aS'humana--health insurer humana inc###is has received###indications of takeover interest'
-p120
-aS'humana--humana###is going to be selling###itself'
-p121
-aS'broadcom--avago technologies ltd###agreed to buy###broadcom corp'
-p122
-aS"intel--it###would also underscore###intel chief executive officer brian krzanich 's determination"
-p123
-aS'morgan stanley--parker gilbert###be chairman of###morgan stanley'
-p124
-aS'broadcom--the combined company to be based in singapore and known as broadcom###will be###the third-largest u.s. semiconductor maker'
-p125
-aS'merck--merck shares###rose###than 1 percent'
-p126
-aS'pfizer--a pfizer spokesman###declined to comment on###the takeover talk which he described as "rumor and speculation "'
-p127
-aS'target--the proposal###also revised###the 2014 target'
-p128
-aS'nasdaq--the nasdaq###lost###0.4 percent'
-p129
-aS'citigroup--brazilian aircraft manufacturer embraer###has mandated###citigroup and morgan stanley'
-p130
-aS'nasdaq--1,039###fell on###the nasdaq'
-p131
-aS'nasdaq--the nasdaq composite###was down 5.80 points , 0.11 percent , at###5,092.17'
-p132
-aS'aetna--aetna inc and cigna corp###are among###the possible bidders'
-p133
-aS'morgan stanley--morgan stanley###said in###our view'
-p134
-aS"target--the central bank###to reduce inflation at###the center of the government 's target range"
-p135
-aS"broadcom--broadcom 's shares###closed down 1.5 percent on###thursday"
-p136
-aS'humana--humana###is working on###a potential sale'
-p137
-aS'dollar tree--dollar tree###said in###april'
-p138
-aS'coca-cola--coca-cola###urges###fifa'
-p139
-aS'intel--intel###to offer $ 54 per share###source'
-p140
-aS'broadcom--avago technologies###agreed to buy###rival chipmaker broadcom corp'
-p141
-aS'time warner--time warner cable###be advised on###its second approach'
-p142
-aS'humana--humana###is working with###goldman sachs'
-p143
-aS'pepsico--pepsi-cola shareholders pepsico inc and lotte chilsung beverage co ltd###have a broad portfolio of products within###these categories'
-p144
-aS'tesoro--tesoro corp###be refiner for###u.s. oil'
-p145
-aS'jpmorgan chase--gordon smith###be chief for###jpmorgan chase consumer banking'
-p146
-aS'target--the 2014 target###remains significant in###2015'
-p147
-aS'bank of america--avago###was advised by###deutsche bank , bank of america , barclays , citigroup and credit suisse'
-p148
-aS'goldman sachs--goldman sachs###argues###shale oil producers'
-p149
-aS'broadcom--henry nicholas###be co-founder of###broadcom'
-p150
-aS'southern--the second protected gray wolf###to be killed in###the southern rockies'
-p151
-aS'nasdaq--the nasdaq###rose###2.60 percent'
-p152
-aS'nasdaq--the nasdaq composite .ixic###lost 27.95 points , or 0.55 percent , to###5,070.03'
-p153
-aS'broadcom--( m&a ) activity###was boosted in###this week)[enabler=when charter communications ( chtr.o ) said it would acquire larger rival time warner cable ( twc.n ) for $ 56 billion and avago technologies ( avgo.o ) agreed to buy rival chipmaker broadcom corp ( brcm.o '
-p154
-aS'dollar tree--discount retailer dollar tree inc###to sell###330 family dollar stores inc stores'
-p155
-aS'bristol-myers squibb--may 29 bristol-myers squibb###has sued###a top cancer immunotherapy executive'
-p156
-aS'coca-cola--adidas , visa and coca-cola###urged fifa in###last week'
-p157
-aS'dollar tree--discount retailer dollar tree inc###agreed to sell 330 family dollar stores inc fdo.n stores to###private equity firm sycamore partners'
-p158
-aS'nasdaq--the nasdaq composite###lost 11.73 points , or 0.23 percent , to###5,086.24'
-p159
-aS'time warner--the time warner deal###also propelled###cable m&a'
-p160
-aS"target--the central bank###has vowed to reduce inflation at###the center of the government 's target range"
-p161
-aS"ca--wellington###puts the lie to###the current accepted wisdom that active management ca n't outperform"
-p162
-aS'jpmorgan chase--banking chief gordon smith###be consumer of###jpmorgan chase'
-p163
-aS'dollar tree--dollar tree inc###be retailer of###discount'
-p164
-aS'intel--intel###really needed###them'
-p165
-aS'medtronic--medical device maker medtronic plc###is###likely'
-p166
-aS'dollar tree--discount retailer dollar tree inc###to sell###330 family dollar stores inc fdo.n stores'
-p167
-aS'coca-cola--coca-cola###said on###friday'
-p168
-aS'nasdaq--cellectis###has listed itself on###the nasdaq'
-p169
+p31
 aS'dollar tree--discount retailer dollar tree inc###to sell 330 family dollar stores inc stores to###private equity firm sycamore partners'
-p170
-aS'intel--intel###was up 1.4 percent to $ 34.49 after###the new york post'
-p171
-aS'intel--the combined company to be based in singapore and known as broadcom###will be the third-largest u.s. semiconductor maker behind###intel corp'
-p172
-aS'apple--apple###buys smaller technology companies do from###time'
-p173
-aS'time warner--( m&a ) activity###was boosted in###this week)[enabler=when charter communications ( chtr.o ) said it would acquire larger rival time warner cable ( twc.n ) for $ 56 billion and avago technologies ( avgo.o ) agreed to buy rival chipmaker broadcom corp ( brcm.o '
-p174
-aS'jpmorgan chase--broadcom###was advised by###jpmorgan chase'
-p175
-aS'target--opec###to maintain###a collective output target of 30 million barrels'
-p176
-aS'target--no savings target###is for###2015-16'
-p177
-aS'intel--intel###signed###a standstill agreement that expires on june 1'
-p178
-aS'broadcom--broadcom###is best known for###its connectivity chips which are used widely in smartphones'
-p179
-aS'apple--apple###generally do not comment on###our purpose or plans'
-p180
-aS'equinix--equinix###is open to###further deals'
-p181
-aS'southern--it###was###the second protected gray wolf to be killed in the southern rockies by a coyote hunter since october , when a utah man shot "echo , " a female'
-p182
-aS'valero energy--valero energy corp###be refiner of###u.s.'
-p183
-aS'halliburton--schlumberger and halliburton###responded to###the plunge'
-p184
-aS'apple--it###wanted###it to be more like apple in the way it innovates , rather than doing a "moonshot " development every 25 years'
-p185
-aS'bristol-myers squibb--shares of bristol-myers squibb###tumbled###6.6 percent'
-p186
-aS'humana--humana###hits record on takeover interest###insurers gain'
-p187
-aS'medtronic--medical device maker medtronic plc###to beat###wall street expectations'
-p188
-aS'waters--the fifa ship###be guiding into###out of troubled waters and into a placid harbor'
-p189
-aS'intel--intel and altera###had restarted###talks'
-p190
-aS'humana--humana###jumped 20.3 percent to###a record high'
-p191
-aS'halliburton--halliburton###responded to###the plunge'
-p192
-aS'goldman sachs--telecity###was advised by###goldman sachs , oakley capital , barclays'
-p193
-aS'goldman sachs--goldman sachs###ramped up###its rating'
-p194
-aS"southern--international tourists###meanwhile can visit a small diving resort on malaysia 's swallow reef in###the southern reaches of the spratlys"
-p195
-aS'nasdaq--the nasdaq composite###lost 29.72 points , or 0.58 percent , to###5,068.26'
-p196
-aS'pfizer--a pfizer spokesman###to comment on###the takeover talk which he described as "rumor and speculation "'
-p197
-aS'goldman sachs--goldman sachs group inc###appointed david wells to###a newly created role'
-p198
+p32
+aS'dollar tree--discount retailer dollar tree inc###to sell###330 family dollar stores inc stores'
+p33
 aS'dollar tree--discount retailer dollar tree inc###agreed to sell###330 family dollar stores inc stores'
-p199
-aS'merck--merck immunotherapy###appears effective in###head and neck cancer-study'
-p200
-aS'bristol-myers squibb--shares of bristol-myers squibb###tumbled 6.6 percent , its biggest daily drop since 2012 following###a company presentation'
-p201
-aS'nasdaq--the nasdaq composite###lost 27.95 points , or 0.55 percent , to###5,070.03'
-p202
-aS'tesoro--tesoro corp###be refiner of###u.s. oil'
-p203
-aS'nasdaq--the nasdaq###fell 0.9 percent###the dow'
-p204
-aS'waters--they###had waited in###thai territorial waters'
-p205
-aS'morgan stanley--brazilian aircraft manufacturer embraer###has mandated###citigroup and morgan stanley'
-p206
-aS'nasdaq--the nasdaq composite###lost 27.28 points , or 0.54 percent , to###5,070.70'
-p207
-aS'american express--american express co###said###president ed gilligan'
-p208
-aS'dollar tree--discount retailer dollar tree inc###agreed to sell###330 family dollar stores inc fdo.n stores'
-p209
-aS'target--inflation###be accelerate toward###its 2 percent target'
-p210
-aS'goldman sachs--humana###is working with###goldman sachs'
-p211
-aS'nasdaq--the nasdaq composite###dropped###27.95 points , or 0.55 percent'
-p212
-aS'equinix--equinix###has###a strong balance sheet'
-p213
-aS"humana--humana 's top shareholders###include###glenview capital management"
-p214
-aS'nasdaq--the nasdaq composite###dropped 27.95 points , or 0.55 percent , to###5,070.03'
-p215
-aS'coca-cola--coca-cola###urges fifa to address###issues'
-p216
-aS'apple--smartphones###be made by###apple inc'
-p217
-aS'humana--humana###hits###record'
-p218
-aS'nasdaq--the nasdaq composite###slid 13.4 points , or 0.63 percent to###2,107.39'
-p219
-aS'target--its joint production target###be unchanged at###30 million barrels'
-p220
-aS"intel--intel###to bundle its own server chips with###altera 's line of programmable chips"
-p221
-aS'chevron--chevron###to bring the well fire under###control'
-p222
-aS'nasdaq--the nasdaq composite###recorded###77 new highs and 36 new lows'
-p223
-aS'ebay--former ebay executives###be includes by###the westly group'
-p224
-aS'target--the 2014 target###remains###significant'
-p225
-aS'intel--altera###rises on###report of intel interest'
-p226
-aS'dollar tree--discount retailer dollar tree inc###to sell 330 family dollar stores inc fdo.n stores to###private equity firm sycamore partners'
-p227
-aS'broadcom--skadden , arps , slate , meagher & flom llp###is the legal adviser to###broadcom'
-p228
-aS'intel--the partnership###was unusual for###intel'
-p229
-aS'broadcom--the new broadcom###would have###annual revenue of $ 15 billion and an enterprise value of $ 77 billion'
-p230
-aS'humana--humana###hits record on###takeover interest'
-p231
-aS'humana--humana###is going to be selling itself to###another mega player and the antitrust division'
-p232
-aS'coca-cola--coca-cola###said in###an email'
-p233
-aS'apple--apple###buys###german augmented-reality software maker'
-p234
+p34
+atRp35
+ag2
+((lp36
+S'nike--nike inc###said in###thursday'
+p37
+aS'nike--nike inc###is engaged in###criminal conduct'
+p38
+aS'nike--nike inc###said on###thursday'
+p39
+atRp40
+ag2
+((lp41
+S'merck--merck immunotherapy###appears effective in###head and neck cancer study'
+p42
+aS'merck--merck immunotherapy###appears###effective'
+p43
+atRp44
+ag2
+((lp45
+S'altera--intel###nears###deal to buy altera for $ 16 bln sources'
+p46
+aS'intel--intel###nears###deal to buy altera for $ 16 bln sources'
+p47
+aS'altera--altera###to be buy for###$ 16 bln sources'
+p48
+atRp49
+ag2
+((lp50
+S'equinix--data center company equinix inc###said on###friday'
+p51
+atRp52
+ag2
+((lp53
+S'apple--apple###buys###german augmented reality software maker metaio'
+p54
+atRp55
+ag2
+((lp56
+S'family dollar stores--discount retailer dollar tree inc###agreed to sell###330 family dollar stores'
+p57
+aS'dollar tree--discount retailer dollar tree inc###agreed to sell###330 family dollar stores'
+p58
+aS'dollar tree--discount retailer dollar tree inc###to sell###330 family dollar stores'
+p59
+aS'family dollar stores--discount retailer dollar tree inc###to sell###330 family dollar stores'
+p60
+aS'dollar tree--discount retailer dollar tree inc###agreed to sell 330 family dollar stores inc###fdo .n stores'
+p61
+aS'family dollar stores--330 family dollar stores###to be sell inc###fdo .n stores'
+p62
+aS'dollar tree--discount retailer dollar tree inc###to sell 330 family dollar stores inc###fdo .n stores'
+p63
+atRp64
+ag2
+((lp65
+S'apple--apple###buys###german augmented reality software maker metaio'
+p66
+atRp67
+ag2
+((lp68
+S'google--it###had hired###a google executive to run a new centre in silicon valley as it seeks to wave a digital wand over its heavy-manufacturing culture'
+p69
+atRp70
+ag2
+((lp71
+S'nike--29 nike inc###may may be###able'
+p72
+aS'nike--29 nike inc###to avoid###u .s'
+p73
+atRp74
+ag2
+((lp75
+S'humana--humana inc###is considering selling###itself'
+p76
+aS'humana--health insurer humana###explores###sale source'
+p77
+atRp78
+ag2
+((lp79
+S'humana--health insurer humana###explores###sale'
+p80
+atRp81
+ag2
+((lp82
+S'coca-cola--coca-cola co###urged###fifa'
+p83
 aS'coca-cola--coca-cola co###urged fifa to take###concrete actions to address the issues'
-p235
-aS'humana--anthem###may also look at###humana'
-p236
-aS'chevron--a chevron spokesman###told###reuters'
-p237
-aS'chevron--chevron###to bring###the well fire'
-p238
-aS'apple--apple###uses in###a range of products'
-p239
-aS'time warner--the time warner deal###also propelled cable m&a on###year'
-p240
-aS'humana--humana###jumped###as much as 18 percent'
-p241
-aS"morgan stanley--integrity###be attached to###morgan stanley 's name"
-p242
-aS'intel--deal###would be largest acquisition of###intel'
-p243
-aS'target--the target###was too###high'
-p244
-aS'western union--joe manimbo###be senior market analyst at###western union business solutions'
-p245
-aS'broadcom--avago technologies###to buy###rival chipmaker broadcom corp'
-p246
-aS'target--inflation###remained above###target'
-p247
-aS'waters--another threat lurking in flood waters###is stinging###fire ants'
-p248
-aS'coach--coach###be wrestling at###the high school'
-p249
-aS'alcoa--51 percent owned by halco mining consortium###be controlled by###aluminium producer alcoa'
-p250
-aS'bank of america--bank of america corp###agreed with###u.s. regulators'
-p251
-aS'nasdaq--the nasdaq###recorded###51 new highs and 23 new lows'
-p252
-aS"chevron--chevron 's supervision of cameron contract employees###was###spotty"
-p253
-aS'gap--republican lawmakers###to plug###the revenue gap'
-p254
-aS'chevron--chevron###called###specialty fire fighting crews'
-p255
-aS'apple--apple inc###has acquired###metaio'
-p256
-aS'goldman sachs--humana###is working with###investment bank goldman sachs group inc'
-p257
-aS'dollar tree--dollar tree###said###april'
-p258
-aS'newmont mining--) and gold miner newmont mining###sold the hope bay project to###tmac'
-p259
-aS'target--the environmental protection agency###to raise###its previous target'
-p260
-aS'goldman sachs--associated british foods###was adding###2.6 percent to reach two-month highs after goldman sachs ramped up its rating to "buy " from " sell"'
-p261
-aS'southern--traffic###is growing fastest in###the states of the southern atlantic seaboard'
-p262
-aS'waters--the fifa ship###be guiding into###out of troubled waters and into a placid harbour'
-p263
-aS'nasdaq--the nasdaq composite###lost###27.28 points , or 0.54 percent'
-p264
-aS'chevron--chevron###called in###specialty fire fighting crews'
-p265
-aS'merck--merck shares###rose more than 1 percent on###the new york stock exchange'
-p266
-atRp267
-.
+p84
+atRp85
+ag2
+((lp86
+S'goldman sachs--goldman sachs group inc###be appointed david wells to###a newly created role'
+p87
+atRp88
+ag2
+((lp89
+S'merck--merck immunotherapy###appears effective in###head and neck cancer study'
+p90
+aS'merck--merck immunotherapy###appears###effective'
+p91
+atRp92
+a.

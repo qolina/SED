@@ -1,449 +1,229 @@
+(lp1
 c__builtin__
 set
-p1
-((lp2
-S'ge--ge###announced###plans to shed most of its finance unit and return as much as $ 90 billion to shareholders as it becomes a simpler industrial business instead of an unwieldy hybrid of banking and manufacturing'
-p3
-atRp4
-.c__builtin__
-set
-p1
-((lp2
-S'coca-cola--adidas and coca-cola co. adidas###has been the provider of the world cup match ball since###1970'
-p3
-aS'pfizer--pfizer###has approached###it'
+p2
+((lp3
+S'pfizer--fda app###proves###pfizer drug to treat very rare lung disease'
 p4
-aS'pfizer--update 1-fda###approves###pfizer drug'
-p5
-aS'lockheed martin--lockheed martin###received a deal to expand###a plant'
-p6
-aS'delta air lines--france delta air lines###said on###thursday'
+atRp5
+ag2
+((lp6
+S"williams--fed 's williams###expects above###trend"
 p7
-aS'nasdaq--the nasdaq composite###dropped 10.67 points , or 0.21 percent , to###5,095.92'
-p8
-aS'apple--apple###separately entered of###related claims'
-p9
-aS'gap--many of them , risk###falling into###the gap'
+atRp8
+ag2
+((lp9
+S'qualcomm--pressure###could be put on###qualcomm'
 p10
-aS'general electric--may 28 general electric co###has picked###deutsche bank'
+aS'broadcom--avago , broadcom deal###could put pressure on###qualcomm'
 p11
-aS'coca-cola--coca-cola co###be sponsor of###fifa'
+aS'qualcomm--avago , broadcom deal###could put pressure on###qualcomm'
 p12
-aS'apple--apple###separately entered###a $ 450 million settlement of related claims'
+aS'broadcom--avago , broadcom deal###could put###pressure'
 p13
-aS'gap--a potential result of the growing gap###is###company demand'
-p14
-aS'nasdaq--declining issues###fell on###the nasdaq'
-p15
-aS'target--inflation###will be below###its 3 percent target'
+atRp14
+ag2
+((lp15
+S'dollar general--dollar general###says###coo vasos to replace dreiling as ceo'
 p16
-aS'nasdaq--cellectis###listed itself on###the nasdaq'
-p17
-aS"morgan stanley--moody 's investors service###upgraded###morgan stanley and its affiliates ' baseline credit assessments"
-p18
-aS'coca-cola--adidas , visa and coca-cola###made statements in###last week'
+atRp17
+ag2
+((lp18
+S'nielsen--nielsen nv###announced in###wendnesday'
 p19
-aS'equinix--equinix###said in###this month'
+aS'nielsen--corrects to say that nielsen###will bring digital ad ratings to chinese###market'
 p20
-aS'target--inflation###easing below###the center of the target'
+aS'nielsen--nielsen nv###be announced in###wendnesday'
 p21
-aS'coca-cola--coca-cola###called to resolve###the controversy'
+aS'nielsen--corrects to say that nielsen###will bring###digital ad ratings'
 p22
-aS'boeing--boeing###had had###delivery positions available'
+aS'nielsen--nielsen nv###announced on###wendnesday'
 p23
-aS'coca-cola--coca-cola###called to increase###transparency'
-p24
-aS'u.s. dollar--we###see increased###potential for financial market instability from the stronger u.s. dollar as well as persistent downside risks'
-p25
-aS'morgan stanley--morgan stanley###said on###wednesday'
+atRp24
+ag2
+((lp25
+S'goldman sachs--goldman sachs###tried to lure libor trader with###$ 3 mln bonus'
 p26
-aS'equinix--equinix###received###a nod'
-p27
-aS"dollar general--he###spearheaded###dollar general 's return"
-p28
-aS'nasdaq--the nasdaq composite###dropped###10.67 points , or 0.21 percent'
-p29
-aS'general motors--general motors###would need to cut###north american production'
-p30
-aS'pfizer--pfizer###has approached it valuing it at###1.5 billion euros'
-p31
-aS'coca-cola--coca-cola###to resolve###the controversy'
-p32
-aS'coca-cola--coca-cola###to increase###transparency'
-p33
-aS'boston scientific--boston scientific###won the first two trials against it in###last year'
-p34
-aS'apple--a federal appeals court###rejected###apple inc'
-p35
-aS"target--inflation###be distant from###the central bank 's 2 percent target"
-p36
-aS'goldman sachs--goldman sachs###tried to hire him with###a $ 3 million signing-on bonus'
-p37
-aS'morgan stanley--morgan stanley###said of###clients'
-p38
-aS'goldman sachs--around 10 percent###be held by###u.s. investment bank goldman sachs'
-p39
-aS'broadcom--avago technologies ltd###to buy###fellow chipmaker broadcom corp'
-p40
-aS'allergan--makers of dermal fillers###include###galderma , unit of nestle sa , and allergan inc'
-p41
-aS'goldman sachs--goldman sachs###to hire him with###a $ 3 million signing-on bonus'
-p42
-aS'boeing--boeing###had lost for###competitive reasons'
-p43
-aS'intel--reuters###reported###intel'
-p44
-aS'goldman sachs--goldman sachs###tried to lure###libor trader'
-p45
-aS'goldman sachs--goldman sachs###is looking to bundle###debt backing'
-p46
-aS'u.s. dollar--the canadian dollar###was to###the u.s. dollar'
-p47
-aS'morgan stanley--morgan stanley ceo james gorman###said in###this month'
-p48
-aS'goldman sachs--goldman sachs###to hire###him'
-p49
-aS'wells fargo--ruggieri , who worked at wells fargo in new york , in 2010 and 2011###traded on###tips'
-p50
-aS'general electric--may 28 general electric co###has picked deutsche bank to sell italian lender ge capital interbanca as###part of a strategic review'
-p51
-aS'waters--the unchartered waters###be buffeted by###the roaring forties winds'
-p52
-aS'u.s. dollar--the u.s. dollar###hit its highest since###2002'
-p53
-aS"dollar general--dollar general 's return###be spearheaded in###2009"
-p54
-aS'wells fargo--wells fargo and bank of america###did not immediately return###a request'
-p55
-aS'pfizer--pfizer###has approached it for###a takeover'
-p56
-aS'goldman sachs--goldman sachs###tried to hire###him'
-p57
-aS'bank of america--the pair###parked $ 128,313.38 in 23 separate deposits at###bank of america , jpmorgan chase , citibank and wells fargo'
-p58
-aS'waters--flood waters###swept away###homes'
-p59
-aS'equinix--equinix###operates more than 100 data centers in 33 markets in###five continents'
-p60
-aS'u.s. dollar--growth###see increased###potential for financial market instability from the stronger u.s. dollar as well as persistent downside risks'
-p61
-aS'u.s. dollar--the u.s. dollar###hit its highest against###the yen'
-p62
-aS'dollar general--dollar general###be joined in###december 2008'
-p63
-aS'gap--a potential result of the growing gap###is company demand for###long-dated treasury'
-p64
-aS'equinix--center company equinix inc###is nearing###a deal to acquire british peer telecity group plc'
-p65
-aS'nasdaq--itself###be listed on###the nasdaq'
-p66
-aS'southern--southern opposition fighters allied with hadi###said on###the ground'
-p67
-aS'waters--the unchartered waters buffeted by the roaring forties winds###stretch as###deep'
-p68
-aS'u.s. dollar--the u.s. dollar###hit###its highest'
-p69
-aS'citigroup--australian infrastructure investor macquarie###has tapped###citigroup'
-p70
-aS'lockheed martin--lockheed martin###would locate###the plant adjacent'
-p71
-aS'apple--josh rosenstock###be spokesman of###apple'
-p72
-aS'southern--secessionist sentiment stoked by what southerners see as decades of marginalization by the north###,is deepening as###result the damage inflicted upon aden and other southern cities in assaults by the northern houthi militia'
-p73
-aS'citigroup--citigroup and jp morgan###are acting as###global coordinators'
-p74
-aS'broadcom--avago technologies ltd###agreed to buy###fellow chipmaker broadcom corp'
-p75
-aS'jpmorgan chase--u.s. regulators###have subpoenaed co###jpmorgan chase'
-p76
-aS'morgan stanley--morgan stanley###said###a note'
-p77
-aS'general motors--general motors###be rival of###u.s.'
-p78
-aS'general electric--general electric co###has picked deutsche bank to sell###italian lender ge capital interbanca'
-p79
-aS'general motors--general motors###be parent for###opel'
-p80
-aS'equinix--equinix###had previously offered###2.3 billion pounds'
-p81
-aS"broadcom--broadcom 's strength###is###a good complement"
-p82
-aS'goldman sachs--goldman sachs###tried to lure libor trader with###$ 3 mln bonus'
-p83
-aS'broadcom--fellow chipmaker broadcom corp###to be buy in###a cash-and-stock deal valued at $ 37 billion'
-p84
-aS'nasdaq--heron shares###had closed on###the nasdaq'
-p85
 aS'goldman sachs--goldman sachs###to lure libor trader with###$ 3 mln bonus'
-p86
-aS'general electric--general electric co###has picked deutsche bank to sell italian lender ge capital interbanca as###part of a strategic review'
-p87
-aS'nasdaq--1,277###fell on###the nasdaq'
-p88
-aS'costco wholesale--warehouse club operator costco wholesale corp###reported###a decline hurt by gasoline price deflation and a stronger dollar'
-p89
-aS'nasdaq--the nasdaq composite###dropped###8.62 points , or 0.17 percent'
-p90
-aS'dollar general--vasos , 53###joined###dollar general'
-p91
-aS'southern--southern activists###worry that###the new prominence of the group'
-p92
-aS'dollar general--dollar general###be joined as###ceo'
-p93
-aS'wal-mart stores--rival wal-mart stores inc###reported###quarterly sales and earnings'
-p94
-aS'intel--intel###was in###talks to buy chipmaker altera corp ( altr.o ) ,'
-p95
-aS'nordstrom--the nordstrom deal###is###a perfect example of the kind of deal'
-p96
-aS'goldman sachs--goldman sachs###to bundle###debt backing'
-p97
-aS'boston scientific--boston scientific###is among###seven manufacturers'
-p98
-aS'u.s. dollar--the u.s. dollar###retreated against###other major currencies'
-p99
-aS'waters--flood waters###swept away homes from###their foundations'
-p100
-aS'goldman sachs--mario alberto huertas###has appointed###goldman sachs'
-p101
-aS'pfizer--cellectis and pfizer###could not be immediately reached for###comment'
-p102
-aS'apple--apple###loses###bid to disqualify antitrust monitor - u.s. court'
-p103
-aS"broadcom--its way###be blocked by###an enlarged competitor combining avago 's strength in storage and broadcom 's power"
-p104
-aS"johnson & johnson--other major defendants###include###johnson & johnson 's ethicon unit , and c.r."
-p105
-aS'sysco--sysco and us foods###thus would be###the sole national food distribution companies and thus would be able'
-p106
-aS"wal-mart stores--amazon 's announcement###comes within###days of rival wal-mart stores inc"
-p107
-aS'citigroup--citigroup inc###said###the bank'
-p108
-aS'nordstrom--it###would acquire###the u.s. consumer credit card portfolio of retailer nordstrom'
-p109
-aS'lockheed martin--lockheed martin###to expand###a plant'
-p110
-aS"target--the recovery###can be sustained long enough to accelerate inflation toward###the boj 's 2 percent target"
-p111
-aS'jpmorgan chase--the pair###parked $ 128,313.38 in 23 separate deposits at###bank of america , jpmorgan chase , citibank and wells fargo'
-p112
-aS'fedex--fedex and its rival package delivery company united parcel service inc###are the most likely buyers in###the industry'
-p113
-aS'equinix--equinix###received a nod from###the u.s. internal revenue service'
-p114
-aS'target--the target###is the cheapest price in###east asia'
-p115
-aS'progressive--u.s. food and drug administration###approved###the first drug to treat a rare , progressive lung disease'
-p116
-aS'nasdaq--the nasdaq composite###dropped 8.62 points , or 0.17 percent , to###5,097.98.'
-p117
-aS"general motors--general motors###would need to###'survive"
-p118
-aS'fedex--nearly 10,000 freight transportation brokers operating across north america###be has by###those two companies along with echo global logistics inc , and fedex and its rival package delivery company united parcel service inc are the most likely buyers'
-p119
-aS'equinix--equinix###operates###than 100 data centers'
-p120
-aS'caterpillar--shares of caterpillar###fell###2.2 percent'
-p121
-aS"broadcom--broadcom 's strength###is a good complement to###avago 's presence"
-p122
-aS'apple--apple###had played###a "central role'
-p123
-aS'morgan stanley--morgan stanley###currently tops###the investment bank league table earning $ 25.9 million ,'
-p124
-aS"apple--federal appeals court###rejected###apple inc 's bid"
-p125
-aS'costco wholesale--the bank###made with###costco wholesale corp'
-p126
-aS"boston scientific--the 51-year-old newark###was implanted with###boston scientific 's pinnacle and advantage fit mesh products"
-p127
-aS'target--the federal reserve###is not committed to###its 2 percent inflation target'
-p128
-aS'apple--u.s. district judge jesse furman###faulted###apple'
-p129
-aS'gap--rbs###recommended favouring italian bonds over###spanish bonds expecting the 3 bps gap between them soon to be wiped out'
-p130
-aS"wal-mart stores--rival wal-mart stores inc###reported quarterly sales and earnings below analysts ' estimates in###last week"
-p131
-aS'u.s. dollar--the u.s. dollar###retreated after###a strong run'
-p132
-aS'general electric--general electric co###has picked###deutsche bank'
-p133
-aS'wells fargo--the pair###parked $ 128,313.38 in 23 separate deposits at###bank of america , jpmorgan chase , citibank and wells fargo'
-p134
-aS'southern--southern opposition fighters###be allied with###hadi'
-p135
-aS"dollar tree--family dollar 's shareholders###voted in###favor of dollar tree 's $ 8.5 billion offer"
-p136
-aS'boston scientific--boston scientific###won###the first two trials'
-p137
-aS'equinix--equinix###nears###deal'
-p138
-aS'apple--apple###could have obviated###this entire appeal'
-p139
-aS'apple--apple###fails to disqualify###antitrust monitor'
-p140
-aS'nasdaq--the nasdaq composite###dropped###9.91 points , or 0.19 percent'
-p141
-aS'gap--favouring italian bonds###be recommended over###spanish bonds expecting the 3 bps gap between them soon to be wiped out'
-p142
-aS'nordstrom--the nordstrom deal###is a perfect example of###the kind of deal that we would like to do'
-p143
-aS'nasdaq--the nasdaq###closed at###a record high'
-p144
-aS'equinix--equinix###received a nod on###may 20'
-p145
-aS'sysco--sysco and us foods###together had###75 percent of that market'
-p146
-aS'morgan stanley--morgan stanley###said to###clients'
-p147
-aS'lockheed martin--lockheed martin###received a deal###an unusual method funding a private project with taxpayer debt'
-p148
-aS'equinix--equinix###operates in###33 markets'
-p149
-aS'sysco--sysco###would have###little opportunity to raise prices'
-p150
-aS"jpmorgan chase--jpmorgan chase###be branch on###new york 's broadway"
-p151
-aS'southern--fuad rashed###be a leader of###the southern secession movement'
-p152
-aS'dollar general--dollar general###be joined in###january 2008'
-p153
-aS'general motors--general motors###be parent of###opel'
-p154
-aS'nasdaq--the nasdaq composite###dropped 9.91 points , or 0.19 percent , to###5,096.68'
-p155
-aS'morgan stanley--morgan stanley ceo james gorman###said to###reuters'
-p156
-aS'coca-cola--adidas and coca-cola co. adidas###has been the provider of###the world cup match ball'
-p157
-aS'gap--levy###claimed in###his battle to plug that widening fiscal gap after congress approved austerity measures'
-p158
-aS'equinix--equinix###be founded in###1998'
-p159
-aS"target--the quarterly dividend increase of 3 canadian cents###pushed the bank 's shareholder payout ratio to###the higher end of its target of 40-50 percent of earnings"
-p160
-aS'nasdaq--shares of costco###closed on###the nasdaq'
-p161
-aS'delta air lines--reuters delta air lines is interested in forging alliances with carriers in asia###said on###thursday'
-p162
-aS'apple--apple###fails to disqualify antitrust monitor in###e-books case'
-p163
-aS'apple--apple###to disqualify antitrust monitor in###e-books case'
-p164
-aS'nasdaq--the nasdaq composite .ixic###dropped 8.62 points , or 0.17 percent , to###5,097.98.'
-p165
-aS'goldman sachs--cruddas###currently owns around 90 percent of cmc with###around 10 percent held by u.s. investment bank goldman sachs'
-p166
-aS'pfizer--fda app###proves###pfizer drug'
-p167
-aS'citigroup--citigroup###gave###much'
-p168
-aS'delta air lines--delta air lines###is interested in###reuters'
-p169
-aS'general motors--general motors###would need to cut north american production by###68 percent'
-p170
-aS"sysco--the federal trade commission###sued to temporarily stop###sysco 's $ 3.5 billion bid"
-p171
-aS'progressive--may 28###approved###the first drug to treat a rare , progressive lung disease'
-p172
-aS'target--the company \'s target delivering the first plane to qatar airways by the end of the year###remained###a "reasonable " one'
-p173
-aS'bank of america--warner###to arrange###the payment which was eventually sent from a fifa account in switzerland to a bank of america account in new york'
-p174
-aS'general motors--general motors###to cut###north american production'
-p175
-aS'pfizer--the drug known chemically as sirolimus###is made by###pfizer inc'
-p176
-aS'u.s. dollar--the canadian dollar###ended to###the u.s. dollar'
-p177
-aS"apple--they###opposed###apple 's request"
-p178
-aS'coca-cola--adidas , visa and coca-cola###made statements responding to###reports of abuses'
-p179
-aS'ball--adidas and coca-cola co. adidas###has been the provider of###the world cup match ball'
-p180
-aS'southern--the damage###inflicted upon###aden and other southern cities'
-p181
-aS'boston scientific--the size of the verdict###would persuade###boston scientific and other mesh makers'
-p182
-aS'coca-cola--coca-cola###called on###wednesday'
-p183
-aS'boston scientific--boston scientific###to pay $ 100 million to###a woman who said she was injured by transvaginal mesh'
-p184
-aS'dollar general--dollar general stores inc###be retailer of###discount'
-p185
-aS'general electric--may 28 general electric co###has picked deutsche bank to sell###italian lender ge capital interbanca'
-p186
-aS'general electric--general electric co###said in###april'
-p187
-aS'southern--nusra front###is also fighting in###southern syria and its combatants'
-p188
-aS'morgan stanley--morgan stanley###said in###a note'
-p189
-aS'sysco--sysco and us foods###have defended###the merger'
-p190
-aS'coca-cola--adidas , visa and coca-cola###made statements responding at###the 2022 world cup construction sites'
-p191
-aS'caterpillar--shares of caterpillar###helped to drag down###the s&p 500 and dow'
-p192
-aS'general electric--general electric###hires###deutsche bank'
-p193
-aS'gap--update 1-canada current account gap###widens in###q1'
-p194
-aS'waters--the unchartered waters buffeted by the roaring forties winds###stretch as deep as###6 km'
-p195
-aS"target--the bank 's shareholder payout ratio###be pushed to###the higher end of its target of 40-50 percent of earnings"
-p196
-aS'lockheed martin--lockheed martin###received a deal in###this week'
-p197
-aS'general motors--the new york times###to have sent to###opel parent general motors'
-p198
+p27
+aS'goldman sachs--goldman sachs###to hire###him'
+p28
+aS'goldman sachs--goldman sachs###tried to hire him with###a $ 3 million signing-on bonus'
+p29
+aS'goldman sachs--goldman sachs###to hire him with###a $ 3 million signing-on bonus'
+p30
 aS'goldman sachs--goldman sachs###to lure###libor trader'
-p199
-aS'dollar general--dollar general###be joined as###executive vice president and chief merchandising officer'
-p200
-aS'dollar general--the combined entity###will overtake###dollar general'
-p201
-aS'broadcom--a avago/broadcom tie-up###now will take###the name of broadcom'
-p202
-aS'pfizer--pfizer inc###reported citing###people familiar'
-p203
-aS'citigroup--citigroup###are arranging###the offering which is expected to raise at least $ 500 million'
-p204
-aS'amazon.com--amazon.com inc###said on###thursday'
-p205
-aS'progressive--the u.s. food and drug administration###approved###the first drug to treat a rare , progressive lung disease'
-p206
-aS'wal-mart stores--rival wal-mart stores inc###reported earnings in###last week'
-p207
-aS'coca-cola--adidas , visa and coca-cola###made###statements'
-p208
-aS'bank of america--wells fargo and bank of america###did not immediately return###a request'
-p209
-aS'coca-cola--coca-cola###called on###fifa'
-p210
-aS'citigroup--citigroup ceo###defends###credit card deal'
-p211
-aS"goldman sachs--goldman sachs###is looking to bundle debt backing three of colombia 's 4g highway projects and sell it as###an up to us$ 500m 144a bond"
-p212
-aS'target--the target###is###the cheapest price that is not out of line with prices in europe and the united states'
-p213
-aS'nasdaq--the nasdaq composite###recorded###85 new highs and 45 new lows'
-p214
-aS'dollar general--dollar general###will be overtake as###the largest discount retailer'
-p215
-aS'dollar general--dollar general###later made###a bid'
-p216
-aS'time warner--time warner inc.###announced###a proposed debt offering of senior notes due'
-p217
-aS"target--inflation###to be accelerate toward###the boj 's 2 percent target"
-p218
-aS'apple--bromwich###has faulted###apple'
-p219
-aS'bank of america--warner###directed a number of co-conspirators to arrange###the payment which was eventually sent from a fifa account in switzerland to a bank of america account in new york'
-p220
-atRp221
-.
+p31
+aS'goldman sachs--goldman sachs###tried to hire###him'
+p32
+aS'goldman sachs--goldman sachs###tried to lure###libor trader'
+p33
+atRp34
+ag2
+((lp35
+S'apple--apple###loses court###bid to disqualify antitrust monitor u .s'
+p36
+aS'apple--apple###loses bid to disqualify antitrust monitor u .s###court'
+p37
+atRp38
+ag2
+((lp39
+S'costco wholesale--citigroup inc###said###the deal the bank made with costco wholesale corp ( cost .o ) to replace american express co ( axp.n ) as the issuer of credit cards for the retailer will be profitable for his shareholders'
+p40
+aS'citigroup--citigroup inc###said###the deal the bank made with costco wholesale corp ( cost .o ) to replace american express co ( axp.n ) as the issuer of credit cards for the retailer will be profitable for his shareholders'
+p41
+aS'american express--citigroup inc###said###the deal the bank made with costco wholesale corp ( cost .o ) to replace american express co ( axp.n ) as the issuer of credit cards for the retailer will be profitable for his shareholders'
+p42
+aS'costco wholesale--n###said###the deal the bank made with costco wholesale corp ( cost .o ) to replace american express co ( axp.n ) as the issuer of credit cards for the retailer will be profitable for his shareholders'
+p43
+aS'american express--n###said###the deal the bank made with costco wholesale corp ( cost .o ) to replace american express co ( axp.n ) as the issuer of credit cards for the retailer will be profitable for his shareholders'
+p44
+aS'costco wholesale--ceo mike corbat###said###the deal the bank made with costco wholesale corp ( cost .o ) to replace american express co ( axp.n ) as the issuer of credit cards for the retailer will be profitable for his shareholders'
+p45
+aS'costco wholesale--the bank###made with###costco wholesale'
+p46
+aS'american express--ceo mike corbat###said###the deal the bank made with costco wholesale corp ( cost .o ) to replace american express co ( axp.n ) as the issuer of credit cards for the retailer will be profitable for his shareholders'
+p47
+atRp48
+ag2
+((lp49
+S'bank of america--bank of america merrill lynch analysts###said on###thursday'
+p50
+atRp51
+ag2
+((lp52
+S'progressive--women of childbearing age###be mainly affects by###a rare , progressive lung disease'
+p53
+aS'pfizer--fda###approves###pfizer drug to treat very rare lung disease'
+p54
+atRp55
+ag2
+((lp56
+S'visa--visa###moved###card processing'
+p57
+aS'visa--visa###moved card processing to###local system'
+p58
+aS'visa--visa###moved card processing in###russia'
+p59
+atRp60
+ag2
+((lp61
+S'equinix--equinix###nears###deal'
+p62
+aS'equinix--data center company equinix inc###is nearing###a deal to acquire british peer telecity group plc'
+p63
+atRp64
+ag2
+((lp65
+S'wells fargo--ex wells fargo analyst###settles u###.s'
+p66
+atRp67
+ag2
+((lp68
+S'google--hbo###now app will be on###google play'
+p69
+atRp70
+ag2
+((lp71
+S'wells fargo--ex wells fargo analyst###settles u###.s'
+p72
+atRp73
+ag2
+((lp74
+S'bank of america--bank of america merrill lynch analysts###said on###thursday'
+p75
+atRp76
+ag2
+((lp77
+S'lockheed martin--lockheed martin###to expand###a plant'
+p78
+aS'lockheed martin--lockheed martin###received a deal to expand###a plant'
+p79
+aS'lockheed martin--lockheed martin###received a deal###an unusual method funding a private project with taxpayer debt'
+p80
+aS'lockheed martin--lockheed martin###received a deal in###this week'
+p81
+aS'lockheed martin--arkansas###plans to sell###muni bonds to build lockheed martin plant'
+p82
+atRp83
+ag2
+((lp84
+S'amazon--amazon###offers###limited free shipping'
+p85
+atRp86
+ag2
+((lp87
+S"gap--spain 's wealth gap###widens###economy powers"
+p88
+atRp89
+ag2
+((lp90
+S'general electric--28 general electric co###may has picked conglomerate###deutsche bank to sell italian lender ge capital interbanca as part of a strategic review'
+p91
+atRp92
+ag2
+((lp93
+S'visa--visa###threatens as###sponsor dismay mounts'
+p94
+aS'visa--visa inc###has told###fifa'
+p95
+aS'visa--visa###threatens to###ditch fifa'
+p96
+atRp97
+ag2
+((lp98
+S'general electric--sanpaolo , vodafone group and general electric ) may 28 ( reuters ) - the following bids , mergers , acquisitions and disposals###were reported by###2000 gmt'
+p99
+atRp100
+ag2
+((lp101
+S'gamestop--gamestop corp###reported###a 3.2 percent rise helped by the releases of games such as "evolve " and "mortal kombat x"'
+p102
+aS'gamestop--gamestop revenue###rises###3.2 pct'
+p103
+atRp104
+ag2
+((lp105
+S'delta air lines--france delta air lines###said on###thursday'
+p106
+atRp107
+ag2
+((lp108
+S'google--google###shows off###virtual reality collaboration'
+p109
+atRp110
+ag2
+((lp111
+S'google--action camera maker###introduced a virtual reality system using###16 cameras and google software'
+p112
+atRp113
+ag2
+((lp114
+S'apple--apple###to disqualify antitrust monitor in###e books case'
+p115
+aS'apple--apple###fails to disqualify antitrust monitor in###e books case'
+p116
+aS'apple--apple###fails to disqualify###antitrust monitor'
+p117
+atRp118
+ag2
+((lp119
+S'gap--canada current account gap###widens in###q1'
+p120
+atRp121
+ag2
+((lp122
+S'costco wholesale--warehouse club operator costco wholesale corp###reported###a decline hurt by gasoline price deflation and a stronger dollar'
+p123
+atRp124
+ag2
+((lp125
+S'bank of america--bank of america merrill lynch analysts###said on###thursday'
+p126
+atRp127
+ag2
+((lp128
+S'bank of america--bank of america merrill lynch analysts###said on###thursday'
+p129
+atRp130
+a.

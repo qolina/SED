@@ -24,7 +24,7 @@ def findComp_name(headline, snp_comp):
     if len(matchedComp) == 0:
         return None
     matchScore = [round(len(gram.split())*1.0/len(compName.split()), 2) for gram, compName in matchedComp]
-    fullMatch = [matchedComp[idx] for idx in range(len(matchedComp)) if matchScore[idx] >= 0.66]
+    fullMatch = [matchedComp[idx] for idx in range(len(matchedComp)) if matchScore[idx] >= 0.8]
     if len(fullMatch) < 1: return None
     #print fullMatch
     if len(fullMatch) > 1:
@@ -105,6 +105,8 @@ def clusterScoring(tLabels, docDist, cTexts, cComps):
         distsOut = docDist[dataOut,label]
         compsNum = sum([item[1] for item in compsIn])
         cashNum = sum([item[1] for item in cashIn])
+        if cashNum in [0, 1]: cashNum += 0.1
+        if compsNum in [0, 1]: compsNum += 0.1
 
         dotNum = math.log(tNumIn)
         inDist = 1.0/(1.0 + math.exp(np.mean(distsIn)))
@@ -116,6 +118,7 @@ def clusterScoring(tLabels, docDist, cTexts, cComps):
         score = [dotNum, inDist, outDist, compScore, cashScore]
         score = np.prod(score)
         clusterScore.append(score)
+        #clusterScore.append(dotNum)
     return clusterScore
 
 def clusterSummary(sumFlag, clusterScore, tLabels, docDist, cDocs_zip, feaVecs, topK_c, topK_t):
@@ -144,10 +147,11 @@ def clusterSummary(sumFlag, clusterScore, tLabels, docDist, cDocs_zip, feaVecs, 
     return tweetClusters
 
 
-def clustering(documents, feaVecs, topK_c, topK_t, burstySeqIdArr, snp_comp, symCompHash):
+def clustering(documents, feaVecs, num_Clusters, topK_c, topK_t, burstySeqIdArr, snp_comp, symCompHash):
     # kmeans
-    kmeans = cluster.KMeans(n_clusters=50).fit(feaVecs)
+    kmeans = cluster.KMeans(n_clusters=num_Clusters).fit(feaVecs)
     tLabels = kmeans.labels_
+    #print tLabels
     cLabels = sorted(Counter(tLabels).keys())
     docDist = kmeans.transform(feaVecs)
     cTexts = []

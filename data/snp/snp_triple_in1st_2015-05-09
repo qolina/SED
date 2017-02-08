@@ -1,113 +1,55 @@
+(lp1
 c__builtin__
 set
-p1
-((lp2
-S'kim--kim###gave field guidance at###a fishery complex'
-p3
-aS'kim--kim###gave###field guidance'
+p2
+((lp3
+S'starbucks--starbucks###said of###it'
 p4
 atRp5
-.c__builtin__
-set
-p1
-((lp2
-S'target--consumer inflation###is still far###short of beijings 3 percent target'
-p3
-aS'monsanto--glyphosate###is###a key ingredient produced by monsanto co. monsanto'
-p4
-aS'goldman sachs--goldman sachs###to settle###forex suit'
-p5
-aS'starbucks--starbucks corp###said of###it'
-p6
-aS'tesoro--tina barbee###be spokeswoman of###tesoro'
+ag2
+((lp6
+S'goldman sachs--goldman sachs###to settle###forex suit'
 p7
-aS'starbucks--the ethos water fund###is part of###the starbucks foundation'
-p8
-aS'goldman sachs--goldman sachs###was not available for###comment'
-p9
-aS"tesoro--tesoro 's profit###jumped###amounting"
-p10
-aS"marathon petroleum--negotiations###also are continuing between###striking workers and marathon petroleum corp 's galveston bay refinery"
-p11
-aS'jpmorgan chase--jpmorgan chase###settled in###january'
-p12
-aS'southern--the terminal###would be built in###the small southern town of lindi'
-p13
-aS'apple--he###had visited with###tesla motors inc , apple inc and google inc'
-p14
 aS'goldman sachs--goldman sachs###expected to settle###forex suit'
-p15
-aS'target--a full deployment of the submarine-based missile system###would still require###a functional guided propulsion mechanism that can carry the missile vehicle from the water surface to a target'
-p16
-aS"tesoro--a 52-day labor strike that led to a shutdown at tesoro corp 's refinery in martinez , california###helped###the companys chief executive"
+p8
+atRp9
+ag2
+((lp10
+S'goldman sachs--goldman sachs###expected to settle forex suit for###almost $ 130 mln wsj'
+p11
+aS'goldman sachs--goldman sachs###to settle###forex suit'
+p12
+aS'goldman sachs--goldman sachs###expected to settle###forex suit'
+p13
+aS'goldman sachs--goldman sachs###to settle forex suit for###almost $ 130 mln wsj'
+p14
+atRp15
+ag2
+((lp16
+S'apple--he###had visited with###tesla motors inc , apple inc and google inc'
 p17
-aS'coca-cola--coca-cola###is involved in###several water stewardship projects'
+aS'apple--fiat chrysler ceo###says met###apple ceos'
 p18
-aS'staples--staples###discussed###a 2014 cash build-up'
+aS'google--he###had visited with###tesla motors inc , apple inc and google inc'
 p19
-aS'apple--he###had met with###apple chief executive tim cook and tesla ceo'
-p20
-aS"southern--may 9 peru 's government###authorized###the military to take control of a southern region"
-p21
-aS'coca-cola--coca-cola###is not moving###bottled water operations'
+atRp20
+ag2
+((lp21
+S'tesoro--a 52-day labor strike###led at###tesoro'
 p22
-aS"apple--he###'s interested in###apple 's intervention"
+aS"tesoro--a 52-day labor strike that led to a shutdown at tesoro###be corp 's refinery in###martinez"
 p23
-aS'southern--southern copper###be controlled by###grupo mexico'
-p24
-aS"exxon mobil--exxon mobil 's refinery###was rocked by###an explosion and fire"
-p25
-aS"coca-cola--coca-cola 's california facilities###no longer use###water"
+atRp24
+ag2
+((lp25
+S'tesoro--a 52-day labor strike###led at###tesoro'
 p26
-aS'apple--marchionne###was specific about###apple'
+aS"tesoro--a 52-day labor strike that led to a shutdown at tesoro###be corp 's refinery in###martinez"
 p27
-aS"target--consumer inflation###is still far short of###beijing 's 3 percent target"
-p28
-aS'starbucks--starbucks###bought privately held ethos brands llc in###april 2005'
-p29
-aS'southern--tia maria###be project of###southern copper corp'
+atRp28
+ag2
+((lp29
+S'apple--fiat chrysler ceo###says met###apple ceos'
 p30
-aS'target--the missile vehicle###can be carry to###a target'
-p31
-aS'apple--apple###has been developing###its own electric self-driving car'
-p32
-aS'leucadia national--a $ 300 million loan###be extended by###leucadia national corp'
-p33
-aS'tesoro--tina barbee###be spokeswoman for###tesoro'
-p34
-aS'morgan stanley--italian holding company exor spa###hired###goldman sachs group inc and morgan stanley'
-p35
-aS"southern--police and locals###protesting against###southern copper corp 's $ 1.4 billion tia maria project"
-p36
-aS"target--consumer inflation###is still far###short of beijing 's 3 percent target"
-p37
-aS'jpmorgan chase--jpmorgan chase###settled in###march'
-p38
-aS"southern--120,000 tonnes of copper###to add to be###nasdaq-listed southern copper 's annual output"
-p39
-aS"target--trade data released on friday###is still far short of###beijing 's 3 percent target"
-p40
-aS"target--trade data released on friday###is still far###short of beijing 's 3 percent target"
-p41
-aS"coca-cola--coca-cola 's california facilities###no longer use water for###things"
-p42
-aS'target--trade data released on friday###is still far###short of beijings 3 percent target'
-p43
-aS"tesoro--tesoro 's profit###jumped amounting to california profits of $ 119 million for tesoro by###20 cents"
-p44
-aS'goldman sachs--italian holding company exor spa###hired###goldman sachs group inc and morgan stanley'
-p45
-aS'target--consumer inflation###is still far short of###beijings 3 percent target'
-p46
-aS"tesoro--a 52-day labor strike###led at###tesoro corp 's refinery"
-p47
-aS'goldman sachs--goldman sachs###was###not available'
-p48
-aS'starbucks--starbucks###bought privately held###ethos brands llc'
-p49
-aS'jpmorgan chase--jpmorgan chase###settled###january'
-p50
-aS'target--trade data released on friday###is still far short of###beijings 3 percent target'
-p51
-atRp52
-.
+atRp31
+a.
