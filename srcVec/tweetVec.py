@@ -202,6 +202,9 @@ def loadTweetsFromDir(dataDirPath):
         tids = rawTweetHash.keys()#[:1000]
         texts = rawTweetHash.values()#[:1000]
 
+        word2vecModelPath = "../ni_data/tweetVec/w2v1010100-en"
+        #dataset = getVec('3', None, None, len(tweetTexts_all), word2vecModelPath, texts)
+
         for seqid, tid in enumerate(tids, start=len(tweetTexts_all)):
             seqTidHash[seqid] = tid
             seqDayHash[seqid] = dayStr
@@ -307,6 +310,7 @@ if __name__ == "__main__":
         dataset = getVec(Para_test, doc2vecModelPath, l_doc2vecModelPath, len(tweetTexts_all), word2vecModelPath, None)
     elif Para_test == '3':
         dataset = getVec(Para_test, doc2vecModelPath, l_doc2vecModelPath, len(tweetTexts_all), word2vecModelPath, tweetTexts_all)
+
 
     ##############
     # used for lsi, tfidf

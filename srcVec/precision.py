@@ -11,7 +11,7 @@ def getAnnoLbl(filename):
     content = annotatedFile.readlines()
     print "######## pre recall by news"
     print "".join(content[-3:-1])
-    recall_news = float(content[-2][-6:].strip()) 
+    recall_news = float(content[-2].split()[-1].strip()) 
 
     clusterLabels = [(content[lineIdx+1], match2Lbl(line)) for lineIdx, line in enumerate(content) if line[:4] in ["1-**", "-** "]]
     return clusterLabels, recall_news
@@ -35,10 +35,11 @@ if __name__ == "__main__":
     clusterLabels, recall_news = getAnnoLbl(filename)
     annotatedLabels = [label for firstTweet, label in clusterLabels]
 
-    #days = 5 # in test
+    days = 5 # in test
     #preK = [5, 10]
 
-    days = 3 # in dev
+    #days = 3 # in dev
     preK = range(5, topK_c+1, 5)
+    days = len(annotatedLabels)/topK_c
 
     caltopP(annotatedLabels, preK, days, topK_c, recall_news)

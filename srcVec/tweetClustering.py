@@ -91,6 +91,7 @@ def cashInCluster(textsIn):
     cashIn = [(word, num) for text, num in textsIn for word in text.split() if word[0] == '$']
     return cashIn
 
+# clusterScore: [score_c1, score_c2, ...]
 def clusterScoring(tLabels, docDist, cTexts, cComps):
     clusterScore = []
 

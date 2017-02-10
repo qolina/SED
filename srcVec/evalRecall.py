@@ -230,7 +230,7 @@ def tClusterMatchTripNews(textNewsDay, textsIn, compsIn):
     matchedNews_c = []
     for docIdx, textsItem in enumerate(textsIn):
         text, dnum = textsItem
-        if dnum < 2: continue
+        #if dnum < 2: continue
         compsInText = [comp for comp, cnum in compsIn if text.lower().find(comp) >= 0 and cnum>=dnum]
         if len(compsInText) < 1: continue
 
