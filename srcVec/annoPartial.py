@@ -23,6 +23,7 @@ if __name__ == "__main__":
             tweetNum = int(line[st:line.find("[", st)].strip())
             firstTweet = tbContent[lineIdx+1]
             #tIdx = firstTweet[:firstTweet.find(" ")]
+            #print firstTweet
             tNum = int(firstTweet.split(" ")[1])
             if tNum < tweetNum/3: lbl = None
             else:

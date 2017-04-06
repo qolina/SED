@@ -10,6 +10,7 @@ import sys
 import time
 import timeit
 import math
+import random
 import cPickle
 from collections import Counter
 
@@ -18,57 +19,32 @@ from gensim import models, similarities
 from sklearn.metrics import pairwise
 from sklearn.neighbors import NearestNeighbors, LSHForest, KDTree
 from scipy.spatial.distance import cosine, sqeuclidean
+from sklearn.metrics.pairwise import euclidean_distances
+from scipy.sparse import csr_matrix
 import falconn
 
 sys.path.append(os.path.expanduser("~") + "/Scripts/")
 from hashOperation import statisticHash
 
+from statistic import distDistribution
 def getSim(dataset, thred_radius_dist):
-    #dataset = dataset[:10000,]
-
-    #######################
-    # nearest neighbor method 1
-    ## too slow for scipy calculate nearest neighbors
-    #simMatrix = pairwise.cosine_similarity(dataset)
-    #distMatrix = pairwise.cosine_distances(dataset)
-    #nns_fromSim = [sorted(enumerate(distMatrix[i]), key = lambda a:a[1])[:20] for i in range(distMatrix.shape[0])]
-    #print "## Similarity Matrix obtained at", time.asctime()
-
-    #######################
-    # nearest neighbor method 2
-    #thred_n_neighbors = 10
-    # choosing best
-    #nnModels = [NearestNeighbors(radius=thred_radius_dist),
-    #            NearestNeighbors(n_neighbors=thred_n_neighbors, algorithm='auto'), 
-    #            NearestNeighbors(n_neighbors=thred_n_neighbors, algorithm='ball_tree'),
-    #            NearestNeighbors(n_neighbors=thred_n_neighbors, algorithm='kd_tree'),
-    #            LSHForest(random_state=30, n_neighbors=thred_n_neighbors)
-    #            ]
-    #for modelIdx in range(len(nnModels)):
-    #    if modelIdx in [0, 2, 3, 4]: # choose auto
-    #        continue
-    #    nnModel = nnModels[modelIdx]
-    #    nnModel.fit(dataset)
-    #    if modelIdx == 0:
-    #        ngDistArray, ngIdxArray = nnModel.radius_neighbors()
-    #    elif modelIdx == 4:
-    #        ngDistArray, ngIdxArray = nnModel.kneighbors(dataset)
-    #    else:
-    #        ngDistArray, ngIdxArray = nnModel.kneighbors()
-    #    print ngDistArray.shape, ngIdxArray.shape
-    #    print "## Nearest neighbor with model ", modelIdx, " obtained at", time.asctime()
-    #    eval_sklearn_nnmodel(nns_fromSim, ngIdxArray)
+    dataset = dataset[:200000,]
 
     # using
-    nnModel = NearestNeighbors(radius=thred_radius_dist)
-    #nnModel = LSHForest(radius=thred_radius_dist)
-    nnModel.fit(dataset)
-    ngDistArray, ngIdxArray = nnModel.radius_neighbors(dataset)
-    #nnModel = KDTree(dataset, leaf_size=1.5*dataset.shape[0], metric="euclidean")
-    #ngIdxArray = nnModel.query_radius(dataset, thred_radius_dist)
-    print ngDistArray.shape, ngIdxArray.shape
+    if 0:
+        nnModel = NearestNeighbors(radius=thred_radius_dist, algorithm='brute', metric='minkowski', p=2, n_jobs=1)
+        #nnModel = LSHForest(radius=thred_radius_dist)
+        nnModel.fit(dataset)
+        #ngDistArray, ngIdxArray = nnModel.radius_neighbors(dataset)
+        ngIdxArray = nnModel.radius_neighbors(dataset, return_distance=False)
+    else:
+        nnModel = KDTree(dataset, leaf_size=1.5*dataset.shape[0], metric="euclidean")
+        ngIdxArray = nnModel.query_radius(dataset, thred_radius_dist)
+
+    #ngIdxArray = np.asarray(ngIdxArray)
+    print ngIdxArray.shape
     print "## Nearest neighbor with radius ", thred_radius_dist, " obtained at", time.asctime()
-    return ngDistArray, ngIdxArray
+    return ngIdxArray
 
 def trainLSH(para, dataset, thred_radius_dist):
     nnModel = getLshIndex(para, dataset)
@@ -135,7 +111,7 @@ def prepData_forLsh(dataset):
 def getPara_forLsh(datasetShape):
     num_points, dim = datasetShape
     para = falconn.get_default_parameters(num_points, dim)
-    para.distance_function = "euclidean_squared"
+    para.distance_function = "euclidean_squared" # vanilla eu
     return para
 
 def getLshIndex(para, dataset):
@@ -175,47 +151,6 @@ def getLshNN_op1(dataset, nnModel, thred_radius_dist, trained_num_probes, thred_
     ngIdxList = np.asarray(ngIdxList)
     return ngIdxList, indexedInCluster, clusters
 
-def getLshNN_original(datasetP, nnModel, thred_radius_dist, trained_num_probes):
-    ngIdxList= []
-    statisticsDist = []
-    for dataidx in range(datasetP.shape[0]):
-        #nnModel.set_num_probes(trained_num_probes)
-        # nn_keys: (id1, id2, ...)
-        nn_keys = nnModel.find_near_neighbors(datasetP[dataidx,:], thred_radius_dist)
-        #nn_keys = np.asarray([idx for idx in nn_keys if idx>dataidx-130000 and idx<dataidx+130000])
-
-        ##################################
-        # statistic distance distribution
-        #nFloat = 1
-        ##nn_dists = [round(sqeuclidean(datasetP[dataidx,:], datasetP[key,:]),nFloat) for key in range(dataidx+1, datasetP.shape[0])]
-        #nn_dists = [round(1.0-cosine(datasetP[dataidx,:], datasetP[key,:]),nFloat) for key in range(dataidx+1, datasetP.shape[0])]
-        #statisticsDist.extend(nn_dists)
-        ##################################
-
-        #print len(nn_keys)
-        ngIdxList.append(np.asarray(nn_keys, dtype=np.int32))
-        if (dataidx+1) % 10000 == 0:
-            print "## completed", dataidx+1, time.asctime()
-            ##################################
-            # statistic distance distribution
-            #sortedDist = Counter(statisticsDist).most_common()
-            #num = sum([item[1] for item in sortedDist])
-            #sortedDist = [(item[0],item[1], round(float(item[1])/num, 3)) for item in sortedDist]
-            #print sortedDist
-            ##################################
-
-    ##################################
-    # statistic distance distribution
-    #sortedDist = Counter(statisticsDist)
-    #num = sum([item[1] for item in sortedDist.items()])
-    #print [(key, round(float(sortedDist[key])/num, 3)) for key in sorted(sortedDist.keys())]
-    #sortedDist = [(item[0],round(float(item[1])/num, 3)) for item in sortedDist.most_common()]
-    #print sortedDist
-    ##################################
-
-    ngIdxList = np.asarray(ngIdxList)
-    return ngIdxList
-
 def getLshNN_op2(dataset, nnModel, thred_radius_dist, trained_num_probes):
     ngIdxList= []
     for dataidx in range(dataset.shape[0]):
@@ -240,6 +175,21 @@ def getLshNN_op2(dataset, nnModel, thred_radius_dist, trained_num_probes):
     ngIdxList = np.asarray(ngIdxList)
     return ngIdxList
 
+def getLshNN_original(datasetP, nnModel, thred_radius_dist, trained_num_probes):
+    ngIdxList= []
+    for dataidx in range(datasetP.shape[0]):
+        # nn_keys: (id1, id2, ...)
+        nn_keys = nnModel.find_near_neighbors(datasetP[dataidx,:], thred_radius_dist)
+
+        ngIdxList.append(np.asarray(nn_keys, dtype=np.int32))
+
+        if (dataidx+1) % 10000 == 0:
+            print "## completed", dataidx+1, time.asctime()
+
+    ngIdxList = np.asarray(ngIdxList)
+    return ngIdxList
+
+
 def getLshNN_ori_valid(para, validDayWind, dayLeftWindow, dataset, thred_radius_dist, trained_num_probes):
     print "## Begin calculating lsh sim.", dataset.shape
     ngIdxArray = []
@@ -248,17 +198,58 @@ def getLshNN_ori_valid(para, validDayWind, dayLeftWindow, dataset, thred_radius_
         #print vdw, rel_dw
         if len(vdw) == 1:
             ngIdxArray.append(None)
-            #ngIdxArray.extend([None]*vdw[0])
             continue
-        dataIdx_v = range(vdw[0], vdw[1])
-        dataset_v = dataset[dataIdx_v,:]
-        nnModel = getLshIndex(para, dataset_v)
+        dataset_vdw = dataset[range(vdw[0], vdw[1]),:]
+        nnModel = getLshIndex(para, dataset_vdw)
 
-        ngIdxArray_v = getLshNN_original(dataset_v, nnModel, thred_radius_dist, trained_num_probes) + vdw[0]
-        #print ngIdxArray_v.shape
-        ngIdxArray_v = [ngIdxArray_v[docid] for docid in range(rel_dw[0], rel_dw[1])]
-        #ngIdxArray.extend(ngIdxArray_v)
-        ngIdxArray.append(ngIdxArray_v)
+        ngIdxArray_day = []
+        for dataidx in range(rel_dw[0], rel_dw[1]):
+            nn_keys = nnModel.find_near_neighbors(dataset_vdw[dataidx], thred_radius_dist)
+            ngIdxArray_day.append(np.asarray(nn_keys, dtype=np.int32))
+
+            if (dataidx) % 10000 == 0:
+                print "## nn cal completed", dataidx+1, time.asctime()
+
+        ngIdxArray_day = np.asarray(ngIdxArray_day) + vdw[0]
+        ngIdxArray.append(ngIdxArray_day)
+
+        if 0:
+            # statistic averaged_nn_ratio for influence of time window in nn
+
+            #randIdx = random.sample(range(rel_dw[0], rel_dw[1]), 10000)
+            randIdx = range(rel_dw[0], rel_dw[1])
+            ngIdxList_stat = []
+            for dataidx in randIdx:
+                nn_keys = nnModel.find_near_neighbors(dataset_vdw[dataidx], thred_radius_dist)
+                ngIdxList_stat.append(len(nn_keys))
+            print "## Statistic: Avg #nn", np.mean(ngIdxList_stat), round(np.mean(ngIdxList_stat)*1.0/len(dataIdx_v), 4)
+            continue
 
     byDays = True
     return np.asarray(ngIdxArray), byDays
+
+
+def getSim_sparse(dataset, thred_radius_dist, validDayWind, dayLeftWindow):
+    print "## Begin calculating tfidf sim.", dataset.shape
+    ngIdxArray = []
+    for vdw, rel_dw in zip(validDayWind, dayLeftWindow):
+        if len(vdw) == 1:
+            ngIdxArray.append(None)
+            continue
+        dataset_vdw = dataset[range(vdw[0], vdw[1]),:]
+
+        #distArr = euclidean_distances(dataset_vdw[0], dataset_vdw)
+        #distArr = euclidean_distances(dataset_vdw[range(rel_dw[0], rel_dw[1]), :], dataset_vdw)
+        ngIdxArray_day = []
+        for dataidx in range(rel_dw[0], rel_dw[1]):
+            distArr = euclidean_distances(dataset_vdw[dataidx], dataset_vdw)
+            nn_keys = [i for i, eu in enumerate(distArr[0]) if eu <= thred_radius_dist]
+            ngIdxArray_day.append(np.asarray(nn_keys, dtype=np.int32))
+
+            if (dataidx) % 10000 == 0:
+                print "## nn cal completed", dataidx+1, time.asctime()
+
+        ngIdxArray_day = np.asarray(ngIdxArray_day) + vdw[0]
+        ngIdxArray.append(ngIdxArray_day)
+
+    return np.asarray(ngIdxArray)

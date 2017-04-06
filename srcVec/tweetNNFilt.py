@@ -26,6 +26,7 @@ def getDF(ngIdxArray, seqDayHash, timeWindow, indexedInCluster, clusters):
         if ngIdxArray_day is None:
             tweetSimDfDayArr.append(None)
             continue
+        print "############ simDF nnIdx in day", dayInt
         simDfDayArr_day = calDF(ngIdxArray_day, seqDayHash, None, None, None)
         tweetSimDfDayArr.append(simDfDayArr_day)
     return tweetSimDfDayArr
@@ -137,10 +138,19 @@ def getBursty_tw2(simDfDayArr, seqDayHash, dayTweetNumHash):
 
 # zscoreDayArr: [zscoreDay_seqid0, seq1, ...]
 # zscoreDay_seqid: [(day, zscore), (day, zscore)]
-def getBursty(simDfDayArr, dayTweetNumHash, tDate):
-    TweetNum_all = sum(dayTweetNumHash.values())
+def getBursty(simDfDayArr, dayTweetNumHash, tDate, timeWindow):
+    if timeWindow is None:
+        TweetNum_all = sum(dayTweetNumHash.values())
+    else:
+        tw = [str(int(tDate)+i).zfill(2) for i in range(timeWindow[0], timeWindow[1]+1)]
+        TweetNum_all = sum([n for d, n in dayTweetNumHash.items() if d in tw])
     zscoreDayArr = []
     for docid, nnDayCounter in enumerate(simDfDayArr):
+        statArr = []
+
+        if timeWindow is not None:
+            nnDayCounter = dict([(d, nnDayCounter[d]) for d in tw])
+
         docSimDF_all = sum(nnDayCounter.values())
         est_prob = docSimDF_all*1.0/TweetNum_all
         zscoreDay = []
@@ -154,49 +164,84 @@ def getBursty(simDfDayArr, dayTweetNumHash, tDate):
             #print docid, day, simDf, mu, est_prob, sigma
             zscore = round((simDf*1.0-mu)/sigma, 4)
             zscoreDay.append((day, zscore))
-        #if docid in range(100000, 102000):
-        #    print "#################################"
-        #    print nnDayCounter.most_common()
-        #    print sorted(zscoreDay, key = lambda a:a[1], reverse=True)
+            if tDate == day:
+                statArr.extend([simDf, mu, sigma, zscore])
+        statArr.extend([est_prob, docSimDF_all, dayTweetNumHash[tDate], TweetNum_all])
+
+        if 1 and tDate == "06":
+            print "#################################"
+            print sorted(nnDayCounter.items(), key = lambda a:a[0])
+            print statArr
+            print sorted(zscoreDay, key = lambda a:a[1], reverse=True)
         zscoreDayArr.append(zscoreDay)
     print "## Tweets zscore by day [li zscore] obtained at", time.asctime()
     return zscoreDayArr
 
-def getBursty_byday(simDfDayArr, dayTweetNumHash):
+def getBursty_byday(simDfDayArr, dayTweetNumHash, timeWindow):
     print "## Processing zs by day", len(simDfDayArr)
     zscoreDayArr = []
     for dateInt, simDf_day in enumerate(simDfDayArr):
         if simDf_day is None:
             zscoreDayArr.append(None)
             continue
-        zs_day = getBursty(simDf_day, dayTweetNumHash, str(dateInt+1).zfill(2))
+        zs_day = getBursty(simDf_day, dayTweetNumHash, str(dateInt+1).zfill(2), timeWindow)
         zscoreDayArr.append(zs_day)
     return zscoreDayArr
 
 # choose docs appear in specific time window (day)
 def filtering_by_zscore(zscoreDayArr, seqDayHash, day, thred_zscore):
     burstySeqIdArr = []
-    zscores = []
-    zscoreDayArr_day = zscoreDayArr[int(day)-1]
+    zscores_day = []
+    zscoresStat = []
+    if len(zscoreDayArr) < 50:
+        zscoreDayArr_day = enumerate(zscoreDayArr[int(day)-1])
+    else:
+        #zscoreDayArr_day = zscoreDayArr
+        zscoreDayArr_day = [(docid, zscoreDay) for docid, zscoreDay in enumerate(zscoreDayArr_day) if seqDayHash[docid] == day]
     if zscoreDayArr_day is None: return None
-    for docid, zscoreDay in enumerate(zscoreDayArr_day):
-        if len(zscoreDayArr) > 50 and seqDayHash[docid] != day:
-            continue
-        if zscoreDay is None:
-            continue
+    if thred_zscore <= -99:
+        return [item[0] for item in zscoreDayArr_day]
+    for docid, zscoreDay in zscoreDayArr_day:
+        if zscoreDay is None: continue
         zscore = None
         if len(zscoreDay) == 1:
             if zscoreDay[0][0] == day:
                 zscore = zscoreDay[0][1] # zscoreDay from getBursty_tw
         else:
-            print zscoreDay
+            print "Error zscore", zscoreDay
             zscore = dict(zscoreDay).get(day) # zscoreDay from getBursty
-        if zscore is None:
-            continue
-        #zscores.append(round(zscore, 1))
-        zscores.append(math.floor(zscore))
-        if zscore > thred_zscore:
-            burstySeqIdArr.append(docid)
+        if zscore is None: continue
+        zscores_day.append((docid, zscore))
+
+        #zscoresStat.append(round(zscore, 1))
+        zscoresStat.append(math.floor(zscore))
+
+    #for docid, zs in sorted(zscores_day, key = lambda a:a[1], reverse=True):
+    #    if zs > 0:
+    #        print docid, "\t",  zs
+
+    burstySeqIdArr = [docid for docid, zs in sorted(zscores_day, key = lambda a:a[1], reverse=True) if zs > thred_zscore]
+    tNum = len(zscores_day)
+    if thred_zscore > 0 and len(burstySeqIdArr) > tNum/3:
+        burstySeqIdArr = burstySeqIdArr[:min(len(burstySeqIdArr), tNum/3)]
     print "## Tweets filtering by zscore ", thred_zscore, " in day ", day, " obtained at", time.asctime()
-    #print "## statistic of zscore", Counter(zscores).most_common()
+
+    ######################
+    # statistic distribution of zscore
+    if 0:
+        tNum = len(zscoresStat)
+        print "## statistic of zscore in #tweet", tNum, sum(zscoresStat)/tNum#, Counter(zscoresStat).most_common()
+        zscoresStat = Counter(zscoresStat)
+        print "## #zs, max, min, avg", len(zscoresStat.keys()), max(zscoresStat.keys()), min(zscoresStat.keys())
+        sorted_zsStat = sorted(zscoresStat.items(), key = lambda a:a[0])
+        sorted_zsStat = [round(item[1]*100.0/tNum, 2) for item in sorted_zsStat]
+        cumu_zsStat = [round(sum(sorted_zsStat[:idx+1]), 2) for idx, num in enumerate(sorted_zsStat)]
+        for zs, num in zip(sorted(zscoresStat.keys()), sorted_zsStat):
+            print zs, "\t", num
+        print zip(sorted(zscoresStat.keys()), sorted_zsStat)
+        print zip(sorted(zscoresStat.keys()), cumu_zsStat)
+        print sorted_zsStat
+        print cumu_zsStat
+
     return burstySeqIdArr
+

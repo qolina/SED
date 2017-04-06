@@ -24,7 +24,7 @@ def debugMainNameComp(snp_comp):
     print "\n".join(sorted(snp_comp3))
 
 def frmTriple(parsed_sents, comps):
-    matchedComps = [item[0] for item in comps]
+    #matchedComps = [item[0] for item in comps]
     #print matchedComps
     frmValid = set()
     for parsed_sent in parsed_sents:
@@ -37,7 +37,14 @@ def frmTriple(parsed_sents, comps):
         links = [int(item[2]) for item in items]
         deps = [item[3].lower() for item in items]
         sent = " ".join(words)
-        valid_words = [words[idx] for idx, tag in enumerate(tags) if tag.startswith("nn") or tag.startswith("vb") if deps[idx] in ["root", "sub", "obj", "vc", "vmod", "nmod"]]
+        # ori
+        #valid_words = [words[idx] for idx, tag in enumerate(tags) if tag[:2] in ["nn", "vb", "jj"] if deps[idx] in ["root", "sub", "obj", "vc", "vmod", "nmod", "pmod"]]
+
+        # loose1
+        valid_words = [words[idx] for idx, tag in enumerate(tags) if tag[:2] in ["nn", "vb", "jj", "cd", "rb"] if deps[idx] in ["root", "sub", "obj", "vc", "vmod", "nmod", "pmod"]]
+
+        # loose2
+        #valid_words = [words[idx] for idx, tag in enumerate(tags) if tag[:2] in ["nn", "vb", "jj", "rb"] if deps[idx] in ["root", "sub", "obj", "vc", "vmod", "nmod", "pmod"]]
         frmValid.update(set(valid_words))
         #print valid_words
         continue
@@ -70,7 +77,8 @@ def frmTriple(parsed_sents, comps):
 
 
 #[day_0430, day_0501, ...]
-def extractStockNews(stock_newsDir, snp_comp, sentNUM):
+def extractStockNews(stock_newsDir, symCompHash, sentNUM):
+    snp_comp = symCompHash.values()
     zparModel = ZPar('english-models')
     #tagger = zparModel.get_tagger()
     depparser = zparModel.get_depparser()
@@ -94,6 +102,7 @@ def extractStockNews(stock_newsDir, snp_comp, sentNUM):
             sents = get_valid_1stpara_news(content)
             if sents is None: continue
             headline = re.sub("^(rpt )?update\s*\d+\s", "", "###".join(sents[:sentNUM]).lower())
+            headline = re.sub("\s+", " ", headline)
             newsContents.add(headline)
 
         oneDayNews = [] # [(matchedSNPComp, headline), ...]
@@ -101,19 +110,41 @@ def extractStockNews(stock_newsDir, snp_comp, sentNUM):
         fullNameNum = 0
         doubtCounter = Counter()
 
+        if 0:
+            print "\n".join(sorted(list(newsContents)))
+            continue
+
+        newsHash = {}
+        headlineCompHash = {}
+
         for headline in newsContents:
-            sents = headline.split("###")
-
             fullMatch = findComp_name(headline.replace("###", " "), snp_comp)
+            #symMatch = [(word, symCompHash[word]) for word in headline.replace("###", " ").split() if word in symCompHash and word not in ["a", "an", "has"]]
+            symMatch = [word for word in headline.replace("###", " ").split() if word in ["ge", "gt", "gm", "aig", "cvs", "oi", "adm", "jpm", "twc", "cvc", "se"]]
+            symMatch = list([symCompHash[sym] for sym in set(symMatch)])
+            if fullMatch is not None or len(symMatch) > 0:
+                if 0:
+                    print "---------------------------"
+                    print fullMatch, symMatch
+                    print headline
+                    continue
 
-            if fullMatch is not None and len(fullMatch) <= 3:
-                fullNameNum += 1
-                parsed_sents = [depparser.dep_parse_sentence(sent) for sent in sents]
-                triples = frmTriple(parsed_sents, fullMatch)
-                triples = [stemmer.stem(word) for word in triples]
+                if fullMatch is not None:
+                    symMatch.extend(fullMatch)
 
-                oneDayNews.append((fullMatch, headline, triples))
-                #break
+                headlineCompHash[headline] = symMatch
+
+                # get valid words in headline
+                parsed_sents = [depparser.dep_parse_sentence(sent) for sent in headline.split("###")]
+                triples = frmTriple(parsed_sents, None)
+                triples = [stemmer.stem(word) for word in triples if word not in [":", "(", ")", ",", ".", "\"", "'"]]
+                sortedText = " ".join(sorted(triples))
+                if sortedText not in newsHash:
+                    newsHash[sortedText] = headline
+
+        for impText, headline in newsHash.items():
+            fullNameNum += 1
+            oneDayNews.append((headlineCompHash[headline], headline, impText.split()))
 
 
             #doubtMatch = [matchedComp[idx] for idx in range(len(matchedComp)) if matchScore[idx] > 0.33 and matchScore[idx] < 0.66]
@@ -142,8 +173,8 @@ def content2vec(word2vecModelPath, dayNews):
     vecNews = getVec('3', None, None, None, word2vecModelPath, contentNews)
     return vecNews, newsSeqDayHash, newsSeqComp
 
-def stockNewsVec(stock_newsDir, snp_comp, word2vecModelPath, newsVecPath, sentNUM):
-    dayNews = extractStockNews(stock_newsDir, snp_comp, sentNUM)
+def stockNewsVec(stock_newsDir, symCompHash, word2vecModelPath, newsVecPath, sentNUM):
+    dayNews = extractStockNews(stock_newsDir, symCompHash, sentNUM)
     #return 0
     vecNews, newsSeqDayHash, newsSeqComp = content2vec(word2vecModelPath, dayNews)
     outputFile = open(newsVecPath, "w")
@@ -218,7 +249,8 @@ def tClusterMatchNews_content(newsSeqCompDay, textNewsDay, textsIn, compsIn):
 
         commonWords = (tWords & set(nValidWords))# - set(nCompsWords)
         if len(commonWords) == 0: continue
-        #print commonWords
+
+        #print newsIdx, commonWords
         matchedNews_c.append(newsIdx)
 
     if len(matchedNews_c) == 0:
@@ -255,11 +287,11 @@ def evalTClusters(tweetClusters, feaVecs, documents, vecNewsDay, textNewsDay, ne
         clabel, cscore, docsIn = cluster
         tNumIn = sum([dscore for did, dscore in docsIn])
         textsIn = [(documents[docid], num) for docid, num in docsIn]
-        compsIn = compInCluster(textsIn, snp_comp, symCompHash, True)
+        compsIn = compInCluster(textsIn, snp_comp, symCompHash, True, False)
         compsIn = topCompInCluster(compsIn, tNumIn, 2)
 
         if feaVecs is not None:
-            vecsIn = feaVecs[docsIn[0][0],:]
+            #vecsIn = feaVecs[docsIn[0][0],:]
             #matchedNews_c = tClusterMatchNews_vec(newsSeqCompDay, vecNewsDay, vecsIn, compsIn)
             matchedNews_c = tClusterMatchNews_content(newsSeqCompDay, textNewsDay, textsIn, compsIn)
         else:
@@ -269,7 +301,7 @@ def evalTClusters(tweetClusters, feaVecs, documents, vecNewsDay, textNewsDay, ne
             print "############################"
             print "1-** cluster", outIdx, clabel, cscore, ", #tweet", tNumIn, compsIn
             for docid, dscore in docsIn:
-                if dscore < 2: continue
+                #if docsIn[0][1] > 1 and dscore < 2: continue
                 print docid, dscore, "\t", documents[docid]
 
         if matchedNews_c is None: continue
@@ -287,24 +319,48 @@ def evalTClusters(tweetClusters, feaVecs, documents, vecNewsDay, textNewsDay, ne
     #print "True", trueCluster
     return len(trueCluster), len(matchedNews)
 
+
 def outputEval(Nums):
     print "## Eval newsMatchedCluster", sum(Nums[0]), sum(Nums[1]), round(float(sum(Nums[0])*100)/sum(Nums[1]), 2)
     print "## Eval sysMatchedNews", sum(Nums[2]), sum(Nums[3]), round(float(sum(Nums[2])*100)/sum(Nums[3]), 2)
 
+def dayNewsExtr(newsDayWindow, newsSeqDayHash, vecNews, dayNews, newsSeqComp):
+    newsSeqIdDay = sorted([newsSeqId for newsSeqId, dayInt in newsSeqDayHash.items() if dayInt in newsDayWindow])
+    vecNewsDay = vecNews[newsSeqIdDay,:]
+    textNewsDay = []
+    for item in newsDayWindow:
+        textNewsDay.extend(dayNews[item])
+    newsSeqCompDay = [newsSeqComp[newsSeqId] for newsSeqId in newsSeqIdDay]
+    return vecNewsDay, textNewsDay, newsSeqCompDay
+
+def dayNewsTripExtr(newsDayWindow):
+    compTrip_News = []
+    for dayInt in newsDayWindow:
+        if dayInt == 0:
+            suffix = "04-30"
+        else:
+            suffix = "05-"+str(dayInt).zfill(2)
+        tripFile = open("../data/snp/snp_triple_in1st_2015-"+suffix, "r")
+        compTrip_News_day = cPickle.load(tripFile)
+        compTrip_News.extend(compTrip_News_day)
+
+    return compTrip_News
+
 stock_newsDir = '../ni_data/stocknews/'
 snpFilePath = "../data/snp500_sutd"
 word2vecModelPath = "../ni_data/tweetVec/w2v1010100-en"
-newsVecPath = "../ni_data/tweetVec/stockNewsVec1"
+newsVecPath = "../ni_data/tweetVec/stockNewsVec1_Loose1"
 
 ###############################################################
 if __name__ == "__main__":
     sym_names = snpLoader.loadSnP500(snpFilePath)
     snp_syms = [snpItem[0] for snpItem in sym_names]
     snp_comp = [strUtil.getMainComp(snpItem[1]) for snpItem in sym_names]
+    symCompHash = dict(zip(snp_syms, snp_comp))
     #debugMainNameComp(snp_comp)
     #sys.exit(0)
 
-    stockNewsVec(stock_newsDir, snp_comp, word2vecModelPath, newsVecPath, 1)
+    stockNewsVec(stock_newsDir, symCompHash, word2vecModelPath, newsVecPath, 1)
     sys.exit(0)
 
     # load news vec

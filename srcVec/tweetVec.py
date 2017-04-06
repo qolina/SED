@@ -49,6 +49,8 @@ def raw2Texts(rawTweets, rmStop, rmMinFreq, minFreq):
     stopWords = {}
     if rmStop:
         stopWords = loadStopword("../data/stoplist.dft")
+        stopWords["<username>"] = 1
+        stopWords["<url>"] = 1
     texts = [normPuncInTweet(doc) for doc in rawTweets]
     texts = [[normWordInTweet(word) for word in document.lower().split() if word not in stopWords] for document in rawTweets]
 
@@ -166,7 +168,7 @@ def texts2TFIDFvecs(texts, dictPath, corpusPath):
     texts = [" ".join(words) for words in texts]
     count_vect = CountVectorizer()
     texts_counts = count_vect.fit_transform(texts)
-    tfidf_transformer = TfidfTransformer()
+    tfidf_transformer = TfidfTransformer(norm=u'l2', use_idf=True, smooth_idf=True, sublinear_tf=False)
     corpus_tfidf = tfidf_transformer.fit_transform(texts_counts)
 
 
@@ -278,7 +280,8 @@ def getVec(Para_test, doc2vecModelPath, l_doc2vecModelPath, TweetNum, word2vecMo
             unkNums.append(unkNum)
         unkRatio = np.mean([float(un)/wn for un, wn in zip(unkNums, wordNums)])
         dataset = [[np.asarray(word2vecModel.get(word)) for word in words] for words in normWordTexts]
-        dataset = [np.sum(np.asarray(dataset[idx]), axis=0) for idx in range(len(dataset))]
+        #dataset = [np.sum(np.asarray(dataset[idx]), axis=0) for idx in range(len(dataset))]
+        dataset = [np.mean(np.asarray(dataset[idx]), axis=0) for idx in range(len(dataset))]
         dataset = np.asarray(dataset)
         print "## tweet vec by w2v obtained.", dataset.shape, time.asctime(), "UNK ratio", unkRatio, np.mean(wordNums), np.mean(unkNums)
 
