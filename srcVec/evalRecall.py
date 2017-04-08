@@ -346,6 +346,56 @@ def dayNewsTripExtr(newsDayWindow):
 
     return compTrip_News
 
+def evalOutputEvents(dayClusters, outputDays, devDays, testDays, topK_c, Kc_step, Para_newsDayWindow, newsSeqDayHash, vecNews, dayNews, newsSeqComp, snp_comp, symCompHash):
+    outputDetail = False
+
+    for sub_topK_c in range(Kc_step, topK_c+1, Kc_step):
+        if sub_topK_c == topK_c: outputDetail = True
+
+        dev_Nums = [[], [], [], []] # trueCNums, cNums, matchNNums, nNums 
+        test_Nums = [[], [], [], []]
+        for cItem in dayClusters:
+            if cItem is None: continue
+            day, texts_day, dataset_day, tweetClusters = cItem
+            if tweetClusters is None: continue
+            if day not in outputDays: continue
+
+            sub_tweetClusters = tweetClusters[:sub_topK_c]
+
+            if outputDetail:
+                print "## News in day", day
+                for item in textNewsDay:
+                    print item
+                print "## Output details of Clusters in day", day
+
+            newsDayWindow = [int(day)+num for num in Para_newsDayWindow]
+            vecNewsDay, textNewsDay, newsSeqCompDay = dayNewsExtr(newsDayWindow, newsSeqDayHash, vecNews, dayNews, newsSeqComp)
+
+            trueCNum, matchNNum = evalTClusters(sub_tweetClusters, dataset_day, texts_day, vecNewsDay, textNewsDay, newsSeqCompDay, snp_comp, symCompHash, outputDetail)
+
+            if day in devDays:
+                dev_Nums[0].append(trueCNum)
+                dev_Nums[1].append(len(sub_tweetClusters))
+                dev_Nums[2].append(matchNNum)
+                dev_Nums[3].append(len(textNewsDay))
+            if day in testDays:
+                test_Nums[0].append(trueCNum)
+                test_Nums[1].append(len(sub_tweetClusters))
+                test_Nums[2].append(matchNNum)
+                test_Nums[3].append(len(textNewsDay))
+        ##############
+
+        ##############
+        # output evaluation metrics_recall
+        if sum(dev_Nums[1]) > 0:
+            print "** Dev exp in topK_c", sub_topK_c
+            outputEval(dev_Nums)
+        if sum(test_Nums[1]) > 0:
+            print "** Test exp in topK_c", sub_topK_c
+            outputEval(test_Nums)
+        ##############
+
+
 stock_newsDir = '../ni_data/stocknews/'
 snpFilePath = "../data/snp500_sutd"
 word2vecModelPath = "../ni_data/tweetVec/w2v1010100-en"

@@ -68,7 +68,7 @@ def trainLSH(para, dataset, thred_radius_dist):
     return best_num_probes
 
 # nns_fromSim used for eval lsh performance when training
-def getSim_falconn(trainLSHFlag, dataset, thred_radius_dist, trained_num_probes, nns_fromSim, validDayWind, dayLeftWindow):
+def getSim_falconn(dataset, thred_radius_dist, trained_num_probes, nns_fromSim, validDayWind, dayLeftWindow):
     dataset = prepData_forLsh(dataset)
 
     num_setup_threads = 10
@@ -79,7 +79,7 @@ def getSim_falconn(trainLSHFlag, dataset, thred_radius_dist, trained_num_probes,
 
     #######################################
     # mainly train num_probes
-    if trainLSHFlag:
+    if 0:
         trained_num_probes = trainLSH(para, dataset, thred_radius_dist)
         return trained_num_probes
     #######################################

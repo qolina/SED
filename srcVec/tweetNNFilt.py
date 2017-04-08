@@ -4,6 +4,7 @@ import time
 import timeit
 import math
 from collections import Counter
+from statistic import zsDistribution
 
 import numpy as np
 
@@ -216,9 +217,6 @@ def filtering_by_zscore(zscoreDayArr, seqDayHash, day, thred_zscore):
         #zscoresStat.append(round(zscore, 1))
         zscoresStat.append(math.floor(zscore))
 
-    #for docid, zs in sorted(zscores_day, key = lambda a:a[1], reverse=True):
-    #    if zs > 0:
-    #        print docid, "\t",  zs
 
     burstySeqIdArr = [docid for docid, zs in sorted(zscores_day, key = lambda a:a[1], reverse=True) if zs > thred_zscore]
     tNum = len(zscores_day)
@@ -228,20 +226,22 @@ def filtering_by_zscore(zscoreDayArr, seqDayHash, day, thred_zscore):
 
     ######################
     # statistic distribution of zscore
-    if 0:
-        tNum = len(zscoresStat)
-        print "## statistic of zscore in #tweet", tNum, sum(zscoresStat)/tNum#, Counter(zscoresStat).most_common()
-        zscoresStat = Counter(zscoresStat)
-        print "## #zs, max, min, avg", len(zscoresStat.keys()), max(zscoresStat.keys()), min(zscoresStat.keys())
-        sorted_zsStat = sorted(zscoresStat.items(), key = lambda a:a[0])
-        sorted_zsStat = [round(item[1]*100.0/tNum, 2) for item in sorted_zsStat]
-        cumu_zsStat = [round(sum(sorted_zsStat[:idx+1]), 2) for idx, num in enumerate(sorted_zsStat)]
-        for zs, num in zip(sorted(zscoresStat.keys()), sorted_zsStat):
-            print zs, "\t", num
-        print zip(sorted(zscoresStat.keys()), sorted_zsStat)
-        print zip(sorted(zscoresStat.keys()), cumu_zsStat)
-        print sorted_zsStat
-        print cumu_zsStat
+    #zsDistribution(zscoresStat)
 
     return burstySeqIdArr
+
+
+def tweetForClustering(day, seqDayHash, zscoreDayArr, thred_zscore, startNumDay, dayTweetNumHash):
+    burstySeqIdArr = filtering_by_zscore(zscoreDayArr, seqDayHash, day, thred_zscore)
+    if burstySeqIdArr is None: return None
+    if len(zscoreDayArr) < 50: # need to add one startNum
+        tweetFCSeqIdArr = [startNumDay+day_seqid for day_seqid in burstySeqIdArr]
+
+    if len(tweetFCSeqIdArr) < 100:
+        print "## Too less documents current day", day, len(tweetFCSeqIdArr)
+        return None
+
+    print "## Tweet filtering done.", len(tweetFCSeqIdArr), " out of", dayTweetNumHash[day], time.asctime()
+    return tweetFCSeqIdArr
+
 
