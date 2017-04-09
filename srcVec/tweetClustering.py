@@ -115,11 +115,11 @@ def distToSeed(tweetVecs, seedTweetVecs):
 
 
 # clusterScore: [score_c1, score_c2, ...]
-def clusterScoring(cLabels, tLabels, docDist, cTexts, cComps, seedTweetVecs, feaVecs):
+def clusterScoring(cLabels, tLabels, docDist, cDensity, cTexts, cComps, seedTweetVecs, feaVecs):
     clusterScore = []
     clusterScoreDetail = []
 
-    for label, textsIn in zip(cLabels, cTexts):
+    for label, textsIn, density in zip(cLabels, cTexts, cDensity):
         dataIn = [item[0] for item in enumerate(tLabels) if item[1] == label]
         dataOut = [item[0] for item in enumerate(tLabels) if item[0] not in dataIn]
         vecsIn = feaVecs[dataIn, :]
@@ -127,8 +127,7 @@ def clusterScoring(cLabels, tLabels, docDist, cTexts, cComps, seedTweetVecs, fea
         cashIn = cashInCluster(textsIn)
         tNumIn = len(dataIn)
 
-        distsIn = docDist[dataIn,label]
-        distsOut = docDist[dataOut,label]
+        #distsIn = docDist[dataIn,label]
         compsNum = sum([item[1] for item in compsIn])
         cashNum = sum([item[1] for item in cashIn])
         if cashNum in [0, 1]: cashNum += 0.1
@@ -136,12 +135,11 @@ def clusterScoring(cLabels, tLabels, docDist, cTexts, cComps, seedTweetVecs, fea
 
         dotNum = math.log(tNumIn)
         #inDist = np.mean(distsIn)
-        #outDist = np.mean(distsOut)
         #compScore = float(compsNum)/tNumIn
         #cashScore = float(cashNum)/tNumIn
 
-        inDist = 1.0/(1.0 + math.exp(np.mean(distsIn)))
-        #outDist = 1.0/(1.0 + math.exp(-np.mean(distsOut)))
+        #inDist = 1.0/(1.0 + math.exp(np.mean(distsIn)))
+        inDist = 1.0/(1.0 + math.exp(density))
         #compScore = float(compsNum)/tNumIn
         #cashScore = float(tNumIn)/cashNum
         compScore = math.log(1+float(compsNum)/tNumIn)
@@ -224,6 +222,7 @@ def clusterTweets(algor, documents, feaVecs, clusterArg, snp_comp, symCompHash):
     cDocs_zip = []
     cComps = []
     centroids = []
+    cDensity = []
     #print cLabels
     for clbl in cLabels:
         dataIn = [item[0] for item in enumerate(tLabels) if item[1] == clbl]
@@ -239,35 +238,36 @@ def clusterTweets(algor, documents, feaVecs, clusterArg, snp_comp, symCompHash):
         cTexts.append(textsIn)
         cComps.append(compsIn)
         cDocs_zip.append(dataIn_zip)
+        inDist = pairwise.euclidean_distances(vecsIn, vecsIn)
+        cDensity.append(np.mean(inDist))
         if 0:
-            print clbl
+            print clbl, cDensity[-1]
             for item in textsIn: print item
             print compsIn
 
     # spectral
     if docDist is None:
         if issparse(centroids):
+            print "Sparse centroid"
             centroids = vstack(centroids, format='csr')
-        docDist = pairwise.euclidean_distances(feaVecs, centroids)
-        #docDist = [pairwise.euclidean_distances(feaVecs, item) for item in centroids]
-    return cLabels, tLabels, docDist, cTexts, cComps, cDocs_zip
+        #docDist = pairwise.euclidean_distances(feaVecs, centroids)
+    return cLabels, tLabels, docDist, cDensity, cTexts, cComps, cDocs_zip
 
 
 def clustering(algor, documents, feaVecs, clusterArg, topK_c, topK_t, burstySeqIdArr, snp_comp, symCompHash, seedTweetVecs):
 
     if algor == "agg" and issparse(feaVecs):
         feaVecs = feaVecs.toarray()
-    print issparse(feaVecs)
-    cLabels, tLabels, docDist, cTexts, cComps, cDocs_zip = clusterTweets(algor, documents, feaVecs, clusterArg, snp_comp, symCompHash)
+    cLabels, tLabels, docDist, cDensity, cTexts, cComps, cDocs_zip = clusterTweets(algor, documents, feaVecs, clusterArg, snp_comp, symCompHash)
     print "## Clustering done. algorithm", algor, " #cluster", len(cLabels), time.asctime()
     if len(cLabels) < 20:
         return None, None
     # scoring clusters
-    clusterScore, clusterScoreDetail = clusterScoring(cLabels, tLabels, docDist, cTexts, cComps, seedTweetVecs, feaVecs)
+    clusterScore, clusterScoreDetail = clusterScoring(cLabels, tLabels, docDist, cDensity, cTexts, cComps, seedTweetVecs, feaVecs)
     print "## Clustering scoring done.", time.asctime()
 
     sumFlag = 3
-    tweetClusters = clusterSummary(sumFlag, clusterScore, cLabels, tLabels, docDist, cDocs_zip, feaVecs, topK_c, topK_t)
+    tweetClusters = clusterSummary(sumFlag, clusterScore, cLabels, tLabels, None, cDocs_zip, feaVecs, topK_c, topK_t)
     print "## Clustering summary done.", time.asctime()
     return tweetClusters, clusterScoreDetail
 

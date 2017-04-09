@@ -185,7 +185,7 @@ if __name__ == "__main__":
 
     ######################
     validDays = None
-    dataSelect = 9
+    dataSelect = 3
     if dataSelect == 1:
         devDays = ['06', '07', '08']
         testDays = ['11', '12', '13', '14', '15']
@@ -194,7 +194,7 @@ if __name__ == "__main__":
         testDays = ['18', '19', '20', '21', '22']
     elif dataSelect == 3: #[15-31]
         devDays = ['15', '18', '19']
-        testDays = ['20', '21', '22', '26', '27', '28', '29']
+        testDays = ['20', '21', '22', '26', '27', '28']
     elif dataSelect == 9: #[15-31]
         devDays = [str(i).zfill(2) for i in range(1, 32)]
         testDays = []
@@ -243,9 +243,6 @@ if __name__ == "__main__":
     newsSeqComp = cPickle.load(newsVecFile)
     #statGoldNews(dayNews)
    ##############
-
-
-
 
     tweetTexts_all = None
     tweetTexts_all, seqTidHash, seqDayHash, dayTweetNumHash = loadTweetsFromDir(dataDirPath)

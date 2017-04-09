@@ -18,15 +18,16 @@ def getAnnoLbl(filename):
 
 def caltopP(annotatedLabels, preK, days, topK_c, recall_news):
     pre_byDay = []
-    for i in range(len(annotatedLabels)/topK_c):
-        pre_byDay.append(round(sum(annotatedLabels[topK_c*i: topK_c*(i+1)])*100.0/topK_c, 2))
-    print "Pre_byDay @topK", topK_c
-    print pre_byDay
 
     precision = []
     for para in preK:
         trueLbl_day = [sum(annotatedLabels[topK_c*i:topK_c*(i+1)][:para]) for i in range(days)]
+        pre_byDay.append([("%.2f" %(item*100.0/para)) for item in trueLbl_day])
         precision.append(round(float(sum(trueLbl_day))*100/(days*para), 2))
+    print "Pre_byDay @topK", preK
+    for item in pre_byDay:
+        print item
+
     print "pre@top", preK
     print "pre", precision
     p = precision[-1]
@@ -41,10 +42,6 @@ if __name__ == "__main__":
     clusterLabels, recall_news = getAnnoLbl(filename)
     annotatedLabels = [label for firstTweet, label in clusterLabels]
 
-    days = 5 # in test
-    #preK = [5, 10]
-
-    #days = 3 # in dev
     preK = range(5, topK_c+1, 5)
     days = len(annotatedLabels)/topK_c
 

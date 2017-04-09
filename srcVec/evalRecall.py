@@ -324,6 +324,10 @@ def outputEval(Nums):
     print "## Eval newsMatchedCluster", sum(Nums[0]), sum(Nums[1]), round(float(sum(Nums[0])*100)/sum(Nums[1]), 2)
     print "## Eval sysMatchedNews", sum(Nums[2]), sum(Nums[3]), round(float(sum(Nums[2])*100)/sum(Nums[3]), 2)
 
+def outputEval_day(Nums):
+    print "## newsPre", Nums[0][-1], Nums[1][-1], ("%.2f" %(Nums[0][-1]*100.0/Nums[1][-1])), "\t",
+    print "## newsRecall", Nums[2][-1], Nums[3][-1], "\t", round(float(Nums[2][-1]*100)/Nums[3][-1], 2)
+
 def dayNewsExtr(newsDayWindow, newsSeqDayHash, vecNews, dayNews, newsSeqComp):
     newsSeqIdDay = sorted([newsSeqId for newsSeqId, dayInt in newsSeqDayHash.items() if dayInt in newsDayWindow])
     vecNewsDay = vecNews[newsSeqIdDay,:]
@@ -362,14 +366,14 @@ def evalOutputEvents(dayClusters, outputDays, devDays, testDays, topK_c, Kc_step
 
             sub_tweetClusters = tweetClusters[:sub_topK_c]
 
+            newsDayWindow = [int(day)+num for num in Para_newsDayWindow]
+            vecNewsDay, textNewsDay, newsSeqCompDay = dayNewsExtr(newsDayWindow, newsSeqDayHash, vecNews, dayNews, newsSeqComp)
+
             if outputDetail:
                 print "## News in day", day
                 for item in textNewsDay:
                     print item
                 print "## Output details of Clusters in day", day
-
-            newsDayWindow = [int(day)+num for num in Para_newsDayWindow]
-            vecNewsDay, textNewsDay, newsSeqCompDay = dayNewsExtr(newsDayWindow, newsSeqDayHash, vecNews, dayNews, newsSeqComp)
 
             trueCNum, matchNNum = evalTClusters(sub_tweetClusters, dataset_day, texts_day, vecNewsDay, textNewsDay, newsSeqCompDay, snp_comp, symCompHash, outputDetail)
 
@@ -378,11 +382,14 @@ def evalOutputEvents(dayClusters, outputDays, devDays, testDays, topK_c, Kc_step
                 dev_Nums[1].append(len(sub_tweetClusters))
                 dev_Nums[2].append(matchNNum)
                 dev_Nums[3].append(len(textNewsDay))
+                outputEval_day(dev_Nums)
             if day in testDays:
                 test_Nums[0].append(trueCNum)
                 test_Nums[1].append(len(sub_tweetClusters))
                 test_Nums[2].append(matchNNum)
                 test_Nums[3].append(len(textNewsDay))
+                outputEval_day(test_Nums)
+                
         ##############
 
         ##############
