@@ -1,0 +1,69 @@
+--> oldcf  python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -ltw 30 -rtw 0 -cls 1 -clsfs .data9.all -kc 30 -kcs 5 > ../ni_data/output/65w.all.nozs.dbscan
+
+------------------------------
+-- tfidf nozs
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 4 -ltw 30 -rtw 0 -cls 1 -clsfs .d3.dev.tf.nozs -kc 30 -kcs 5 > ../ni_data/output/65w.d3.dev.tfidf.nozs.dbscan &
+
+-- vec nozs
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -ltw 30 -rtw 0 -cls 1 -clsfs .d3.dev.vec.nozs -kc 30 -kcs 5 > ../ni_data/output/65w.d3.dev.vec.nozs.dbscan
+
+-- vec zs5 atw30
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 30 -zs 0 -zsfs .d3.dev.atw30 -delta 5 -cls 1 -clsfs .d3.dev.vec.zs5 -kc 30 -kcs 5 > ../ni_data/output/65w.d3.dev.vec.zs5.dbscan &
+
+-- vec zs5 ptw30
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 0 -zs 0 -zsfs .d3.dev.tw30 -delta 5 -cls 1 -clsfs .d3.dev.vec.zs5.ptw -kc 30 -kcs 5 > ../ni_data/output/65w.d3.dev.vec.zs5.dbscan.ptw &
+
+-- vec zs5 ptw14
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 30 -df 0 -dffs .d3.dev.tw30 -zs 1 -zsfs .d3.dev.tw30
+ python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 0 -zs 0 -zsfs .d3.dev.tw30-14 -delta 5 -cls 1 -clsfs .d3.dev.vec.zs5.ptw14 -kc 30 -kcs 5 > ../ni_data/output/65w.d3.dev.vec.zs5.dbscan.ptw14 &
+
+
+-- recalculate df zs
+-- vec zs5 atw30 recal
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 30 -df 1 -dffs .d3.dev.atw30.0410 -zs 1 -zsfs .d3.dev.atw30.0410 -delta 5 -cls 1 -clsfs .d3.dev.vec.zs5.0410 -kc 30 -kcs 5 > ../ni_data/output/65w.d3.dev.vec.zs5.dbscan.0410 &
+--> == 65w.d3.dev.vec.zs5.dbscan
+
+-- vec zs5 atw14
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 30 -df 0 -dffs .d3.dev.atw30.0410 -zs 1 -zsfs .d3.dev.atw30.0410
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 30 -zs 0 -zsfs .d3.dev.atw30.0410-14 -delta 5 -cls 1 -clsfs .d3.dev.vec.zs5.0410.atw14 -kc 30 -kcs 5 > ../ni_data/output/65w.d3.dev.vec.zs5.dbscan.0410.atw14 
+
+
+############################################
+-- recalculate df zs for p1.dev
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 30 -df 1 -dffs .p1.dev.atw30.0410 -zs 1 -zsfs .p1.dev.atw30.0410 -delta 5 -cls 1 -clsfs .p1.dev.vec.zs5.0410 -kc 30 -kcs 5 > ../ni_data/output/65w.p1.dev.vec.zs5.dbscan.0410.atw30 &
+
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 30 -df 0 -dffs .p1.dev.atw30.0410 -zs 1 -zsfs .p1.dev.atw30.0410
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 30 -zs 0 -zsfs .p1.dev.atw30.0410-14 -delta 5 -cls 1 -clsfs .p1.dev.vec.zs5.0410.atw14 -kc 30 -kcs 5 > ../ni_data/output/65w.p1.dev.vec.zs5.dbscan.0410.atw14 &
+
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -ltw 30 -rtw 30 -delta 5 -cls 1 -clsfs .p1.dev.vec.nozs.0410 -kc 30 -kcs 5 > ../ni_data/output/65w.p1.dev.vec.nozs.dbscan.0410 &
+--> same result with previous. zs improves results
+
+
+
+############################################
+hierarchical clustering agg
+
+-- vec nozs agg
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -ltw 30 -rtw 30 -cls 1 -clsfs .d3.dev.vec.nozs.agg -cluster agg -kc 30 -kcs 5 > ../ni_data/output/65w.d3.dev.vec.nozs.agg &
+
+-- vec zs5 atw30 agg
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 30 -zs 0 -zsfs .d3.dev.atw30 -delta 5 -cls 1 -clsfs .d3.dev.vec.zs5.agg -cluster agg -kc 30 -kcs 5 > ../ni_data/output/65w.d3.dev.vec.zs5.agg
+
+-- vec zs5 atw14 agg
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 30 -zs 0 -zsfs .d3.dev.atw30-14 -delta 5 -cls 1 -clsfs .d3.dev.vec.zs5.agg.atw14 -cluster agg -kc 20 -kcs 5 > ../ni_data/output/65w.d3.dev.vec.zs5.agg.atw14
+
+-- vec zs5 ptw30 agg
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 0 -zs 0 -zsfs .d3.dev.tw30 -delta 5 -cls 1 -clsfs .d3.dev.vec.zs5.agg.ptw30 -cluster agg -kc 20 -kcs 5 > ../ni_data/output/65w.d3.dev.vec.zs5.agg.ptw30
+
+-- vec zs5 ptw14 agg
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 0 -zs 0 -zsfs .d3.dev.tw30-14 -delta 5 -cls 1 -clsfs .d3.dev.vec.zs5.agg.ptw14 -cluster agg -kc 20 -kcs 5 > ../ni_data/output/65w.d3.dev.vec.zs5.agg.ptw14
+
+
+
+------------------------------------------------------
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -ltw 30 -rtw 30 -df 1 -dffs .p1.dev.atw30 > ../ni_data/output/65w.p1.dev.dfCal
+python mainVec.py -in ../ni_data/word/ -vld t -out t -testvec 3 -ltw 30 -rtw 30 -df 0 -dffs .d3.test.atw30 -zs 1 -zsfs .d3.test.atw30 > ../ni_data/output/65w.d3.test.zsCal
+
+python mainVec.py -in ../ni_data/word/ -vld t -out t -testvec 3 -ltw 30 -rtw 30 -df 1 -dffs .p1.test.atw30 > ../ni_data/output/65w.p1.test.dfCal
+
+ python mainVec.py -in ../ni_data/word/ -vld t -out t -testvec 3 -ltw 30 -rtw 30 -df 1 -dffs .d3.test.atw30 > ../ni_data/output/65w.d3.test.dfCal

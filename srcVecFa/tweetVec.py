@@ -194,15 +194,17 @@ def loadTweetsFromDir(dataDirPath):
     seqTidHash = {} # seqId in all: tweet_id
     seqDayHash = {} # seqId in all: dayStr
     for fileItem in sorted(os.listdir(dataDirPath)):
-        if not fileItem.startswith("tweetCleanText"):
+        if not fileItem.startswith("tweet"):
             continue
-        dayStr = fileItem[-2:]
+        dayStr = fileItem[-3:]
         #if dayStr == "07":break
             
         rawTweetHash = fileReader.loadTweets(dataDirPath + "/" + fileItem) # tid:text
         #print "## End of reading file. [raw tweet file][cleaned text]  #tweets: ", len(rawTweetHash), fileItem
         tids = rawTweetHash.keys()#[:1000]
         texts = rawTweetHash.values()#[:1000]
+        #for tid, text in rawTweetHash.items():
+        #    if len(text.strip()) == 0: print "-Empty", tid, "#", text, "#"
 
         word2vecModelPath = "../ni_data/tweetVec/w2v1010100-en"
         #dataset = getVec('3', None, None, len(tweetTexts_all), word2vecModelPath, texts)
@@ -270,7 +272,8 @@ def getVec(Para_test, doc2vecModelPath, l_doc2vecModelPath, TweetNum, word2vecMo
         normWordTexts = []
         wordNums = []
         unkNums = []
-        for words in wordTexts:
+        for text_seqid, words in enumerate(wordTexts):
+            if len(words) == 0: print "--Text seqid in all", text_seqid, "#", tweetTexts_all[text_seqid], "#"
             wordsIn = [word for word in words if word in word2vecModel]
             wordsIn.extend(["<s>", "</s>"])
             unkNum = sum([1 for word in words if word not in word2vecModel])

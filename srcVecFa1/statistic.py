@@ -118,9 +118,6 @@ def output_zsDistri_day(validDays, zscoreDayArr, simDfDayArr, dayTweetNumHash, t
         print len(tweetTexts_all)
 
         texts = [tweetTexts_all[docid+startNum] for docid in range(len(zs_pDate))]
-        print texts[0]
-        print texts[109]
-        print texts[-1]
         textCounter = Counter(texts)
         zs_text = [texts.index(text) for text, num in textCounter.items()]
         print "## Statistic zs in day", pDate, len(zs_pDate), " #uniqText", len(textCounter)

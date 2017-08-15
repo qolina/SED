@@ -115,27 +115,15 @@ def distToSeed(tweetVecs, seedTweetVecs):
 
 
 # clusterScore: [score_c1, score_c2, ...]
-def clusterScoring(tweetClusters, clusterFeatures, zscoreArr):
-    setting = 0
-    aloneFeaId = 6
-    looFeaId = 4
-    print "## Cluster scoring begins", setting, aloneFeaId, looFeaId
-
+def clusterScoring(cLabels, tLabels, docDist, cDensity, cTexts, cComps, seedTweetVecs, feaVecs):
     clusterScore = []
     clusterScoreDetail = []
 
-    cLabels, tLabels, centroids, docDist = tweetClusters
-    docDist, cDensity, cTexts, cComps, cDocs_zip, cDistToST = clusterFeatures
-
-    for label in cLabels:
-        textsIn = cTexts[label]
-        density = cDensity[label]
-        compsIn = cComps[label].items()
-        distToST = cDistToST[label]
-        zscore = zscoreArr[label]
-
+    for label, textsIn, density in zip(cLabels, cTexts, cDensity):
         dataIn = [item[0] for item in enumerate(tLabels) if item[1] == label]
         dataOut = [item[0] for item in enumerate(tLabels) if item[0] not in dataIn]
+        vecsIn = feaVecs[dataIn, :]
+        compsIn = cComps[label].items()
         cashIn = cashInCluster(textsIn)
         tNumIn = len(dataIn)
 
@@ -147,72 +135,59 @@ def clusterScoring(tweetClusters, clusterFeatures, zscoreArr):
         if cashNum in [0, 1]: cashNum += 0.1
         if compsNum in [0, 1]: compsNum += 0.1
 
-
-
-        #dotNum = math.log(tNumIn+1)
+        dotNum = math.log(tNumIn)
         #inDist = np.mean(distsIn)
         #compScore = float(compsNum)/tNumIn
-        #cashScore = float(tNumIn)/cashNum
-        #inDist = 1.0/(1.0 + math.exp(density))
-        #compScore = math.log(1+float(compsNum)/tNumIn)
-        #cashScore = 1/math.log(1+cashNum)
-        #distToSTweet = math.log(1+distToST[0])
-        #distToSNews = math.log(2-distToST[1])
-        #distToSTweet = 1/(1+math.exp(-distToST[0]))
-        #distToSNews = 1/(1+math.exp(distToST[1]))
+        #cashScore = float(cashNum)/tNumIn
 
-        dotNum = tNumIn*1.0/(tNumIn+1)
         inDist_center = None
         if distsIn is not None:
-            #inDist_center = 1.0/(1.0 + math.exp(np.mean(distsIn)))
-            inDist_center = np.mean(distsIn)
-        inDist = 1-density
-        compScore = 1/(1+math.exp(-float(compsNum)/tNumIn))
-        cashScore = 1/(1+math.exp(float(cashNum)/tNumIn))
-        distToSTweet = distToST[0]
-        distToSNews = 1-distToST[1]
-        if zscore > 0:
-            zscore = 1/(1+math.exp(-zscore))
-        else: zscore = 0.0
+            inDist_center = 1.0/(1.0 + math.exp(np.mean(distsIn)))
+        inDist = 1.0/(1.0 + math.exp(density))
+        #compScore = float(compsNum)/tNumIn
+        #cashScore = float(tNumIn)/cashNum
+        compScore = math.log(1+float(compsNum)/tNumIn)
+        cashScore = 1/math.log(1+cashNum)
+        distToST = distToSeed(vecsIn, seedTweetVecs)
+        distToSTweet = math.log(1+distToST[0])
+        distToSNews = math.log(2-distToST[1])
 
-        # flag : r
-        #scoreArr = [dotNum, inDist, compScore, cashScore, distToSTweet, distToSNews, zscore]
-        # flag : rr
-        scoreArr = [inDist, compScore, distToSTweet, distToSNews, zscore]
-        # flag : rs
-        #scoreArr = [dotNum, inDist, compScore, distToSTweet, distToSNews, zscore]
+        scoreArr = [dotNum, inDist, compScore, cashScore, distToSTweet] #, distToSNews]
         #scoreArr = [dotNum, inDist_center, compScore, cashScore, distToSTweet]
-        #score = np.prod(scoreArr)
-        score = np.sum(scoreArr)
+        score = np.prod(scoreArr)
 
-        #print "## scoring setting", setting, aloneFeaId, looFeaId
-        if setting == 0:
-            # all
-            clusterScore.append(score)
-        elif setting == 1:
-            #alone
-            clusterScore.append(scoreArr[aloneFeaId])
-            #clusterScore.append(-label)
-        elif setting == 2:
-            # held-out
-            clusterScore.append(np.sum(scoreArr[:looFeaId]) + np.sum(scoreArr[looFeaId+1:]))
-
-            #clusterScore.append(np.prod(scoreArr[:looFeaId]) * np.prod(scoreArr[looFeaId+1:]))
+        # all
+        clusterScore.append(score)
+        # separate
+        #clusterScore.append(np.prod([inDist, compScore, cashScore, distToSTweet]))
+        #clusterScore.append(np.prod([dotNum, compScore, cashScore, distToSTweet]))
+        #clusterScore.append(np.prod([dotNum, inDist, cashScore, distToSTweet]))
+        #clusterScore.append(np.prod([dotNum, inDist, compScore, distToSTweet]))
+        #clusterScore.append(np.prod([dotNum, inDist, compScore, cashScore]))
 
         #scoreArr = [tNumIn, dotNum, inDist, compScore, compsNum, cashScore, distToSTweet]
         scoreArr = [round(item, 2) for item in scoreArr] + compsIn
         clusterScoreDetail.append(scoreArr)
     return clusterScore, clusterScoreDetail
 
-def clusterSummary(sumFlag, clusterScore, cLabels, tLabels, feaVecs, topK_c, topK_t):
+def clusterSummary(sumFlag, clusterScore, cLabels, tLabels, docDist, cDocs_zip, feaVecs, topK_c, topK_t):
     topK_c = min(topK_c, len(clusterScore))
     # ranking and summarize clusters
     tweetClusters = []
     for label, score in sorted(zip(cLabels, clusterScore), key = lambda a:a[1], reverse=True)[:topK_c]:
         dataIn = [item[0] for item in enumerate(tLabels) if item[1] == label]
         topK_t = min(topK_t, len(dataIn))
+        ######################
+        # sum method 1_ by dist
+        if sumFlag == 1:
+            dists = list(docDist[:,label])
+            distsIn = [(docid, dists[docid]) for docid in dataIn]
+            sortedData = sorted(distsIn, key = lambda item: item[1])[:topK_t]
+        # sum method 2, by same num
+        elif sumFlag == 2:
+            dataIn_unique_top = Counter(dict(cDocs_zip[label])).most_common(topK_t)
         # sum method 3, by nn of thred_0.9. Work Best
-        if sumFlag == 3:
+        elif sumFlag == 3:
             vecsIn = feaVecs[dataIn,:]
             dataIn_unique_top = [(dataIn[idx], num) for idx, num in sumACluster("eu", vecsIn, topK_t, 0.2)]
         ######################
@@ -221,7 +196,7 @@ def clusterSummary(sumFlag, clusterScore, cLabels, tLabels, feaVecs, topK_c, top
     return tweetClusters
 
 # algor: "kmeans", "affi", "spec", "agg"(ward-hierarchical), "dbscan"
-def clusterTweets(algor, documents, feaVecs, clusterArg):
+def clusterTweets(algor, documents, feaVecs, clusterArg, snp_comp, symCompHash):
     docDist = None
     if algor == "kmeans" or algor == "default":
         # kmeans: fast, a little bit worse performance than agglomerative
@@ -239,62 +214,57 @@ def clusterTweets(algor, documents, feaVecs, clusterArg):
         #AgglomerativeClustering
         clusterModel = cluster.AgglomerativeClustering(n_clusters=clusterArg).fit(feaVecs)
     elif algor == "dbscan":
-        clusterModel = cluster.DBSCAN(eps=clusterArg, min_samples=5, metric='euclidean', algorithm='auto', n_jobs=8).fit(feaVecs)
+        clusterModel = cluster.DBSCAN(eps=clusterArg, min_samples=5, metric='euclidean', algorithm='auto', n_jobs=10).fit(feaVecs)
 
     tLabels = clusterModel.labels_
+    #if algor == "dbscan":
+    #    if -1 in tLabels:
+    #        tLabels = [item+1 for item in tLabels]
+    #print tLabels
     cLabels = sorted(Counter(tLabels).keys())
     if -1 in cLabels: 
         print "Cluster -1: ", list(tLabels).count(-1)
         cLabels.remove(-1)
     
-    centroids = []
-    for clbl in cLabels:
-        dataIn = [item[0] for item in enumerate(tLabels) if item[1] == clbl]
-        vecsIn = feaVecs[dataIn, :]
-        if issparse(vecsIn):
-            centroids.append(csr_matrix(csr_matrix.mean(vecsIn, axis=0)))
-        centroids.append(np.mean(vecsIn, axis=0))
-    if docDist is None:
-        if issparse(centroids):
-            centroids = vstack(centroids, format='csr')
-        if not issparse(feaVecs):
-            docDist = pairwise.euclidean_distances(feaVecs, centroids)
-    return cLabels, tLabels, centroids, docDist
-
-def getClusterFeatures(tweetClusters, documents, feaVecs, seedTweetVecs, snp_comp, symCompHash):
-    cLabels, tLabels, centroids, docDist = tweetClusters
 
     cTexts = []
     cDocs_zip = []
     cComps = []
+    centroids = []
     cDensity = []
-    cDistToST = []
+    #print cLabels
     for clbl in cLabels:
         dataIn = [item[0] for item in enumerate(tLabels) if item[1] == clbl]
         vecsIn = feaVecs[dataIn, :]
+        if not issparse(vecsIn):
+            #centroids.append(csr_matrix(csr_matrix.mean(vecsIn, axis=0)))
+            centroids.append(np.mean(vecsIn, axis=0))
         textsIn = [documents[docid] for docid in dataIn]
         textsIn = Counter(textsIn).items()
         dataIn_zip = [(documents.index(text), num) for text, num in textsIn]
         compsIn = compInCluster(textsIn, snp_comp, symCompHash, False, True)
-        inDist = pairwise.euclidean_distances(vecsIn, vecsIn)
-        distToST = distToSeed(vecsIn, seedTweetVecs)
-
         cTexts.append(textsIn)
         cComps.append(compsIn)
         cDocs_zip.append(dataIn_zip)
+        inDist = pairwise.euclidean_distances(vecsIn, vecsIn)
         cDensity.append(np.mean(inDist))
-        cDistToST.append(distToST)
-
-
         if 0:
             print clbl, cDensity[-1]
             for item in textsIn: print item
             print compsIn
 
-    return docDist, cDensity, cTexts, cComps, cDocs_zip, cDistToST
+    # spectral
+    if docDist is None:
+        #if issparse(centroids):
+        #    print "Sparse centroid"
+        #    centroids = vstack(centroids, format='csr')
+        #    docDist = None
+        if not issparse(feaVecs):
+            docDist = pairwise.euclidean_distances(feaVecs, centroids)
+    return cLabels, tLabels, docDist, cDensity, cTexts, cComps, cDocs_zip
 
 
-def clustering(algor, documents, feaVecs, clusterArg, topK_c, topK_t, snp_comp, symCompHash, seedTweetVecs):
+def clustering(algor, documents, feaVecs, clusterArg, topK_c, topK_t, burstySeqIdArr, snp_comp, symCompHash, seedTweetVecs):
 
     if algor == "agg" and issparse(feaVecs):
         feaVecs = feaVecs.toarray()

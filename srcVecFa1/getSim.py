@@ -27,6 +27,45 @@ sys.path.append(os.path.expanduser("~") + "/Scripts/")
 from hashOperation import statisticHash
 
 from statistic import distDistribution
+def getSim(dataset, thred_radius_dist):
+    dataset = dataset[:200000,]
+
+    # using
+    if 0:
+        nnModel = NearestNeighbors(radius=thred_radius_dist, algorithm='brute', metric='minkowski', p=2, n_jobs=1)
+        #nnModel = LSHForest(radius=thred_radius_dist)
+        nnModel.fit(dataset)
+        #ngDistArray, ngIdxArray = nnModel.radius_neighbors(dataset)
+        ngIdxArray = nnModel.radius_neighbors(dataset, return_distance=False)
+    else:
+        nnModel = KDTree(dataset, leaf_size=1.5*dataset.shape[0], metric="euclidean")
+        ngIdxArray = nnModel.query_radius(dataset, thred_radius_dist)
+
+    #ngIdxArray = np.asarray(ngIdxArray)
+    print ngIdxArray.shape
+    print "## Nearest neighbor with radius ", thred_radius_dist, " obtained at", time.asctime()
+    return ngIdxArray
+
+def trainLSH(para, dataset, thred_radius_dist):
+    nnModel = getLshIndex(para, dataset)
+    print "## default l, k, prob", para.l, para.k, nnModel.get_num_probes()
+
+    #distMatrix = pairwise.cosine_distances(dataset)
+    #nns_fromSim = [sorted(enumerate(distMatrix[i]), key = lambda a:a[1])[:10] for i in range(distMatrix.shape[0])]
+    #print "## nn by cosine sim obtained.", time.asctime()
+
+    prob_cands = range(para.l, 200, 100)
+    best_num_probes, max_jc = para.l, 0.0
+    for num_probes in prob_cands:
+        t1 = timeit.default_timer()
+        ngIdxArray, indexedInCluster, clusters = getLshNN_original(dataset, nnModel, thred_radius_dist, num_probes)
+        t2 = timeit.default_timer()
+        print "## probs", num_probes, "\t time", round(t2-t1, 2)
+        jc = eval_sklearn_nnmodel(nns_fromSim, ngIdxArray)
+        if jc > max_jc:
+            max_jc = jc
+            best_num_probes = num_probes
+    return best_num_probes
 
 # nns_fromSim used for eval lsh performance when training
 def getSim_falconn(dataset, thred_radius_dist, trained_num_probes, nns_fromSim, validDayWind, dayLeftWindow):
@@ -189,37 +228,28 @@ def getLshNN_ori_valid(para, validDayWind, dayLeftWindow, dataset, thred_radius_
     byDays = True
     return np.asarray(ngIdxArray), byDays
 
-def getSim_dense(day, centroids, dataset, thred_radius_dist, vdw, rel_dw):
-    print "## Begin calculating centroid dataset sim.", len(centroids), dataset.shape
-    dataset_vdw = dataset[range(vdw[0], vdw[1]),:]
 
-    if 1:
-        nnModel = NearestNeighbors(radius=thred_radius_dist, algorithm='brute', metric='minkowski', p=2, n_jobs=1)
-        num_centroids = len(centroids)
-        #allData = np.append(centroids, dataset, axis=0)
-        nnModel.fit(dataset)
-        ngIdxArray = nnModel.radius_neighbors(centroids, thred_radius_dist, return_distance=False)
-    if 0:
-        ngIdxArray = []
-        for vecId, vec in enumerate(centroids):#.reshape(1, -1).tolist()
-            distArr = euclidean_distances(np.array([vec]), dataset_vdw)
-            nn_keys = [i+vdw[0] for i, eu in enumerate(distArr[0]) if eu <= thred_radius_dist]
-            ngIdxArray.append(np.asarray(nn_keys, dtype=np.int32))
-        ngIdxArray = np.asarray(ngIdxArray)
-
-    print "## nn cal completed", time.asctime()
-    return ngIdxArray
-
-def getSim_sparse(day, centroids, dataset, thred_radius_dist, vdw, rel_dw):
-    print "## Begin calculating centroid dataset sim.", dataset.shape
+def getSim_sparse(dataset, thred_radius_dist, validDayWind, dayLeftWindow):
+    print "## Begin calculating tfidf sim.", dataset.shape
     ngIdxArray = []
-    dataset_vdw = dataset[range(vdw[0], vdw[1]),:]
+    for vdw, rel_dw in zip(validDayWind, dayLeftWindow):
+        if len(vdw) == 1:
+            ngIdxArray.append(None)
+            continue
+        dataset_vdw = dataset[range(vdw[0], vdw[1]),:]
 
-    #distArr = euclidean_distances(centroids, dataset_vdw)
-    for vecId, vec in enumerate(centroids):
-        distArr = euclidean_distances(vec, dataset_vdw)
-        nn_keys = [i+vdw[0] for i, eu in enumerate(distArr[0]) if eu <= thred_radius_dist]
-        ngIdxArray.append(np.asarray(nn_keys, dtype=np.int32))
+        #distArr = euclidean_distances(dataset_vdw[0], dataset_vdw)
+        #distArr = euclidean_distances(dataset_vdw[range(rel_dw[0], rel_dw[1]), :], dataset_vdw)
+        ngIdxArray_day = []
+        for dataidx in range(rel_dw[0], rel_dw[1]):
+            distArr = euclidean_distances(dataset_vdw[dataidx], dataset_vdw)
+            nn_keys = [i for i, eu in enumerate(distArr[0]) if eu <= thred_radius_dist]
+            ngIdxArray_day.append(np.asarray(nn_keys, dtype=np.int32))
 
-    print "## nn cal completed", vecId, time.asctime()
+            if (dataidx) % 10000 == 0:
+                print "## nn cal completed", dataidx+1, time.asctime()
+
+        ngIdxArray_day = np.asarray(ngIdxArray_day) + vdw[0]
+        ngIdxArray.append(ngIdxArray_day)
+
     return np.asarray(ngIdxArray)

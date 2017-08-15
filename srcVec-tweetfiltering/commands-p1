@@ -1,0 +1,19 @@
+---------------------------------------DEV
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -cluster dbscan -cls 1 -clsfs .p1.dev.nozs -kc 30 -kcs 5 > ../ni_data/output/p1.dev.nozs.dbscan &
+
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 30 -zs 0 -zsfs .p1.dev.atw30 -delta 10 -cluster dbscan -cls 1 -clsfs .p1.dev.zs10.atw30 -kc 30 -kcs 5 > ../ni_data/output/p1.dev.zs10.dbscan.atw30 &
+
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 30 -zs 0 -zsfs .p1.dev.atw30-14 -delta 10 -cluster dbscan -cls 1 -clsfs .p1.dev.zs10.atw14 -kc 30 -kcs 5 > ../ni_data/output/p1.dev.zs10.dbscan.atw14 &
+
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 0 -zs 0 -zsfs .p1.dev.ptw30 -delta 10 -cluster dbscan -cls 1 -clsfs .p1.dev.zs10.ptw30 -kc 30 -kcs 5 > ../ni_data/output/p1.dev.zs10.dbscan.ptw30 &
+
+python mainVec.py -in ../ni_data/word/ -vld d -out d -testvec 3 -tf 1 -ltw 30 -rtw 0 -zs 0 -zsfs .p1.dev.ptw30-14 -delta 10 -cluster dbscan -cls 1 -clsfs .p1.dev.zs10.ptw14 -kc 30 -kcs 5 > ../ni_data/output/p1.dev.zs10.dbscan.ptw14
+
+
+
+---------------------------------------TEST
+python mainVec.py -in ../ni_data/word/ -vld t -out t -testvec 3 -cluster dbscan -cls 1 -clsfs .p1.test.nozs -kc 30 -kcs 5 > ../ni_data/output/p1.test.nozs.dbscan &
+
+
+tbd
+test.zs.ptw14

@@ -7,9 +7,10 @@ from collections import Counter
 from sklearn.metrics import pairwise
 
 from tweetVec import * #loadTweetsFromDir, texts2TFIDFvecs, trainDoc2Vec, trainDoc2Vec
-from getSim import getSim_falconn, getSim_sparse, getSim_dense
-from tweetNNFilt import getDF, getBursty
-from tweetClustering import clustering, outputTCluster, compInDoc, clusterTweets, getClusterFeatures, clusterScoring, clusterSummary
+from getSim import getSim, getSim_falconn, getSim_sparse
+from tweetNNFilt import getDF, getBursty, getBursty_tw1, getBursty_tw2, filtering_by_zscore, getBursty_byday, tweetForClustering
+from tweetSim import testVec_byLSH
+from tweetClustering import clustering, outputTCluster, compInDoc
 from evalRecall import evalTClusters, stockNewsVec, outputEval, dayNewsExtr, evalOutputEvents
 from statistic import distDistribution, idxTimeWin, getValidDayWind, statGoldNews, zsDistribution
 from statistic import output_zsDistri_day, stat_nn_performance, stat_wordNum
@@ -117,6 +118,14 @@ def parseArgs(args):
 snpFilePath = "../data/snp500_sutd"
 stock_newsDir = '../ni_data/stocknews/'
 newsVecPath = "../ni_data/tweetVec/stockNewsVec1_Loose1"
+doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model"
+#l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2013.finP"
+#l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2013"
+l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2016.finP.dim100"
+#l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2016.dim100"
+#l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large2016.dim200"
+largeCorpusPath = os.path.expanduser("~")+"/corpus/tweet_finance_data/tweetCleanText2016"
+#largeCorpusPath = os.path.expanduser("~")+"/corpus/tweet_finance_data/tweetCleanText2013.test"
 word2vecModelPath = "../ni_data/tweetVec/w2v1010100-en"
 dictPath = "../ni_data/tweetVec/tweets.dict"
 corpusPath = "../ni_data/tweetVec/tweets.mm"
@@ -153,9 +162,9 @@ if __name__ == "__main__":
 
     if arg_zsDelta is not None: thred_zscore = float(arg_zsDelta)
 
-    if calCluster != "-" and arg_Kc is None: topK_c = 30
+    if calCluster != "-" and arg_Kc is None: topK_c = 20
     if calCluster != "-" and arg_Kt is None: topK_t = 5
-    if calCluster != "-" and arg_KcStep is None: Kc_step = int(topK_c)
+    if calCluster != "-" and arg_KcStep is None: Kc_step = 5
     if arg_Kc is not None: topK_c = int(arg_Kc)
     if arg_Kt is not None: topK_t = int(arg_Kt)
     if arg_KcStep is not None: Kc_step = int(arg_KcStep)
@@ -165,7 +174,7 @@ if __name__ == "__main__":
     default_num_probes_lsh = 20
     Para_dbscan_eps = 0.2
     Para_numClusters = -1
-    Para_newsDayWindow = [0]#[-1, 0, +1] #[0]
+    Para_newsDayWindow = [0]
 
     Paras = [calDF, calZs, calCluster, Para_train, Para_test, default_num_probes_lsh, thred_radius_dist, thred_zscore, algor, Para_numClusters, Para_dbscan_eps, topK_c, topK_t, Para_newsDayWindow, timeWindow]
     print "**Para setting"
@@ -231,7 +240,6 @@ if __name__ == "__main__":
     vecNews = cPickle.load(newsVecFile)
     newsSeqDayHash = cPickle.load(newsVecFile)
     newsSeqComp = cPickle.load(newsVecFile)
-    newsVecFile.close()
     #statGoldNews(dayNews)
    ##############
 
@@ -240,7 +248,7 @@ if __name__ == "__main__":
 
     ##############
     dayArr = sorted(dayTweetNumHash.keys()) # ['01', '02', ...]
-    if timeWindow is not None:
+    if calDF == "1" and timeWindow is not None:
         dayWindow, dayRelWindow = idxTimeWin(dayTweetNumHash, timeWindow)
         validDayWind = getValidDayWind(validDays, dayArr, dayWindow, dayRelWindow)
         print validDayWind
@@ -248,13 +256,17 @@ if __name__ == "__main__":
     ##############
 
     ##############
+    # training
+    trainDoc2Vec(Para_train, doc2vecModelPath, largeCorpusPath, l_doc2vecModelPath, tweetTexts_all)
+
+    ##############
     # testing/using
-    if calCluster == "1" or calZs == "1":
-    #if calCluster == "1":
-        #tweetTexts_all = tweetTexts_all[:300000]
+    if calDF == "1" or calCluster == "1":
         dataset = None
+        if Para_test[0] in ['0', '1', '2']:
+            dataset = getVec(Para_test[0], doc2vecModelPath, l_doc2vecModelPath, len(tweetTexts_all), word2vecModelPath, None)
         if Para_test.find('3') >= 0:
-            dataset_w2v = getVec('3', None, None, None, word2vecModelPath, tweetTexts_all+seedTweets)
+            dataset_w2v = getVec('3', doc2vecModelPath, l_doc2vecModelPath, len(tweetTexts_all), word2vecModelPath, tweetTexts_all+seedTweets)
             seedTweetVecs = dataset_w2v[range(-20, 0), :]
             if dataset is None:
                 dataset = dataset_w2v[:-20,:]
@@ -272,98 +284,106 @@ if __name__ == "__main__":
         dataset = dataset.astype(np.float32)
         print "## Dataset vector obtained. ", time.asctime()
 
+    #stat_wordNum(tweetTexts_all, seqDayHash, validDays)
+    #stat_nn_performance(dataset, tweetTexts_all)# testing vec's performace by finding nearest neighbor
+    #distDistribution(dataset)
+
+    ##############
+
+    ##############
+    if calDF == '1':
+        # cal NN, do not store NN result, takes too much space. Each day's NN can be calculated in 5 mins
+        if Para_test == "4":
+            ngIdxArray = getSim_sparse(dataset, thred_radius_dist, validDayWind, dayRelWindow)
+            indexedInCluster = None
+            clusters = None
+        else:
+            ngIdxArray, indexedInCluster, clusters = getSim_falconn(dataset, thred_radius_dist, default_num_probes_lsh, None, validDayWind, dayRelWindow)
+            #testVec_byLSH(ngIdxArray, tweetTexts_all)
+
+        simDfDayArr = getDF(ngIdxArray, seqDayHash, timeWindow, indexedInCluster, clusters)
+        ngIdxArray = None # end of using
+        dfFile = open(dfFilePath, "wb")
+        cPickle.dump(simDfDayArr, dfFile)
+        print "## simDfDayArr writen", dfFilePath, time.asctime()
+    elif calDF == '0':
+        dfFile = open(dfFilePath, "rb")
+        simDfDayArr = cPickle.load(dfFile)
+        print "## simDfDayArr loaded", dfFilePath, time.asctime()
+
+    if calZs == '1':
+        if len(simDfDayArr) < 50: # stored by day
+            if 1:
+                # calculate zs only within sub timewindows
+                #sub_timewindow = [(-i, i) for i in range(11, 15)]
+                #sub_timewindow = [(-i, i) for i in [25, 20, 15, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]
+                #sub_timewindow = [(-i, i) for i in [15, 0]]
+                #sub_timewindow = [(-i, 0) for i in range(1, 15)]
+                sub_timewindow = [(-i, i) for i in [14]]
+                for sub_tw in sub_timewindow:
+                    sub_zscoreDayArr = getBursty_byday(simDfDayArr, dayTweetNumHash, sub_tw)
+                    sub_zsFile = open(zscoreFilePath+str(sub_tw[0]), "wb")
+                    cPickle.dump(sub_zscoreDayArr, sub_zsFile)
+                    print "## zscoreDayArr stored", sub_zsFile.name, time.asctime()
+            zscoreDayArr = getBursty_byday(simDfDayArr, dayTweetNumHash, timeWindow)
+        simDfDayArr = None # end of using
+        zsFile = open(zscoreFilePath, "wb")
+        cPickle.dump(zscoreDayArr, zsFile)
+    elif calZs == '0':
+        zsFile = open(zscoreFilePath, "rb")
+        zscoreDayArr = cPickle.load(zsFile)
+        print "## zscoreDayArr obtained", zscoreFilePath, time.asctime()
+    #sys.exit(0)
+
+    #output_zsDistri_day(validDays, zscoreDayArr, simDfDayArr, dayTweetNumHash, tweetTexts_all)
     ##############
 
     ##############
     # filtering tweets, clustering
     if calCluster == "1":
         dayClusters = []
-        #for day in dayArr:
         for day in validDays:
-            tweetFCSeqIdArr = [docid for docid, dateItem in seqDayHash.items() if dateItem == day]
+            startNumDay = sum([num for dayItem, num in dayTweetNumHash.items() if int(dayItem)<int(day)])
+            #if day != "21": continue
+
+            if burstyFlag != '1': # choose all tweets
+                tweetFCSeqIdArr = [docid for docid, dateItem in seqDayHash.items() if dateItem == day]
+            else:
+                tweetFCSeqIdArr, zscoresStat = tweetForClustering(day, seqDayHash, zscoreDayArr, thred_zscore, startNumDay, dayTweetNumHash)
+            if tweetFCSeqIdArr is None: continue
+
+            ######################
+            # statistic distribution of zscore
+            if 0:
+                zsDistribution(zscoresStat)
+                continue
+
+            #########################################################
+            # obtain bursty texts, featureVectors
             texts_day = [tweetTexts_all[seqid] for seqid in tweetFCSeqIdArr]
             dataset_day = dataset[tweetFCSeqIdArr, :]
 
             clusterArg = getClusteringArg(algor, Para_dbscan_eps, Para_numClusters, len(tweetFCSeqIdArr))
             print "## Begin clustering in ", day, " #tweet, #vecDim", dataset_day.shape, " algorithm", algor, " clusterArg", clusterArg
+            tweetClusters, clusterScoreDetail = clustering(algor, texts_day, dataset_day, clusterArg, topK_c, topK_t, tweetFCSeqIdArr, snp_comp, symCompHash, seedTweetVecs)
 
-            tweetClusters = clusterTweets(algor, texts_day, dataset_day, clusterArg)
-            cLabels, tLabels, centroids, docDist = tweetClusters
-            print "## Clustering done. ", " #cluster", len(cLabels), time.asctime()
+            if 0:
+                outputTCluster(tweetClusters, texts_day, clusterScoreDetail)
 
-            dayClusters.append((day, tweetClusters))
-            print len(dayClusters[0])
-        if len(dayClusters) > 0:
-            print len(dayClusters[0])
+            dayClusters.append((day, texts_day, dataset_day, tweetClusters))
+
+        if len(dayClusters) > 1:
             clusterFile = open(clusterFilePath, "w")
             cPickle.dump(dayClusters, clusterFile)
-            clusterFile.close()
-            print "## Clustering results stored.", clusterFilePath, time.asctime()
     elif calCluster == "0":
         clusterFile = open(clusterFilePath, "r")
         dayClusters = cPickle.load(clusterFile)
-        clusterFile.close()
-        print len(dayClusters[0])
-        print "## Clustering results loaded.", clusterFilePath, time.asctime()
-
-    if calZs == "1":
-        dayOutClusters = []
-        for dayClusterItem in dayClusters:
-            print len(dayClusterItem)
-            #print dayClusterItem[0]
-            #print len(dayClusterItem[1]), dayClusterItem[1][0]
-            #print len(dayClusterItem[2]), dayClusterItem[2][0]
-            #print len(dayClusterItem[3]), dayClusterItem[3]
-            #(day, texts_day, dataset_day, tweetClusters) = dayClusterItem
-            (day, tweetClusters) = dayClusterItem
-            if day not in validDays: continue
-            dayInt = int(day)-1
-
-            cLabels, tLabels, centroids, docDist = tweetClusters
-            print "## Clustering obtained. ", clusterFilePath, " #cluster", len(cLabels), time.asctime()
-
-            # calculate centroids nnDF/zscore in timeWindow
-            if Para_test == "4":
-                ngIdxArray = getSim_sparse(day, centroids, dataset, thred_radius_dist, validDayWind[dayInt], dayRelWindow[dayInt])
-            else:
-                ngIdxArray = getSim_dense(day, centroids, dataset, thred_radius_dist, validDayWind[dayInt], dayRelWindow[dayInt])
-            #ngIdxArray, indexedInCluster, clusters = getSim_falconn(dataset, thred_radius_dist, default_num_probes_lsh, None, validDayWind, dayRelWindow)
-            simDfArr = getDF(day, ngIdxArray, seqDayHash, timeWindow)
-            zscoreArr = getBursty(simDfArr, dayTweetNumHash, day, timeWindow)
-            print "## Cluster zscore calculating done.", time.asctime()
-
-            tweetFCSeqIdArr = [docid for docid, dateItem in seqDayHash.items() if dateItem == day]
-            texts_day = [tweetTexts_all[seqid] for seqid in tweetFCSeqIdArr]
-            dataset_day = dataset[tweetFCSeqIdArr, :]
-
-            clusterFeatures = getClusterFeatures(tweetClusters, texts_day, dataset_day, seedTweetVecs, snp_comp, symCompHash)
-            #docDist, cDensity, cTexts, cComps, cDocs_zip, cDistToST = clusterFeatures
-            print "## Cluster zscore calculating done.", time.asctime()
-
-            clusterScore, clusterScoreDetail = clusterScoring(tweetClusters, clusterFeatures, zscoreArr)
-            print "## Clustering scoring done.", time.asctime()
-
-            sumFlag = 3
-            outputClusters = clusterSummary(sumFlag, clusterScore, cLabels, tLabels, dataset_day, topK_c, topK_t)
-            print "## Clustering summary done.", time.asctime()
-
-            if 1:
-                outputTCluster(outputClusters, texts_day, clusterScoreDetail)
-
-            dayOutClusters.append((day, texts_day, dataset_day, outputClusters))
-        clusterOutputFile = open(clusterFilePath+zsFileSuff, "w")
-        cPickle.dump(dayOutClusters, clusterOutputFile)
-        clusterOutputFile.close()
-        print "## Clustering results stored.", clusterFilePath+zsFileSuff, time.asctime()
-    else:
-        clusterOutputFile = open(clusterFilePath+zsFileSuff, "r")
-        dayOutClusters = cPickle.load(clusterOutputFile)
-        clusterOutputFile.close()
 
 
-    ##############
-    ## evaluation and output
-    evalOutputEvents(dayOutClusters, outputDays, devDays, testDays, topK_c, Kc_step, Para_newsDayWindow, newsSeqDayHash, vecNews, dayNews, newsSeqComp, snp_comp, symCompHash)
+    if calCluster != "-":
+        ##############
+        ## evaluation and output
+        evalOutputEvents(dayClusters, outputDays, devDays, testDays, topK_c, Kc_step, Para_newsDayWindow, newsSeqDayHash, vecNews, dayNews, newsSeqComp, snp_comp, symCompHash)
 
     print "Program ends at ", time.asctime()
 

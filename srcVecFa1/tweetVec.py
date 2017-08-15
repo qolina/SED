@@ -197,15 +197,12 @@ def loadTweetsFromDir(dataDirPath):
         if not fileItem.startswith("tweetCleanText"):
             continue
         dayStr = fileItem[-2:]
-        #if dayStr == "07":break
-            
+        #if dayStr == "05":
+        #    break
         rawTweetHash = fileReader.loadTweets(dataDirPath + "/" + fileItem) # tid:text
         #print "## End of reading file. [raw tweet file][cleaned text]  #tweets: ", len(rawTweetHash), fileItem
         tids = rawTweetHash.keys()#[:1000]
         texts = rawTweetHash.values()#[:1000]
-
-        word2vecModelPath = "../ni_data/tweetVec/w2v1010100-en"
-        #dataset = getVec('3', None, None, len(tweetTexts_all), word2vecModelPath, texts)
 
         for seqid, tid in enumerate(tids, start=len(tweetTexts_all)):
             seqTidHash[seqid] = tid
@@ -296,35 +293,6 @@ if __name__ == "__main__":
     #print "\n".join(tweetTexts_all)
     print sorted(dayTweetNumHash.items(), key = lambda a:a[0])
 
-    Para_train, Para_test = ('-', '3')
-
-    doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model"
-    l_doc2vecModelPath = "../ni_data/tweetVec/tweets.doc2vec.model.large"
-    largeCorpusPath = os.path.expanduser("~")+"/corpus/tweet_finance_data/tweetCleanText2016"
-    word2vecModelPath = "../ni_data/tweetVec/w2v1010100-en"
-
-    ##############
-    # training
-    trainDoc2Vec(Para_train, doc2vecModelPath, largeCorpusPath, l_doc2vecModelPath, tweetTexts_all)
-
-    ##############
-    # testing/using
-    if Para_test in ['0', '1', '2']:
-        dataset = getVec(Para_test, doc2vecModelPath, l_doc2vecModelPath, len(tweetTexts_all), word2vecModelPath, None)
-    elif Para_test == '3':
-        dataset = getVec(Para_test, doc2vecModelPath, l_doc2vecModelPath, len(tweetTexts_all), word2vecModelPath, tweetTexts_all)
-
-
-    ##############
-    # used for lsi, tfidf
-    dictPath = "../ni_data/tweetVec/tweets.dict"
-    corpusPath = "../ni_data/tweetVec/tweets.mm"
-    lsiModelPath = "../ni_data/tweetVec/model.lsi"
-    simIndexPath = "../ni_data/tweetVec/tweets.index"
-
-    corpus_tfidf = texts2TFIDFvecs(tweetTexts_all, dictPath, corpusPath)
-
-    #texts2LSIvecs(tweetTexts_all, dictPath, corpusPath)
-    #lsi_vec_sim(dictPath, corpusPath, lsiModelPath, simIndexPath)
+    dataset = getVec(Para_test, doc2vecModelPath, l_doc2vecModelPath, len(tweetTexts_all), word2vecModelPath, tweetTexts_all)
 
     print "Program ends at ", time.asctime()

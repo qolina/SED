@@ -197,8 +197,8 @@ def loadTweetsFromDir(dataDirPath):
         if not fileItem.startswith("tweetCleanText"):
             continue
         dayStr = fileItem[-2:]
-        #if dayStr == "07":break
-            
+        #if dayStr == "05":
+        #    break
         rawTweetHash = fileReader.loadTweets(dataDirPath + "/" + fileItem) # tid:text
         #print "## End of reading file. [raw tweet file][cleaned text]  #tweets: ", len(rawTweetHash), fileItem
         tids = rawTweetHash.keys()#[:1000]

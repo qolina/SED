@@ -10,7 +10,7 @@ from tweetVec import * #loadTweetsFromDir, texts2TFIDFvecs, trainDoc2Vec, trainD
 from getSim import getSim_falconn, getSim_sparse, getSim_dense
 from tweetNNFilt import getDF, getBursty
 from tweetClustering import clustering, outputTCluster, compInDoc, clusterTweets, getClusterFeatures, clusterScoring, clusterSummary
-from evalRecall import evalTClusters, stockNewsVec, outputEval, dayNewsExtr, evalOutputEvents
+from evalRecall import evalOutputFAEvents, loadGold
 from statistic import distDistribution, idxTimeWin, getValidDayWind, statGoldNews, zsDistribution
 from statistic import output_zsDistri_day, stat_nn_performance, stat_wordNum
 
@@ -20,33 +20,41 @@ sys.path.append("../src/util/")
 import snpLoader
 import stringUtil as strUtil
 
-seedTweets = ["$71 , 000 in one trade by follwing their signals more info here $cvc $cvd $cve",
-"our penny stock pick on $ppch closed up another 51 . 31 today huge news $cce $cadx $grmn",
-"our penny stock alerts gained over 3100 in 6 months see our new pick $erx $rig $pot",
-"our stock picks have been seeing massive gains this year special update $nov $ery $tza",
-"our stock pick on $thcz is up 638 . 15 for our subscribers get our next pick early $tcb $mck $study",
-"gains over 2500 in one trade subscribe here $emo $emq $emr",
-"largest food and staples retailing earnings 1 $wmt 2 $cvs 3 $wba chart",
-"since your tweet was sent $aapl has dropped 3 . 185 see your featured tweet on market parse",
-"insider selling silvio barzi sells 5 , 290 shares of mastercard stock $ma",
-"volume alert fb 78 . 43 facebook inc $fb hit a high today of 78 . 94 closing the day 05/07/15 at 7    8 . 43 0 . 33 0",
+#goldFA = [("28", "[kick kicked] [0-0 0 0];start;off"),
+#("30", "[ramires chelsea];[goal 1-0 1 0] score;yes"),
+#("33", "[salomon kalou];run;box mazy"),
+#("35", "mikel;[yellow card booking] gerrard;foul;agger"),
+#("37", "[second half 2nd];[kick kicked] off"),
+#("40", "agger;[booked yellow card] tackle;mikel;challenge"),
+#("41", "[goal 2-0 2 0];[didier drogba chelsea] score"),
+#("42", "[frank lampard];[pass assist] ball;drogba"),
+#("37", "[andy carroll liverpool];[goal 2-1 2 1] score"),
+#("44", "[first half ht];[half time ht] [1-0 1 0]"),
+#("46", "[luis suarez];save;cech shot;forces"),
+#("48", "[andy carroll];line header;cech;over;claim;equalise"),
+#("50", "[full time final whistle gone] chelsea;champions;congratulations;[2-1 2 1];win")]
 
-"oracle ceo sees benefit if rival buys salesforce.com",
-"dow chemical to sell agrofresh for $860 mln in asset sale drive",
-"expedia inc first quarter profit tops expectations",
-"conocophillips first quarter profit falls sharply on oil price decline",
-"cigna profit beats estimate as it adds more customers",
-"solar panel maker first solar reports quarterly loss",
-"expedia inc maintains 2015 earnings guidance  cfo",
-"mcgraw hill education prepares for ipo",
-"obama to push case for trade deal at nike headquarters in oregon",
-"tattoo snafu irks inked apple watch wearers"
-]
+#goldFA = [
+#("137", "[kick kicked]  [0-0 0 0];start;off "),
+#("147", "[ramires chelsea];[goal 1-0 1 0]   score;yes   "),
+#("162", "[salomon kalou];run;box    mazy     "),
+#("174", "mikel;[yellow card booking]    gerrard;foul;agger  "),
+#("199", "[second half 2nd];[kick kicked]    off "),
+#("182", "agger;[booked yellow card] tackle;mikel;challenge"),
+#("205", "[goal 2-0 2 0];[didier drogba chelsea] score   "),
+#("206", "[frank lampard];[pass assist]  ball;drogba "),
+#("217", "[andy carroll liverpool];[goal 2-1 2 1]    score"),
+#("184", "[first half ht];[half time ht] [1-0 1 0]   "),
+#("227", "[luis suarez];save;cech    shot;forces "),
+#("237", "[andy carroll];line    header;cech;over;claim;equalise"),
+#("250", "[full time final whistle gone] chelsea;champions;congratulations;[2-1 2 1];win ")]
+
+seedTweets = []
 
 def getClusteringArg(algor, Para_dbscan_eps, Para_numClusters, tnum):
     clusterArg = None
     if algor == "dbscan":
-        clusterArg = Para_dbscan_eps 
+        clusterArg = Para_dbscan_eps
     else:
         if Para_numClusters != -1:
             clusterArg = Para_numClusters
@@ -75,11 +83,9 @@ def parseArgs(args):
     # None: even do not need to load
     # '0': load preCalculated
     # '1': need to calculate
-    arg_calDF = getArg(args, "-df") #'0', '1' or None
     arg_calZs = getArg(args, "-zs") #'0', '1' or None
     arg_calCluster = getArg(args, "-cls") #'0', '1' or None
 
-    arg_dfFileSuff = getArg(args, "-dffs") # ''
     arg_zsFileSuff = getArg(args, "-zsfs")
     arg_clsFileSuff = getArg(args, "-clsfs")
 
@@ -100,8 +106,8 @@ def parseArgs(args):
     if arg1 is None or arg_validDaysFlag is None or arg_testVec is None: # nessensary argument
         print "Usage: python mainVec.py -in inputFileDir -vld d -testvec 3"
         print "-vld [-out]:   dev/test/all to process/output"
-        print "[-df] [-zs] [-cls] calculate/load/ignore df|zscore|clustering"
-        print "[-dffs] [-zsfs] [-clsfs] file suffix of df|zscore|clustering"
+        print "[-zs] [-cls] calculate/load/ignore zscore|clustering"
+        print "[-zsfs] [-clsfs] file suffix of zscore|clustering"
         print "[-trainvec] -testvec     tweet vector"
         print "[-ltw] 30 [-rtw] 0"
         print "[-tf]    choose to use bursty tweet filtering"
@@ -110,13 +116,10 @@ def parseArgs(args):
         print "[-kc] [-kt] [-kcs] topK_c, topK_t, Kc_step"
         sys.exit(0)
 
-    return arg1, arg_calDF, arg_calZs, arg_calCluster, arg_dfFileSuff, arg_zsFileSuff, arg_clsFileSuff, arg_trainVec, arg_testVec, arg_leftTW, arg_rightTW, arg_validDaysFlag, arg_outputDaysFlag, arg_tfBurstyFlag, arg_zsDelta, arg_clusterAlgor, arg_Kc, arg_KcStep, arg_Kt
+    return arg1, arg_calZs, arg_calCluster, arg_zsFileSuff, arg_clsFileSuff, arg_trainVec, arg_testVec, arg_leftTW, arg_rightTW, arg_validDaysFlag, arg_outputDaysFlag, arg_tfBurstyFlag, arg_zsDelta, arg_clusterAlgor, arg_Kc, arg_KcStep, arg_Kt
 
 
 
-snpFilePath = "../data/snp500_sutd"
-stock_newsDir = '../ni_data/stocknews/'
-newsVecPath = "../ni_data/tweetVec/stockNewsVec1_Loose1"
 word2vecModelPath = "../ni_data/tweetVec/w2v1010100-en"
 dictPath = "../ni_data/tweetVec/tweets.dict"
 corpusPath = "../ni_data/tweetVec/tweets.mm"
@@ -125,14 +128,14 @@ corpusPath = "../ni_data/tweetVec/tweets.mm"
 if __name__ == "__main__":
     print "Program starts at ", time.asctime()
 
-    (dataDirPath, arg_calDF, arg_calZs, arg_calCluster, arg_dfFileSuff, arg_zsFileSuff, arg_clsFileSuff, arg_trainVec, arg_testVec, arg_leftTW, arg_rightTW, arg_validDaysFlag, arg_outputDaysFlag, arg_tfBurstyFlag, arg_zsDelta, arg_clusterAlgor, arg_Kc, arg_KcStep, arg_Kt) = parseArgs(sys.argv)
+    (dataDirPath, arg_calZs, arg_calCluster, arg_zsFileSuff, arg_clsFileSuff, arg_trainVec, arg_testVec, arg_leftTW, arg_rightTW, arg_validDaysFlag, arg_outputDaysFlag, arg_tfBurstyFlag, arg_zsDelta, arg_clusterAlgor, arg_Kc, arg_KcStep, arg_Kt) = parseArgs(sys.argv)
 
     ##############
     # Parameters
     Para_train, Para_test = (arg_trainVec, arg_testVec)
     validDaysFlag, outputDaysFlag = (arg_validDaysFlag, arg_outputDaysFlag)
-    (calDF, calZs, calCluster) = (arg_calDF, arg_calZs, arg_calCluster)
-    (dfFileSuff, zsFileSuff, clsFileSuff) = arg_dfFileSuff, arg_zsFileSuff, arg_clsFileSuff
+    (calZs, calCluster) = (arg_calZs, arg_calCluster)
+    (zsFileSuff, clsFileSuff) = arg_zsFileSuff, arg_clsFileSuff
     burstyFlag = arg_tfBurstyFlag
     algor = arg_clusterAlgor
     (thred_zscore, topK_c, Kc_step, topK_t) = (arg_zsDelta, arg_Kc, arg_KcStep, arg_Kt)
@@ -142,10 +145,8 @@ if __name__ == "__main__":
     
     if arg_trainVec is None: Para_train = '-'
     if arg_testVec is None: Para_test = '-'
-    if arg_calDF is None: calDF = '-'
     if arg_calZs is None: calZs = '-'
     if arg_calCluster is None: calCluster = "-"
-    if arg_dfFileSuff is None: dfFileSuff = ''
     if arg_zsFileSuff is None: zsFileSuff = ''
     if arg_clsFileSuff is None: clsFileSuff = ''
     if calCluster == '1' and arg_clusterAlgor is None: algor = 'dbscan'
@@ -161,38 +162,29 @@ if __name__ == "__main__":
     if arg_KcStep is not None: Kc_step = int(arg_KcStep)
 
     # fixed para
-    thred_radius_dist = 0.4
+    thred_radius_dist = 0.5
     default_num_probes_lsh = 20
-    Para_dbscan_eps = 0.2
+    Para_dbscan_eps = 0.5 #default 0.2
     Para_numClusters = -1
-    Para_newsDayWindow = [0]#[-1, 0, +1] #[0]
 
-    Paras = [calDF, calZs, calCluster, Para_train, Para_test, default_num_probes_lsh, thred_radius_dist, thred_zscore, algor, Para_numClusters, Para_dbscan_eps, topK_c, topK_t, Para_newsDayWindow, timeWindow]
+    Paras = [calZs, calCluster, Para_train, Para_test, default_num_probes_lsh, thred_radius_dist, thred_zscore, algor, Para_numClusters, Para_dbscan_eps, topK_c, Kc_step, topK_t, timeWindow]
     print "**Para setting"
-    print "calDF, calZs, calCluster, Para_train, Para_test, default_num_probes_lsh, thred_radius_dist, thred_zscore, algor, Para_numClusters, Para_dbscan_eps, topK_c, topK_t, Para_newsDayWindow, timeWindow"
+    print sys.argv
+    print "calZs, calCluster, Para_train, Para_test, default_num_probes_lsh, thred_radius_dist, thred_zscore, algor, Para_numClusters, Para_dbscan_eps, topK_c, Kc_step, topK_t, timeWindow"
     print Paras
     ##############
 
 
     ######################
     validDays = None
-    dataSelect = 1
-    if dataSelect == 1:
-        devDays = ['06', '07', '08']
-        testDays = ['11', '12', '13', '14', '15']
-    elif dataSelect == 2:#['18', '19', '20', '21', '22', '26', '27', '28']
-        devDays = ['26', '27', '28']
-        testDays = ['18', '19', '20', '21', '22']
-    elif dataSelect == 3: #[15-31]
-        devDays = ['15', '18', '19']
-        testDays = ['20', '21', '22', '26', '27', '28']
-    elif dataSelect == 9: #[15-31]
-        devDays = [str(i).zfill(2) for i in range(1, 32)]
-        testDays = []
-        #devDays = ['15']#, '16', '17']
-        #validDays_fst = ['06', '07', '08', '11', '12', '13', '14', '15']
-        #validDays_weekend = ['09', '10', '16', '17', '23', '24', '25']
-        validDays = devDays
+    ## FA cup
+    #devDays = ["137", "147", "162", "174"]
+    #testDays = ["199", "182", "205", "206", "217", "184", "227", "237", "250"]
+    #["16_16", "16_26", "16_41", "16_53"]["17_18", "17_01", "17_24", "17_25", "17_36", "17_03", "17_46", "17_56", "18_09"]
+    # US election
+    devDays = ["043", "046", "047", "049", "051", "053", "055", "056", "057", "058"]
+    testDays = ["059", "060", "061", "064", "066", "067", "068", "071", "072", "073", "075", "076", "077", "078", "082", "083"]
+    #["043", "046", "047", "049", "051", "053", "055", "056", "057", "058", "059", "060", "061", "064", "066", "067", "068", "071", "072", "073", "075", "076", "077", "078", "082", "083"]
 
     if validDays is None:
         if validDaysFlag == 'd': validDays = devDays
@@ -203,37 +195,13 @@ if __name__ == "__main__":
     elif outputDaysFlag == "t": outputDays = testDays
     elif outputDaysFlag == "v": outputDays = validDays
 
-    fileSuf_data = ".65w"# + str(dataSelect)
-    dfFilePath = "../ni_data/tweetVec/finance.df" + fileSuf_data + dfFileSuff
-    zscoreFilePath = "../ni_data/tweetVec/finance.zs" + fileSuf_data + zsFileSuff
-    clusterFilePath = "../ni_data/tweetVec/finance.cluster" + fileSuf_data + clsFileSuff
+    fileSuf_data = ""# + str(dataSelect)
+    zscoreFilePath = "../ni_data/tweetVecUse/use.zs" + fileSuf_data + zsFileSuff
+    clusterFilePath = "../ni_data/tweetVecUse/use.cluster" + fileSuf_data + clsFileSuff
 
     ##############
     print "validDays", validDays
     print "outputDays", outputDays
-
-
-    ##############
-    sym_names = snpLoader.loadSnP500(snpFilePath)
-    snp_syms = [snpItem[0] for snpItem in sym_names]
-    snp_comp = [strUtil.getMainComp(snpItem[1]) for snpItem in sym_names]
-    symCompHash = dict(zip(snp_syms, snp_comp))
-    ##############
-
-
-    ##############
-    # prepare news vec for eval recall
-    #stockNewsVec(stock_newsDir, snp_comp, word2vecModelPath, newsVecPath)
-    # load news vec
-    newsVecFile = open(newsVecPath, "r")
-    print "## news obtained for eval", newsVecPath 
-    dayNews = cPickle.load(newsVecFile)
-    vecNews = cPickle.load(newsVecFile)
-    newsSeqDayHash = cPickle.load(newsVecFile)
-    newsSeqComp = cPickle.load(newsVecFile)
-    newsVecFile.close()
-    #statGoldNews(dayNews)
-   ##############
 
     tweetTexts_all = None
     tweetTexts_all, seqTidHash, seqDayHash, dayTweetNumHash = loadTweetsFromDir(dataDirPath)
@@ -250,30 +218,45 @@ if __name__ == "__main__":
     ##############
     # testing/using
     if calCluster == "1" or calZs == "1":
-    #if calCluster == "1":
         #tweetTexts_all = tweetTexts_all[:300000]
         dataset = None
+        seedTweetVecs = None
         if Para_test.find('3') >= 0:
-            dataset_w2v = getVec('3', None, None, None, word2vecModelPath, tweetTexts_all+seedTweets)
-            seedTweetVecs = dataset_w2v[range(-20, 0), :]
-            if dataset is None:
-                dataset = dataset_w2v[:-20,:]
+            dataset_w2v = getVec('3', None, None, len(tweetTexts_all), word2vecModelPath, tweetTexts_all+seedTweets)
+            if len(seedTweets) > 0:
+                seedTweetVecs = dataset_w2v[range(-len(seedTweets), 0), :]
+                if dataset is None:
+                    dataset = dataset_w2v[:-len(seedTweets),:]
             else:
-                # concatenate d2v and w2v
-                dataset = np.append(dataset, dataset_w2v, axis=1)
-                #dataset = np.add(dataset, dataset_w2v)
-                dataset_w2v = None # end of using
+                dataset = dataset_w2v
 
         if Para_test[0] == '4':
             dataset = texts2TFIDFvecs(tweetTexts_all + seedTweets, dictPath, corpusPath)
-            seedTweetVecs = dataset[range(-20, 0), :]
-            dataset = dataset[:-20, :]
+            seedTweetVecs = dataset[range(-len(seedTweets), 0), :]
+            dataset = dataset[:-len(seedTweets), :]
 
         dataset = dataset.astype(np.float32)
         print "## Dataset vector obtained. ", time.asctime()
 
     ##############
 
+    ########### Stat
+    if 0:
+        stat_tweets = []
+        #for day in devDays:
+        #for day in testDays:
+        for day in dayArr:
+            tweetFCSeqIdArr = [docid for docid, dateItem in seqDayHash.items() if dateItem == day]
+            texts_day = [tweetTexts_all[seqid] for seqid in tweetFCSeqIdArr]
+            stat_tweets.extend(texts_day)
+
+        stat_words = Counter(" ".join(stat_tweets).split())
+        print "In total", len(stat_tweets), len(stat_words)
+        sys.exit(0)
+    ########### Stat end
+    
+    
+    
     ##############
     # filtering tweets, clustering
     if calCluster == "1":
@@ -292,28 +275,18 @@ if __name__ == "__main__":
             print "## Clustering done. ", " #cluster", len(cLabels), time.asctime()
 
             dayClusters.append((day, tweetClusters))
-            print len(dayClusters[0])
         if len(dayClusters) > 0:
-            print len(dayClusters[0])
             clusterFile = open(clusterFilePath, "w")
             cPickle.dump(dayClusters, clusterFile)
-            clusterFile.close()
             print "## Clustering results stored.", clusterFilePath, time.asctime()
     elif calCluster == "0":
         clusterFile = open(clusterFilePath, "r")
         dayClusters = cPickle.load(clusterFile)
-        clusterFile.close()
-        print len(dayClusters[0])
-        print "## Clustering results loaded.", clusterFilePath, time.asctime()
+        print "## Clustering results obtained.", clusterFilePath, time.asctime()
 
     if calZs == "1":
         dayOutClusters = []
         for dayClusterItem in dayClusters:
-            print len(dayClusterItem)
-            #print dayClusterItem[0]
-            #print len(dayClusterItem[1]), dayClusterItem[1][0]
-            #print len(dayClusterItem[2]), dayClusterItem[2][0]
-            #print len(dayClusterItem[3]), dayClusterItem[3]
             #(day, texts_day, dataset_day, tweetClusters) = dayClusterItem
             (day, tweetClusters) = dayClusterItem
             if day not in validDays: continue
@@ -336,7 +309,7 @@ if __name__ == "__main__":
             texts_day = [tweetTexts_all[seqid] for seqid in tweetFCSeqIdArr]
             dataset_day = dataset[tweetFCSeqIdArr, :]
 
-            clusterFeatures = getClusterFeatures(tweetClusters, texts_day, dataset_day, seedTweetVecs, snp_comp, symCompHash)
+            clusterFeatures = getClusterFeatures(tweetClusters, texts_day, dataset_day, seedTweetVecs, None, None)
             #docDist, cDensity, cTexts, cComps, cDocs_zip, cDistToST = clusterFeatures
             print "## Cluster zscore calculating done.", time.asctime()
 
@@ -353,17 +326,27 @@ if __name__ == "__main__":
             dayOutClusters.append((day, texts_day, dataset_day, outputClusters))
         clusterOutputFile = open(clusterFilePath+zsFileSuff, "w")
         cPickle.dump(dayOutClusters, clusterOutputFile)
-        clusterOutputFile.close()
         print "## Clustering results stored.", clusterFilePath+zsFileSuff, time.asctime()
     else:
         clusterOutputFile = open(clusterFilePath+zsFileSuff, "r")
         dayOutClusters = cPickle.load(clusterOutputFile)
-        clusterOutputFile.close()
-
+        print "## Clustering results obtained.", clusterFilePath+zsFileSuff, time.asctime()
 
     ##############
     ## evaluation and output
-    evalOutputEvents(dayOutClusters, outputDays, devDays, testDays, topK_c, Kc_step, Para_newsDayWindow, newsSeqDayHash, vecNews, dayNews, newsSeqComp, snp_comp, symCompHash)
+    ## FAcup
+    if 0:
+        goldFA = loadGold("../ni_data/fat/FACup_ground_truth_topics/")
+        FaTimeWindowMap = dict([("16_16", "137"), ("16_26", "147"), ("16_41", "162"), ("16_53", "174"), ("17_18", "199"), ("17_1", "182") , ("17_24", "205"), ("17_25", "206"), ("17_36", "217"), ("17_3" , "184"), ("17_46", "227"), ("17_56", "237"), ("18_9", "250")])
+        goldFA = [(FaTimeWindowMap[tw], goldFA[tw]) for tw in goldFA]
+        print goldFA
+        evalOutputFAEvents(dayOutClusters, outputDays, devDays, testDays, topK_c, Kc_step, goldFA)
+
+    ## US election
+    if 1:
+        goldUse = loadGold("../ni_data/use/USElections_ground_truth_topics/")
+        UseTimeWindowMap = dict([("0_0", "043"), ("0_30", "046"), ("0_40", "047"), ("1_0", "049"), ("1_20", "051"), ("1_40", "053"), ("2_0", "055"), ("2_10", "056"), ("2_20", "057"), ("2_30", "058"), ("2_40", "059"), ("2_50", "060"), ("3_0", "061"), ("3_30", "064"), ("3_50", "066"), ("4_0", "067"), ("4_10", "068"), ("4_40", "071"), ("4_50", "072"), ("5_0", "073"), ("5_20", "075"), ("5_30", "076"), ("5_40", "077"), ("5_50", "078"), ("6_30", "082"), ("6_40", "083")])
+        goldUse = [(UseTimeWindowMap[tw], goldUse[tw]) for tw in goldUse]
+        evalOutputFAEvents(dayOutClusters, outputDays, devDays, testDays, topK_c, Kc_step, goldUse)
 
     print "Program ends at ", time.asctime()
-

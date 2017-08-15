@@ -117,8 +117,8 @@ def distToSeed(tweetVecs, seedTweetVecs):
 # clusterScore: [score_c1, score_c2, ...]
 def clusterScoring(tweetClusters, clusterFeatures, zscoreArr):
     setting = 0
-    aloneFeaId = 6
-    looFeaId = 4
+    aloneFeaId = 2
+    looFeaId = 2
     print "## Cluster scoring begins", setting, aloneFeaId, looFeaId
 
     clusterScore = []
@@ -130,7 +130,7 @@ def clusterScoring(tweetClusters, clusterFeatures, zscoreArr):
     for label in cLabels:
         textsIn = cTexts[label]
         density = cDensity[label]
-        compsIn = cComps[label].items()
+        #compsIn = cComps[label].items()
         distToST = cDistToST[label]
         zscore = zscoreArr[label]
 
@@ -142,10 +142,10 @@ def clusterScoring(tweetClusters, clusterFeatures, zscoreArr):
         distsIn = None
         if docDist is not None:
             distsIn = docDist[dataIn,label]
-        compsNum = sum([item[1] for item in compsIn])
+        #compsNum = sum([item[1] for item in compsIn])
         cashNum = sum([item[1] for item in cashIn])
         if cashNum in [0, 1]: cashNum += 0.1
-        if compsNum in [0, 1]: compsNum += 0.1
+        #if compsNum in [0, 1]: compsNum += 0.1
 
 
 
@@ -167,18 +167,18 @@ def clusterScoring(tweetClusters, clusterFeatures, zscoreArr):
             #inDist_center = 1.0/(1.0 + math.exp(np.mean(distsIn)))
             inDist_center = np.mean(distsIn)
         inDist = 1-density
-        compScore = 1/(1+math.exp(-float(compsNum)/tNumIn))
+        #compScore = 1/(1+math.exp(-float(compsNum)/tNumIn))
         cashScore = 1/(1+math.exp(float(cashNum)/tNumIn))
-        distToSTweet = distToST[0]
-        distToSNews = 1-distToST[1]
+        #distToSTweet = distToST[0]
+        #distToSNews = 1-distToST[1]
         if zscore > 0:
             zscore = 1/(1+math.exp(-zscore))
         else: zscore = 0.0
 
         # flag : r
         #scoreArr = [dotNum, inDist, compScore, cashScore, distToSTweet, distToSNews, zscore]
-        # flag : rr
-        scoreArr = [inDist, compScore, distToSTweet, distToSNews, zscore]
+        # flag : rr # for FAcup
+        scoreArr = [dotNum, inDist, zscore]
         # flag : rs
         #scoreArr = [dotNum, inDist, compScore, distToSTweet, distToSNews, zscore]
         #scoreArr = [dotNum, inDist_center, compScore, cashScore, distToSTweet]
@@ -200,7 +200,7 @@ def clusterScoring(tweetClusters, clusterFeatures, zscoreArr):
             #clusterScore.append(np.prod(scoreArr[:looFeaId]) * np.prod(scoreArr[looFeaId+1:]))
 
         #scoreArr = [tNumIn, dotNum, inDist, compScore, compsNum, cashScore, distToSTweet]
-        scoreArr = [round(item, 2) for item in scoreArr] + compsIn
+        scoreArr = [round(item, 2) for item in scoreArr]
         clusterScoreDetail.append(scoreArr)
     return clusterScore, clusterScoreDetail
 
@@ -239,7 +239,8 @@ def clusterTweets(algor, documents, feaVecs, clusterArg):
         #AgglomerativeClustering
         clusterModel = cluster.AgglomerativeClustering(n_clusters=clusterArg).fit(feaVecs)
     elif algor == "dbscan":
-        clusterModel = cluster.DBSCAN(eps=clusterArg, min_samples=5, metric='euclidean', algorithm='auto', n_jobs=8).fit(feaVecs)
+        minPt = 2
+        clusterModel = cluster.DBSCAN(eps=clusterArg, min_samples=minPt, metric='euclidean', algorithm='auto', n_jobs=8).fit(feaVecs)
 
     tLabels = clusterModel.labels_
     cLabels = sorted(Counter(tLabels).keys())
@@ -275,14 +276,18 @@ def getClusterFeatures(tweetClusters, documents, feaVecs, seedTweetVecs, snp_com
         textsIn = [documents[docid] for docid in dataIn]
         textsIn = Counter(textsIn).items()
         dataIn_zip = [(documents.index(text), num) for text, num in textsIn]
-        compsIn = compInCluster(textsIn, snp_comp, symCompHash, False, True)
+        if snp_comp is None: compsIn = None
+        else:
+            compsIn = compInCluster(textsIn, snp_comp, symCompHash, False, True)
         inDist = pairwise.euclidean_distances(vecsIn, vecsIn)
-        distToST = distToSeed(vecsIn, seedTweetVecs)
+        if seedTweetVecs is None: distToST = (None, None)
+        else: distToST = distToSeed(vecsIn, seedTweetVecs)
 
+        dataNum = len(dataIn)
         cTexts.append(textsIn)
         cComps.append(compsIn)
         cDocs_zip.append(dataIn_zip)
-        cDensity.append(np.mean(inDist))
+        cDensity.append(np.sum(inDist)/(dataNum*(dataNum-1.0)))
         cDistToST.append(distToST)
 
 

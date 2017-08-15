@@ -207,7 +207,7 @@ def getSim_dense(day, centroids, dataset, thred_radius_dist, vdw, rel_dw):
             ngIdxArray.append(np.asarray(nn_keys, dtype=np.int32))
         ngIdxArray = np.asarray(ngIdxArray)
 
-    print "## nn cal completed", time.asctime()
+    print "## nn cal completed", ngIdxArray.shape, time.asctime()
     return ngIdxArray
 
 def getSim_sparse(day, centroids, dataset, thred_radius_dist, vdw, rel_dw):
