@@ -195,8 +195,10 @@ def loadTweetsFromDir(dataDirPath):
     seqDayHash = {} # seqId in all: dayStr
     for fileItem in sorted(os.listdir(dataDirPath)):
         if not fileItem.startswith("tweetCleanText"):
+        #if not fileItem.startswith("tweet"): # for football cup corpus
             continue
         dayStr = fileItem[-2:]
+        #dayStr = fileItem[-3:] # for Football Cup corpus
         #if dayStr == "07":break
             
         rawTweetHash = fileReader.loadTweets(dataDirPath + "/" + fileItem) # tid:text
@@ -270,7 +272,8 @@ def getVec(Para_test, doc2vecModelPath, l_doc2vecModelPath, TweetNum, word2vecMo
         normWordTexts = []
         wordNums = []
         unkNums = []
-        for words in wordTexts:
+        for text_seqid, words in enumerate(wordTexts):
+            if len(words) == 0: print "--Text seqid in all", text_seqid, "#", tweetTexts_all[text_seqid], "#"
             wordsIn = [word for word in words if word in word2vecModel]
             wordsIn.extend(["<s>", "</s>"])
             unkNum = sum([1 for word in words if word not in word2vecModel])

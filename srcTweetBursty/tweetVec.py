@@ -194,17 +194,17 @@ def loadTweetsFromDir(dataDirPath):
     seqTidHash = {} # seqId in all: tweet_id
     seqDayHash = {} # seqId in all: dayStr
     for fileItem in sorted(os.listdir(dataDirPath)):
-        if not fileItem.startswith("tweet"):
+        if not fileItem.startswith("tweetCleanText"):
+        #if not fileItem.startswith("tweet"): # for football cup corpus
             continue
-        dayStr = fileItem[-3:]
+        dayStr = fileItem[-2:]
+        #dayStr = fileItem[-3:] # for Football Cup corpus
         #if dayStr == "07":break
             
         rawTweetHash = fileReader.loadTweets(dataDirPath + "/" + fileItem) # tid:text
         #print "## End of reading file. [raw tweet file][cleaned text]  #tweets: ", len(rawTweetHash), fileItem
         tids = rawTweetHash.keys()#[:1000]
         texts = rawTweetHash.values()#[:1000]
-        #for tid, text in rawTweetHash.items():
-        #    if len(text.strip()) == 0: print "-Empty", tid, "#", text, "#"
 
         word2vecModelPath = "../ni_data/tweetVec/w2v1010100-en"
         #dataset = getVec('3', None, None, len(tweetTexts_all), word2vecModelPath, texts)
