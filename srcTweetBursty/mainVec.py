@@ -20,6 +20,8 @@ sys.path.append("../src/util/")
 import snpLoader
 import stringUtil as strUtil
 
+from args import get_args
+
 seedTweets = ["$71 , 000 in one trade by follwing their signals more info here $cvc $cvd $cve",
 "our penny stock pick on $ppch closed up another 51 . 31 today huge news $cce $cadx $grmn",
 "our penny stock alerts gained over 3100 in 6 months see our new pick $erx $rig $pot",
@@ -43,13 +45,13 @@ seedTweets = ["$71 , 000 in one trade by follwing their signals more info here $
 "tattoo snafu irks inked apple watch wearers"
 ]
 
-def getClusteringArg(algor, Para_dbscan_eps, Para_numClusters, tnum):
+def getClusteringArg(args, tnum):
     clusterArg = None
-    if algor == "dbscan":
-        clusterArg = Para_dbscan_eps 
+    if args.cluster == "dbscan":
+        clusterArg = args.dbscan_eps 
     else:
-        if Para_numClusters != -1:
-            clusterArg = Para_numClusters
+        if args.num_cls != -1:
+            clusterArg = args.num_cls
         else: # for kmeans: numClusters = [50, 100]  double for hierarchical
             clusterArg = 100
             if tnum >= 20000:
@@ -58,125 +60,18 @@ def getClusteringArg(algor, Para_dbscan_eps, Para_numClusters, tnum):
                 clusterArg /= 2
     return clusterArg
 
-##############
-def getArg(args, flag):
-    arg = None
-    if flag in args:
-        arg = args[args.index(flag)+1]
-    return arg
+# determine some parameters
+def params(args, dataSelect=1):
+    ######################
+    if not args.use_zs: timeWindow = None
+    else: timeWindow = (-args.ltw, args.rtw)
 
-# arguments received from arguments
-def parseArgs(args):
-    arg1 = getArg(args, "-in")
-
-    arg_validDaysFlag = getArg(args, "-vld") # 'd', 't', 'v'
-    arg_outputDaysFlag = getArg(args, "-out") # 'd', 't', 'v'
-
-    # None: even do not need to load
-    # '0': load preCalculated
-    # '1': need to calculate
-    arg_calDF = getArg(args, "-df") #'0', '1' or None
-    arg_calZs = getArg(args, "-zs") #'0', '1' or None
-    arg_calCluster = getArg(args, "-cls") #'0', '1' or None
-
-    arg_dfFileSuff = getArg(args, "-dffs") # ''
-    arg_zsFileSuff = getArg(args, "-zsfs")
-    arg_clsFileSuff = getArg(args, "-clsfs")
-
-    arg_trainVec = getArg(args, "-trainvec") # '0', '1', '2'
-    arg_testVec = getArg(args, "-testvec") # '0', '1', '2', '3', '4'
-
-    arg_leftTW = getArg(args, "-ltw") # 10
-    arg_rightTW = getArg(args, "-rtw") # 0
-
-    arg_tfBurstyFlag = getArg(args, "-tf") # '1' or None
-    arg_zsDelta = getArg(args, "-delta") # 5.0
-
-    arg_clusterAlgor = getArg(args, "-cluster") #"kmeans", "affi", "spec", "agg"(ward-hierarchical), "dbscan"
-    arg_KcStep = getArg(args, "-kcs") # Kc or 5
-    arg_Kc = getArg(args, "-kc") # 20
-    arg_Kt = getArg(args, "-kt") # 5
-
-    if arg1 is None or arg_validDaysFlag is None or arg_testVec is None: # nessensary argument
-        print "Usage: python mainVec.py -in inputFileDir -vld d -testvec 3"
-        print "-vld [-out]:   dev/test/all to process/output"
-        print "[-df] [-zs] [-cls] calculate/load/ignore df|zscore|clustering"
-        print "[-dffs] [-zsfs] [-clsfs] file suffix of df|zscore|clustering"
-        print "[-trainvec] -testvec     tweet vector"
-        print "[-ltw] 30 [-rtw] 0"
-        print "[-tf]    choose to use bursty tweet filtering"
-        print "[-delta]     threshold of bursty zscore"
-        print "[-cluster]   clustering algorithm"
-        print "[-kc] [-kt] [-kcs] topK_c, topK_t, Kc_step"
-        sys.exit(0)
-
-    return arg1, arg_calDF, arg_calZs, arg_calCluster, arg_dfFileSuff, arg_zsFileSuff, arg_clsFileSuff, arg_trainVec, arg_testVec, arg_leftTW, arg_rightTW, arg_validDaysFlag, arg_outputDaysFlag, arg_tfBurstyFlag, arg_zsDelta, arg_clusterAlgor, arg_Kc, arg_KcStep, arg_Kt
-
-
-
-snpFilePath = "../data/snp500_sutd"
-stock_newsDir = '../ni_data/stocknews/'
-newsVecPath = "../ni_data/tweetVec/stockNewsVec1_Loose1"
-word2vecModelPath = "../ni_data/tweetVec/w2v1010100-en"
-dictPath = "../ni_data/tweetVec/tweets.dict"
-corpusPath = "../ni_data/tweetVec/tweets.mm"
-
-####################################################
-if __name__ == "__main__":
-    print "Program starts at ", time.asctime()
-
-    (dataDirPath, arg_calDF, arg_calZs, arg_calCluster, arg_dfFileSuff, arg_zsFileSuff, arg_clsFileSuff, arg_trainVec, arg_testVec, arg_leftTW, arg_rightTW, arg_validDaysFlag, arg_outputDaysFlag, arg_tfBurstyFlag, arg_zsDelta, arg_clusterAlgor, arg_Kc, arg_KcStep, arg_Kt) = parseArgs(sys.argv)
-
-    ##############
-    # Parameters
-    Para_train, Para_test = (arg_trainVec, arg_testVec)
-    validDaysFlag, outputDaysFlag = (arg_validDaysFlag, arg_outputDaysFlag)
-    (calDF, calZs, calCluster) = (arg_calDF, arg_calZs, arg_calCluster)
-    (dfFileSuff, zsFileSuff, clsFileSuff) = arg_dfFileSuff, arg_zsFileSuff, arg_clsFileSuff
-    burstyFlag = arg_tfBurstyFlag
-    algor = arg_clusterAlgor
-    (thred_zscore, topK_c, Kc_step, topK_t) = (arg_zsDelta, arg_Kc, arg_KcStep, arg_Kt)
-
-    if arg_leftTW is None or arg_rightTW is None: timeWindow = None
-    else: timeWindow = (-int(arg_leftTW), int(arg_rightTW))
-    
-    if arg_trainVec is None: Para_train = '-'
-    if arg_testVec is None: Para_test = '-'
-    if arg_calDF is None: calDF = '-'
-    if arg_calZs is None: calZs = '-'
-    if arg_calCluster is None: calCluster = "-"
-    if arg_dfFileSuff is None: dfFileSuff = ''
-    if arg_zsFileSuff is None: zsFileSuff = ''
-    if arg_clsFileSuff is None: clsFileSuff = ''
-    if calCluster == '1' and arg_clusterAlgor is None: algor = 'dbscan'
-    if calCluster == '1' and arg_tfBurstyFlag != '1': burstyFlag = None
-
-    if arg_zsDelta is not None: thred_zscore = float(arg_zsDelta)
-
-    if calCluster != "-" and arg_Kc is None: topK_c = 30
-    if calCluster != "-" and arg_Kt is None: topK_t = 5
-    if calCluster != "-" and arg_KcStep is None: Kc_step = int(topK_c)
-    if arg_Kc is not None: topK_c = int(arg_Kc)
-    if arg_Kt is not None: topK_t = int(arg_Kt)
-    if arg_KcStep is not None: Kc_step = int(arg_KcStep)
-
-    # fixed para
-    thred_radius_dist = 0.4
-    default_num_probes_lsh = 20
-    Para_dbscan_eps = 0.2
-    Para_numClusters = -1
-    Para_newsDayWindow = [0]#[-1, 0, +1] #[0]
-
-    Paras = [calDF, calZs, calCluster, Para_train, Para_test, default_num_probes_lsh, thred_radius_dist, thred_zscore, algor, Para_numClusters, Para_dbscan_eps, topK_c, topK_t, Para_newsDayWindow, timeWindow]
-    print "**Para setting"
-    print "calDF, calZs, calCluster, Para_train, Para_test, default_num_probes_lsh, thred_radius_dist, thred_zscore, algor, Para_numClusters, Para_dbscan_eps, topK_c, topK_t, Para_newsDayWindow, timeWindow"
-    print Paras
-    ##############
-
+    Para_newsDayWindow = [0]
+    if args.news_window != 0:
+        Para_newsDayWindow = [-1, 0, 1]
 
     ######################
     validDays = None
-    dataSelect = 1
     if dataSelect == 1:
         devDays = ['06', '07', '08']
         testDays = ['11', '12', '13', '14', '15']
@@ -195,48 +90,63 @@ if __name__ == "__main__":
         validDays = devDays
 
     if validDays is None:
-        if validDaysFlag == 'd': validDays = devDays
-        elif validDaysFlag == 't': validDays = testDays
-        elif validDaysFlag == 'a': validDays = sorted(devDays + testDays)
+        validDays = []
+        if args.dev: validDays.extend(devDays)
+        if args.test: validDays.extend(testDays)
+        validDays = sorted(validDays)
 
-    if outputDaysFlag is None or outputDaysFlag == "d": outputDays = devDays
-    elif outputDaysFlag == "t": outputDays = testDays
-    elif outputDaysFlag == "v": outputDays = validDays
+    ######################
+    outputDays = validDays
+    if args.output == "d": outputDays = devDays
+    elif args.output == "t": outputDays = testDays
 
-    fileSuf_data = ".65w"# + str(dataSelect)
-    dfFilePath = "../ni_data/tweetVec/finance.df" + fileSuf_data + dfFileSuff
-    zscoreFilePath = "../ni_data/tweetVec/finance.zs" + fileSuf_data + zsFileSuff
-    clusterFilePath = "../ni_data/tweetVec/finance.cluster" + fileSuf_data + clsFileSuff
+    return devDays, testDays, validDays, outputDays, timeWindow, Para_newsDayWindow
+
+####################################################
+if __name__ == "__main__":
+    print "Program starts at ", time.asctime()
+
+    args = get_args()
+    print "**Para setting"
+    print args
 
     ##############
+    devDays, testDays, validDays, outputDays, timeWindow, Para_newsDayWindow = params(args, dataSelect=1)
     print "validDays", validDays
     print "outputDays", outputDays
 
+    fileSuf_data = os.path.basename(os.path.dirname(args.input+"/")) # eg: "word201505"
+    time_flag = "." + time.strftime("%Y%m%d%H%M%S", time.gmtime()) # eg: ".20170912035918"
+    output_dir = "../ni_data/models/"+fileSuf_data+"/"
+    if not os.path.exists(output_dir): os.mkdir(output_dir)
+    if args.cluster == "dbscan": cluster_arg = "eps" + str(args.dbscan_eps)
+    else: cluster_arg = "cnum" + str(args.num_cls)
+
+    dfFilePath = output_dir + fileSuf_data + args.df_file + time_flag
+    zscoreFilePath = output_dir + fileSuf_data + args.zs_file + "_" + str(args.delta) + time_flag
+    clusterFilePath = output_dir + fileSuf_data + args.cls_file + "_" + args.cluster + "_" + cluster_arg + time_flag # eg: '../ni_data/models/word201505/word201505.cluster_20170912035918'
+    eventFilePath = output_dir + fileSuf_data + args.evt_file + "_" + args.cluster + "_" + cluster_arg + time_flag # eg: '../ni_data/models/word201505/word201505.cluster_20170912035918'
 
     ##############
-    sym_names = snpLoader.loadSnP500(snpFilePath)
+    sym_names = snpLoader.loadSnP500(args.snp_file)
     snp_syms = [snpItem[0] for snpItem in sym_names]
     snp_comp = [strUtil.getMainComp(snpItem[1]) for snpItem in sym_names]
     symCompHash = dict(zip(snp_syms, snp_comp))
-    ##############
-
 
     ##############
-    # prepare news vec for eval recall
-    #stockNewsVec(stock_newsDir, snp_comp, word2vecModelPath, newsVecPath)
     # load news vec
-    newsVecFile = open(newsVecPath, "r")
-    print "## news obtained for eval", newsVecPath 
+    newsVecFile = open(args.news_vectors, "r")
+    print "## news obtained for eval", args.news_vectors 
     dayNews = cPickle.load(newsVecFile)
     vecNews = cPickle.load(newsVecFile)
     newsSeqDayHash = cPickle.load(newsVecFile)
     newsSeqComp = cPickle.load(newsVecFile)
     newsVecFile.close()
     #statGoldNews(dayNews)
-   ##############
 
+    ##############
     tweetTexts_all = None
-    tweetTexts_all, seqTidHash, seqDayHash, dayTweetNumHash = loadTweetsFromDir(dataDirPath)
+    tweetTexts_all, seqTidHash, seqDayHash, dayTweetNumHash = loadTweetsFromDir(args.input)
 
     ##############
     dayArr = sorted(dayTweetNumHash.keys()) # ['01', '02', ...]
@@ -249,12 +159,11 @@ if __name__ == "__main__":
 
     ##############
     # testing/using
-    if calCluster == "1" or calZs == "1":
-    #if calCluster == "1":
+    if args.do_cls or args.use_zs:
         #tweetTexts_all = tweetTexts_all[:300000]
         dataset = None
-        if Para_test.find('3') >= 0:
-            dataset_w2v = getVec('3', None, None, None, word2vecModelPath, tweetTexts_all+seedTweets)
+        if args.vec == 3 or 3 in args.vec:
+            dataset_w2v = getVec('3', None, None, None, args.word_vectors, tweetTexts_all+seedTweets)
             seedTweetVecs = dataset_w2v[range(-20, 0), :]
             if dataset is None:
                 dataset = dataset_w2v[:-20,:]
@@ -263,9 +172,8 @@ if __name__ == "__main__":
                 dataset = np.append(dataset, dataset_w2v, axis=1)
                 #dataset = np.add(dataset, dataset_w2v)
                 dataset_w2v = None # end of using
-
-        if Para_test[0] == '4':
-            dataset = texts2TFIDFvecs(tweetTexts_all + seedTweets, dictPath, corpusPath)
+        elif args.vec == 4 or 4 in args.vec:
+            dataset = texts2TFIDFvecs(tweetTexts_all + seedTweets, args.tfidf_dict, args.tfidf_corpus)
             seedTweetVecs = dataset[range(-20, 0), :]
             dataset = dataset[:-20, :]
 
@@ -276,7 +184,7 @@ if __name__ == "__main__":
 
     ##############
     # filtering tweets, clustering
-    if calCluster == "1":
+    if args.do_cls:
         dayClusters = []
         #for day in dayArr:
         for day in validDays:
@@ -284,29 +192,29 @@ if __name__ == "__main__":
             texts_day = [tweetTexts_all[seqid] for seqid in tweetFCSeqIdArr]
             dataset_day = dataset[tweetFCSeqIdArr, :]
 
-            clusterArg = getClusteringArg(algor, Para_dbscan_eps, Para_numClusters, len(tweetFCSeqIdArr))
-            print "## Begin clustering in ", day, " #tweet, #vecDim", dataset_day.shape, " algorithm", algor, " clusterArg", clusterArg
+            clusterArg = getClusteringArg(args, len(tweetFCSeqIdArr))
+            print "## Begin clustering in ", day, " #tweet, #vecDim", dataset_day.shape, " algorithm", args.cluster, " clusterArg", clusterArg
 
-            tweetClusters = clusterTweets(algor, texts_day, dataset_day, clusterArg)
+            tweetClusters = clusterTweets(args.cluster, texts_day, dataset_day, clusterArg)
             cLabels, tLabels, centroids, docDist = tweetClusters
             print "## Clustering done. ", " #cluster", len(cLabels), time.asctime()
 
             dayClusters.append((day, tweetClusters))
-            print len(dayClusters[0])
+            #print len(dayClusters[0])
         if len(dayClusters) > 0:
-            print len(dayClusters[0])
+            #print len(dayClusters[0])
             clusterFile = open(clusterFilePath, "w")
             cPickle.dump(dayClusters, clusterFile)
             clusterFile.close()
             print "## Clustering results stored.", clusterFilePath, time.asctime()
-    elif calCluster == "0":
+    else:
         clusterFile = open(clusterFilePath, "r")
         dayClusters = cPickle.load(clusterFile)
         clusterFile.close()
         print len(dayClusters[0])
         print "## Clustering results loaded.", clusterFilePath, time.asctime()
 
-    if calZs == "1":
+    if args.use_zs:
         dayOutClusters = []
         for dayClusterItem in dayClusters:
             print len(dayClusterItem)
@@ -323,11 +231,12 @@ if __name__ == "__main__":
             print "## Clustering obtained. ", clusterFilePath, " #cluster", len(cLabels), time.asctime()
 
             # calculate centroids nnDF/zscore in timeWindow
-            if Para_test == "4":
-                ngIdxArray = getSim_sparse(day, centroids, dataset, thred_radius_dist, validDayWind[dayInt], dayRelWindow[dayInt])
+            #if Para_test == "4":
+            if args.vec!=4 or 4 not in args.vec:
+                ngIdxArray = getSim_dense(day, centroids, dataset, args.rdist, validDayWind[dayInt], dayRelWindow[dayInt])
             else:
-                ngIdxArray = getSim_dense(day, centroids, dataset, thred_radius_dist, validDayWind[dayInt], dayRelWindow[dayInt])
-            #ngIdxArray, indexedInCluster, clusters = getSim_falconn(dataset, thred_radius_dist, default_num_probes_lsh, None, validDayWind, dayRelWindow)
+                ngIdxArray = getSim_sparse(day, centroids, dataset, args.rdist, validDayWind[dayInt], dayRelWindow[dayInt])
+            #ngIdxArray, indexedInCluster, clusters = getSim_falconn(dataset, thred_radius_dist, args.lsh_probes, None, validDayWind, dayRelWindow)
             simDfArr = getDF(day, ngIdxArray, seqDayHash, timeWindow)
             zscoreArr = getBursty(simDfArr, dayTweetNumHash, day, timeWindow)
             print "## Cluster zscore calculating done.", time.asctime()
@@ -344,26 +253,25 @@ if __name__ == "__main__":
             print "## Clustering scoring done.", time.asctime()
 
             sumFlag = 3
-            outputClusters = clusterSummary(sumFlag, clusterScore, cLabels, tLabels, dataset_day, topK_c, topK_t)
+            outputClusters = clusterSummary(sumFlag, clusterScore, cLabels, tLabels, dataset_day, args.kc, args.kt)
             print "## Clustering summary done.", time.asctime()
 
             if 1:
                 outputTCluster(outputClusters, texts_day, clusterScoreDetail)
 
             dayOutClusters.append((day, texts_day, dataset_day, outputClusters))
-        clusterOutputFile = open(clusterFilePath+zsFileSuff, "w")
+        clusterOutputFile = open(eventFilePath+".zs", "w")
         cPickle.dump(dayOutClusters, clusterOutputFile)
         clusterOutputFile.close()
-        print "## Clustering results stored.", clusterFilePath+zsFileSuff, time.asctime()
+        print "## Clustering results stored.", clusterFilePath+args.zs_file, time.asctime()
     else:
-        clusterOutputFile = open(clusterFilePath+zsFileSuff, "r")
+        clusterOutputFile = open(eventFilePath+".zs", "r")
         dayOutClusters = cPickle.load(clusterOutputFile)
         clusterOutputFile.close()
 
 
     ##############
     ## evaluation and output
-    evalOutputEvents(dayOutClusters, outputDays, devDays, testDays, topK_c, Kc_step, Para_newsDayWindow, newsSeqDayHash, vecNews, dayNews, newsSeqComp, snp_comp, symCompHash)
+    evalOutputEvents(dayOutClusters, outputDays, devDays, testDays, args.kc, args.kc_step, Para_newsDayWindow, newsSeqDayHash, vecNews, dayNews, newsSeqComp, snp_comp, symCompHash)
 
     print "Program ends at ", time.asctime()
-

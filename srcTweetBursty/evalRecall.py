@@ -428,6 +428,7 @@ if __name__ == "__main__":
     #debugMainNameComp(snp_comp)
     #sys.exit(0)
 
+    # prepare news vec for eval recall
     stockNewsVec(stock_newsDir, symCompHash, word2vecModelPath, newsVecPath, 1)
     sys.exit(0)
 
